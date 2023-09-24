@@ -5,7 +5,7 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
-
+import { Link } from "react-router-dom";
 
 function CardsCarousel({moviesInfo,type}) {
 
@@ -56,9 +56,10 @@ function CardsCarousel({moviesInfo,type}) {
             .filter((item)=> item.type===`${type}`)
             .map((item) => (
               <div className="card-items" key={item._id}>
-
-                <img src={item.thumbnail} alt="" className="image-item" />
                 
+                <Link to={'/videodetails'}>
+                <img src={item.thumbnail} alt="" className="image-item" />
+                </Link>
                 <div className="card-details">
                   <div className="prime-content">
                     <img src={bluetick} alt="" />

@@ -1,12 +1,13 @@
 
 
 /* parent div of carousel */
-/* .react-multi-carousel-list{
+.react-multi-carousel-list{
   display: flex;
   align-items: center;
   top:10px;
+  overflow: hidden;
   /* height: 500px; */
-} */
+}
 /* .react-multi-carousel-track{
   /* height: 500px; */
 } */

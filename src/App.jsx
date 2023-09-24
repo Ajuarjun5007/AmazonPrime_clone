@@ -22,6 +22,8 @@ function App() {
       <Route path='/' element={<LandingPageSignout/>}/>
       {/* <LandingPageSignIn/> */}
       <Route path='/home' element={<LandingPageSignIn/>}/>
+      <Route path='/videodetails' element={<VideoInfo/>}/>
+
       {/* <VideoInfo/> */}
       {/* <Signup/> */}
       {/* <ApiFetch/> */}
