@@ -45,7 +45,6 @@ function CardsCarousel({moviesInfo,type}) {
         <div className="Carousel-header-prime">Prime</div>
         {type}
       </div>
-      <div className="carousel-1">
         <Carousel
           responsive={responsive}
           showDots={true}
@@ -87,7 +86,6 @@ function CardsCarousel({moviesInfo,type}) {
             ))}
         </Carousel>
         ;
-      </div>
     </>
   );
 }

@@ -1,12 +1,11 @@
 .carousel-1 {
   margin-top: 50px;
   margin-left: 0px;
-  /* margin-bottom: 100px; */
-  /* height: 400px; */
-  /* width: max-content; */
 }
 .react-multi-carousel-list{
-  overflow: visible;
+  overflow: visible!important;
+  /* height: 400px; */
+  
 }
 /* carousel header */
 .Carousel-header{
@@ -27,7 +26,7 @@
 .card-items {
   width: 400px;
   display: block;
-  /* padding:0px 10px; */
+  padding:0px 23px;
   place-items: center;
   left: 10px;
   top: 0px;
@@ -41,15 +40,20 @@
   transition: 0.6s;
   border-radius: 18px;
   /* overflow: visible; */
+  z-index: 34;
 }
 
-.card-items:hover > .image-item {
+.card-items:hover > img{
   display: block;
-  transform: scale(1.25);
+  transform: scale(1.1);
   transition-delay: 0.6s ease;
-  z-index: 12;
+  opacity: 0;
+  z-index: 34;
 } 
-
+.card-items img:hover{
+  transform: scale(1.25);
+  z-index: 12;
+}
 .card-items:hover .card-details {
   opacity: 0.9;
   transition: 0.9s ease;
@@ -65,7 +69,7 @@
 /* card details style */
 .card-details {
   display: none;
-  margin-top: 0px;
+  margin-top: -10px;
   padding: 1px;
   bottom: 0;  
   width:400px;
@@ -152,10 +156,10 @@
         background-color: white;
         color: #00050d;
     }
-    .threedots-icon{
+    #threedots-icon{
         background-color: white;
         color: #00050d;
-        opacity: 0.7;
+        /* opacity: 0.7; */
     }
     
 }
