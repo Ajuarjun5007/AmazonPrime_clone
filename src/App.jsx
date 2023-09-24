@@ -16,21 +16,21 @@ function App() {
   return (
     <>
     
-     <NavbarforSignIn/>
-    <Routes>
+     {/* <NavbarforSignIn/> */}
+    {/* <Routes> */}
       {/* <LandingPageSignout /> */}
-      <Route path='/' element={<LandingPageSignout/>}/>
+      {/* <Route path='/' element={<LandingPageSignout/>}/> */}
       {/* <LandingPageSignIn/> */}
-      <Route path='/home' element={<LandingPageSignIn/>}/>
-      <Route path='/videodetails' element={<VideoInfo/>}/>
+      {/* <Route path='/home' element={<LandingPageSignIn/>}/> */}
+      {/* <Route path='/videodetails' element={<VideoInfo/>}/> */}
 
       {/* <VideoInfo/> */}
       {/* <Signup/> */}
       {/* <ApiFetch/> */}
       {/* <CategoryPage/> */}
-      <Route path='/categorypage' element={<CategoryPage/>}/>
+      {/* <Route path='/categorypage' element={<CategoryPage/>}/> */}
       {/* <Footer/> */}
-      </Routes>
+      {/* </Routes> */}
 
       {/* <div
         style={{
@@ -47,7 +47,7 @@ function App() {
       <LandingPageSignout /> */}
       {/* <LandingPageSignIn/> */}
       {/* <VideoInfo/> */}
-      {/* <Signup/> */}
+      <Signup/>
       {/* <ApiFetch/> */}
       {/* <CategoryPage/> */}
       {/* <Footer/> */}

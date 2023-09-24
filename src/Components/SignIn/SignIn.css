@@ -1,5 +1,5 @@
 *{
-    /* background-color: white; */
+    background-color: white;
     font-family: 'Roboto', sans-serif;
     /* padding: 14px 18px!important; */
 }
@@ -11,9 +11,8 @@
     text-align: center;
 }
 .primevideoIcon img{
-    width: 180px;
-    height: 47px;
-    padding-top: 14px;
+    height: 87px;
+    padding: 14px;
 }
 section{
     position: relative;
@@ -41,53 +40,74 @@ section{
     padding: 14px 18px;
     margin-top: -50px;
     border-radius: 5px;
-    width: 350px;
-    height: 518px;
+    width: 425px;
+    height: 650px;
 }
 
 .sign_form h1{
     color: #111;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 1.2;
-    margin: 10px 0;
+    font-weight: 550;
+    font-size: 38px;
+    line-height: 1;
     padding-bottom: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 17px;
 }
-
+.form_data{
+    margin-bottom: 20px!important;
+}
 .form_data_label{
     font-size: 15px;
-    font-weight: 700;
-    padding-bottom: 12px;
+    font-weight: 600;
+    padding-left: 2px;
+    padding-bottom: 2px;
 }
 
 .form_data input{
-    width: 312px;
-    height: 31px;
+    width: 100%;
+    height: 40px;
     padding: 3px 7px;
     border-radius: 3px;
     outline: none;
     border:1px solid #a6a6a6;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     margin-top: 1px;
+    font-size: 17px;
 }
 
 .sign_form .signin_btn{
     margin-top: 7px;
     margin-bottom: 23px;
     width: 100%;
-    background: #f3d078;
+    background:0 0;
     cursor: pointer;
-    border:1px solid #9c7e31;
-    height: 29px;
+    height: 40px;
     outline: none;
-    border-radius: 3px;
+    border-radius: 8px;
     color: #111;
-    background: linear-gradient(to bottom,#f7dfa5,#f0c14b)
+    background: #ffd814;
+    border-color: #fcd200;
+    border: none;
 }
-
+.signin_btn{
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+.signin_btn:hover{
+    background: #F7CA00;
+    border-color: #F2C200;
+}
 .sign_form input:focus{
+    background-color: #F7FEFF;
+    border-color: #007185;
     box-shadow: 0 0 0 3px #c8f3fa, 0 1px 2px rgba(15,17,17,.15) inset;
+}
+.signin_btn:focus{
+    outline: 0;
+    /* box-shadow: 0 0 0 3px #c8f3fa, inset 0 0 0 2px #fff; */
+    box-shadow: 0 0 0 3px #c8f3fa, 0 1px 2px rgba(15,17,17,.15) inset;
+    border-color: #111;
+
 }
 
 .sign_form .signin_info{
@@ -96,22 +116,12 @@ section{
     margin-bottom: 10px;
 }
 
-.sign_form .signin_info p{
-    font-size: 13px;
-    font-weight: 600;
-    color: #222;
+
+
+
+.password-info{
+    margin-top: 12px;
 }
-
-
-.sign_form .signin_info a{
-    font-size: 13px;
-    letter-spacing: .5px;
-    margin-left: 5px;
-    color: #0066c0;
-    text-decoration: none;
-    font-weight:600;
-}
-
 
 /* for login page */
 .create_accountinfo p{
@@ -138,9 +148,56 @@ section{
     padding: 10px 35px;
     letter-spacing: .5px;
 }
+a{
+    color: #0066c0;
+}
+ a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #c45500;
+}
 
-
-
-
-
+/* background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
+    z-index: 0; */
+.signin_container{
+    display: block;
+    background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
+    z-index: 0;
+    width: 100%;
+    height: 44px;
+}
+.signin_info{
+    display: flex;
+    height: 44px;
+    margin-bottom: -18px;
+    border: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
+    z-index: 0;
+    zoom: 1;
+    width: 100%;
+    top: 44px;
+    gap: 10px;
+}
+.signin_info p{
+    font-size: 18px;
+    padding-top: 30px;
+    font-weight: 400;
+}
+.signin_info a{
+    padding-top: 30px;
+    font-weight: 400;
+    font-size: 18px;
+}
+.footer{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #555!important;
+}
+.footer-links{
+    display: flex;
+    gap: 30px;
+    padding-bottom: 30px;
+}
 
