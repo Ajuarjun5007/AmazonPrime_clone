@@ -45,7 +45,7 @@ function CardsCarousel({moviesInfo,type}) {
         <div className="Carousel-header-prime">Prime</div>
         {type}
       </div>
-        <Carousel
+        <Carousel className="cards-carousel"
           responsive={responsive}
           showDots={true}
           centerMode={true}
@@ -53,12 +53,12 @@ function CardsCarousel({moviesInfo,type}) {
         >
           {moviesInfo && moviesInfo
             .filter((item)=> item.type===`${type}`)
-            .map((item) => (
+            .map((item,index) => (
+              
               <div className="card-items" key={item._id}>
                 
-                <Link to={'/videodetails'}>
+                <Link key={`${item._id}&${index}`} to={`/videodetails/${item.title}/${item._id}`}>
                 <img src={item.thumbnail} alt="" className="image-item" />
-                </Link>
                 <div className="card-details">
                   <div className="prime-content">
                     <img src={bluetick} alt="" />
@@ -82,6 +82,8 @@ function CardsCarousel({moviesInfo,type}) {
                     </div>
                   </div>
                 </div>
+                </Link>
+
               </div>
             ))}
         </Carousel>

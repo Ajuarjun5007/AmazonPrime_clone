@@ -16,13 +16,13 @@ function App() {
   return (
     <>
     
-     {/* <NavbarforSignIn/> */}
-    {/* <Routes> */}
+     {/* <NavbarforSignIn/>
+    <Routes> */}
       {/* <LandingPageSignout /> */}
       {/* <Route path='/' element={<LandingPageSignout/>}/> */}
       {/* <LandingPageSignIn/> */}
       {/* <Route path='/home' element={<LandingPageSignIn/>}/> */}
-      {/* <Route path='/videodetails' element={<VideoInfo/>}/> */}
+      {/* <Route path='/videodetails/:movietitle/:movieid' element={<VideoInfo/>}/> */}
 
       {/* <VideoInfo/> */}
       {/* <Signup/> */}

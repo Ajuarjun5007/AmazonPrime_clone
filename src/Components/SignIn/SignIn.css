@@ -1,5 +1,5 @@
 *{
-    background-color: white;
+    /* background-color: white; */
     font-family: 'Roboto', sans-serif;
     /* padding: 14px 18px!important; */
 }
@@ -115,10 +115,6 @@ section{
     display: flex;
     margin-bottom: 10px;
 }
-
-
-
-
 .password-info{
     margin-top: 12px;
 }
@@ -148,10 +144,10 @@ section{
     padding: 10px 35px;
     letter-spacing: .5px;
 }
-a{
+.terms a,.signin_info a, .footer-links a{
     color: #0066c0;
 }
- a:hover{
+ .terms a:hover,.signin_info a:hover,.footer-links a:hover{
     text-decoration: underline;
     cursor: pointer;
     color: #c45500;

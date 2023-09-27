@@ -33,7 +33,7 @@ function TopCarousel() {
   return (
     <>
       <div className="App">
-        <Carousel
+        <Carousel 
           responsive={responsive}
           showDots={true}
           // centerMode={true}

@@ -28,7 +28,8 @@ useEffect(() => {
       <TopCarousel />
 
       {typeArray.map((type)=>{
-        return  <CardsCarousel key={type} moviesInfo={moviesInfo} type={type}/>
+        return  <CardsCarousel key={type} moviesInfo={moviesInfo} type={type}
+          />
       })}
     
       
