@@ -3,34 +3,33 @@ import './App.css'
 import LandingPageSignout from './Components/LandingPageSignout/LandingPageSignout.jsx'
 import LandingPageSignIn from './Components/LandingPageSignIn/LandingPageSignIn'
 import VideoInfo from './Components/VideoInfo/VideoInfo.jsx'
-import Signup from './Components/SignIn/SignIn'
-import ApiFetch from './Components/ApiFetch.jsx'
 import CategoryPage from './Components/CategoryPage/CategoryPage'
 import Footer from './Components/Footer/Footer'
 import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import NavbarforSignIn from './Components/NavbarForSignIn/NavbarForSignIn'
 import FooterForSignIn from './Components/FooterforSignIn/FooterForSIgnIn'
+import SignIn from './Components/SignIn/SignIn'
+import SignUp from './Components/SignUp/SignUp'
 
 function App() {
 
   return (
     <>
     
-     {/* <NavbarforSignIn/>
-    <Routes> */}
+     <NavbarforSignIn/>
+    <Routes>
       {/* <LandingPageSignout /> */}
-      {/* <Route path='/' element={<LandingPageSignout/>}/> */}
+      <Route path='/' element={<LandingPageSignout/>}/>
       {/* <LandingPageSignIn/> */}
-      {/* <Route path='/home' element={<LandingPageSignIn/>}/> */}
-      {/* <Route path='/videodetails/:movietitle/:movieid' element={<VideoInfo/>}/> */}
+      <Route path='/home' element={<LandingPageSignIn/>}/>
+      <Route path='/videodetails/:id' element={<VideoInfo/>}/>
 
       {/* <VideoInfo/> */}
       {/* <Signup/> */}
-      {/* <ApiFetch/> */}
       {/* <CategoryPage/> */}
-      {/* <Route path='/categorypage' element={<CategoryPage/>}/> */}
+      <Route path='/categorypage' element={<CategoryPage/>}/> 
       {/* <Footer/> */}
-      {/* </Routes> */}
+      </Routes>
 
       {/* <div
         style={{
@@ -47,8 +46,9 @@ function App() {
       <LandingPageSignout /> */}
       {/* <LandingPageSignIn/> */}
       {/* <VideoInfo/> */}
-      <Signup/>
-      {/* <ApiFetch/> */}
+      {/* <SignIn/>
+      <SignUp/> */}
+            {/* <ApiFetch/> */}
       {/* <CategoryPage/> */}
       {/* <Footer/> */}
       {/* <FooterForSignIn/> */}

@@ -3,7 +3,7 @@ import "./SignIn.css";
 import { SiPrimevideo } from "react-icons/si";
 import logo from "../../assets/loginassets/primevideoLogo.png";
 
-const Signup = () => {
+const SignIn = () => {
   return (
     <>
       {/* prime logo */}
@@ -97,4 +97,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignIn;

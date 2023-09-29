@@ -2,7 +2,7 @@ import React,{useEffect,useState} from "react";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import CardsCarousel from "./CardsCarousel/CardsCarousel";
 import TopCarousel from "./TopCarousel/TopCarousel";
-import ApiFetch from "../ApiFetch";
+import {movieList} from "../ApiFetch";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
 
 function LandingPageSignIn() {
@@ -15,7 +15,7 @@ const [moviesInfo, setMoviesInfo] = useState([]);
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const data = await ApiFetch();
+      const data = await movieList();
       setMoviesInfo(data.data);
     } catch (error) {
       console.error("Error fetching data:", error);

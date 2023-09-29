@@ -5,7 +5,7 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 
 function CardsCarousel({moviesInfo,type}) {
 
@@ -26,14 +26,19 @@ function CardsCarousel({moviesInfo,type}) {
       slidesToSlide: 1,
     },
   };
+  // https://academics.newtonschool.co/api/v1/ott /show?filter={"field" : "value"}
 
+  // const {search} = useLocation();
+  const locationID=useLocation();
+  console.log(locationID)
+  // const params=new URLSearchParams(search)
+  // console.log(params.get("key"),params.get("value"));
 
-  
   let array=[];
  
 
   // for(let item of moviesInfo){
-  //   if(item.keywords.includes('romance') && item.type==='movie'){
+  //   if(item.keywords.includes('romance') && item.type==='trailer'){
   //     console.log("item : ",item);
   //   }
   // }
@@ -49,6 +54,7 @@ function CardsCarousel({moviesInfo,type}) {
           responsive={responsive}
           showDots={true}
           centerMode={true}
+          
           renderButtonGroupOutside={true}
         >
           {moviesInfo && moviesInfo
@@ -57,7 +63,7 @@ function CardsCarousel({moviesInfo,type}) {
               
               <div className="card-items" key={item._id}>
                 
-                <Link key={`${item._id}&${index}`} to={`/videodetails/${item.title}/${item._id}`}>
+                <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
                 <img src={item.thumbnail} alt="" className="image-item" />
                 <div className="card-details">
                   <div className="prime-content">

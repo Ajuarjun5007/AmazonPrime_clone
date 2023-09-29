@@ -32,7 +32,7 @@ border: 2px solid red;
 
 .media img {
   width: 100%;
-  height: inherit;
+  height: 700px;
   display: block;
 }
 
@@ -71,7 +71,7 @@ border: 2px solid red;
   height: 100%;
   width: 100%;
   top: 20px;
-  margin-left: 72px;
+  /* margin-left: 72px; */
   left:0;
   right: 0;
   bottom: 0;
@@ -157,7 +157,7 @@ border: 2px solid red;
 .cast-section{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   height: 600px;
   margin-top: 50px;
   margin-left: 100px;
@@ -177,6 +177,7 @@ border: 2px solid red;
 .cast-section p{
   display: flex;
   flex-direction: column;
+  color: #aaa;
   margin: 5px 10px;
 }
 

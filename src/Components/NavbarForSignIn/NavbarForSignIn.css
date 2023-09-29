@@ -17,7 +17,7 @@
 }
 .title{
     padding-bottom:15px ;
-    font-size: 31px;
+    font-size: 21px;
     color: white;
     letter-spacing: 0.1px;
 }
@@ -27,7 +27,7 @@
     list-style: none;
     height: 100%;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 700;
 }
 .list{
@@ -58,6 +58,9 @@
     font-weight: 900;
     position: relative;
     }
+    .navbar-items p{
+        padding: 0px 1px;
+    }
 .search-icon{
     color:#aaa;
     font-size: 42px;
@@ -65,7 +68,7 @@
 }
 .close-icon{
     /* position: absolute; */
-    font-size: 42px;
+    font-size: 31px;
     color:#aaa;
     background-color: #191e25;
     opacity: 1;
@@ -144,7 +147,7 @@
     }
 /* home style */
     .home-container{
-        width:125px;
+        width:107px;
         position:absolute;
         display: block;
         margin-top:0px;
@@ -176,7 +179,7 @@
     }
 /* store style */
 .store-container{
-    width:115px;
+    width:100px;
     position:absolute;
     display: block;
     margin-top:0px;
@@ -209,7 +212,7 @@
 
 /* myStuff style */
 .myStuff-container{
-    width:150px;
+    width:125px;
     position:absolute;
     display: block;
     margin-top:0px;
@@ -242,11 +245,11 @@
 
     /* categories  style*/
     .navbar-categories{
-        width:max-content;
+        /* width:900px; */
         display: block;
         position:absolute;
         margin-top:0;
-        margin-left:-580px;
+        margin-left:-450px;
         z-index: 122;
         background-color:transparent;
         /* background-color: red!important; */
@@ -256,8 +259,8 @@
     .categories{    
         color:#aaa;
         display: flex;
-        width: 1100px;
-        height: 410px;
+        width: 900px;
+        height: 390px;
         justify-content: center;
         align-items: center;
         background-color: #191e25;
@@ -265,6 +268,7 @@
     }
     h2{
         color: white;
+        font-size: 21px;
         background-color: #191e25;
     }
     .genres-content{
@@ -289,7 +293,7 @@
         background-color: #191e25;
     }
     .genre{
-        font-size:23px;
+        font-size:18px;
         padding: 10px;
         background-color: #191e25;
     }
@@ -311,7 +315,7 @@
         background-color: #191e25;
     }
     .lang{
-        font-size:23px;
+        font-size:18px;
         padding: 10px;
         background-color: #191e25;
     }
@@ -388,7 +392,7 @@
     display: flex;
     align-items: center;
     width: 1050px;
-    right: 330px;
+    right: 180px;
     pointer-events:visiblePainted;
     background-color: #191e25;
     padding: 24px;

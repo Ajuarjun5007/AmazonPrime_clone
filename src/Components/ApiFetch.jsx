@@ -1,14 +1,14 @@
 import axios from "axios";
-
+const url = "https://academics.newtonschool.co/api/v1/"
 const headers = {
   "Content-Type": "application/json",
   projectId: "p7nvgrsg3fdf",
 };
-const ApiFetch = async (type) => {
-  const url="https://academics.newtonschool.co/api/v1/ott/show?limit=100";
+const movieList = async (type) => {
+  const suffix=url+"ott/show?limit=100";
   try {
     const response = await axios.get(
-      url,
+      suffix,
       { headers: headers }
     );
 
@@ -18,4 +18,18 @@ const ApiFetch = async (type) => {
     console.error("Error fetching data:", error);
   }
 };
-export default ApiFetch;
+const movieDetail = async (id) => {
+  const suffix=url+"ott/show/"+id;
+  try {
+    const response = await axios.get(
+      suffix,
+      { headers: headers }
+    );
+
+    return response.data;
+  } catch (error) {
+    // Handle errors
+    console.error("Error fetching data:", error);
+  }
+};
+export  {movieList, movieDetail};

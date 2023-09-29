@@ -12,103 +12,64 @@ import card_9 from "../../assets/categorypageAssets/categorycard_9.webp";
 
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
+import { Link } from "react-router-dom";
 function CategoryPage() {
+  const categories = [
+    "Romance",
+    "Mystery",
+    "Drama",
+    "Fantasy",
+    "Thriller",
+    "Suspense",
+    "Magic",
+    "Sci-Fi",
+    "Action",
+    "Love",
+    "Survival",
+    "Adventure",
+  ];
+  const types = [
+    "Video Song",
+    "Web Series",
+    "Tv Show",
+    "Short Film",
+    "Movie",
+    "Documentary",
+    "Trailer",
+  ];
+
   return (
     <>
       {/* <--- CATEGORY SECTION --->  */}
       <div className="category-header">Categories</div>
       <div className="genres-section">
         <h2 className="genres-header">Genres</h2>
-
         <div className="genres-container">
-          <div className="genres-card">
-            <img src={card_1} alt="" />
-            <span>Romance</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_2} alt="" />
-            <span>Mystery</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_3} alt="" />
-            <span>Drama</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_4} alt="" />
-            <span>Fantasy</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_6} alt="" />
-            <span>Thriller</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_7} alt="" />
-            <span>Suspense</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_9} alt="" />
-            <span>Magic</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_1} alt="" />
-            <span>Sci-Fi</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_3} alt="" />
-            <span>Action</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_5} alt="" />
-            <span>Love</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_6} alt="" />
-            <span>Survival</span>
-          </div>
-          <div className="genres-card">
-            <img src={card_7} alt="" />
-            <span>Adventure</span>
-          </div>
+          {categories.map((category) => (
+            <div className="genres-card">
+              <img src={card_1} alt="" />
+              <Link className="link" to={`/home?value=${category}&key=keywords`}>{category}</Link>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* <--- TYPE SECTION --->  */}
-        <div className="types-section">
-      <h2 className="types-header">Types</h2>
+      <div className="types-section">
+        <h2 className="types-header">Types</h2>
 
-      <div className="types-container">
-        <div className="type-card">
+        <div className="types-container">
+          {types.map((type)=>(
+          <div className="type-card">
             <img src={bluebg} alt="" />
-          <span>Video Song</span>
-        </div>
-        <div className="type-card">
-            <img src={bluebg} alt="" />
-          <span>Web Series</span>
-        </div>
-        <div className="type-card">
-            <img src={bluebg} alt="" />
-          <span>Tv Show</span>
-        </div>
-        <div className="type-card">
-            <img src={bluebg} alt="" />
-          <span>Short Film</span>
-        </div>
-        <div className="type-card">
-            <img src={bluebg} alt="" />
-          <span>Movie</span>
-        </div>
-        <div className="type-card">
-            <img src={bluebg} alt="" />
-          <span>Documentary</span>
-        </div>
-        <div className="type-card">
-            <img src={bluebg} alt="" />
-          <span>Trailer</span>
+            <span>{type}</span>
+          </div>
+          ))}
+         
         </div>
       </div>
-      </div>
 
-      <FooterForSignIn/>
+      <FooterForSignIn />
     </>
   );
 }

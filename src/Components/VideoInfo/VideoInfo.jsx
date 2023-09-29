@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
+
+import {useParams} from "react-router-dom"
 import { DefaultPlayer as Video } from "react-html5video";
 import johnwicktrailer from "../../assets/videoinfoassets/johnwicktrailer.mp4";
 import johnwickposter from "../../assets/videoinfoassets/johnwick.webp";
@@ -8,9 +10,16 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import image from "../../assets/videoinfoassets/image.jpg";
 import video from "../../assets/videoinfoassets/contagion.mp4";
+import {movieDetail} from '../ApiFetch'
 function VideoInfo() {
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
+  const [movieInfo, setMovieInfo] = useState({});
+  const [loaded, setLoaded] = useState(false);
+
+
+  const params = useParams()
+  // console.log("pea",params) 
 
   useEffect(() => {
     const imageTimeout = setTimeout(() => {
@@ -21,14 +30,26 @@ function VideoInfo() {
     return () => clearTimeout(imageTimeout);
   }, []);
 
+  useEffect(()=>{
+if(params.id !== undefined){
+
+movieDetail(params.id).then(res=> {
+  setMovieInfo(res.data);
+  console.log("res.data",res.data.cast);
+  setLoaded(true)
+})
+}
+  },[params])
+
   return (
+    loaded ? 
     <div className="container">
       <div className="visual-container">
         <div
           className={`media ${showImage ? "show" : ""}`}
           style={{ display: showImage ? "block" : "none" }}
         >
-          <img src={johnwickposter} alt="Image" />
+          <img src={movieInfo.thumbnail} alt="Image" />
         </div>
 
         <div
@@ -37,7 +58,7 @@ function VideoInfo() {
         >
           {showVideo && (
             <Video autoPlay muted loop controls>
-              <source src={johnwicktrailer} type="video/mp4" />
+              <source src={movieInfo.video_url} type="video/mp4" />
             </Video>
           )}
         </div>
@@ -46,14 +67,11 @@ function VideoInfo() {
         <div className="video-details">
           <div className="video-details-info">
             <div className="video-title">
-              <h1>john Wick 4</h1>
+              <h1>{movieInfo?.title}</h1>
             </div>
             <div className="video-description">
               <p>
-                John Wick (Keanu Reeves) uncovers a path to defeating The High
-                Table. But before he can earn his freedom, Wick must face off
-                against a new enemy with powerful alliances across the globe and
-                forces that turn old friends into foes.
+                {movieInfo?.description}
               </p>
             </div>
             <div className="genre-section">
@@ -82,13 +100,16 @@ function VideoInfo() {
       <div className="cast-heading">Details</div>
       <div className="cast-section">
         <span>Director</span>
-        <p>Mani rathnam</p>
+        <p>{movieInfo.director}</p>
         <span>Cast</span>
-        <p>Keanu Reeves</p>
-        <p> Ana de Armas </p>
-        <p>Robert De Niro</p>
+      { movieInfo.cast.map((item,index)=>(
+        <div key={index}>
+          <p>{item}</p>
+        </div>
+      )) 
+      }
       </div>
-    </div>
+    </div>:null
   );
 }
 
