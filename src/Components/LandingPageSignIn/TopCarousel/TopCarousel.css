@@ -23,11 +23,11 @@
 } */
 .react-multiple-carousel__arrow{
   /* left: calc(11% + 100px); */
-  left: 20px!important;
-  top: 300px!important;
+  /* left: 20px!important;
+  top: 400px!important; */
 }
 .react-multiple-carousel__arrow--right {
-  right: calc(1% + 1px);
+  right: calc(0% + 1px);
 }
 .poster-items{
  display: flex;
@@ -67,36 +67,39 @@ align-items: center;
 
 /* content control */
 .poster-content{
-  position: relative;
-  left: 60px;
-  top: 100px;
+  /* left: 10px; */
+  /* top: 100px; */
   width: 100%;
-  background: transparent!important;
+  /* background: transparent!important; */
+  background: linear-gradient(90deg,#030b17 30%,#0c111b00);
   position: absolute;
   z-index:23;
   color: aliceblue;
   height:100%;
+  border-radius: 20px;
 }
 .poster-title{
   background: transparent!important;
   margin-bottom: 30px;
+  margin-top: 100px;
+  margin-left: 60px;
   width: 50%;
   }
   .poster-title h2{
   background: transparent!important;
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 800;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   }
   .poster-buttons{
     margin-top: 30px;
-    height: 50%;
+    /* height: 50%; */
   background: transparent!important;
 
   }
   .play{
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     border: none;
     background-color: white;
@@ -106,6 +109,7 @@ align-items: center;
     display: flex;
     justify-content:left;
     gap: 30px;
+  margin-left: 60px;
     align-items: center;
   background: transparent!important;
 }
@@ -113,9 +117,11 @@ align-items: center;
     font-size: 35px;
   background: transparent!important;
   }
-  .play-icon{
-    font-size: 50px;
-    background-color: white;
+  .play-arrow-icon{
+    width: 33px;
+    height: 3vw;
+    border-radius: 50%;
+    background-color: #fff;
   }
   .play:hover{
     transform: scale(1.2);
@@ -134,20 +140,20 @@ align-items: center;
   justify-content: center;
   align-items: center;
   background-color: #333;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   border: none;
  }
  .plus, .info{
   background-color:transparent;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bolder;
   color: white;
  }
  .poster-icons-button:hover{
   .plus,.info{
-    background-color: white;
+    /* background-color: white; */
     color: #00050d;
   }
   background-color: white;
@@ -158,17 +164,18 @@ align-items: center;
   align-items: center;
   height: max-content;
   margin-top: 60px;
+  margin-left: 60px;
   background-color: transparent;
 }
 .prime-details img{
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border: none;
   margin-left: 10px;
 } 
 .prime-details p{
   background-color: transparent;
-  font-size: 30px;
+  font-size: 20px;
   position: relative;
-  left: 20px;
+  left: 10px;
 }

@@ -1,25 +1,28 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import {useParams} from "react-router-dom"
-import { DefaultPlayer as Video } from "react-html5video";
+import { useParams } from "react-router-dom";
+import { P, DefaultPlayer as Video } from "react-html5video";
 import johnwicktrailer from "../../assets/videoinfoassets/johnwicktrailer.mp4";
 import johnwickposter from "../../assets/videoinfoassets/johnwick.webp";
 import "./VideoInfo.css";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
+import {BiLike} from "react-icons/bi"
+import {BiDislike} from "react-icons/bi"
+import {PiConfettiBold} from "react-icons/pi"
+import {FiShare2} from "react-icons/fi"
 import image from "../../assets/videoinfoassets/image.jpg";
 import video from "../../assets/videoinfoassets/contagion.mp4";
-import {movieDetail} from '../ApiFetch'
+import { movieDetail } from "../ApiFetch";
 function VideoInfo() {
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
   const [movieInfo, setMovieInfo] = useState({});
   const [loaded, setLoaded] = useState(false);
 
-
-  const params = useParams()
-  // console.log("pea",params) 
+  const params = useParams();
+  // console.log("pea",params)
 
   useEffect(() => {
     const imageTimeout = setTimeout(() => {
@@ -30,19 +33,17 @@ function VideoInfo() {
     return () => clearTimeout(imageTimeout);
   }, []);
 
-  useEffect(()=>{
-if(params.id !== undefined){
-
-movieDetail(params.id).then(res=> {
-  setMovieInfo(res.data);
-  console.log("res.data",res.data.cast);
-  setLoaded(true)
-})
-}
-  },[params])
-
-  return (
-    loaded ? 
+  useEffect(() => {
+    if (params.id !== undefined) {
+      movieDetail(params.id).then((res) => {
+        setMovieInfo(res.data);
+        console.log("res.data", res.data.cast);
+        setLoaded(true);
+      });
+    }
+  }, [params]);
+  console.log('movie',movieInfo.keywords);
+  return loaded ? (
     <div className="container">
       <div className="visual-container">
         <div
@@ -70,16 +71,19 @@ movieDetail(params.id).then(res=> {
               <h1>{movieInfo?.title}</h1>
             </div>
             <div className="video-description">
-              <p>
-                {movieInfo?.description}
-              </p>
+              <p>{movieInfo?.description}</p>
             </div>
+
+
             <div className="genre-section">
-              <button className="genre-1">Suspense</button>
-              <span className="dot">.</span>
-              <button className="genre-2">Thriller</button>
+
+              {movieInfo.keywords.map((keyword)=>(
+                  <p>{keyword}</p>
+              ))}
+
             </div>
-          </div>
+
+
           <div className="prime-slogan">
             <img src={bluetick} alt="" />
             <p>Included with Prime</p>
@@ -88,12 +92,45 @@ movieDetail(params.id).then(res=> {
             <button className="play-button">
               <BiSolidRightArrow className="play-icon" />
             </button>
-            <div className="watchlist-button">
-              <button className="watchlist-icon">
-                <FiPlus className="plus-ikon" />
+            <span className="play-text">play</span>
+            <div className="video-access-button ">
+
+             <div className="access-btn-container">
+            <span className="btn-msg">Watchlist</span>
+              <button className="grey-icon">
+                <FiPlus className="react-plus-icon" />
               </button>
+              </div>
+
+            <div className="access-btn-container">
+              <span className="btn-msg">Like</span>
+              <button className="grey-icon">
+                <BiLike className="react-like-icon"/>
+              </button>
+              </div>
+
+            <div className="access-btn-container">
+              <span className="btn-msg">Not for me</span>
+                <button className="grey-icon">
+                  <BiDislike className="react-dislike-icon"/>
+                </button>
+                </div>
+            <div className="access-btn-container">
+            <span className="btn-msg">Watch party</span>
+                <button className="grey-icon">
+                  <PiConfettiBold className="react-confetti-icon"/>
+                </button>
+                </div>
+            <div className="access-btn-container">
+            <span className="btn-msg">Share</span>
+                <button className="grey-icon">
+                  <FiShare2 className="react-share-icon"/>
+                </button>
+                </div>
             </div>
           </div>
+          </div>
+
         </div>
       </div>
 
@@ -102,15 +139,14 @@ movieDetail(params.id).then(res=> {
         <span>Director</span>
         <p>{movieInfo.director}</p>
         <span>Cast</span>
-      { movieInfo.cast.map((item,index)=>(
-        <div key={index}>
-          <p>{item}</p>
-        </div>
-      )) 
-      }
+        {movieInfo.cast.map((item, index) => (
+          <div key={index}>
+            <p>{item}</p>
+          </div>
+        ))}
       </div>
-    </div>:null
-  );
+    </div>
+  ) : null;
 }
 
 export default VideoInfo;

@@ -59,7 +59,7 @@ function TopCarousel() {
                 <div className="poster-buttons">
                   <div className="poster-button-play">
                     <button className="play">
-                      <BiSolidRightArrow className="play-icon" />
+                      <BiSolidRightArrow className="play-arrow-icon" />
                     </button>
                     <p>Play</p>
                     <div className="poster-icons">
@@ -93,7 +93,7 @@ function TopCarousel() {
                 <div className="poster-buttons">
                   <div className="poster-button-play">
                     <button className="play">
-                      <BiSolidRightArrow className="play-icon" />
+                      <BiSolidRightArrow className="play-arrow-icon" />
                     </button>
                     <p>Play</p>
                     <div className="poster-icons">
@@ -124,7 +124,7 @@ function TopCarousel() {
                 <div className="poster-buttons">
                   <div className="poster-button-play">
                     <button className="play">
-                      <BiSolidRightArrow className="play-icon" />
+                      <BiSolidRightArrow className="play-arrow-icon" />
                     </button>
                     <p>Play</p>
                     <div className="poster-icons">
@@ -154,7 +154,7 @@ function TopCarousel() {
                 <div className="poster-buttons">
                   <div className="poster-button-play">
                     <button className="play">
-                      <BiSolidRightArrow className="play-icon" />
+                      <BiSolidRightArrow className="play-arrow-icon" />
                     </button>
                     <p>Play</p>
                     <div className="poster-icons">
@@ -184,7 +184,7 @@ function TopCarousel() {
                 <div className="poster-buttons">
                   <div className="poster-button-play">
                     <button className="play">
-                      <BiSolidRightArrow className="play-icon" />
+                      <BiSolidRightArrow className="play-arrow-icon" />
                     </button>
                     <p>Play</p>
                     <div className="poster-icons">
@@ -214,7 +214,7 @@ function TopCarousel() {
                 <div className="poster-buttons">
                   <div className="poster-button-play">
                     <button className="play">
-                      <BiSolidRightArrow className="play-icon" />
+                      <BiSolidRightArrow className="play-arrow-icon" />
                     </button>
                     <p>Play</p>
                     <div className="poster-icons">
