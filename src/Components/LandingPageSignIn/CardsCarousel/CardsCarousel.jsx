@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import "./CardsCarousel.css";
+import "../../Carousel/Carousel.css"
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -48,7 +48,7 @@ function CardsCarousel({moviesInfo,type}) {
     <>
       <div  className="Carousel-header">
         <div className="Carousel-header-prime">Prime</div>
-        {type}
+        {type}Carousel
       </div>
         <Carousel className="cards-carousel"
           responsive={responsive}

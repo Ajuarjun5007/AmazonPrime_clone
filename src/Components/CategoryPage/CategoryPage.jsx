@@ -9,34 +9,12 @@ import card_5 from "../../assets/categorypageAssets/categorycard_5.webp";
 import card_6 from "../../assets/categorypageAssets/categorycard_6.webp";
 import card_7 from "../../assets/categorypageAssets/categorycard_7.webp";
 import card_9 from "../../assets/categorypageAssets/categorycard_9.webp";
-
+import {categories,types} from '../CategoryConstants'
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
 import { Link } from "react-router-dom";
 function CategoryPage() {
-  const categories = [
-    "Romance",
-    "Mystery",
-    "Drama",
-    "Fantasy",
-    "Thriller",
-    "Suspense",
-    "Magic",
-    "Sci-Fi",
-    "Action",
-    "Love",
-    "Survival",
-    "Adventure",
-  ];
-  const types = [
-    "Video Song",
-    "Web Series",
-    "Tv Show",
-    "Short Film",
-    "Movie",
-    "Documentary",
-    "Trailer",
-  ];
+  
 
   return (
     <>
@@ -46,10 +24,13 @@ function CategoryPage() {
         <h2 className="genres-header">Genres</h2>
         <div className="genres-container">
           {categories.map((category) => (
+             <Link className="link" to={`/CategorySelected?value=${category}&key=keywords`}>
             <div className="genres-card">
               <img src={card_1} alt="" />
-              <Link className="link" to={`/home?value=${category}&key=keywords`}>{category}</Link>
+              {/* <Link className="link" to={`/home?value=${category}&key=keywords`}>{category}</Link> */}
+             <span className="link">{category}</span>
             </div>
+            </Link>
           ))}
         </div>
       </div>

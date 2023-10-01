@@ -5,6 +5,7 @@ import LandingPageSignIn from './Components/LandingPageSignIn/LandingPageSignIn'
 import VideoInfo from './Components/VideoInfo/VideoInfo.jsx'
 import CategoryPage from './Components/CategoryPage/CategoryPage'
 import Footer from './Components/Footer/Footer'
+import CategorySelected from './Components/CategorySelected/CategorySelected'
 import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import NavbarforSignIn from './Components/NavbarForSignIn/NavbarForSignIn'
 import FooterForSignIn from './Components/FooterforSignIn/FooterForSIgnIn'
@@ -23,7 +24,7 @@ function App() {
       {/* <LandingPageSignIn/> */}
       <Route path='/home' element={<LandingPageSignIn/>}/>
       <Route path='/videodetails/:id' element={<VideoInfo/>}/>
-
+      <Route path='/CategorySelected' element={<CategorySelected/>}/>
       {/* <VideoInfo/> */}
       {/* <Signup/> */}
       {/* <CategoryPage/> */}

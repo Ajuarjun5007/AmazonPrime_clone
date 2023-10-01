@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavbarforSignIn() {
 
@@ -145,18 +145,18 @@ function NavbarforSignIn() {
                       <h2>Genres</h2>
                     </div>
                     <ul className="genre-items">
-                      <li className="genre">Romance</li>
-                      <li className="genre">Mystery</li>
-                      <li className="genre">Drama</li>
-                      <li className="genre">Fantasy</li>
-                      <li className="genre">Thriller</li>
-                      <li className="genre">Suspense</li>
-                      <li className="genre">Magic</li>
-                      <li className="genre">Sci-Fi</li>
-                      <li className="genre">Action</li>
-                      <li className="genre">Love</li>
-                      <li className="genre">Survival</li>
-                      <li className="genre">Adventure</li>
+                   <Link to={`/CategorySelected?value=Romance&key=keywords`}>    <li className="genre">Romance</li> </Link>
+                   <Link to={`/CategorySelected?value=Mystery&key=keywords`}>    <li className="genre">Mystery</li> </Link>
+                   <Link to={`/CategorySelected?value=Drama&key=keywords`}>    <li className="genre">Drama</li> </Link>
+                   <Link to={`/CategorySelected?value=Fantasy&key=keywords`}>    <li className="genre">Fantasy</li> </Link>
+                   <Link to={`/CategorySelected?value=Thriller&key=keywords`}>    <li className="genre">Thriller</li> </Link>
+                   <Link to={`/CategorySelected?value=Suspense&key=keywords`}>    <li className="genre">Suspense</li> </Link>
+                   <Link to={`/CategorySelected?value=Magic&key=keywords`}>    <li className="genre">Magic</li> </Link>
+                   <Link to={`/CategorySelected?value=Sci-Fi&key=keywords`}>    <li className="genre">Sci-Fi</li> </Link>
+                   <Link to={`/CategorySelected?value=Action&key=keywords`}>    <li className="genre">Action</li> </Link>
+                   <Link to={`/CategorySelected?value=Love&key=keywords`}>    <li className="genre">Love</li> </Link>
+                   <Link to={`/CategorySelected?value=Survival&key=keywords`}>    <li className="genre">Survival</li> </Link>
+                   <Link to={`/CategorySelected?value=Adventure&key=keywords`}>    <li className="genre">Adventure</li> </Link>
                     </ul>
                   </div>
 

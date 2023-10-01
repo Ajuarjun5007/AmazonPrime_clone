@@ -4,12 +4,16 @@ const headers = {
   "Content-Type": "application/json",
   projectId: "p7nvgrsg3fdf",
 };
+const instance = axios.create({
+  baseURL: url,
+  timeout: 1000,
+  headers
+});
 const movieList = async (type) => {
   const suffix=url+"ott/show?limit=100";
   try {
-    const response = await axios.get(
+    const response = await instance.get(
       suffix,
-      { headers: headers }
     );
 
     return response.data;
@@ -21,9 +25,8 @@ const movieList = async (type) => {
 const movieDetail = async (id) => {
   const suffix=url+"ott/show/"+id;
   try {
-    const response = await axios.get(
+    const response = await instance.get(
       suffix,
-      { headers: headers }
     );
 
     return response.data;
@@ -32,4 +35,6 @@ const movieDetail = async (id) => {
     console.error("Error fetching data:", error);
   }
 };
-export  {movieList, movieDetail};
+
+
+export  {movieList, movieDetail,instance};
