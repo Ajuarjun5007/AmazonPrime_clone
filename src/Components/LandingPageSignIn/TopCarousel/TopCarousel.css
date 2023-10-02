@@ -71,7 +71,7 @@ align-items: center;
   /* top: 100px; */
   width: 100%;
   /* background: transparent!important; */
-  background: linear-gradient(90deg,#030b17 30%,#0c111b00);
+  background: linear-gradient(20deg,#00050d, 30%,#0c111b00);
   position: absolute;
   z-index:23;
   color: aliceblue;

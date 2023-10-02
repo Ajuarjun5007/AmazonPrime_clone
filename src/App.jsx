@@ -12,6 +12,7 @@ import FooterForSignIn from './Components/FooterforSignIn/FooterForSIgnIn'
 import SignIn from './Components/SignIn/SignIn'
 import SignUp from './Components/SignUp/SignUp'
 
+
 function App() {
 
   return (
@@ -44,11 +45,12 @@ function App() {
       >
         <NavbarforSignIn/>
       </div>
+
       <LandingPageSignout /> */}
       {/* <LandingPageSignIn/> */}
       {/* <VideoInfo/> */}
-      {/* <SignIn/>
-      <SignUp/> */}
+      {/* <SignIn/> */}
+      {/* <SignUp/> */}
             {/* <ApiFetch/> */}
       {/* <CategoryPage/> */}
       {/* <Footer/> */}

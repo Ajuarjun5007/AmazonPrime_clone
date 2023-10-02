@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./SignIn.css";
 import { SiPrimevideo } from "react-icons/si";
 import logo from "../../assets/loginassets/primevideoLogo.png";
-
+import { Link } from "react-router-dom";
+import { RxTriangleDown } from "react-icons/rx"
 const SignIn = () => {
   return (
     <>
@@ -11,88 +12,58 @@ const SignIn = () => {
         {/* <SiPrimevideo size={200}/> */}
         <img
           src="https://m.media-amazon.com/images/G/01/digital/video/avod/AV_Logo_150._CB430404026_.png"
-          alt="signupimg"
+          alt="SignInimg"
         />
       </div>
 
       {/* prime form */}
-      <section>
-        <div className="sign_container">
-          <div className="sign_header">
-            {/* <img src="./blacklogoamazon.png" alt="signupimg" /> */}
+      <div className="login-parent">
+      <div className='loginpageformContainer'>
+              <form className='loginpageform'>
+                <p className='formtitle'>Sign in</p>
+                <div className='emailinput'>
+                  <label>Email or mobile phone number</label>
+                  <input type='email' placeholder='Enter your email or mobile phone' />
+                </div>
+                <div className='passwordinput'>
+                  <div className='passwordtitle'>
+                    <label>Password</label>
+                    <Link to="">Change Password</Link>
+                  </div>
+                  <input type='password' placeholder='Enter your password'/>
+                 
+                </div>
+                <div className='formsubmitBtn'>
+                  <button >Sign in</button>
+                </div>
+              </form>
+              <div className='termsandCons'>
+                <p>By continuing, you agree to Amazon's <Link to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=200545940">Conditions of Use</Link> and <Link to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=200534380">Privacy Notice</Link>.</p>
+              </div>
+              <div className='checkboxverify'>
+                <input type='checkbox' ></input>
+                <p> Keep me signed in. <Link>Details</Link> <RxTriangleDown/></p>
+              </div>
+              <div className='newformtitle'>
+                <p>New to Amazon?</p>
+              </div>
+              <div className='newformbutton'>
+                <button >Create your Amazon account</button>
+              </div>
           </div>
-          <div className="sign_form">
-            <form>
-              <h1>Create account</h1>
-              <div className="form_data">
-                <div className="form_data_label">
-                  <label htmlFor="name">Your name</label>
-                </div>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="First and last name"
-                />
-              </div>
-              <div className="form_data">
-                <div className="form_data_label">
-                  <label htmlFor="email">Email</label>
-                </div>
-                <input type="email" name="email" id="email" />
-              </div>
-
-              <div className="form_data">
-                <div className="form_data_label">
-                  <label htmlFor="password">Password</label>
-                </div>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="At least 6 characters"
-                />
-                <div className="password-info">
-                  <i className="a-icon a-icon-alert"></i>
-                  Passwords must be at least 6 characters.
-                </div>
-              </div>
-              <div className="form_data">
-                <div className="form_data_label">
-                  <label htmlFor="password">Re-enter password</label>
-                </div>
-                <input type="password" name="repassword" id="passwordg" />
-              </div>
-              <button type="submit" className="signin_btn">
-                Create your Amazon account
-              </button>
-
-              <div className="terms">
-                By creating an account, you agree to the amazon
-                <a href=""> Conditions of Use and Privacy Notice.</a>
-              </div>
-
-              {/* <div className="sign_in_container"> */}
-                <div className="signin_info">
-                  <p> 
-                  Already have an account?
-                      </p>
-                  <a href="">Sign In</a>
-                </div>
-              {/* </div> */}
-            </form>
-           
-          </div>
-        </div>
-      <div className="footer">
-              <div className="footer-links">
-              <a href=""> Terms and Privacy Notice </a>
-              <a href=""> Send us feedback</a>
-              <a href="">Help</a>
-              </div>
-              © 1996-2023, Amazon.com, Inc. or its affiliates
+   {/* footer */}
+          <div className='loginpagefooter'>
+            <div className='loginpagesupport'>
+              <Link onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&nodeId=200545940">Conditions of Use</Link>
+              <Link onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=200534380">Privacy Notice</Link>
+              <Link onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/help">Help</Link>
             </div>
-      </section>
+            <div className='loginpagecopyright'>
+              &copy; 1996-2023, AmazonClone.com, Inc. or its affiliates
+            </div>
+          </div>
+          </div>
+    
     </>
   );
 };

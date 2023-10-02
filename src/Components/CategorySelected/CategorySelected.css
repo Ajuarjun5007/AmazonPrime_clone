@@ -3,6 +3,8 @@
     display: flex;
     width:max-content;
     gap: 30px;
+    margin-left: 60px;
+    margin-top: 40px;
 }
 .filter-btn{
     width: max-content;
@@ -11,11 +13,13 @@
     border-radius: 10px;
     min-height: auto;
     border: none;
-    font-size: 23px;
-    font-weight: 500;
-    padding: 5px;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 10px;
 }
 .filter-btn:hover{
     background-color: #33373d;
     color: #fff;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }

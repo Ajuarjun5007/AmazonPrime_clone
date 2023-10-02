@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
-
+import { categories,types } from "../CategoryConstants";
 function NavbarforSignIn() {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -145,33 +145,37 @@ function NavbarforSignIn() {
                       <h2>Genres</h2>
                     </div>
                     <ul className="genre-items">
-                   <Link to={`/CategorySelected?value=Romance&key=keywords`}>    <li className="genre">Romance</li> </Link>
-                   <Link to={`/CategorySelected?value=Mystery&key=keywords`}>    <li className="genre">Mystery</li> </Link>
-                   <Link to={`/CategorySelected?value=Drama&key=keywords`}>    <li className="genre">Drama</li> </Link>
-                   <Link to={`/CategorySelected?value=Fantasy&key=keywords`}>    <li className="genre">Fantasy</li> </Link>
-                   <Link to={`/CategorySelected?value=Thriller&key=keywords`}>    <li className="genre">Thriller</li> </Link>
-                   <Link to={`/CategorySelected?value=Suspense&key=keywords`}>    <li className="genre">Suspense</li> </Link>
-                   <Link to={`/CategorySelected?value=Magic&key=keywords`}>    <li className="genre">Magic</li> </Link>
-                   <Link to={`/CategorySelected?value=Sci-Fi&key=keywords`}>    <li className="genre">Sci-Fi</li> </Link>
-                   <Link to={`/CategorySelected?value=Action&key=keywords`}>    <li className="genre">Action</li> </Link>
-                   <Link to={`/CategorySelected?value=Love&key=keywords`}>    <li className="genre">Love</li> </Link>
-                   <Link to={`/CategorySelected?value=Survival&key=keywords`}>    <li className="genre">Survival</li> </Link>
-                   <Link to={`/CategorySelected?value=Adventure&key=keywords`}>    <li className="genre">Adventure</li> </Link>
+                      {
+                        categories.map((category)=>(
+                          <Link to={`/CategorySelected?value=${category}&key=keywords`}>
+                            <li className="genre">{category}</li>
+                            </Link>
+                        ))
+                      }
                     </ul>
                   </div>
 
-                  <div className="lang-content">
+                  <div className="type-content">
                     <div className="content-title-2">
                       <h2>Types </h2>
                     </div>
-                    <ul className="lang-items">
-                      <li className="lang">Video Song</li>
-                      <li className="lang">Web Series</li>
-                      <li className="lang">Tv show</li>
-                      <li className="lang">Short Film</li>
-                      <li className="lang">Movie</li>
-                      <li className="lang">Documentary</li>
-                      <li className="lang">Trailer</li>
+                    <ul className="type-items">
+                      {/* {
+                        types.map((item)=>(
+                          <Link to={`/CategorySelected?value=${item}&key=types`}>
+                          <li className="genre">{item}</li>
+                          </Link>
+
+                        ))
+                    } */}
+      
+                      <li className="type">Video Song</li>
+                      <li className="type">Web Series</li>
+                      <li className="type">Tv show</li>
+                      <li className="type">Short Film</li>
+                      <li className="type">Movie</li>
+                      <li className="type">Documentary</li>
+                      <li className="type">Trailer</li>
                     </ul>
                   </div>
                 </div>
@@ -235,14 +239,24 @@ function NavbarforSignIn() {
                 />
               </div>
             </div>
-
+              {/* <div className="navbar-items"> */}
             <div className="navbar-icons-item hover-down-user">
               <img
                 src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
                 alt=""
               />
+               <div className="user-details">
+             <div className="user-details-header">Your Account</div> 
+              <p>Help</p>
+              <p>Watch Anywhere</p>
+              <p>Account & Settings</p>
+              <p className="prime-benefits">Prime Benefits</p>
+              <p className="SignIn">Sign In</p>
             </div>
+            </div>
+            {/* </div> */}
           </div>
+         
         </div>
       </div>
     </>

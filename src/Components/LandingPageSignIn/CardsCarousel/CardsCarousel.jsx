@@ -26,15 +26,8 @@ function CardsCarousel({moviesInfo,type}) {
       slidesToSlide: 1,
     },
   };
-  // https://academics.newtonschool.co/api/v1/ott /show?filter={"field" : "value"}
 
-  // const {search} = useLocation();
-  const locationID=useLocation();
-  console.log(locationID)
-  // const params=new URLSearchParams(search)
-  // console.log(params.get("key"),params.get("value"));
-
-  let array=[];
+ 
  
 
   // for(let item of moviesInfo){
@@ -48,7 +41,7 @@ function CardsCarousel({moviesInfo,type}) {
     <>
       <div  className="Carousel-header">
         <div className="Carousel-header-prime">Prime</div>
-        {type}Carousel
+        {type}
       </div>
         <Carousel className="cards-carousel"
           responsive={responsive}

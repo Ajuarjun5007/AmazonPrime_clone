@@ -2,13 +2,7 @@ import "./CategoryPage.css";
 
 import bluebg from "../../assets/categorypageAssets/bluebackground.webp";
 import card_1 from "../../assets/categorypageAssets/categorycard_1.webp";
-import card_2 from "../../assets/categorypageAssets/categorycard_2.webp";
-import card_3 from "../../assets/categorypageAssets/categorycard_3.webp";
-import card_4 from "../../assets/categorypageAssets/categorycard_4.webp";
-import card_5 from "../../assets/categorypageAssets/categorycard_5.webp";
-import card_6 from "../../assets/categorypageAssets/categorycard_6.webp";
-import card_7 from "../../assets/categorypageAssets/categorycard_7.webp";
-import card_9 from "../../assets/categorypageAssets/categorycard_9.webp";
+
 import {categories,types} from '../CategoryConstants'
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
@@ -40,11 +34,13 @@ function CategoryPage() {
         <h2 className="types-header">Types</h2>
 
         <div className="types-container">
-          {types.map((type)=>(
+          {types.map((types)=>(
+          <Link className="link" to={`/CategorySelected?value=${types}&key=type`}>
           <div className="type-card">
             <img src={bluebg} alt="" />
-            <span>{type}</span>
+            <span>{types}</span>
           </div>
+          </Link>
           ))}
          
         </div>

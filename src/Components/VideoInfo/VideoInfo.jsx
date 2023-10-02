@@ -15,6 +15,7 @@ import {FiShare2} from "react-icons/fi"
 import image from "../../assets/videoinfoassets/image.jpg";
 import video from "../../assets/videoinfoassets/contagion.mp4";
 import { movieDetail } from "../ApiFetch";
+import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 function VideoInfo() {
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
@@ -145,7 +146,9 @@ function VideoInfo() {
           </div>
         ))}
       </div>
+      <FooterForSignIn/>
     </div>
+
   ) : null;
 }
 
