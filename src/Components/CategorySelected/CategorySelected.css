@@ -6,6 +6,10 @@
     margin-left: 60px;
     margin-top: 40px;
 }
+.value-header{
+    margin-top: 0;
+    padding-top: 20px;
+}
 .filter-btn{
     width: max-content;
     color: #aaa;

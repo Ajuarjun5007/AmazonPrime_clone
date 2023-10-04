@@ -24,7 +24,7 @@ useEffect(() => {
   fetchData();
 }, []);
   return (
-    <>
+  < div style ={{backgroundColor:"#00050d"}}>
       <TopCarousel />
 
       {typeArray.map((type)=>{
@@ -35,7 +35,7 @@ useEffect(() => {
       
       <FooterForSignIn/>
 
-    </>
+    </ div>
   );
 }
 export default LandingPageSignIn;

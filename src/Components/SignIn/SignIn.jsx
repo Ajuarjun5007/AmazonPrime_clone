@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./SignIn.css";
 import { SiPrimevideo } from "react-icons/si";
 import logo from "../../assets/loginassets/primevideoLogo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import {LiaExclamationTriangleSolid} from 'react-icons/lia';
 import { RxTriangleDown } from "react-icons/rx"
-const SignIn = () => {
+import { IdAlert } from "./IdAlert";
+
+const SignIn = (props) => {
+  const location = useLocation();
+  const {NavBarControl}=props;
+
+  useEffect(()=>{
+    NavBarControl(location.pathname);
+  },[])
   return (
-    <>
+    <div className="SignContainer">
       {/* prime logo */}
       <div className="primevideoIcon">
         {/* <SiPrimevideo size={200}/> */}
@@ -15,6 +24,21 @@ const SignIn = () => {
           alt="SignInimg"
         />
       </div>
+
+      {/* error alert */}
+
+      {/* <IdAlert/> */}
+
+      {/* <div className="error-box">
+      <div className="error-alert-container">
+          <LiaExclamationTriangleSolid className="error-icon"/>
+          <div className="error-msg">
+            <p className="problem-text">There was a problem</p>
+            <p className="error-text">we cannot find an account with that email address</p>
+          </div>
+      </div>
+      </div> */}
+
 
       {/* prime form */}
       <div className="login-parent">
@@ -28,7 +52,7 @@ const SignIn = () => {
                 <div className='passwordinput'>
                   <div className='passwordtitle'>
                     <label>Password</label>
-                    <Link to="">Change Password</Link>
+                    <Link className="anchor-tag" to="">Change Password</Link>
                   </div>
                   <input type='password' placeholder='Enter your password'/>
                  
@@ -42,21 +66,23 @@ const SignIn = () => {
               </div>
               <div className='checkboxverify'>
                 <input type='checkbox' ></input>
-                <p> Keep me signed in. <Link>Details</Link> <RxTriangleDown/></p>
+                <p> Keep me signed in. <Link className="anchor-tag">Details</Link> <RxTriangleDown/></p>
               </div>
               <div className='newformtitle'>
                 <p>New to Amazon?</p>
               </div>
               <div className='newformbutton'>
+                <Link to={'/SignUp'}> 
                 <button >Create your Amazon account</button>
+                </Link>
               </div>
           </div>
    {/* footer */}
           <div className='loginpagefooter'>
             <div className='loginpagesupport'>
-              <Link onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&nodeId=200545940">Conditions of Use</Link>
-              <Link onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=200534380">Privacy Notice</Link>
-              <Link onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/help">Help</Link>
+              <Link className="anchor-tag" onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&nodeId=200545940">Conditions of Use</Link>
+              <Link className="anchor-tag" onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=200534380">Privacy Notice</Link>
+              <Link className="anchor-tag" onClick={()=>alert("The Page your Re-Directing is not a source of Amazon Music Clone.")} target='_blank' to="https://www.amazon.in/help">Help</Link>
             </div>
             <div className='loginpagecopyright'>
               &copy; 1996-2023, AmazonClone.com, Inc. or its affiliates
@@ -64,7 +90,7 @@ const SignIn = () => {
           </div>
           </div>
     
-    </>
+    </div>
   );
 };
 

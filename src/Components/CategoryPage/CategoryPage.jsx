@@ -11,7 +11,7 @@ function CategoryPage() {
   
 
   return (
-    <>
+  <div style={{backgroundColor:"#00050d"}} >
       {/* <--- CATEGORY SECTION --->  */}
       <div className="category-header">Categories</div>
       <div className="genres-section">
@@ -47,7 +47,7 @@ function CategoryPage() {
       </div>
 
       <FooterForSignIn />
-    </>
+    </div>
   );
 }
 export default CategoryPage;

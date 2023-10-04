@@ -12,8 +12,7 @@ import {BiLike} from "react-icons/bi"
 import {BiDislike} from "react-icons/bi"
 import {PiConfettiBold} from "react-icons/pi"
 import {FiShare2} from "react-icons/fi"
-import image from "../../assets/videoinfoassets/image.jpg";
-import video from "../../assets/videoinfoassets/contagion.mp4";
+import {BiVolumeMute} from 'react-icons/bi';
 import { movieDetail } from "../ApiFetch";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 function VideoInfo() {
@@ -45,7 +44,7 @@ function VideoInfo() {
   }, [params]);
   console.log('movie',movieInfo.keywords);
   return loaded ? (
-    <div className="container">
+    <div className="container" style={{backgroundColor:"#00050d"}}>
       <div className="visual-container">
         <div
           className={`media ${showImage ? "show" : ""}`}
@@ -67,6 +66,11 @@ function VideoInfo() {
         {/* video-details */}
 
         <div className="video-details">
+          <div className="speaker">
+            <button className="volume-off">
+            <BiVolumeMute className="volume-off-icon"/>
+            </button>
+          </div>
           <div className="video-details-info">
             <div className="video-title">
               <h1>{movieInfo?.title}</h1>

@@ -250,8 +250,12 @@ function NavbarforSignIn() {
               <p>Help</p>
               <p>Watch Anywhere</p>
               <p>Account & Settings</p>
+              <NavLink to='PrimeBenefits'>
               <p className="prime-benefits">Prime Benefits</p>
-              <p className="SignIn">Sign In</p>
+              </NavLink>
+              <NavLink to='SignIn'>
+                <p className="SignIn">Sign In</p>
+             </NavLink>
             </div>
             </div>
             {/* </div> */}

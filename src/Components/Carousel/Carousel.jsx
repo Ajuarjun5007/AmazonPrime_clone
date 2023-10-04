@@ -28,7 +28,7 @@ const CarouselComponent= (props) => {
     },
   };
   return (
-    <>
+    < div className="carousel-container">
     <div  className="Carousel-header">
         <div className="Carousel-header-prime">Prime</div>
         {type}
@@ -73,7 +73,7 @@ const CarouselComponent= (props) => {
           </div>
         ))}
     </Carousel>
-    </>
+    </div>
   );
 };
 export { CarouselComponent };

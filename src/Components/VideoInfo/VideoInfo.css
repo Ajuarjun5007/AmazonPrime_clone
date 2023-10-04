@@ -34,7 +34,35 @@ height: 80%;
   height: 700px;
   display: block;
 }
-
+.speaker{
+  /* height: 60px; */
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  /* background-color:rgba(0,5,13,.4); */
+  background: transparent!important;
+  color: #fff;
+}
+.volume-off{
+  border-radius: 50%;
+  background-color:rgba(0,5,13,.4);
+  /* background-color:red; */
+  color: #fff;
+  padding: 5px;
+  border: none;
+  width:60px;
+  height: 60px;
+}
+.volume-off:hover{
+  background: #191e25;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+.volume-off-icon{
+  height: 36px; 
+  width: 36px;
+  padding:;
+}
 .media video {
   width: 100%;
   height:inherit;

@@ -30,7 +30,7 @@ function CategorySelected() {
 
   const [selectedType, setSelectedType] = useState("All");
   return (
-    <>
+    < div style={{backgroundColor:"#00050d"}}>
     <div className="value-header">{value}</div>
       <div className="filter-btn-container">
         <button onClick={() => setSelectedType("All")} className="filter-btn">
@@ -58,7 +58,7 @@ function CategorySelected() {
       </div>
 
       <FooterForSignIn />
-    </>
+    </div>
   );
 }
 export default CategorySelected;

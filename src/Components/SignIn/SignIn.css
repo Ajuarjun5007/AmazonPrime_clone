@@ -1,10 +1,10 @@
+
 .login-parent{
     display: grid;
     place-items: center;
 }
 .loginpage{
     color: black;
-    background-color: white;
     min-height: 100vh;
     min-width: 100%;
     z-index: 8;
@@ -128,12 +128,12 @@
 }
 
 
-a{
+.anchor-tag{
     color: #0066C0;
     text-decoration: none;
 }
 
-a:hover{
+.anchor-tag:hover{
     color: #c45500;
     text-decoration: underline;
     cursor: pointer;

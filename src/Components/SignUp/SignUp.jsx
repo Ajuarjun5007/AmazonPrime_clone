@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./SignUp.css";
 import { SiPrimevideo } from "react-icons/si";
 import logo from "../../assets/loginassets/primevideoLogo.png";
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const location = useLocation();
+  const { NavBarControl } = props;
+
+  useEffect(() => {
+    NavBarControl(location.pathname);
+  }, []);
   return (
     <>
       {/* prime logo */}
@@ -69,29 +76,31 @@ const SignUp = () => {
 
               <div className="terms">
                 By creating an account, you agree to the amazon
-                <a href=""> Conditions of Use and Privacy Notice.</a>
+                <a href="https://www.primevideo.com/help/ref=av_auth_te?nodeId=202064890">
+                  {" "}
+                  Conditions of Use and Privacy Notice.
+                </a>
               </div>
 
               {/* <div className="sign_in_container"> */}
-                <div className="signin_info">
-                  <p> 
-                  Already have an account?
-                      </p>
+              <div className="signin_info">
+                <p>Already have an account?</p>
+                <Link to={"/SignIn"}>
                   <a href="">Sign In</a>
-                </div>
+                </Link>
+              </div>
               {/* </div> */}
             </form>
-           
           </div>
         </div>
-      <div className="footer">
-              <div className="footer-links">
-              <a href=""> Terms and Privacy Notice </a>
-              <a href=""> Send us feedback</a>
-              <a href="">Help</a>
-              </div>
-              © 1996-2023, Amazon.com, Inc. or its affiliates
-            </div>
+        <div className="footer">
+          <div className="footer-links">
+            <a href=""> Terms and Privacy Notice </a>
+            <a href=""> Send us feedback</a>
+            <a href="">Help</a>
+          </div>
+          © 1996-2023, Amazon.com, Inc. or its affiliates
+        </div>
       </section>
     </>
   );

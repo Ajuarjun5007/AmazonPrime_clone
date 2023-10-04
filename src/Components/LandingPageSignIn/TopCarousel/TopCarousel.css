@@ -8,6 +8,9 @@
   overflow: hidden;
   /* height: 500px; */
 }
+.App{
+  background-color:#00050d!important;
+}
 /* .react-multi-carousel-track{
   /* height: 500px; */
 } */

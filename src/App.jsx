@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import './App.css'
 import LandingPageSignout from './Components/LandingPageSignout/LandingPageSignout.jsx'
 import LandingPageSignIn from './Components/LandingPageSignIn/LandingPageSignIn'
@@ -6,19 +6,30 @@ import VideoInfo from './Components/VideoInfo/VideoInfo.jsx'
 import CategoryPage from './Components/CategoryPage/CategoryPage'
 import Footer from './Components/Footer/Footer'
 import CategorySelected from './Components/CategorySelected/CategorySelected'
-import { BrowserRouter, Routes,Route } from 'react-router-dom'
+import { BrowserRouter, Routes,Route, useLocation } from 'react-router-dom'
 import NavbarforSignIn from './Components/NavbarForSignIn/NavbarForSignIn'
 import FooterForSignIn from './Components/FooterforSignIn/FooterForSIgnIn'
 import SignIn from './Components/SignIn/SignIn'
 import SignUp from './Components/SignUp/SignUp'
+import { PrimeBenefits } from './Components/PrimeBenefits/PrimeBenefits'
 
 
 function App() {
-
+ const [isNavBarShow,SetIsNavBarShow]=useState(false);
+        
+      const NavBarControl =((value)=>{
+        console.log("res",value);
+      if(value == '/SignIn' || value == '/SignUp'){
+            SetIsNavBarShow(true);
+      }
+      })
+    
+      console.log(isNavBarShow);
   return (
     <>
+     
+      {!isNavBarShow  && <NavbarforSignIn/>}
     
-     <NavbarforSignIn/>
     <Routes>
       {/* <LandingPageSignout /> */}
       <Route path='/' element={<LandingPageSignout/>}/>
@@ -27,7 +38,14 @@ function App() {
       <Route path='/videodetails/:id' element={<VideoInfo/>}/>
       <Route path='/CategorySelected' element={<CategorySelected/>}/>
       {/* <VideoInfo/> */}
-      {/* <Signup/> */}
+    <Route path='/SignIn' element={<SignIn 
+    NavBarControl={NavBarControl}
+  />}/>
+<Route path='/SignUp' element={<SignUp
+    NavBarControl={NavBarControl}
+  />}/>
+  <Route path='/PrimeBenefits' element={PrimeBenefits}/>
+      {/* <SignIn/> */}
       {/* <CategoryPage/> */}
       <Route path='/categorypage' element={<CategoryPage/>}/> 
       {/* <Footer/> */}
