@@ -44,7 +44,7 @@ function App() {
 <Route path='/SignUp' element={<SignUp
     NavBarControl={NavBarControl}
   />}/>
-  <Route path='/PrimeBenefits' element={PrimeBenefits}/>
+  <Route path='/PrimeBenefits' element={<PrimeBenefits/>}/>
       {/* <SignIn/> */}
       {/* <CategoryPage/> */}
       <Route path='/categorypage' element={<CategoryPage/>}/> 

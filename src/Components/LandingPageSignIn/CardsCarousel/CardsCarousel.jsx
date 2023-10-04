@@ -35,6 +35,7 @@ function CardsCarousel({moviesInfo,type}) {
   //     console.log("item : ",item);
   //   }
   // }
+  // console.log("movie",moviesInfo);
 
 
   return (
