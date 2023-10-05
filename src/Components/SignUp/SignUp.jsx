@@ -14,7 +14,7 @@ const SignUp = (props) => {
   return (
     <>
       {/* prime logo */}
-      <div className="primevideoIcon">
+      <div className="primevideoblackIcon">
         {/* <SiPrimevideo size={200}/> */}
         <img
           src="https://m.media-amazon.com/images/G/01/digital/video/avod/AV_Logo_150._CB430404026_.png"

@@ -2,8 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 import { P, DefaultPlayer as Video } from "react-html5video";
-import johnwicktrailer from "../../assets/videoinfoassets/johnwicktrailer.mp4";
-import johnwickposter from "../../assets/videoinfoassets/johnwick.webp";
 import "./VideoInfo.css";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { BiSolidRightArrow } from "react-icons/bi";

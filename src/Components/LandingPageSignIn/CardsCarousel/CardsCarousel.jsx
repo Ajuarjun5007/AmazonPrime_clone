@@ -48,7 +48,6 @@ function CardsCarousel({moviesInfo,type}) {
           responsive={responsive}
           showDots={true}
           centerMode={true}
-          
           renderButtonGroupOutside={true}
         >
           {moviesInfo && moviesInfo

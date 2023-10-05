@@ -3,11 +3,12 @@ import "react-multi-carousel/lib/styles.css";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./TopCarousel.css";
 import { useState, useEffect } from "react";
-
+import { P, DefaultPlayer as Video } from "react-html5video";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BiInfoCircle } from "react-icons/bi";
 import { movieList } from "../../ApiFetch";
+import { Link } from "react-router-dom";
 
 function TopCarousel() {
   const responsive = {
@@ -25,10 +26,22 @@ function TopCarousel() {
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      slidesToSlide: 1, 
     },
   };
+  // const [showImage, setShowImage] = useState(true);
+  // const [showVideo, setShowVideo] = useState(false);
   const [moviesInfo, setMoviesInfo] = useState([]);
+
+  // useEffect(() => {
+  //   const imageTimeout = setTimeout(() => {
+  //     setShowImage(false);
+  //     setShowVideo(true);
+  //   }, 5000);
+
+  //   return () => clearTimeout(imageTimeout);
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,6 +53,7 @@ function TopCarousel() {
     };
     fetchData();
   }, []);
+
   return (
     <>
       <div className="App">
@@ -50,7 +64,7 @@ function TopCarousel() {
           partialVisible={true}
           renderDotsOutside={true}
           renderButtonGroupOutside={true}
-          autoPlay={false}
+          autoPlay={true}
           infinite={true}
           autoPlaySpeed={3000}
         >
@@ -58,6 +72,7 @@ function TopCarousel() {
           {moviesInfo &&
             moviesInfo.slice(0, 10)
             .map((item, index) => (
+              <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
               <div className="poster-items">
                 <div className="poster-content">
                   <div className="poster-title">
@@ -84,9 +99,28 @@ function TopCarousel() {
                     </div>
                   </div>
                 </div>
+               
                 <img src={item.thumbnail} alt="" />
               </div>
+              </Link>
             ))}
+            {/* <div
+      className={`media ${showImage ? "show" : ""}`}
+      style={{ display: showImage ? "block" : "none" }}
+    >
+      <img src={item.thumbnail} alt="Image" />
+    </div>
+
+    <div
+      className={`media ${showVideo ? "show" : ""}`}
+      style={{ display: showVideo ? "block" : "none" }}
+    >
+      {showVideo && (
+        <Video autoPlay muted loop controls>
+          <source src={item.video_url} type="video/mp4" />
+        </Video>
+      )}
+    </div> */}
 
        
         </Carousel>

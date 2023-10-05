@@ -65,7 +65,7 @@ height: 80%;
 }
 .media video {
   width: 100%;
-  height:inherit;
+  /* height:inherit; */
   top: 0;
   left: 0;
 }
