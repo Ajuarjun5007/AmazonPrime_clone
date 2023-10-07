@@ -1,6 +1,5 @@
 /* VideoInfo.css */
 @import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans&family=Kanit:ital,wght@1,700&family=Merriweather&family=Merriweather+Sans&family=Nunito&family=Nunito+Sans&family=Quattrocento&family=Quattrocento+Sans&family=Roboto&family=Roboto+Mono&family=Roboto+Slab&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans&family=Kanit:ital,wght@0,400;1,700&family=Merriweather&family=Merriweather+Sans&family=Nunito&family=Nunito+Sans&family=Quattrocento&family=Quattrocento+Sans&family=Roboto&family=Roboto+Mono&family=Roboto+Slab&display=swap'); */
 .container {
   display: flex;
   flex-direction: column;
@@ -13,17 +12,19 @@
 .visual-container{
 position: relative;
 width: 100%;
-height: 80%;
+height: 600px;
 /* right: 200px; */
+/* border: 2px solid red; */
+margin-right:0px;
+
 }
 .media{
   width: 100%;
-  height: 100%;
+  height: inherit;
    overflow: hidden;
 }
 
 .show {
-  /* opacity: 1; */
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -31,7 +32,7 @@ height: 80%;
 
 .media img {
   width: 100%;
-  height: 700px;
+  height: inherit;
   display: block;
 }
 .speaker{
@@ -52,6 +53,7 @@ height: 80%;
   border: none;
   width:60px;
   height: 60px;
+  position: relative;
 }
 .volume-off:hover{
   background: #191e25;
@@ -61,11 +63,19 @@ height: 80%;
 .volume-off-icon{
   height: 36px; 
   width: 36px;
-  padding:;
+  /* opacity: 0; */
+}
+.volume-on-icon{
+  position: absolute;
+  height: 36px; 
+  width: 36px;
+  top: 10px;
+  left: 10px;
+  /* opacity: 0; */
 }
 .media video {
   width: 100%;
-  /* height:inherit; */
+  height:inherit;
   top: 0;
   left: 0;
 }
@@ -74,7 +84,7 @@ height: 80%;
 .media.show img {
   /* opacity: 1; */
   position: relative;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .media:not(.show) img {
@@ -92,7 +102,6 @@ height: 80%;
 
 /* details styling */
 .video-details{
-  background:transparent;
   position: absolute;
   display: block;
   height: 100%;
@@ -102,8 +111,9 @@ height: 80%;
   left:0;
   right: 0;
   bottom: 0;
+  background: linear-gradient(0deg,#00050d, 40%,#0c111b00);
   top: 0;
-
+  /* transform: translateX(-50%) translateY(-50%); */
 }
 .video-title{
   padding-top:20px ;
@@ -111,14 +121,16 @@ height: 80%;
   background: transparent;
   width: 50%;
   line-height: 60px;
+  animation: bounce 1.5s;
+
 }
 .video-title h1{
   background: transparent;
   color:white;
   font-size: 40px;
-  font-weight: 100;
-  font-family: 'Kanit', sans-serif;
-  margin-left: 10px;
+  font-weight: 700;
+  /* font-family: 'Kanit', sans-serif; */
+  margin-left: 0px;
 }
 .video-details-info{
   padding-top: 20px;
@@ -126,10 +138,9 @@ height: 80%;
   width: 100%;
   height: max-content;
   height: 100%;
-  /* background: transparent; */
-  background: linear-gradient(100deg,#00050d, 30%,#0c111b00);
   display: block;
   align-content: flex-start;
+  /* animation: bounce 5s; */
   /* border: 2px solid wheat; */
 }
 /* description styles */
@@ -143,6 +154,9 @@ height: 80%;
   font-size: 25px;
   font-family: 'Roboto', sans-serif;
   width: 50%;
+  /* animation: bounce 5s; */
+  animation: bounce 1.5s;
+
 }
 .video-description p{
   background: transparent;
@@ -199,7 +213,7 @@ height: 80%;
   font-size: 30px;
   font-weight: 600;
   color: #aaa;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 .cast-section span{
   font-size: 40px;
@@ -245,6 +259,7 @@ height: 80%;
   padding-left: 30px;
   margin-top: 50px;
   gap: 20px;
+  animation: bounce 1.5s;
 }
 .play-text{
   width: 60px;
@@ -336,17 +351,17 @@ height: 80%;
   position: relative;
   background: transparent;
 }
-/* .btn-msg::before{
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translateX(-50%);
-} */
+
 .access-btn-container:hover .btn-msg{
   visibility: visible;
   display: flex;
   top: -50%;
   opacity: 1;
   transition: 0.6s ease-in-out;
+}
+/* animate__fadeInUp */
+/* .bounceInBottom { animation-name: bounceInBottom } */
+@keyframes bounce {
+    0% { transform: translate3d(0, 100%, 0) }
+    58% { transform: translate3d(0, 0px, 0) }
 }

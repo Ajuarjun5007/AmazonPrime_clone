@@ -199,12 +199,14 @@ function NavbarforSignIn() {
                   >
                     All
                   </li>
+                  <NavLink to='Watchlist'>
                   <li
                     className="nav-bar-items-list myStuff-dropdown-items"
                     onClick={handleMyStuffNavItemClick}
                   >
                     Watchlist
                   </li>
+                  </NavLink>
                   <li
                     className="nav-bar-items-list myStuff-dropdown-items"
                     onClick={handleMyStuffNavItemClick}

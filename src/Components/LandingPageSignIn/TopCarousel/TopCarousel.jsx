@@ -9,7 +9,7 @@ import { FiPlus } from "react-icons/fi";
 import { BiInfoCircle } from "react-icons/bi";
 import { movieList } from "../../ApiFetch";
 import { Link } from "react-router-dom";
-
+import 'animate.css';
 function TopCarousel() {
   const responsive = {
     desktop: {
@@ -64,7 +64,7 @@ function TopCarousel() {
           partialVisible={true}
           renderDotsOutside={true}
           renderButtonGroupOutside={true}
-          autoPlay={true}
+          autoPlay={false}
           infinite={true}
           autoPlaySpeed={3000}
         >
@@ -74,7 +74,7 @@ function TopCarousel() {
             .map((item, index) => (
               <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
               <div className="poster-items">
-                <div className="poster-content">
+                <div className="poster-content ">
                   <div className="poster-title">
                     <h2>{item.title}</h2>
                   </div>

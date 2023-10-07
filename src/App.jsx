@@ -3,6 +3,7 @@ import './App.css'
 import LandingPageSignout from './Components/LandingPageSignout/LandingPageSignout.jsx'
 import LandingPageSignIn from './Components/LandingPageSignIn/LandingPageSignIn'
 import VideoInfo from './Components/VideoInfo/VideoInfo.jsx'
+import { WatchList } from './Components/WatchList/WatchList'
 import CategoryPage from './Components/CategoryPage/CategoryPage'
 import Footer from './Components/Footer/Footer'
 import CategorySelected from './Components/CategorySelected/CategorySelected'
@@ -45,6 +46,7 @@ function App() {
     NavBarControl={NavBarControl}
   />}/>
   <Route path='/PrimeBenefits' element={<PrimeBenefits/>}/>
+  <Route path='/Watchlist' element={<WatchList/>}/>
       {/* <SignIn/> */}
       {/* <CategoryPage/> */}
       <Route path='/categorypage' element={<CategoryPage/>}/> 

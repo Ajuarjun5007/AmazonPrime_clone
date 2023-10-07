@@ -11,24 +11,7 @@
 .App{
   background-color:#00050d!important;
 }
-/* .react-multi-carousel-track{
-  /* height: 500px; */
-} */
-/* .react-multi-carousel-item{
-  display: flex;
-  justify-content: center;
-  /* height: 500px; */
-  /* position: relative; */
-} */
-/* .react-multiple-carousel__arrow{
-  position: relative;
-  
-} */
-.react-multiple-carousel__arrow{
-  /* left: calc(11% + 100px); */
-  /* left: 20px!important;
-  top: 400px!important; */
-}
+
 .react-multiple-carousel__arrow--right {
   right: calc(0% + 1px);
 }
@@ -79,8 +62,9 @@ align-items: center;
   z-index:23;
   color: aliceblue;
   height:100%;
+  border: none;
   border-radius: 20px;
-  background: linear-gradient(10deg,#00050d, 20%,#0c111b00);
+  background: linear-gradient(100deg,#00050d, 50%,#0c111b00);
 }
 .poster-title{
   background: transparent!important;
@@ -88,6 +72,7 @@ align-items: center;
   margin-top: 100px;
   margin-left: 60px;
   width: 50%;
+  animation: bounce 1.5s;
   }
   .poster-title h2{
   background: transparent!important;
@@ -99,7 +84,7 @@ align-items: center;
     margin-top: 30px;
     /* height: 50%; */
   background: transparent!important;
-
+  animation: bounce 1.5s;
   }
   .play{
     height: 60px;
@@ -167,9 +152,12 @@ align-items: center;
   display: flex;
   align-items: center;
   height: max-content;
+  width: max-content;
   margin-top: 60px;
   margin-left: 60px;
   background-color: transparent;
+  animation: bounce 1s;
+
 }
 .prime-details img{
   width: 30px;
@@ -184,5 +172,8 @@ align-items: center;
   left: 10px;
 }
 
-/* media control*/
-
+/* animation */
+@keyframes bounce {
+  0% { transform: translate3d(0, 100%, 0) }
+  58% { transform: translate3d(0, 0px, 0) }
+}
