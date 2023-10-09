@@ -41,7 +41,7 @@ function NavbarforSignIn() {
     setIsStoreListClicked(false);
     setIsMyStuffListClicked(false);
   };
-
+  
   return (
     <>
       <div className="navbar-parent">
@@ -219,9 +219,11 @@ function NavbarforSignIn() {
           </ul>
 
           <div className="navbar-icons">
+            {/* search bar */}
             <div
               onClick={toggleSearchBar}
               className="navbar-icons-item hover-down-search"
+              style={{ background: isOpen ? '#191e25' : 'initial' }}
             >
               {isOpen ? (
                 <AiOutlineClose className="close-icon" />
@@ -229,6 +231,7 @@ function NavbarforSignIn() {
                 <BiSearch className="search-icon" />
               )}
 
+            </div>
               <div className={`search-bar-container ${isOpen ? "open" : ""}`}>
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
@@ -240,7 +243,6 @@ function NavbarforSignIn() {
                   placeholder="Search"
                 />
               </div>
-            </div>
               {/* <div className="navbar-items"> */}
             <div className="navbar-icons-item hover-down-user">
               <img

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import "./FrontpagecardsSignout.css";
+import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 function FrontpagecardsSignOut() {
   return (
     <>
@@ -17,7 +19,9 @@ function FrontpagecardsSignOut() {
               Watch the latest movies, TV shows, and award-winning Amazon
               Originals
             </p>
+            <Link to='SignIn'>
             <button>Sign in to join Prime</button>
+            </Link>
           </div>
         </div>
 
@@ -112,7 +116,7 @@ function FrontpagecardsSignOut() {
             The biggest movies and TV shows are always better on a big screen. Simply plug in your Amazon Fire TV Stick and stream on any HDTV. Press the voice button on the remote 
             and say the name of the title you want to watch to find it in seconds.
             </p>
-            <button>Get Started</button>
+            <button className="getStarted">Get Started</button>
           </div>
         </div>
 
@@ -126,8 +130,8 @@ function FrontpagecardsSignOut() {
               <h1>Family Friendly</h1>
             </div>
             <p>With easy to use Parental Controls and a dedicated kids page, enjoy secure, ad-free kids entertainment. Kids can enjoy popular TV shows like Peppa Pig, Powerpuff Girls, and Chhota Bheem.
-              Get started</p>
-            <button>Rent now</button>
+              </p>
+            <button className="getStarted">Get started</button>
           </div>
         </div>
       </div>

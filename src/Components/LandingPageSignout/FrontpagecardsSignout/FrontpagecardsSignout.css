@@ -18,7 +18,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-size: cover; */
 }
 .Signoutposter-2{
     width: 100%;
@@ -36,65 +35,72 @@
 .Ad-1{
     position:absolute;
     left: 5%;
-    width: 45%;
-    letter-spacing: 2px;
+    width: 40%;
+    /* letter-spacing: 2px; */
     margin-top: -40%;
     color:#fff;
     background-color: transparent;
 } 
- .Ad-1 p{
+ .Ad-1 p,.Ad-2{
     /* position:absolute; */
-    font-size: 35px;
+    font-size: 21px;
     background-color: transparent;
+    margin:20px 0px ;
+
 }
-.heading-1{
+.heading-1 ,.heading-2{
     /* position:absolute; */
-    letter-spacing: 2px;
-     font-size: larger;
-    line-height:5.1rem;
+    letter-spacing: 3px;
+    line-height:3.1rem;
     background-color: transparent;
+    margin-bottom: 10px;
 }
-.heading-1 h1{
+.heading-1 h1,.heading-2 h1{
     background-color: transparent;
+    font-size: 38px;
 }
- .Ad-1 button{
+ .Ad-1 button,.Ad-2 button{
     /* position:absolute; */
     padding: 14px 20px;
-    width: 380px;
-    height: 60px;
+    width: 280px;
+    /* height: 60px; */
     background-color: #0f79af;
     color: #fff;
     font-weight: 400;
-    font-size: 27px;
+    font-size: 17px;
     line-height: 20px;
     margin-top: 10px;
     border-style: solid;
     border: none;
     border-radius: 3px;
+    cursor:pointer;
+    margin:10px 0px ;
 } 
-.Ad-1 button:hover{
+button:hover,.Ad-2 button:hover{
     background-color: #00a0d6;
     transition: all .2s ease-out;
 }
-
+.getStarted:hover{
+    background-color: #00a0d6;
+    transition: all .2s ease-out;
+}
 /* Ad 2 */
 .Ad-2{
     position:absolute;
     right:3%;
-    width: 40%;
-    letter-spacing: 2px;
-    margin-top: -38%;
+    width: 45%;
+    letter-spacing:2px;
+    margin-top:-45%;
     color:#fff;
-    background-color: transparent;
+    background-color:0.2 #333;
 } 
 
-.Ad-2 p{
-    /* position:absolute; */
-    font-size: 32px;
-    margin-top: 20px;
-    background-color: transparent;
-}
-.heading-2{
+ .Ad-2 p{
+    padding-left:3px ;
+    /* background-color: #0f171e; */
+    /* background: ; */
+ }
+/*.heading-2{
     letter-spacing: 2px;
     background-color: transparent;
 }
@@ -114,7 +120,8 @@
     border-style: solid;
     border-color:#0f79af;
     border-radius: 3px;
-}
+} */
+
 /* grid cards */
 .secondDiv{
     top: 0;
@@ -127,30 +134,33 @@
     padding:30px 60px ;  
 }
 .secondDiv-content{
-    display: flex;
-    margin-top: 4px;
-    flex-direction: column;
+    display: block;
+    /* margin-top:%; */
+    /* flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background-color:white!important;
-    width: 50%;
+    width:50%;
     height: 100%;
     /* border: 2px solid black; */
 }
 .yourfavouritediv{
-    font-size: 3.5rem;
-    background-color:white!important;
+    font-size:38px;
+    font-weight: 100;
     margin-bottom: 30px;
+    color: #000000!important;
 }
 .firstptag{
-    font-size: 30px;
-    font-weight:lighter;
+    font-size: 21px;
+    /* font-weight:lighter; */
+    color: black!important  ;
+
     background-color:white!important;
 }
 
 .gridcontainer{
     right: 30px;
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     background-color: white;

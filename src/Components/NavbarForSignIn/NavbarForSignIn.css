@@ -72,9 +72,11 @@
 }
 .close-icon{
     color:#aaa;
-    
     background-color: #191e25;
     opacity: 1;
+    font-size: 35px;
+    display: flex;
+    align-self: center;
 }
 .arrow-icon{
     padding-left: 5px;
@@ -114,9 +116,12 @@
     }
     .navbar-icons-item{
         padding: 0px 20px;
-        /* display: grid;
-        place-items: center; */
+        display: grid;
+        /* place-items: center; */
         height: inherit;
+    }
+    .navbar-icons-item:hover{
+        background-color: #191e25;
     }
  .hover-down:hover{
     .arrow-icon{
@@ -180,12 +185,12 @@
      background-color:#191e25;
     display: block;
     }
-    .hover-down-search:hover{
+    /* .hover-down-search:hover{
         background-color:#191e25;
        }
-    .hover-down-search:hover .search-icon{
+    .hover-down-search:hover{ 
     background-color:#191e25;
-    }
+    } */
     .hover-down-user:hover img{
     background-color:#191e25;
     }
