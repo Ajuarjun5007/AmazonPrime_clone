@@ -6,6 +6,7 @@ import { FiPlus } from "react-icons/fi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link,useLocation } from "react-router-dom";
+import {addtoWatchlist} from '../../commons/WatchlistService'
 
 function CardsCarousel({moviesInfo,type}) {
 
@@ -26,6 +27,16 @@ function CardsCarousel({moviesInfo,type}) {
       slidesToSlide: 1,
     },
   };
+
+
+  const addMovieToWatchList = (movie) => {
+    addtoWatchlist(movie._id).then(response=> {
+      console.log("repo",response)
+    })
+    .catch(err=>{
+      console.log("error",err)
+    })
+  }
 
  
  
@@ -58,6 +69,8 @@ function CardsCarousel({moviesInfo,type}) {
                 
                 <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
                 <img src={item.thumbnail} alt="" className="image-item" />
+                </Link>
+
                 <div className="card-details">
                   <div className="prime-content">
                     <img src={bluetick} alt="" />
@@ -72,7 +85,7 @@ function CardsCarousel({moviesInfo,type}) {
                     </button>
                     <p>Watch Now</p>
                     <div id="watchlist-icon">
-                      <button id="watchlist-icon-button">
+                      <button onClick={()=> {addMovieToWatchList(item)}} id="watchlist-icon-button">
                         <FiPlus id="plus-icon" />
                       </button>
                       <button id="watchlist-icon-button">
@@ -81,8 +94,7 @@ function CardsCarousel({moviesInfo,type}) {
                     </div>
                   </div>
                 </div>
-                </Link>
-
+               
               </div>
             ))}
         </Carousel>

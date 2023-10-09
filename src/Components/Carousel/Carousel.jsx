@@ -9,7 +9,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
-
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },

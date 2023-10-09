@@ -1,5 +1,6 @@
 .watchList-parent{
     background-color: #00050d;
+    height: 100vh;
 }
 
 .WatchList-header{
@@ -48,3 +49,8 @@
     transition: 0.3s ease-in-out;
   }
   
+  .watchList-cards{
+    width: max-content;
+    display: flex;
+    flex-wrap: wrap;
+  }

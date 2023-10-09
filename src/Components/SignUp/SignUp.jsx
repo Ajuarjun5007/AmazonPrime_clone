@@ -3,10 +3,42 @@ import { Link, useLocation } from "react-router-dom";
 import "./SignUp.css";
 import { SiPrimevideo } from "react-icons/si";
 import logo from "../../assets/loginassets/primevideoLogo.png";
-
+import {signup} from './SignUpService'
 const SignUp = (props) => {
   const location = useLocation();
   const { NavBarControl } = props;
+
+
+  const register=  (event) => {
+    event.preventDefault();
+    console.log(event, "signup")
+    const name =  event.target[0].value;
+    const email =  event.target[1].value;
+    const password =  event.target[2].value;
+    const confirmPassword =  event.target[3].value;
+    if(password !== confirmPassword){
+       
+    }
+    const signupRequest = {
+      name :name,
+      email: email,
+      password: password,
+      appType : "ott"
+      };
+      signup(signupRequest)
+      .then((response) => {
+        console.log("res", response);
+
+        localStorage.setItem('userInfo', JSON.stringify(response.data.data.user))
+        localStorage.setItem('token', response.data.token)
+
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
+  }
+  
 
   useEffect(() => {
     NavBarControl(location.pathname);
@@ -29,7 +61,7 @@ const SignUp = (props) => {
             {/* <img src="./blacklogoamazon.png" alt="signupimg" /> */}
           </div>
           <div className="sign_form">
-            <form>
+            <form onSubmit={register}>
               <h1>Create account</h1>
               <div className="form_data">
                 <div className="form_data_label">
@@ -86,7 +118,7 @@ const SignUp = (props) => {
               <div className="signin_info">
                 <p>Already have an account?</p>
                 <Link to={"/SignIn"}>
-                  <a href="">Sign In</a>
+                  <a href="#">Sign In</a>
                 </Link>
               </div>
               {/* </div> */}
@@ -95,9 +127,9 @@ const SignUp = (props) => {
         </div>
         <div className="footer">
           <div className="footer-links">
-            <a href=""> Terms and Privacy Notice </a>
-            <a href=""> Send us feedback</a>
-            <a href="">Help</a>
+            <a href="#"> Terms and Privacy Notice </a>
+            <a href="#"> Send us feedback</a>
+            <a href="#">Help</a>
           </div>
           © 1996-2023, Amazon.com, Inc. or its affiliates
         </div>

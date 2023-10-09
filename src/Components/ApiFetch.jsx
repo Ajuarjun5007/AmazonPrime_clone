@@ -1,12 +1,12 @@
 import axios from "axios";
 const url = "https://academics.newtonschool.co/api/v1/"
-const headers = {
+export const headers = {
   "Content-Type": "application/json",
   projectId: "p7nvgrsg3fdf",
 };
 const instance = axios.create({
   baseURL: url,
-  timeout: 1000,
+  // timeout: 5000,
   headers
 });
 const movieList = async (type) => {

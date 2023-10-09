@@ -26,7 +26,7 @@ useEffect(() => {
   // console.log("rsult",moviesInfo)
   return (
   < div style ={{backgroundColor:"#00050d"}}>
-      <TopCarousel  moviesInfo={moviesInfo}/>
+      <TopCarousel  moviesInfo={moviesInfo} />
 
       {typeArray.map((type)=>{
         return  <CardsCarousel key={type} 
