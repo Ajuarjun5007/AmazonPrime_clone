@@ -20,7 +20,7 @@ function CategoryPage() {
           {categories.map((category) => (
              <Link className="link" to={`/CategorySelected?value=${category}&key=keywords`}>
             <div className="genres-card">
-              <img src={card_1} alt="" />
+                <img src={card_1} alt="" />
               {/* <Link className="link" to={`/home?value=${category}&key=keywords`}>{category}</Link> */}
              <span className="link">{category}</span>
             </div>

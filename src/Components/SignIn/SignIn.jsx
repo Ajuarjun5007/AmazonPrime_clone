@@ -48,7 +48,9 @@ const SignIn = (props) => {
     } else {
       password = event.target[0].value;
     }
+    
     event.preventDefault();
+
     if (user.status === undefined && user.username === undefined) {
       const usernameTypeForValidation= isNaN(username) ? "email" : "phone number"
       setUsernameType(usernameTypeForValidation);
