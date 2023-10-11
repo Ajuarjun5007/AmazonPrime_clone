@@ -14,7 +14,6 @@ function SignInProvider(props) {
     
   };
 
-  console.log("ans");
   return (
     <>
       <UserContext.Provider value={context}>

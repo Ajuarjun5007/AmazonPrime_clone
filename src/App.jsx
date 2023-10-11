@@ -16,19 +16,17 @@ import { PrimeBenefits } from "./Components/PrimeBenefits/PrimeBenefits";
 import { SignInProvider } from "./Components/SignIn/SignInProvider";
 
 function App() {
-  const [isNavBarShow, SetIsNavBarShow] = useState(false);
+  const [isNavBarShow, SetIsNavBarShow] = useState(true);
 
   const NavBarControl = (value) => {
-    console.log("res", value);
     if (value == "/SignIn" || value == "/SignUp") {
-      SetIsNavBarShow(true);
+      SetIsNavBarShow(false);
     }
   };
 
-  console.log(isNavBarShow);
   return (
     <>
-      {!isNavBarShow && <NavbarforSignIn />}
+      {isNavBarShow && <NavbarforSignIn />}
 
       <Routes>
         {/* <LandingPageSignout /> */}

@@ -15,7 +15,7 @@ const EMAIL_EXPRESSION = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\
 
 const SignIn = (props) => {
   const location = useLocation();
-
+    
   const { NavBarControl } = props;
 
   const formRef = useRef();
@@ -25,17 +25,19 @@ const SignIn = (props) => {
   }, []);
 
   const { search } = useLocation();
+  // console.log(location)
   const params = new URLSearchParams(search);
-  console.log(params, "params");
+  // console.log(params)
   const key = params.get("status");
   const user = useContext(UserContext);
+  // console.log(params)
+  
   const [hasCompletedFirstStep, setHasCompletedFirstStep] = useState(false);
   const [usernameType, setUsernameType] = useState(null);
 
   useEffect(() => {
     if (key === null) {
       setHasCompletedFirstStep(false);
-      console.log("key", key);
     }
   }, [key]);
   const navigate = useNavigate();
@@ -71,8 +73,7 @@ const SignIn = (props) => {
       login(user.username, password)
         .then((response) => {
           localStorage.setItem('userInfo', JSON.stringify(response.data.data))
-          localStorage.setItem('token', response.data.token)
-
+          localStorage.setItem('token', response.data.token);
           navigate("/home");
         })
         .catch((error) => {
@@ -134,7 +135,6 @@ const SignIn = (props) => {
                 />
               </div>
             )}
-
             {user.status !== undefined && hasCompletedFirstStep && (
               <div>
                 <div className="id-creds">
@@ -189,7 +189,7 @@ const SignIn = (props) => {
           <div className="checkboxverify">
             <input type="checkbox"></input>
             <p>
-              {" "}
+              {/* {" "} */}
               Keep me signed in. <Link className="anchor-tag">
                 Details
               </Link>{" "}
@@ -207,7 +207,7 @@ const SignIn = (props) => {
                 </Link>
               </div>
             </div>
-          )}
+           )}
         </div>
         {/* footer */}
         <div className="loginpagefooter">

@@ -3,42 +3,71 @@ import { Link, useLocation } from "react-router-dom";
 import "./SignUp.css";
 import { SiPrimevideo } from "react-icons/si";
 import logo from "../../assets/loginassets/primevideoLogo.png";
-import {signup} from './SignUpService'
+import { signup } from "./SignUpService";
+import { IdAlert } from "../SignIn/IdAlert";
 const SignUp = (props) => {
+  const [nameCheck, setNameCheck] = useState(false);
+  const [emailCheck, setEmailCheck] = useState(false);
+  const [passwordCheck, setPasswordCheck] = useState("");
+  const [validCredentials, setValidCredentials] = useState(true);
+  const [errormsg, setErrormsg] = useState("null");
+
   const location = useLocation();
   const { NavBarControl } = props;
 
-
-  const register=  (event) => {
+  const register = (event) => {
     event.preventDefault();
-    console.log(event, "signup")
-    const name =  event.target[0].value;
-    const email =  event.target[1].value;
-    const password =  event.target[2].value;
-    const confirmPassword =  event.target[3].value;
-    if(password !== confirmPassword){
-       
+
+    const name = event.target[0].value;
+    const email = event.target[1].value;
+    const password = event.target[2].value;
+    const confirmPassword = event.target[3].value;
+
+    if (name !== "") {
+      setNameCheck(true);
     }
-    const signupRequest = {
-      name :name,
+
+    if (email.includes("@") && ".com") {
+      setEmailCheck(true);
+    }
+
+    if (password !== "") {
+      setPasswordCheck(true);
+    }
+
+    if (passwordCheck && emailCheck && nameCheck) {
+      setValidCredentials(true);
+    } else {
+      setValidCredentials(false);
+    }
+
+    let signupRequest = [];
+    // useEffect(() => {
+    signupRequest = {
+      name: name,
       email: email,
       password: password,
-      appType : "ott"
-      };
-      signup(signupRequest)
+      appType: "ott",
+    };
+    console.log("done");
+
+    signup(signupRequest)
       .then((response) => {
-        console.log("res", response);
-
-        localStorage.setItem('userInfo', JSON.stringify(response.data.data.user))
-        localStorage.setItem('token', response.data.token)
-
+        console.log("response", response.data.data);
+        localStorage.setItem(
+          "userInfo",
+          JSON.stringify(response.data.data.user)
+        );
+        console.log("res", response.data.data.user.email);
+        localStorage.setItem("token", response.data.token);
         navigate("/home");
       })
       .catch((error) => {
-        console.log("err", error);
+        setErrormsg(error.response.data.message);
+        console.log("err", error.response.data.message);
       });
-  }
-  
+    // },[validCredentials]);
+  };
 
   useEffect(() => {
     NavBarControl(location.pathname);
@@ -54,12 +83,15 @@ const SignUp = (props) => {
         />
       </div>
 
+      {validCredentials == false && <IdAlert errormsg={errormsg} />}
+
       {/* prime form */}
       <section>
         <div className="sign_container">
           <div className="sign_header">
             {/* <img src="./blacklogoamazon.png" alt="signupimg" /> */}
           </div>
+
           <div className="sign_form">
             <form onSubmit={register}>
               <h1>Create account</h1>
@@ -102,6 +134,7 @@ const SignUp = (props) => {
                 </div>
                 <input type="password" name="repassword" id="passwordg" />
               </div>
+
               <button type="submit" className="signin_btn">
                 Create your Amazon account
               </button>
