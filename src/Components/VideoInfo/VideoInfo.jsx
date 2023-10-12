@@ -19,11 +19,11 @@ function VideoInfo() {
   const [showVideo, setShowVideo] = useState(false);
   const [movieInfo, setMovieInfo] = useState({});
   const [isMuted, setIsMuted] = useState(true);
-
+  const [fullVideoShow,setFullVideoShow]=useState(false);
   const [loaded, setLoaded] = useState(false);
 
   const params = useParams();
-  // console.log("pea",params)
+  console.log("pea",params)
 
   useEffect(() => {
     const imageTimeout = setTimeout(() => {
@@ -33,10 +33,10 @@ function VideoInfo() {
 
     return () => clearTimeout(imageTimeout);
   }, []);
-
   useEffect(() => {
     if (params.id !== undefined) {
-      movieDetail(params.id).then((res) => {
+      movieDetail(params.id)
+      .then((res) => {
         setMovieInfo(res.data);
         setLoaded(true);
       });
@@ -51,8 +51,11 @@ function VideoInfo() {
   const handleVideoEnded = () => {
     setShowImage(true);
     setShowVideo(false);
-    console.log("hi 123")
   };
+  // set Full video
+  const videoSizeHandler=()=>{
+    setFullVideoShow(true);
+  }
   return loaded ? (
     <div className="container" style={{ backgroundColor: "#00050d" }}>
       <div className="visual-container">
@@ -65,6 +68,8 @@ function VideoInfo() {
 
         <div
           className={`media ${showVideo ? "show" : ""}`}
+          className={`media ${showVideo ? "show" : ""}`}
+
           style={{ display: showVideo ? "block" : "none" }}
         >
           {showVideo && (
@@ -81,7 +86,7 @@ function VideoInfo() {
         </div>
         {/* video-details */}
 
-        <div className="video-details">
+        {!fullVideoShow &&  <div className="video-details">
           <div className="speaker">
             <button className="volume-off"
             onClick={handleToggleMute}
@@ -113,7 +118,9 @@ function VideoInfo() {
               <p>Included with Prime</p>
             </div>
             <div className="play-container">
-              <button className="play-button">
+              <button className="play-button"  
+              onClick={videoSizeHandler}
+              >
                 <BiSolidRightArrow className="play-icon" />
               </button>
               <span className="play-text">play</span>
@@ -153,21 +160,30 @@ function VideoInfo() {
               </div>
             </div>
           </div>
-        </div>
+        </div>}
+       
       </div>
+        
 
-      <div className="cast-heading">Details</div>
-      <div className="cast-section">
-        <span>Director</span>
-        <p>{movieInfo.director}</p>
-        <span>Cast</span>
-        {movieInfo.cast.map((item, index) => (
-          <div key={index}>
-            <p>{item}</p>
-          </div>
-        ))}
-      </div>
-      <FooterForSignIn />
+        {!fullVideoShow &&
+         <div className="cast-heading">Details</div>
+        }
+         {!fullVideoShow &&
+         <div className="cast-section">
+           <span>Director</span>
+           <p>{movieInfo.director}</p>
+           <span>Cast</span>
+           {movieInfo.cast.map((item, index) => (
+             <div key={index}>
+               <p>{item}</p>
+             </div>
+           ))}
+         </div>
+           }
+           {!fullVideoShow &&
+         <FooterForSignIn />
+        }
+     
     </div>
   ) : null;
 }

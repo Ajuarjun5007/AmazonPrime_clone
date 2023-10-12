@@ -16,73 +16,74 @@ const SignUp = (props) => {
 
   const location = useLocation();
   const { NavBarControl } = props;
-  let register
-  // useEffect(()=>{
-      register = (event) => {
-      event.preventDefault();
-  
-      const name = event.target[0].value;
-      const email = event.target[1].value;
-      const password = event.target[2].value;
-      const confirmPassword = event.target[3].value;
-  
-      if (name !== "") {
-        setNameCheck(true);
-      }
-      console.log('name',name);
-      if (email.includes("@") && ".com") {
-        setEmailCheck(true);
-      }
-      console.log('mail',email);
-  
-      if (password !== "") {
-        setPasswordCheck(true);
-      }
-      console.log('password',password);
-  
-      if(password===confirmPassword){
-        setPasswordCheck(true);
-      }
-      if (passwordCheck==true && emailCheck==true && nameCheck==true){
-        setValidCredentials(true);
-      }
-      else {
-        setValidCredentials(false);
-        setErrorShow(true);
-      }
-      console.log('val',validCredentials);
-      let signupRequest = [];
-  
-      console.log(passwordCheck,+"--- ",nameCheck,+"--- ",emailCheck)
-       if(validCredentials==true){
-      signupRequest = {
-        name: name,
-        email: email,
-        password: password,
-        appType: "ott",
-      };
-      console.log("done");
-  
-      signup(signupRequest)
-        .then((response) => {
-          console.log("response", response.data.data);
-          localStorage.setItem(
-            "userInfo",
-            JSON.stringify(response.data.data.user)
-          );
-          console.log("res", response.data.data.user.email);
-          localStorage.setItem("token", response.data.token);
-          navigate("/home");
-        })
-        .catch((error) => {
-          setErrormsg(error.response.data.message);
-          console.log('status',error.response.data.status);
-          console.log("err", error.response.data.message);
-        });
-      }
-  
+  const register = (event) => {
+
+    event.preventDefault();
+
+    const name = event.target[0].value;
+    const email = event.target[1].value;
+    const password = event.target[2].value;
+    const confirmPassword = event.target[3].value;
+
+    if (name !== "") {
+      setNameCheck(true);
+    }
+    console.log('name',name);
+    if (email.includes("@") && ".com") {
+      setEmailCheck(true);
+    }
+    console.log('mail',email);
+
+    if (password !== "") {
+      setPasswordCheck(true);
+    }
+    console.log('password',password);
+
+    if(password===confirmPassword){
+      setPasswordCheck(true);
+    }
+    if (passwordCheck==true && emailCheck==true && nameCheck==true){
+      setValidCredentials(true);
+    }
+    else {
+      setValidCredentials(false);
+      setErrorShow(true);
+    }
+    console.log('val',validCredentials);
+    let signupRequest = [];
+
+    console.log(passwordCheck,+"--- ",nameCheck,+"--- ",emailCheck)
+     if(validCredentials==true){
+    signupRequest = {
+      name: name,
+      email: email,
+      password: password,
+      appType: "ott",
     };
-  // },[])
+    console.log("done");
+
+    signup(signupRequest)
+      .then((response) => {
+        console.log("response", response.data.data);
+        localStorage.setItem(
+          "userInfo",
+          JSON.stringify(response.data.data.user)
+        );
+        console.log("res", response.data.data.user.email);
+        localStorage.setItem("token", response.data.token);
+        navigate("/home");
+      })
+      .catch((error) => {
+        setErrormsg(error.response.data.message);
+        console.log('status',error.response.data.status);
+        console.log("err", error.response.data.message);
+      });
+    }
+
+  };
+  useEffect(()=>{
+   register();
+  },[validCredentials])
 
   useEffect(() => {
     NavBarControl(location.pathname);
@@ -108,7 +109,7 @@ const SignUp = (props) => {
           </div>
 
           <div className="sign_form">
-            <form onSubmit={register}>
+            <form onSubmit={(event)=>register(event)}>
               <h1>Create account</h1>
               <div className="form_data">
                 <div className="form_data_label">

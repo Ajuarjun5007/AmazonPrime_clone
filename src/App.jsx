@@ -30,11 +30,11 @@ function App() {
 
       <Routes>
         {/* <LandingPageSignout /> */}
-        <Route path="/" element={<LandingPageSignout />} />
+        <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
-        <Route path="/home" element={<LandingPageSignIn />} />
-        <Route path="/videodetails/:id" element={<VideoInfo />} />
-        <Route path="/CategorySelected" element={<CategorySelected />} />
+        <Route path="/home" element={<LandingPageSignIn/>} />
+        <Route path="/videodetails/:id" element={<VideoInfo/>} />
+        <Route path="/CategorySelected" element={<CategorySelected/>} />
         {/* <VideoInfo/> */}
         <Route
           path="/SignIn"

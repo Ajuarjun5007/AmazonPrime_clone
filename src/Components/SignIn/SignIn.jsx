@@ -66,7 +66,7 @@ const SignIn = (props) => {
         navigate("/SignIn?status=completed");
         setHasCompletedFirstStep(true);
         SetErrorAlert(false)
-      } else {
+      } else {  
         SetErrorAlert(true);
       }
     } else if (user.username !== undefined) {
@@ -88,10 +88,10 @@ const SignIn = (props) => {
   const [loginFailed, setLoginFailed] = useState(undefined);
   return (
     <div className="SignContainer">
+      
       {/* prime logo */}
 
       <div className="primevideoblackIcon">
-        {/* <SiPrimevideo size={200}/> */}
         <img
           src="https://m.media-amazon.com/images/G/01/digital/video/avod/AV_Logo_150._CB430404026_.png"
           alt="SignInimg"
