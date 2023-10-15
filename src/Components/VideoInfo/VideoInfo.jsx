@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { P, DefaultPlayer as Video } from "react-html5video";
 import "./VideoInfo.css";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
@@ -14,16 +14,23 @@ import { BiVolumeMute } from "react-icons/bi";
 import { BiVolumeFull } from "react-icons/bi";
 import { movieDetail } from "../ApiFetch";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
-function VideoInfo() {
+
+function VideoInfo(props) {
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
   const [movieInfo, setMovieInfo] = useState({});
   const [isMuted, setIsMuted] = useState(true);
+
   const [fullVideoShow,setFullVideoShow]=useState(false);
+
   const [loaded, setLoaded] = useState(false);
 
   const params = useParams();
   console.log("pea",params)
+
+  const {NavBarControl}=props;
+
+  console.log('naav',NavBarControl);
 
   useEffect(() => {
     const imageTimeout = setTimeout(() => {
@@ -55,11 +62,15 @@ function VideoInfo() {
   // set Full video
   const videoSizeHandler=()=>{
     setFullVideoShow(true);
+    NavBarControl(true);
   }
+ 
+
   return loaded ? (
     <div className="container" style={{ backgroundColor: "#00050d" }}>
       <div className="visual-container">
-        <div
+
+       && <div
           className={`media ${showImage ? "show" : ""}`}
           style={{ display: showImage ? "block" : "none" }}
         >
@@ -68,24 +79,36 @@ function VideoInfo() {
 
         <div
           className={`media ${showVideo ? "show" : ""}`}
-          className={`media ${showVideo ? "show" : ""}`}
+          // className={`media ${showVideo ? "show" : ""}`}
 
           style={{ display: showVideo ? "block" : "none" }}
         >
-          {showVideo && (
+          {showVideo && !fullVideoShow && (
             <Video autoPlay 
             muted={isMuted}
             loop={false}
             fullScreen={true}
-            controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
+            controls={false}
+            // controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
               onEnded={handleVideoEnded}
             >
               <source src={movieInfo.video_url} type="video/mp4" />
             </Video>
           )}
+          {fullVideoShow &&
+           <div className="full-sized-video show">
+           <Video
+           autoPlay
+           controls={false}
+           >
+               <source src={movieInfo.video_url} type="video/mp4" />
+           </Video>
+         </div>
+          }
         </div>
         {/* video-details */}
 
+        <div className="full-video-container">
         {!fullVideoShow &&  <div className="video-details">
           <div className="speaker">
             <button className="volume-off"
@@ -161,7 +184,7 @@ function VideoInfo() {
             </div>
           </div>
         </div>}
-       
+       </div>
       </div>
         
 

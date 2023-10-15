@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { SiPrimevideo } from "react-icons/si";
 import logo from "../../assets/loginassets/primevideoLogo.png";
 import { signup } from "./SignUpService";
 import { IdAlert } from "../SignIn/IdAlert";
+
 const SignUp = (props) => {
   const [nameCheck, setNameCheck] = useState(false);
   const [emailCheck, setEmailCheck] = useState(false);
@@ -13,8 +14,11 @@ const SignUp = (props) => {
   const [validCredentials, setValidCredentials] = useState(false);
   const [errormsg, setErrormsg] = useState("null");
   const [errorShow,setErrorShow]=useState(false);
+  const navigate = useNavigate();
+  const [validationErrors,setValidationErrors]=useState([]);
 
   const location = useLocation();
+
   const { NavBarControl } = props;
   const register = (event) => {
 
@@ -25,69 +29,74 @@ const SignUp = (props) => {
     const password = event.target[2].value;
     const confirmPassword = event.target[3].value;
 
-    if (name !== "") {
-      setNameCheck(true);
+    const errors=[];
+
+    if (name === "") {
+      errors.push('name must not be empty');
     }
     console.log('name',name);
-    if (email.includes("@") && ".com") {
-      setEmailCheck(true);
+    if(email===''){
+      errors.push('email should not be empty');
+    }
+    else if(!email.includes("@") && !email.includes(".com")) {
+      errors.push('invalid email address');
     }
     console.log('mail',email);
 
-    if (password !== "") {
-      setPasswordCheck(true);
+    if (password === "") {
+      errors.push('password should not be empty');
+    } else if(password.length<6){
+      errors.push('password length should be atleast 6 characters');
     }
-    console.log('password',password);
+     else if(password!==confirmPassword){
+      errors.push('confirm password did not match');
+    }
+    console.log('error',errors);
+    setValidationErrors(errors);
+   
+  
 
-    if(password===confirmPassword){
-      setPasswordCheck(true);
-    }
-    if (passwordCheck==true && emailCheck==true && nameCheck==true){
-      setValidCredentials(true);
-    }
-    else {
-      setValidCredentials(false);
-      setErrorShow(true);
-    }
-    console.log('val',validCredentials);
-    let signupRequest = [];
-
-    console.log(passwordCheck,+"--- ",nameCheck,+"--- ",emailCheck)
-     if(validCredentials==true){
-    signupRequest = {
+    if(errors.length===0){
+     setErrorShow(false)
+     const signupRequest = {
       name: name,
       email: email,
       password: password,
       appType: "ott",
-    };
+    }
+      signup(signupRequest)
+       .then((response) => {
+        //  console.log("response", response.data.data);
+        //  localStorage.setItem(
+        //    "userInfo",
+        //    JSON.stringify(response.data.data.user)
+        //  );
+        //  console.log("res", response.data.data.user.email);
+        //  localStorage.setItem("token", response.data.token);
+         navigate("/SignIn");
+       })
+       .catch((error) => {
+        if(error.response){
+          setValidationErrors([error.response?.data?.message])
+          setErrorShow(true)
+        }
+      });
+      console.log('success');
+   }else{
+    console.log('cominginto');
+     setErrorShow(true)
+   }
     console.log("done");
 
-    signup(signupRequest)
-      .then((response) => {
-        console.log("response", response.data.data);
-        localStorage.setItem(
-          "userInfo",
-          JSON.stringify(response.data.data.user)
-        );
-        console.log("res", response.data.data.user.email);
-        localStorage.setItem("token", response.data.token);
-        navigate("/home");
-      })
-      .catch((error) => {
-        setErrormsg(error.response.data.message);
-        console.log('status',error.response.data.status);
-        console.log("err", error.response.data.message);
-      });
-    }
-
   };
-  useEffect(()=>{
-   register();
-  },[validCredentials])
+  // useEffect(()=>{
+  
+  // },[validationErrors])
 
   useEffect(() => {
     NavBarControl(location.pathname);
   }, []);
+
   return (
     <>
       {/* prime logo */}
@@ -99,7 +108,7 @@ const SignUp = (props) => {
         />
       </div>
 
-      {errorShow && <IdAlert errormsg={errormsg} />}
+      {errorShow && <IdAlert errormsg={validationErrors} />}
 
       {/* prime form */}
       <section>
@@ -126,7 +135,7 @@ const SignUp = (props) => {
                 <div className="form_data_label">
                   <label htmlFor="email">Email</label>
                 </div>
-                <input type="email" name="email" id="email" required/>
+                <input type="text" name="email" id="email" />
               </div>
 
               <div className="form_data">

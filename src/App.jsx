@@ -12,6 +12,7 @@ import NavbarforSignIn from "./Components/NavbarForSignIn/NavbarForSignIn";
 import FooterForSignIn from "./Components/FooterforSignIn/FooterForSIgnIn";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
+import {SearchPage} from './Components/SearchPage/SearchPage'
 import { PrimeBenefits } from "./Components/PrimeBenefits/PrimeBenefits";
 import { SignInProvider } from "./Components/SignIn/SignInProvider";
 
@@ -19,7 +20,7 @@ function App() {
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
 
   const NavBarControl = (value) => {
-    if (value == "/SignIn" || value == "/SignUp") {
+    if (value == "/SignIn" || value == "/SignUp" || value) {
       SetIsNavBarShow(false);
     }
   };
@@ -33,13 +34,14 @@ function App() {
         <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
         <Route path="/home" element={<LandingPageSignIn/>} />
-        <Route path="/videodetails/:id" element={<VideoInfo/>} />
+        <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
         {/* <VideoInfo/> */}
         <Route
           path="/SignIn"
           element={<SignInProvider NavBarControl={NavBarControl}  />}
         />
+        <Route path="/SearchPage" element={<SearchPage/>}/>
         <Route
           path="/SignUp"
           element={<SignUp NavBarControl={NavBarControl} />}

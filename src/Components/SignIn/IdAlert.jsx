@@ -10,11 +10,15 @@ function IdAlert(props){
             <LiaExclamationTriangleSolid className="error-icon"/>
             <div className="error-msg">
               <p className="problem-text">There was a problem</p>
-             {isLoginSuccess !== true ? <p className="error-text">
-                {/* we cannot find an account with that {usernameType} */}
-                    {errormsg}
-                </p> 
-             : <p className="error-text">Your password is incorrect</p>} 
+             {isLoginSuccess !== true && errormsg.map((msg)=>(
+                 <p className="error-text">
+                    {msg}
+                 {/* we cannot find an account with that {usernameType} */}
+                 </p> 
+            //    <p className="error-text">Your password is incorrect</p>
+             )
+             ) 
+             } 
             </div>
         </div>
         </div>

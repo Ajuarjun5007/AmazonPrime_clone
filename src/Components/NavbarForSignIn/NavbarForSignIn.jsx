@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import { categories,types } from "../CategoryConstants";
+import {movieTitles} from "../commons/movieList"
+import { P } from "react-html5video";
 function NavbarforSignIn() {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +19,7 @@ function NavbarforSignIn() {
   const [isHomeListClicked, setIsHomeListClicked] = useState(false);
   const [isStoreListClicked, setIsStoreListClicked] = useState(false);
   const [isMyStuffListClicked, setIsMyStuffListClicked] = useState(false);
-
+  const [movieResult,setMovieResult]=useState([]);
   const handleHomeNavItemClick = () => {
     setIsHomeListClicked(true);
     setIsStoreListClicked(false);
@@ -42,6 +44,17 @@ function NavbarforSignIn() {
     setIsMyStuffListClicked(false);
   };
   
+  const searchMovie =((event)=>{
+    const input = event.target.value;
+    if(input.length===2){
+    const result =  movieTitles.filter((movieTitle)=>movieTitle.toLowerCase().includes(input.toLowerCase()))
+      setMovieResult(result);
+  }else if(input.length==0){
+    setMovieResult([]);
+  }
+  })
+
+
   return (
     <>
       <div className="navbar-parent">
@@ -232,17 +245,37 @@ function NavbarforSignIn() {
               )}
 
             </div>
-              <div className={`search-bar-container ${isOpen ? "open" : ""}`}>
+
+            {/* <div className="search-bar-result"> */}
+              <div className={`search-bar-container ${isOpen ? "open" : ""}`}>  
+
+              <div className="search-bar">  
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
                   className="search-icon-small"
                 />
-                <input
+                <input onChange={searchMovie}
                   type="text"
                   className="search-input"
                   placeholder="Search"
                 />
+                <button className="clear-btn"> clear</button>
+                </div> 
+                  <div className="search-results">
+                   { movieResult.map((item)=>(
+                    <Link to={''} style={{color:"#fff"}}>
+                      <div className="search-result">
+                      <p>{item}
+                      <br/>
+                      </p>
+                      </div>
+                    </Link>
+                   ))}
+                </div>
               </div>
+      
+            {/* </div> */}
+
               {/* <div className="navbar-items"> */}
             <div className="navbar-icons-item hover-down-user">
               <img
