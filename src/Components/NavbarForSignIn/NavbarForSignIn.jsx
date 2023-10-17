@@ -259,7 +259,9 @@ function NavbarforSignIn() {
                   className="search-input"
                   placeholder="Search"
                 />
+                <div className="clear-btn-container">
                 <button className="clear-btn"> clear</button>
+                </div>
                 </div> 
                   <div className="search-results">
                    { movieResult.map((item)=>(
