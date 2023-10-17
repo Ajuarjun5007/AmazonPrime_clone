@@ -372,3 +372,6 @@ margin-right:0px;
     0% { transform: translate3d(0, 100%, 0) }
     58% { transform: translate3d(0, 0px, 0) }
 }
+/* .rh5v-DefaultPlayer_component{
+  display: none;
+} */

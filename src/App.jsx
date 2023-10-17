@@ -31,11 +31,14 @@ function App() {
 
       <Routes>
         {/* <LandingPageSignout /> */}
+
         <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
+
         <Route path="/home" element={<LandingPageSignIn/>} />
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
+        
         {/* <VideoInfo/> */}
         <Route
           path="/SignIn"
