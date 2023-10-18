@@ -26,11 +26,10 @@ function VideoInfo(props) {
   const [loaded, setLoaded] = useState(false);
 
   const params = useParams();
-  console.log("pea", params);
+  // console.log("pea", params.id);
 
   const { NavBarControl } = props;
 
-  console.log("naav", NavBarControl);
 
   useEffect(() => {
     const imageTimeout = setTimeout(() => {
@@ -95,7 +94,9 @@ function VideoInfo(props) {
           )}
           {fullVideoShow && (
             <div className="full-sized-video show">
-              <Video autoPlay controls={false}>
+              <Video autoPlay 
+              controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
+              >
                 <source src={movieInfo.video_url} type="video/mp4" />
               </Video>
             </div>
