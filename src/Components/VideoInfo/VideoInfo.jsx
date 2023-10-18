@@ -14,6 +14,7 @@ import { BiVolumeMute } from "react-icons/bi";
 import { BiVolumeFull } from "react-icons/bi";
 import { movieDetail } from "../ApiFetch";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
+import ReactPlayer from "react-player";
 
 function VideoInfo(props) {
   const [showImage, setShowImage] = useState(true);
@@ -24,6 +25,12 @@ function VideoInfo(props) {
   const [fullVideoShow, setFullVideoShow] = useState(false);
 
   const [loaded, setLoaded] = useState(false);
+
+  // from csb
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const onLoadedData = () => {
+    setIsVideoLoaded(true);
+  };
 
   const params = useParams();
   // console.log("pea", params.id);
@@ -75,30 +82,40 @@ function VideoInfo(props) {
         </div>
         <div
           className={`media ${showVideo ? "show" : ""}`}
-          // className={`media ${showVideo ? "show" : ""}`}
-
           style={{ display: showVideo ? "block" : "none" }}
         >
           {showVideo && !fullVideoShow && (
-            <Video
-              autoPlay
-              muted={isMuted}
-              loop={false}
+            <div style={{ opacity: isVideoLoaded ? 1 : 0 }}>
+            <ReactPlayer
+              url={movieInfo.video_url}
+               muted={isMuted}
               fullScreen={true}
-              controls={true}
-              // controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
               onEnded={handleVideoEnded}
-            >
-              <source src={movieInfo.video_url} type="video/mp4" />
-            </Video>
+              playing={true}
+              controls={true}
+              loop={false}
+              // playsinline={true}
+              onReady={onLoadedData}
+              className="react-video"
+            />
+          </div>
           )}
           {fullVideoShow && (
             <div className="full-sized-video show">
-              <Video autoPlay 
-              controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
-              >
-                <source src={movieInfo.video_url} type="video/mp4" />
-              </Video>
+              <div style={{ opacity: isVideoLoaded ? 1 : 0 }}>
+            <ReactPlayer
+              url={movieInfo.video_url}
+               muted={isMuted}
+              fullScreen={true}
+              onEnded={handleVideoEnded}
+              playing={true}
+              controls={true}
+              loop={false}
+              // playsinline={true}
+              onReady={onLoadedData}
+              className="react-video"
+            />
+          </div>
             </div>
           )}
         </div>
