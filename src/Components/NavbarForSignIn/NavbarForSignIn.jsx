@@ -134,12 +134,13 @@ function NavbarforSignIn() {
                 </ul>
               </div>
             </li>
-
+            <NavLink to="comingsoon">
             <li className="list">
               <div className="navbar-items">
                 <p>Live TV</p>
               </div>
             </li>
+            </NavLink>
             {/* categories */}
 
             <li className="list category">

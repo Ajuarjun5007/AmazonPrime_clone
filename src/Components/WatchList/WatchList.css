@@ -50,7 +50,13 @@
   }
   
   .watchList-cards{
-    width: max-content;
+    padding-left:40px;
+    width:inherit ;
     display: flex;
     flex-wrap: wrap;
+    background-color: #00050d;
+  }
+  .card-items img{
+    height: 160px;
+    width: 310px;
   }
