@@ -221,12 +221,16 @@ function NavbarforSignIn() {
                     Watchlist
                   </li>
                   </NavLink>
+
+                  <NavLink to="comingsoon">
                   <li
                     className="nav-bar-items-list myStuff-dropdown-items"
                     onClick={handleMyStuffNavItemClick}
                   >
                     Rentals
                   </li>
+                  </NavLink>
+
                 </ul>
               </div>
             </li>
@@ -287,9 +291,17 @@ function NavbarforSignIn() {
               />
                <div className="user-details">
              <div className="user-details-header">Your Account</div> 
+             <NavLink to="comingsoon">
               <p>Help</p>
+              </NavLink>
+
+             <NavLink to="comingsoon">
               <p>Watch Anywhere</p>
+              </NavLink>
+           <NavLink to='SignIn'>
               <p>Account & Settings</p>
+             </NavLink>
+
               <NavLink to='PrimeBenefits'>
               <p className="prime-benefits">Prime Benefits</p>
               </NavLink>

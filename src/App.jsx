@@ -12,7 +12,7 @@ import NavbarforSignIn from "./Components/NavbarForSignIn/NavbarForSignIn";
 import FooterForSignIn from "./Components/FooterforSignIn/FooterForSIgnIn";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
-import ComingSoon, {} from "../src/Components/Coming Soon/ComingSoon"
+import ComingSoon from "./Components/ComingSoon/ComingSoon"
 import {SearchPage} from './Components/SearchPage/SearchPage'
 import { PrimeBenefits } from "./Components/PrimeBenefits/PrimeBenefits";
 import { SignInProvider } from "./Components/SignIn/SignInProvider";
@@ -51,6 +51,7 @@ function App() {
           element={<SignUp NavBarControl={NavBarControl} />}
         />
         <Route path="/comingsoon" element={<ComingSoon/>}/>
+        
         <Route path="/PrimeBenefits" element={<PrimeBenefits />} />
         <Route path="/Watchlist" element={<WatchList />} />
         {/* <SignIn/> */}
