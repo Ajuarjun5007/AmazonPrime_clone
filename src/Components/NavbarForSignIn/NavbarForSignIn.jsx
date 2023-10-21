@@ -289,7 +289,8 @@ function NavbarforSignIn() {
                 src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
                 alt=""
               />
-               <div className="user-details">
+               <div className="user-details-container">
+              <div className="user-details">
              <div className="user-details-header">Your Account</div> 
              <NavLink to="comingsoon">
               <p>Help</p>
@@ -308,6 +309,19 @@ function NavbarforSignIn() {
               <NavLink to='SignIn'>
                 <p className="SignIn">Sign In</p>
              </NavLink>
+             </div>
+             {/* manage profile */}
+             <div className="profile-container">
+              <p className="profile-header">Profiles</p>
+              <div className="profile-info">
+             <img
+                id="profile-icon"
+                src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
+                alt=""
+              />
+              <p>malligarjun</p>
+              </div>
+             </div>
             </div>
             </div>
             {/* </div> */}

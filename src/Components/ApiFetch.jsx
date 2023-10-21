@@ -12,7 +12,7 @@ const instance = axios.create({
 });
 
 const movieList = async (type) => {
-  const suffix=url+"ott/show?limit=100";
+  const suffix=url+"ott/show?limit=500";
   try {
     const response = await instance.get(
       suffix,

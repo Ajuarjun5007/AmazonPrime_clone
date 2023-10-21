@@ -19,6 +19,7 @@ function CategorySelected() {
     getDetailsByTypeOrCategory(key, value).then((res) => {
       const groups = {};
       const movieInfo = res.data.data;
+     
       types.forEach((type) => {
         groups[type] = movieInfo.filter(
           (movie) => movie.type == type.toLowerCase()

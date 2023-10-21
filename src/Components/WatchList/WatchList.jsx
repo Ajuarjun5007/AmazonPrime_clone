@@ -68,7 +68,9 @@ function WatchList(){
             // .filter((item)=> item.type===`${type}`)
             .map((item,index) => (
               
-              <div className="card-items" key={item._id}>
+              <div className="card-items" key={item._id}
+                style={{margin:"0px 10px"}}
+              >
                 
                 <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
                 <img src={item.thumbnail} alt="" className="image-item" />

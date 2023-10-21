@@ -46,8 +46,9 @@ function CardsCarousel({moviesInfo,type}) {
   //     console.log("item : ",item);
   //   }
   // }
-  // console.log("movie",moviesInfo);
-
+  moviesInfo.map((item)=>{
+    console.log("title",item.title);
+  })
 
   return (
     <>

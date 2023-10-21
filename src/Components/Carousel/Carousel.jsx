@@ -26,6 +26,7 @@ const CarouselComponent= (props) => {
       slidesToSlide: 1,
     },
   };
+ 
   return (
     < div className="carousel-container">
     <div  className="Carousel-header">

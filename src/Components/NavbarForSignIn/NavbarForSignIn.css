@@ -145,14 +145,16 @@
     height: inherit;
     /* border: 2px solid red; */
  }
- .user-details{
-    display: block;
+ .user-details-container{
+    display: flex;
     position: absolute;
     margin-top:338px!important;
-    margin-right:118px!important;
+    margin-right:319px!important;
     background-color:#191e25;
-    width:200px;
-    border-radius: 10px;
+    width:400px;
+    /* border-radius: 10px; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     gap: 10px;
     font-size: 18px;
     color: #fff;
@@ -161,36 +163,78 @@
     z-index: 122;
     display: none;
  }
- 
- .user-details p{
+ .user-details{
+    display: block;
+    margin-left: 30px;
+ }
+ .user-details-container p{
     padding:10px 10px;
     background-color:#191e25;
     color: #aaa;
     font-weight: 900;
+    border-radius: 8px;
  }
- .user-details-header{
+ .user-details-header,.profile-header{
     color: white!important;
     font-size: 21px;
-    padding:10px 10px;
+    padding:20px 10px;
     background-color:#191e25;
+ }
+ .profile-container{
+    /* border: 3px solid red; */
+    margin-top: 10px;
+    width: max-content;
+ }
+ .profile-info{
+    margin-top: 5px;
+    display: flex;
+    color: white!important;
+    font-size: 21px;
+    border-radius:4px;
+    padding:8px;
+ }
+ .profile-info p{
+    border-radius: unset;
+ }
+ #profile-icon{
+    border-radius:unset;
+    padding:2px;
+ }
+ #profile-icon:hover{
+    background-color: #fff;
+    color: #00050d;
  }
  .user-details p:hover{
     background-color: #fff;
     color: #00050d;
  }
+ .profile-info:hover{
+   && p{
+        background-color: #fff;
+        color: #00050d;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    && #profile-icon{
+        background-color: #fff;
+        color: #00050d;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius:8px;
+    }
+ }
+ 
+ /* .profile-info p:hover{
+    background-color: #fff;
+    color: #00050d;
+ } */
  .hover-down-user:hover{
     background-color:#191e25;
    }
- .hover-down-user:hover .user-details{
+ .hover-down-user:hover .user-details-container{
      background-color:#191e25;
-    display: block;
+    display: flex;
     }
-    /* .hover-down-search:hover{
-        background-color:#191e25;
-       }
-    .hover-down-search:hover{ 
-    background-color:#191e25;
-    } */
+   
     .hover-down-user:hover img{
     background-color:#191e25;
     }
