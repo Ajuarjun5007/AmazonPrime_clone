@@ -1,5 +1,5 @@
 import "./NavbarForSignIn.css";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { BiSearch } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
@@ -8,7 +8,6 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import { categories,types } from "../CategoryConstants";
 import {movieTitles} from "../commons/movieList"
-import { P } from "react-html5video";
 function NavbarforSignIn() {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +53,15 @@ function NavbarforSignIn() {
   }
   })
 
+
+  //   get data from local storage
+  // const [userName, setuserName] = useState("");
+  // useEffect(() => {
+  //   // Retrieve data from local storage when the component mounts
+  //   const storedValue = JSON.parse(localStorage.getItem("userInfo"));
+  //     setuserName(storedValue.name);
+  // }, []);
+  
 
   return (
     <>
@@ -319,7 +327,9 @@ function NavbarforSignIn() {
                 src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
                 alt=""
               />
-              <p>malligarjun</p>
+              <p>
+                {/* {userName} */}
+                </p>
               </div>
              </div>
             </div>

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState , useEffect} from "react";
 import "./App.css";
 import LandingPageSignout from "./Components/LandingPageSignout/LandingPageSignout.jsx";
 import LandingPageSignIn from "./Components/LandingPageSignIn/LandingPageSignIn";
@@ -25,6 +25,15 @@ function App() {
       SetIsNavBarShow(false);
     }
   };
+
+
+
+  
+
+
+
+
+
 
   return (
     <>
@@ -60,28 +69,7 @@ function App() {
         {/* <Footer/> */}
       </Routes>
 
-      {/* <div
-        style={{
-          position: "sticky",
-          top: "10px",
-          backgroundColor: "rgba(0, 5, 13, 0)",
-          background: "red",
-          zIndex: "1",
-          width: "100%",
-        }}
-      >
-        <NavbarforSignIn/>
-      </div>
-
-      <LandingPageSignout /> */}
-      {/* <LandingPageSignIn/> */}
-      {/* <VideoInfo/> */}
-      {/* <SignIn/> */}
-      {/* <SignUp/> */}
-      {/* <ApiFetch/> */}
-      {/* <CategoryPage/> */}
-      {/* <Footer/> */}
-      {/* <FooterForSignIn/> */}
+   
     </>
   );
 }

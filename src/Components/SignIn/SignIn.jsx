@@ -25,16 +25,15 @@ const SignIn = (props) => {
   }, []);
 
   const { search } = useLocation();
-  // console.log(location)
   const params = new URLSearchParams(search);
-  // console.log(params)
+  console.log("params",params)
   const key = params.get("status");
+  console.log("key",key)
   const user = useContext(UserContext);
-  // console.log(params)
   
   const [hasCompletedFirstStep, setHasCompletedFirstStep] = useState(false);
   const [usernameType, setUsernameType] = useState(null);
-
+  const[errormessage,setErrorMessage]=useState(" ");
   useEffect(() => {
     if (key === null) {
       setHasCompletedFirstStep(false);
@@ -71,21 +70,24 @@ const SignIn = (props) => {
       }
     } else if (user.username !== undefined) {
       login(user.username, password)
-        .then((response) => {
-          localStorage.setItem('userInfo', JSON.stringify(response.data.data))
-          localStorage.setItem('token', response.data.token);
-          navigate("/home");
-        })
-        .catch((error) => {
-          console.log("err", error);
-          SetErrorAlert(true);
-          setLoginFailed(true);
-        });
+      .then((response) => {
+        localStorage.setItem('userInfo', JSON.stringify(response.data.data))
+        localStorage.setItem('token', response.data.token);
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.log("err", error.response.data.message);
+        setErrorMessage(error.response.data.message);
+        SetErrorAlert(true);
+        setLoginFailed(true);
+      });
     }
+    console.log("username",user.username)
   };
 
   const [errorAlert, SetErrorAlert] = useState(false);
   const [loginFailed, setLoginFailed] = useState(undefined);
+
   return (
     <div className="SignContainer">
       
@@ -101,19 +103,9 @@ const SignIn = (props) => {
       {/* error alert */}
 
       {errorAlert && (
-        <IdAlert isLoginSuccess={loginFailed} usernameType={usernameType} />
+        <IdAlert isLoginSuccess={loginFailed} usernameType={usernameType} errormessage={errormessage} />
       )}
-      {/* <div className="error-box">
-      <div className="error-alert-container">
-          <LiaExclamationTriangleSolid className="error-icon"/>
-
-          <div className="error-msg">
-            <p className="problem-text">There was a problem</p>
-            <p className="error-text">we cannot find an account with that email address</p>
-          </div>
-
-      </div>
-      </div> */}
+    
 
       {/* prime form */}
       <div className="login-parent">
@@ -154,23 +146,15 @@ const SignIn = (props) => {
                 </div>
               </div>
             )}
-            {/* password Input */}
-
-            {/* <div className='passwordinput'>
-
-
-                  <div className='passwordtitle'>
-                   
-                    <label>Password</label>
-                    <Link className="anchor-tag" to="">Change Password</Link>
-                  </div>
-                  <input type='password' placeholder='Enter your password'/>
-                </div> */}
-
             <div className="formsubmitBtn">
               <button type="submit">Continue</button>
             </div>
           </form>
+
+
+
+
+
           {user.status === undefined && !hasCompletedFirstStep && (
             <div className="termsandCons">
               <p>
@@ -216,7 +200,7 @@ const SignIn = (props) => {
               className="anchor-tag"
               onClick={() =>
                 alert(
-                  "The Page your Re-Directing is not a source of Amazon Music Clone."
+                  "The Page your Re-Directing is not a source of prime video Clone."
                 )
               }
               target="_blank"
@@ -228,7 +212,7 @@ const SignIn = (props) => {
               className="anchor-tag"
               onClick={() =>
                 alert(
-                  "The Page your Re-Directing is not a source of Amazon Music Clone."
+                  "The Page your Re-Directing is not a source of prime video Clone."
                 )
               }
               target="_blank"
@@ -240,7 +224,7 @@ const SignIn = (props) => {
               className="anchor-tag"
               onClick={() =>
                 alert(
-                  "The Page your Re-Directing is not a source of Amazon Music Clone."
+                  "The Page your Re-Directing is not a source of prime video Clone."
                 )
               }
               target="_blank"

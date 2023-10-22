@@ -2,7 +2,7 @@ import './IdAlert.css'
 import {LiaExclamationTriangleSolid} from 'react-icons/lia';
 
 function IdAlert(props){
-    const {usernameType, isLoginSuccess,errormsg} = props
+    const {usernameType, isLoginSuccess,errormessage} = props
     return (
         <>
         <div className="error-box">
@@ -10,15 +10,14 @@ function IdAlert(props){
             <LiaExclamationTriangleSolid className="error-icon"/>
             <div className="error-msg">
               <p className="problem-text">There was a problem</p>
-             {isLoginSuccess !== true && errormsg.map((msg)=>(
+             {/* {isLoginSuccess !== true && errormsg.map((msg)=>(
                  <p className="error-text">
                     {msg}
-                 {/* we cannot find an account with that {usernameType} */}
                  </p> 
-            //    <p className="error-text">Your password is incorrect</p>
              )
              ) 
-             } 
+            }  */}
+            <p className="error-text">{errormessage}</p>
             </div>
         </div>
         </div>

@@ -12,6 +12,7 @@ const typeArray =["video song","web series","tv show",
 
 const [moviesInfo, setMoviesInfo] = useState([]);
 
+
 useEffect(() => {
   const fetchData = async () => {
     try {
