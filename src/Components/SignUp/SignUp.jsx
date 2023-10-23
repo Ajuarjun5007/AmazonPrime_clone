@@ -89,9 +89,7 @@ const SignUp = (props) => {
     console.log("done");
 
   };
-  // useEffect(()=>{
-  
-  // },[validationErrors])
+ 
 
   useEffect(() => {
     NavBarControl(location.pathname);

@@ -11,11 +11,12 @@ import { login } from "./SigninService";
 
 const PHONE_NUMBER_EXPRESSION =
   /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-const EMAIL_EXPRESSION = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const EMAIL_EXPRESSION =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 const SignIn = (props) => {
   const location = useLocation();
-    
+
   const { NavBarControl } = props;
 
   const formRef = useRef();
@@ -26,21 +27,21 @@ const SignIn = (props) => {
 
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  console.log("params",params)
+  console.log("params", params);
   const key = params.get("status");
-  console.log("key",key)
+  console.log("key", key);
   const user = useContext(UserContext);
-  
+
   const [hasCompletedFirstStep, setHasCompletedFirstStep] = useState(false);
   const [usernameType, setUsernameType] = useState(null);
-  const[errormessage,setErrorMessage]=useState(" ");
+  const [errormessage, setErrorMessage] = useState(" ");
   useEffect(() => {
     if (key === null) {
       setHasCompletedFirstStep(false);
     }
   }, [key]);
   const navigate = useNavigate();
-  
+
   const navigateToValidation = (event) => {
     let username = undefined;
     let password = undefined;
@@ -49,14 +50,17 @@ const SignIn = (props) => {
     } else {
       password = event.target[0].value;
     }
-    
+
     event.preventDefault();
 
+    let idInfo=[];
     if (user.status === undefined && user.username === undefined) {
-      const usernameTypeForValidation= isNaN(username) ? "email" : "phone number"
+      const usernameTypeForValidation = isNaN(username)
+        ? "email"
+        : "phone number";
       setUsernameType(usernameTypeForValidation);
       const isValidUsername =
-      usernameTypeForValidation === "email"
+        usernameTypeForValidation === "email"
           ? EMAIL_EXPRESSION.test(username)
           : PHONE_NUMBER_EXPRESSION.test(username);
       if (isValidUsername) {
@@ -64,25 +68,27 @@ const SignIn = (props) => {
         user.setStatus("usernameCompleted");
         navigate("/SignIn?status=completed");
         setHasCompletedFirstStep(true);
-        SetErrorAlert(false)
-      } else {  
+        SetErrorAlert(false);
+      } else {
         SetErrorAlert(true);
+        setErrorMessage("Enter your email or mobile number");
       }
     } else if (user.username !== undefined) {
       login(user.username, password)
-      .then((response) => {
-        localStorage.setItem('userInfo', JSON.stringify(response.data.data))
-        localStorage.setItem('token', response.data.token);
-        navigate("/home");
-      })
-      .catch((error) => {
-        console.log("err", error.response.data.message);
-        setErrorMessage(error.response.data.message);
-        SetErrorAlert(true);
-        setLoginFailed(true);
-      });
+        .then((response) => {
+          idInfo.push(response.data.token);
+          idInfo.push(response.data.data);
+          localStorage.setItem("userInfo", JSON.stringify(idInfo));
+          console.log("idinfo",idInfo)
+          navigate("/home");
+        })
+        .catch((error) => {
+          console.log("err", error.response.data.message);
+          setErrorMessage(error.response.data.message);
+          SetErrorAlert(true);
+          setLoginFailed(true);
+        });
     }
-    console.log("username",user.username)
   };
 
   const [errorAlert, SetErrorAlert] = useState(false);
@@ -90,7 +96,6 @@ const SignIn = (props) => {
 
   return (
     <div className="SignContainer">
-      
       {/* prime logo */}
 
       <div className="primevideoblackIcon">
@@ -103,9 +108,12 @@ const SignIn = (props) => {
       {/* error alert */}
 
       {errorAlert && (
-        <IdAlert isLoginSuccess={loginFailed} usernameType={usernameType} errormessage={errormessage} />
+        <IdAlert
+          isLoginSuccess={loginFailed}
+          usernameType={usernameType}
+          errormessage={errormessage}
+        />
       )}
-    
 
       {/* prime form */}
       <div className="login-parent">
@@ -151,35 +159,44 @@ const SignIn = (props) => {
             </div>
           </form>
 
-
-
-
-
           {user.status === undefined && !hasCompletedFirstStep && (
             <div className="termsandCons">
               <p>
                 By continuing, you agree to Amazon's{" "}
-                <Link to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=200545940">
+                <Link
+                  onClick={() =>
+                    alert(
+                      "The Page your Re-Directing is not a source of prime video Clone."
+                    )
+                  }
+                  to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=200545940"
+                >
                   Conditions of Use
                 </Link>{" "}
                 and{" "}
-                <Link to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=200534380">
+                <Link
+                  onClick={() =>
+                    alert(
+                      "The Page your Re-Directing is not a source of prime video Clone."
+                    )
+                  }
+                  to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=200534380"
+                >
                   Privacy Notice
                 </Link>
                 .
               </p>
             </div>
           )}
-          <div className="checkboxverify">
+          {/* <div className="checkboxverify">
             <input type="checkbox"></input>
             <p>
-              {/* {" "} */}
               Keep me signed in. <Link className="anchor-tag">
                 Details
               </Link>{" "}
               <RxTriangleDown />
             </p>
-          </div>
+          </div> */}
           {user.status === undefined && !hasCompletedFirstStep && (
             <div>
               <div className="newformtitle">
@@ -191,7 +208,7 @@ const SignIn = (props) => {
                 </Link>
               </div>
             </div>
-           )}
+          )}
         </div>
         {/* footer */}
         <div className="loginpagefooter">

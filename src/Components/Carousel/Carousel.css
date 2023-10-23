@@ -1,11 +1,4 @@
 
-.react-multi-carousel-list{
-  /* border: 2px solid #fff; */
-  /* margin: unset; */
-}
-/* .react-multi-carousel-item{
-  width: unset!important;
-} */
 .Carousel-header{
     color: white;
     display: flex;
@@ -35,90 +28,96 @@
   /* carousel header */
  
   .card-items{
-    max-width: 300px;
     display: block;
-    padding:30px 28px;
-    padding-left: 8px;
-    place-items: center;
-    /* border: 2px solid green; */
-   
-    /* overflow: visible!important; */
+    padding:15px 0px;
+    padding-left: 15px;
+    place-items:center;
+
   }
 
   .card-items img {
-    margin-top: 0;
+    margin-top: 5px;
     /* margin-left:30px; */
     top: 50%;
     left: 50%;
     transform: translate(0%,-0%);
     opacity: 1;   
-    width:300px;
-    height:230px; 
+    width:285px;
+    height:180px; 
     transition: 0.6s ease;
-    border-radius: 18px;
+    border-radius: 8px;
     object-fit:fill;
     object-position:100%;
     z-index: 1200;
+    width:95%;
   }
-  
- 
-  .card-items img:hover{
-    border-top-right-radius:18px;
-    border-top-left-radius:18px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    transform: scale(1.25);
-    z-index: 1200;
-  }
+  .card-items:hover{
+    .card-details{
+    opacity: 0.9;
+    display: block;
+    }
+    .image-item{
+      border-top-right-radius:8px;
+      border-top-left-radius:8px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      transform: scale(1.2);
+      z-index: 1200;
+    }
+}
 
   /* card details style */
   .card-details {
     display: none;
-    margin-top: 58px;
-    /* padding-left:-100px; */
-    bottom: 0;  
+    margin-top:48px;
+    bottom:0;
     left: 0;
+    margin-left:4px;
     transform: scale(1.25);
-    width:300px;
-    height: 270px;
+    width:296px;
+    height:270px;
     background-color: #000;
     color: white;
-    transition: 1.6s ease;
-    transition-delay: 3s;
-    transition-duration: 4s;
-  }
+    transition: display 0s 0.6s, opacity 0.6s; 
+    opacity: 0;
+}
   .prime-content {
-    padding: 20px;
-    gap: 20px;
+    padding: 15px;
+    gap: 10px;
     display: flex;
     align-items: center;
     background-color: #000;
-    font-size: 22px;
+    font-size: 15px;
+    font-weight: 900;
+    /* border: 3px solid red; */
+
   }
   .prime-content p{
       background-color: #000;
+
   }
   .prime-content img {
-    height: 32px;
-    width: 32px;
+    height: 22px;
+    width: 22px;
   }
   #play-control {
-      gap:5px;
+      gap:10px;
       /* margin: 30px 0px; */
-      margin-top: 20px;
-      /* margin-left: 10px; */
+      margin-top: 10px;
+      margin-left: 12px;
     display: flex;
-    width: 100%;
     align-items: center;
     background-color: #000;
-    font-size: 29px;
+    font-size:15px;
+    font-weight: 900;
+    /* border: 3px solid red; */
   }
   #play-control p{
       background-color: #000;
   }
   #play-btn {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     background-color: white;
     border: none;
     display: grid;
@@ -127,27 +126,29 @@
   }
   #play-btn:hover{
       transform: scale(1.1);
-      opacity: 0.7;
+    
+      /* opacity: 0.7; */
   }
   #play-btn-icon {
     background-color: white;
-    font-size: 40px;
+    font-size: 30px;
   }
   #watchlist-icon {
     background-color: #000;
     display: flex;
     justify-content: space-around;
-    width: 40%;
+    gap: 5px;
+    margin-left:30px;
   }
   #watchlist-icon-button {
-      width: 40%;
+      /* width: 40%; */
       display:flex;
       align-items: center;
       justify-content: center;
       background-color: white;
       border-radius: 50%;
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height:40px;
       gap: 20px;
       background-color: #333;
       border: none;
@@ -155,18 +156,17 @@
   #plus-icon,#threedots-icon {
     background-color: #333;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
   }
   #watchlist-icon-button:hover {
       background-color: white;
       #plus-icon{
-          background-color: white;
+          background-color:transparent;
           color: #00050d;
       }
       #threedots-icon{
-          background-color: white;
+          background-color:transparent;
           color: #00050d;
-          /* opacity: 0.7; */
       }
       
   }
@@ -175,10 +175,16 @@
       margin-left: 20px;
       background-color: #000;
   }
-  .item-title h1{
+  .item-title p{
       background-color: #000;
+      font-size:22px;
+      font-weight: 900;
   }
-  
+  .item-content{
+    margin-top: 12px;
+    margin-left: 20px;
+    margin-right: 5px;
+  }
   .react-multiple-carousel__arrow--right {
     right:20px;
     top: 100px;
@@ -189,20 +195,4 @@
   }
 
 
-.card-items:hover .card-details {
-    opacity: 0.9;
-    display: block;
-}
-.card-details {
-    display: none;
-    margin-top: 58px;
-    bottom:0;
-    left: 0;
-    transform: scale(1.25);
-    width: 300px;
-    height: 270px;
-    background-color: #000;
-    color: white;
-    transition: display 0s 0.6s, opacity 0.6s; 
-    opacity: 0;
-}
+

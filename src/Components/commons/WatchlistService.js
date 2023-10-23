@@ -1,6 +1,8 @@
 import { instance, headers } from "../ApiFetch";
 
-const token = "Bearer " + localStorage.getItem("token");
+let key = JSON.parse(localStorage.getItem("userInfo"));
+console.log(key[0])
+const token = "Bearer " + key[0];
 headers["Authorization"] = token;
 function addtoWatchlist(movieId) {
   console.log("headers",headers)

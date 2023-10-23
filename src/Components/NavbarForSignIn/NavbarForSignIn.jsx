@@ -54,14 +54,28 @@ function NavbarforSignIn() {
   })
 
 
-  //   get data from local storage
-  // const [userName, setuserName] = useState("");
-  // useEffect(() => {
-  //   // Retrieve data from local storage when the component mounts
-  //   const storedValue = JSON.parse(localStorage.getItem("userInfo"));
-  //     setuserName(storedValue.name);
-  // }, []);
+  // get data from local storage
+  let storedValue=[]
+  const [userName, setUserName] = useState(" ");
+  const [idLogged,setIdLogged] = useState(false);
+
+  useEffect(() => {
+   storedValue = JSON.parse(localStorage.getItem("userInfo"))||[];
+
+  //  console.log(storedValue[1].name);
+
+     if(storedValue.length!==0){
+       setUserName(storedValue[1].name);
+       setIdLogged(true)
+     }
+    },[]);
+    // console.log(localStorage.getItem("userInfo"))
   
+    const clearStorage = ()=>{
+      localStorage.removeItem("userInfo");
+      console.log("clear");
+    }
+
 
   return (
     <>
@@ -314,9 +328,19 @@ function NavbarforSignIn() {
               <NavLink to='PrimeBenefits'>
               <p className="prime-benefits">Prime Benefits</p>
               </NavLink>
+              {
+                !idLogged && 
               <NavLink to='SignIn'>
                 <p className="SignIn">Sign In</p>
              </NavLink>
+                }
+             {
+             idLogged && <p className="signout"
+             
+             onClick={()=>clearStorage()}
+
+              >Sign out</p>
+               } 
              </div>
              {/* manage profile */}
              <div className="profile-container">
@@ -327,9 +351,10 @@ function NavbarforSignIn() {
                 src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
                 alt=""
               />
+            
               <p>
-                {/* {userName} */}
-                </p>
+                {userName}
+                </p> 
               </div>
              </div>
             </div>

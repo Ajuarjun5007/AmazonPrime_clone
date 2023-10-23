@@ -13,7 +13,7 @@ function CardsCarousel({moviesInfo,type}) {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items:3,
       slidesToSlide: 1,
     },
     tablet: {
@@ -75,9 +75,7 @@ function CardsCarousel({moviesInfo,type}) {
                     <img src={bluetick} alt="" />
                     <p>Included with Prime</p>
                   </div>
-                  <div className="item-title">
-                    <h1>{item.title}</h1>
-                  </div>
+                
                   <div id="play-control">
                     <button id="play-btn">
                       <BiSolidRightArrow id="play-btn-icon" />
@@ -91,6 +89,14 @@ function CardsCarousel({moviesInfo,type}) {
                         <BsThreeDotsVertical id="threedots-icon" />
                       </button>
                     </div>
+                  </div>
+
+                  <div className="item-title">
+                    <p>{item.title}</p>
+                  </div>
+
+                  <div className="item-content">
+                    <p>{item.description}</p>
                   </div>
                 </div>
                
