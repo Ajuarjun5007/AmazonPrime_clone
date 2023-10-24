@@ -13,23 +13,24 @@ function CategorySelected() {
   const value = params.get("value");
 
   const [resultdata, setResultData] = useState([]);
-  console.log("value", value);
+  const [selectedType, setSelectedType] = useState("All");
+
 
   useEffect(() => {
     getDetailsByTypeOrCategory(key, value).then((res) => {
       const groups = {};
       const movieInfo = res.data.data;
-     
+
       types.forEach((type) => {
         groups[type] = movieInfo.filter(
-          (movie) => movie.type == type.toLowerCase()
+          (movie) =>movie.type == type.toLowerCase()
         );
       });
+      console.log("groups",groups);
       setResultData(groups);
     });
   }, [value]);
 
-  const [selectedType, setSelectedType] = useState("All");
   return (
     < div style={{backgroundColor:"#00050d"}}>
     <div className="value-header">{value}</div>

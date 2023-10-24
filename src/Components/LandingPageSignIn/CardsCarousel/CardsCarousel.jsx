@@ -2,11 +2,13 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../../Carousel/Carousel.css"
 import { BiSolidRightArrow } from "react-icons/bi";
-import { FiPlus } from "react-icons/fi";
+import { FiPlus} from "react-icons/fi";
+import {BiCheck} from "react-icons/bi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link,useLocation } from "react-router-dom";
 import {addtoWatchlist} from '../../commons/WatchlistService'
+import { useState } from "react";
 
 function CardsCarousel({moviesInfo,type}) {
 
@@ -28,24 +30,23 @@ function CardsCarousel({moviesInfo,type}) {
     },
   };
 
+   
+
+  const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
   const addMovieToWatchList = (movie) => {
     addtoWatchlist(movie._id).then(response=> {
       console.log("repo",response)
+      setIsWatchListClicked(!isWatchListClicked);
     })
     .catch(err=>{
       console.log("error",err)
     })
   }
 
- 
+ console.log(localStorage.getItem("userInfo")===null)
  
 
-  // for(let item of moviesInfo){
-  //   if(item.keywords.includes('romance') && item.type==='trailer'){
-  //     console.log("item : ",item);
-  //   }
-  // }
 
 
   return (
@@ -82,18 +83,29 @@ function CardsCarousel({moviesInfo,type}) {
                     </button>
                     <p>Watch Now</p>
                     <div id="watchlist-icon">
-                      <button onClick={()=> {addMovieToWatchList(item)}} id="watchlist-icon-button">
-                        <FiPlus id="plus-icon" />
+                      
+
+                      <button 
+                      onClick={()=> {addMovieToWatchList(item)}} 
+                      id="watchlist-icon-button">
+                       
+                        {!isWatchListClicked &&  <FiPlus id="plus-icon" />}
+                        {isWatchListClicked &&  <BiCheck id="check-icon" />} 
+                        
                       </button>
-                      <button id="watchlist-icon-button">
+
+                      <span className="watchlist-tooltip">Watchlist</span>
+                      <button id="more-icon-button">
                         <BsThreeDotsVertical id="threedots-icon" />
                       </button>
+                      <span className="more-tooltip">More</span>
                     </div>
                   </div>
 
                   <div className="item-title">
                     <p>{item.title}</p>
                   </div>
+
 
                   <div className="item-content">
                     <p>{item.description}</p>

@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink,useNavigate} from "react-router-dom";
 import { categories,types } from "../CategoryConstants";
 import {movieTitles} from "../commons/movieList"
 function NavbarforSignIn() {
@@ -70,9 +70,12 @@ function NavbarforSignIn() {
      }
     },[]);
     // console.log(localStorage.getItem("userInfo"))
-  
+    
+    const navigate  = useNavigate();
     const clearStorage = ()=>{
       localStorage.removeItem("userInfo");
+      navigate("/");
+      window.location.reload(false)
       console.log("clear");
     }
 

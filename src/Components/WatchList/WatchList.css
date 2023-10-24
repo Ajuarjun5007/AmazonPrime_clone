@@ -50,11 +50,14 @@
   }
   
   .watchList-cards{
-    padding:20px;
-    padding-bottom: 150px;
-    width:inherit ;
+    /* padding:20px; */
+    padding: 0px 60px 350px 0px;
+    gap: 1px;
+    width:inherit;
     display: flex;
     flex-wrap: wrap;
     background-color: #00050d;
+    /* border: 2px solid rebeccapurple; */
   }
-  
+ 
+

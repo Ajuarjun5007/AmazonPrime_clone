@@ -32,24 +32,24 @@
     padding:15px 0px;
     padding-left: 15px;
     place-items:center;
-
+    /* margin-left:23px; */
   }
 
-  .card-items img {
+  .image-item{
     margin-top: 5px;
     /* margin-left:30px; */
     top: 50%;
     left: 50%;
     transform: translate(0%,-0%);
     opacity: 1;   
-    width:285px;
+    width:305px;
     height:180px; 
     transition: 0.6s ease;
     border-radius: 8px;
     object-fit:fill;
     object-position:100%;
     z-index: 1200;
-    width:95%;
+    /* width:95%; */
   }
   .card-items:hover{
     .card-details{
@@ -69,13 +69,13 @@
   /* card details style */
   .card-details {
     display: none;
-    margin-top:48px;
+    margin-top:50px!important;
     bottom:0;
     left: 0;
-    margin-left:4px;
+    margin-left:7px;
     transform: scale(1.25);
-    width:296px;
-    height:270px;
+    width:291px;
+    height:290px;
     background-color: #000;
     color: white;
     transition: display 0s 0.6s, opacity 0.6s; 
@@ -102,7 +102,6 @@
   }
   #play-control {
       gap:10px;
-      /* margin: 30px 0px; */
       margin-top: 10px;
       margin-left: 12px;
     display: flex;
@@ -110,7 +109,6 @@
     background-color: #000;
     font-size:15px;
     font-weight: 900;
-    /* border: 3px solid red; */
   }
   #play-control p{
       background-color: #000;
@@ -126,8 +124,6 @@
   }
   #play-btn:hover{
       transform: scale(1.1);
-    
-      /* opacity: 0.7; */
   }
   #play-btn-icon {
     background-color: white;
@@ -139,8 +135,43 @@
     justify-content: space-around;
     gap: 5px;
     margin-left:30px;
+    position: relative;
   }
-  #watchlist-icon-button {
+  .watchlist-tooltip{
+    position: absolute;
+    padding: 5px;
+    background-color: #fff;
+    color: #00050d;
+    border-radius: 4px;
+    top: 120%;
+    z-index: 22;
+    left:-28%;
+    font-size: 16px;
+    letter-spacing:1px;
+    display: none;
+  }
+  .more-tooltip{
+    position: absolute;
+    padding: 5px;
+    background-color: #fff;
+    color: #00050d;
+    border-radius: 4px;
+    top: 120%;
+    z-index: 22;
+    left:48%;
+    font-size: 16px;
+    letter-spacing:1px;
+    display: none;
+  }
+  #more-icon-button:hover + .more-tooltip{
+    display: block;
+  }
+
+  #watchlist-icon-button:hover +.watchlist-tooltip{
+    display: block;
+  }
+
+  #watchlist-icon-button, #more-icon-button{
       /* width: 40%; */
       display:flex;
       align-items: center;
@@ -153,12 +184,12 @@
       background-color: #333;
       border: none;
   }
-  #plus-icon,#threedots-icon {
+  #plus-icon,#threedots-icon,#check-icon{
     background-color: #333;
     color: white;
     font-size: 20px;
   }
-  #watchlist-icon-button:hover {
+  #watchlist-icon-button:hover,#more-icon-button:hover {
       background-color: white;
       #plus-icon{
           background-color:transparent;
@@ -173,6 +204,7 @@
   .item-title{
       margin-top: 10px;
       margin-left: 20px;
+      margin-right: 10px;
       background-color: #000;
   }
   .item-title p{
