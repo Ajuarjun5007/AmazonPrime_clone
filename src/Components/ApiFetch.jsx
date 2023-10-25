@@ -7,7 +7,6 @@ export const headers = {
 };
 const instance = axios.create({
   baseURL: url,
-  // timeout: 5000,
   headers
 });
 
@@ -18,12 +17,23 @@ const movieList = async (type) => {
       suffix,
     );
 
+
+//     console.log("data",response.data)
+//     let count = 0;
+// response.data.data.map((item) => {
+//   if (item.type === 'movie' && item.keywords.includes('action')) {
+//     count++;
+//   }
+// });
+
     return response.data;
   } catch (error) {
     // Handle errors
     console.error("Error fetching data:", error);
   }
 };
+
+
 const movieDetail = async (id) => {
   const suffix=url+"ott/show/"+id;
   try {

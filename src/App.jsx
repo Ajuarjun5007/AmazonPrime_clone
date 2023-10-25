@@ -16,6 +16,7 @@ import ComingSoon from "./Components/ComingSoon/ComingSoon"
 import {SearchPage} from './Components/SearchPage/SearchPage'
 import { PrimeBenefits } from "./Components/PrimeBenefits/PrimeBenefits";
 import { SignInProvider } from "./Components/SignIn/SignInProvider";
+import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage";
 
 function App() {
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
@@ -66,6 +67,7 @@ function App() {
         {/* <SignIn/> */}
         {/* <CategoryPage/> */}
         <Route path="/categorypage" element={<CategoryPage />} />
+        <Route path="/categorytypepage" element={<CategoryTypePage/>} />
         {/* <Footer/> */}
       </Routes>
 

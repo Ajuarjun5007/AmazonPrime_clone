@@ -148,9 +148,9 @@
     display: flex;
     position: absolute;
     margin-top:338px!important;
-    margin-right:319px!important;
+    margin-right:312px!important;
     background-color:#191e25;
-    width:400px;
+    width:max-content;
     /* border-radius: 10px; */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -164,10 +164,10 @@
  }
  .user-details{
     display: block;
-    margin-left: 30px;
+    margin-left:30px;
  }
  .user-details-container p,.signout{
-    padding:10px 10px;
+    padding:10px 0px;
     background-color:#191e25;
     color: #aaa;
     font-weight: 900;
@@ -182,11 +182,12 @@
  .profile-container{
     /* border: 3px solid red; */
     margin-top: 10px;
-    width: max-content;
+    width:200px;
  }
  .profile-info{
     margin-top: 5px;
     display: flex;
+    align-content: center;
     color: white!important;
     font-size: 21px;
     border-radius:4px;
@@ -207,6 +208,25 @@
     background-color: #fff;
     color: #00050d;
  }
+ .user-name {
+    display: flex;
+    justify-content: flex-start;
+    width: 200px; 
+    padding: 0px 3px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: grid;
+    place-items: center;
+  }
+  
+  .user-name p {
+    background-color: #00050d!important;
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis!important; /* Add ellipsis for overflowing text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    width:max-content; /* Allow the text to shrink to fit the container */
+  }
+  
  .profile-info:hover{
    && p{
         background-color: #fff;
@@ -219,6 +239,10 @@
         color: #00050d;
         border-top-left-radius: 8px;
         border-bottom-left-radius:8px;
+    }
+    && .user-name{
+        background-color: #fff;
+        color: #00050d;
     }
  }
  
@@ -597,3 +621,5 @@ li a:focus{
 .border-bottom-white{
     border-bottom: 5px solid white;
 }
+
+

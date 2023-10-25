@@ -26,8 +26,6 @@
     categorycard_12
   ]
   
-  
-  
   const categories = [
     "Romance",
     "Mystery",
@@ -43,12 +41,12 @@
     "Adventure",
   ];
   const types = [
-    "Video Song",
-    "Web Series",
-    "Tv Show",
-    "Short Film",
-    "Movie",
-    "Documentary",
-    "Trailer",
+    "video song",
+    "web series",
+    "tv show",
+    "short film",
+    "movie",
+    "documentary",
+    "trailer",
   ];
   export {categories,types,categoryCards};

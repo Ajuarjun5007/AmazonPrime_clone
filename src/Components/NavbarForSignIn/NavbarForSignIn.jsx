@@ -102,14 +102,17 @@ function NavbarforSignIn() {
               </div>
               <div className="home-container">
                 <ul className="home-dropdown">
+
+                  <NavLink to="/home">
                   <li
                     className="nav-bar-items-list home-dropdown-items"
                     onClick={handleHomeNavItemClick}
                   >
                     All
                   </li>
-              <NavLink to="/home">
+                  </NavLink>  
 
+                  <NavLink to={`/categorytypepage?type=movie`}>
                   <li
                     className="nav-bar-items-list home-dropdown-items"
                     onClick={handleHomeNavItemClick}
@@ -117,6 +120,7 @@ function NavbarforSignIn() {
                     Movies
                   </li>
                   </NavLink>  
+
                   <li
                     className="nav-bar-items-list home-dropdown-items"
                     onClick={handleHomeNavItemClick}
@@ -347,17 +351,18 @@ function NavbarforSignIn() {
              </div>
              {/* manage profile */}
              <div className="profile-container">
-              <p className="profile-header">Profiles</p>
+              <div className="profile-header">Profiles</div>
               <div className="profile-info">
              <img
                 id="profile-icon"
                 src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
                 alt=""
               />
-            
-              <p>
+            <div className="user-name">
+              
                 {userName}
-                </p> 
+                
+            </div>
               </div>
              </div>
             </div>

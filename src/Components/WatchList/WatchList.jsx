@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { BiSolidRightArrow } from "react-icons/bi";
 import {BiCheck} from "react-icons/bi";
 import { FiPlus} from "react-icons/fi";
-
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 function WatchList(){
@@ -15,7 +14,6 @@ function WatchList(){
     const [isLoaded, setIsLoaded] = useState(false);
     const [watchlist,setWatchList]=useState([]);
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
-
     useEffect(()=>{ 
         if(!isLoaded){
         getWatchlist()
@@ -32,15 +30,16 @@ function WatchList(){
     setIsArrowRotated(!isArrowRotated);
     };
     const addMovieToWatchList = (movie) => {
-        addtoWatchlist(movie._id).then(response=> {
-          console.log("repo",response)
-          setIsLoaded(false);
-
-        })
-        .catch(err=>{
-          console.log("error",err)
-        })
-      }
+      addtoWatchlist(movie._id).then(response=> {
+        console.log("repo",response)
+        // setIsWatchListClicked(!isWatchListClicked);
+  
+      })
+      .catch(err=>{
+        console.log("error",err)
+      })
+    }
+  
 
 
   
@@ -96,7 +95,9 @@ function WatchList(){
                   <div id="watchlist-icon">
                     
                     <button 
-                    onClick={()=> {addMovieToWatchList(item)}} 
+                    onClick={
+                      ()=> addMovieToWatchList(item) 
+                    }
                     id="watchlist-icon-button">
                      
                        <BiCheck id="plus-icon" /> 

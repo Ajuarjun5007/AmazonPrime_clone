@@ -3,13 +3,13 @@ import "react-multi-carousel/lib/styles.css";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./TopCarousel.css";
 import { useState, useEffect } from "react";
-import { P, DefaultPlayer as Video } from "react-html5video";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BiInfoCircle } from "react-icons/bi";
 import { movieList } from "../../ApiFetch";
 import { Link } from "react-router-dom";
 import 'animate.css';
+
 function TopCarousel() {
   const responsive = {
     desktop: {

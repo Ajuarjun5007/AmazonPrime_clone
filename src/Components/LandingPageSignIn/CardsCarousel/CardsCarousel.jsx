@@ -4,6 +4,7 @@ import "../../Carousel/Carousel.css"
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus} from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link,useLocation } from "react-router-dom";
@@ -31,22 +32,28 @@ function CardsCarousel({moviesInfo,type}) {
   };
 
    
+  const navigate = useNavigate();
 
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
-  const addMovieToWatchList = (movie) => {
+  
+ console.log(localStorage.getItem("userInfo")===null)
+ 
+ const addMovieToWatchList = (movie) => {
+  if(localStorage.getItem("userInfo"))
+  {
     addtoWatchlist(movie._id).then(response=> {
       console.log("repo",response)
-      setIsWatchListClicked(!isWatchListClicked);
+      // setIsLoaded(false);
+
     })
     .catch(err=>{
       console.log("error",err)
     })
+  }else{
+    navigate("/SignIn")
   }
-
- console.log(localStorage.getItem("userInfo")===null)
- 
-
+  }
 
 
   return (
@@ -89,9 +96,9 @@ function CardsCarousel({moviesInfo,type}) {
                       onClick={()=> {addMovieToWatchList(item)}} 
                       id="watchlist-icon-button">
                        
-                        {!isWatchListClicked &&  <FiPlus id="plus-icon" />}
-                        {isWatchListClicked &&  <BiCheck id="check-icon" />} 
-                        
+                        {/* {!isWatchListClicked &&  <FiPlus id="plus-icon" />}
+                        {isWatchListClicked &&  <BiCheck id="check-icon" />}  */}
+                          <FiPlus id="plus-icon"/>
                       </button>
 
                       <span className="watchlist-tooltip">Watchlist</span>
