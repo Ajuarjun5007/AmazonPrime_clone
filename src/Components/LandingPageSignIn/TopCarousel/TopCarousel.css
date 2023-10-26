@@ -24,7 +24,8 @@
   padding: 0px 20px;
 }
 .poster-items img{
-border-radius: 20px;
+border-radius: 8px;
+object-fit:fill;
 }
 /* dot-list control */
 .react-multi-carousel-dot-list{

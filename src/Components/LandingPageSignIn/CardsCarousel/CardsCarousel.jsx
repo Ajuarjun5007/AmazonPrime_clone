@@ -37,7 +37,6 @@ function CardsCarousel({moviesInfo,type}) {
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
   
- console.log(localStorage.getItem("userInfo")===null)
  
  const addMovieToWatchList = (movie) => {
   if(localStorage.getItem("userInfo"))

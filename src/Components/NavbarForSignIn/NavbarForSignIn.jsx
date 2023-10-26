@@ -121,12 +121,15 @@ function NavbarforSignIn() {
                   </li>
                   </NavLink>  
 
+                  <NavLink to={`/categorytypepage?type=tv show`}>
                   <li
                     className="nav-bar-items-list home-dropdown-items"
                     onClick={handleHomeNavItemClick}
                   >
                     Tv shows
                   </li>
+                  </NavLink>  
+
                 </ul>
               </div>
             </li>
@@ -203,22 +206,22 @@ function NavbarforSignIn() {
                       <h2>Types </h2>
                     </div>
                     <ul className="type-items">
-                      {/* {
+
+                       {
                         types.map((item)=>(
-                          <Link to={`/CategorySelected?value=${item}&key=types`}>
+                 <Link to={`/categorytypepage?type=${item}`}>
                           <li className="genre">{item}</li>
                           </Link>
-
                         ))
-                    } */}
+                    } 
       
-                      <li className="type">Video Song</li>
+                      {/* <li className="type">Video Song</li>
                       <li className="type">Web Series</li>
                       <li className="type">Tv show</li>
                       <li className="type">Short Film</li>
                       <li className="type">Movie</li>
                       <li className="type">Documentary</li>
-                      <li className="type">Trailer</li>
+                      <li className="type">Trailer</li> */}
                     </ul>
                   </div>
                 </div>

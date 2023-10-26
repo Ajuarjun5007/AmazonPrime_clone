@@ -6,11 +6,13 @@ import { useState, useEffect } from "react";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BiInfoCircle } from "react-icons/bi";
-import { movieList } from "../../ApiFetch";
+// import { movieList } from "../../ApiFetch";
 import { Link } from "react-router-dom";
 import 'animate.css';
 
-function TopCarousel() {
+function TopCarousel(props) {
+
+  const  {moviesInfo} = props;
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -31,7 +33,7 @@ function TopCarousel() {
   };
   // const [showImage, setShowImage] = useState(true);
   // const [showVideo, setShowVideo] = useState(false);
-  const [moviesInfo, setMoviesInfo] = useState([]);
+  // const [moviesInfo, setMoviesInfo] = useState([]);
 
   // useEffect(() => {
   //   const imageTimeout = setTimeout(() => {
@@ -42,17 +44,17 @@ function TopCarousel() {
   //   return () => clearTimeout(imageTimeout);
   // }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await movieList();
-        setMoviesInfo(data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = await movieList();
+  //       setMoviesInfo(data.data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <>

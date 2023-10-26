@@ -35,7 +35,8 @@ function CategoryPage() {
 
         <div className="types-container">
           {types.map((types)=>(
-          <Link className="link" to={`/CategorySelected?value=${types}&key=type`}>
+          // <Link className="link" to={`/CategorySelected?value=${types}&key=type`}>
+          <Link to={`/categorytypepage?type=${types}`}>
           <div className="type-card">
             <img src={bluebg} alt="" />
             <span>{types}</span>
