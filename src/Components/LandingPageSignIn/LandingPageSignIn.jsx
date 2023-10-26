@@ -4,14 +4,17 @@ import CardsCarousel from "./CardsCarousel/CardsCarousel";
 import TopCarousel from "./TopCarousel/TopCarousel";
 import {movieList} from "../ApiFetch";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
+import { useLocation } from "react-router-dom";
 
-function LandingPageSignIn() {
+function LandingPageSignIn(props) {
 
 const typeArray =["video song","web series","tv show",
 "short film","movie","documentary","trailer"]
 
 const [moviesInfo, setMoviesInfo] = useState([]);
 
+const location  = useLocation();
+const { NavBarControl } = props;
 
 useEffect(() => {
   const fetchData = async () => {
@@ -23,8 +26,10 @@ useEffect(() => {
     }
   };
   fetchData();
+  NavBarControl(location.pathname);
 }, []);
-  // console.log("rsult",moviesInfo)
+
+  console.log("rsult",location.pathname)
   return (
   < div style ={{backgroundColor:"#00050d"}}>
       <TopCarousel  moviesInfo={moviesInfo} />

@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import NavbarforSignIn from "./Components/NavbarForSignIn/NavbarForSignIn";
 import FooterForSignIn from "./Components/FooterforSignIn/FooterForSIgnIn";
 import SignIn from "./Components/SignIn/SignIn";
+import Gridcards from "./Components/Gridcards/Gridcards";
 import SignUp from "./Components/SignUp/SignUp";
 import ComingSoon from "./Components/ComingSoon/ComingSoon"
 import {SearchPage} from './Components/SearchPage/SearchPage'
@@ -21,20 +22,17 @@ import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage";
 function App() {
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
 
+  console.log("state",isNavBarShow);
+
   const NavBarControl = (value) => {
-    if (value == "/SignIn" || value == "/SignUp" || value) {
+    console.log("value",value)
+  if(value=="/home"){
+    SetIsNavBarShow(true);
+  } else if (value == "/SignIn" || value == "/SignUp" || value){
       SetIsNavBarShow(false);
-    }
   };
-
-
-
-  
-
-
-
-
-
+  }
+ 
 
   return (
     <>
@@ -46,10 +44,10 @@ function App() {
         <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
 
-        <Route path="/home" element={<LandingPageSignIn/>} />
+        <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
-        
+        <Route path = "/Gridcards" element={<Gridcards/>}/>
         {/* <VideoInfo/> */}
         <Route
           path="/SignIn"

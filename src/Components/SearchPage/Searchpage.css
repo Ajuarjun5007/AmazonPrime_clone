@@ -1,0 +1,21 @@
+
+.search-page-btn-container{
+    margin-left: 72px;
+    gap: 20px;
+display: flex;
+}
+.search-filter-btn{
+    font-size: 21px;
+    background-color: #33373d;
+    color: #fff;
+    font-weight:600;
+    min-height: 62px;
+    margin-right: 12px;
+    padding: none;
+    border: 8px 21px;
+    border-radius: 8px;
+}
+.search-filter-btn:hover{
+    background-color:white;
+    color: #00050d;
+}

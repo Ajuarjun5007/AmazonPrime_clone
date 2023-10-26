@@ -24,6 +24,7 @@ const SignIn = (props) => {
   useEffect(() => {
     NavBarControl(location.pathname);
   }, []);
+  console.log("locat",location.pathname);
 
   const { search } = useLocation();
   const params = new URLSearchParams(search);

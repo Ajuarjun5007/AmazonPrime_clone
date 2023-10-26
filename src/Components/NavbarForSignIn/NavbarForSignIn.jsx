@@ -5,11 +5,16 @@ import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink,useNavigate} from "react-router-dom";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink,useNavigate,useLocation} from "react-router-dom";
 import { categories,types } from "../CategoryConstants";
 import {movieTitles} from "../commons/movieList"
-function NavbarforSignIn() {
 
+function NavbarforSignIn() {
+  
+
+  const location = useLocation();
+  console.log("loc",location.pathname)
   const [isOpen, setIsOpen] = useState(false);
   const toggleSearchBar = () => {
     setIsOpen((prevIsopen) => !prevIsopen);
@@ -52,8 +57,14 @@ function NavbarforSignIn() {
     setMovieResult([]);
   }
   })
-
-
+// clear value
+  const clearValue = () => {
+    setMovieResult([]); // Clear search results
+    const inputField = document.querySelector(".search-input");
+    if (inputField) {
+      inputField.value = ''; // Clear the input field
+    }
+  };
   // get data from local storage
   let storedValue=[]
   const [userName, setUserName] = useState(" ");
@@ -68,7 +79,9 @@ function NavbarforSignIn() {
        setUserName(storedValue[1].name);
        setIdLogged(true)
      }
-    },[]);
+     setIsOpen(false);
+     clearValue();
+    },[location.pathname]);
     // console.log(localStorage.getItem("userInfo"))
     
     const navigate  = useNavigate();
@@ -98,7 +111,7 @@ function NavbarforSignIn() {
                 }`}
               >
                 <p>Home</p>
-                <IoIosArrowDown className="arrow-icon" />
+                     <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
               </div>
               <div className="home-container">
                 <ul className="home-dropdown">
@@ -141,7 +154,8 @@ function NavbarforSignIn() {
                 }`}
               >
                 <p>Store</p>
-                <IoIosArrowDown className="arrow-icon" />
+                     <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
+
               </div>
               <div className="store-container">
                 <ul className="store-dropdown">
@@ -180,7 +194,8 @@ function NavbarforSignIn() {
               <NavLink to="categorypage">
                 <div className="navbar-items">
                   <p>Categories</p>
-                  <IoIosArrowDown className="arrow-icon" />
+                       <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
+
                 </div>
               </NavLink>
 
@@ -235,7 +250,8 @@ function NavbarforSignIn() {
                 }`}
               >
                 <p>My Stuff</p>
-                <IoIosArrowDown className="arrow-icon" />
+                     <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
+
               </div>
               <div className="myStuff-container">
                 <ul className="myStuff-dropdown">
@@ -297,7 +313,9 @@ function NavbarforSignIn() {
                   placeholder="Search"
                 />
                 <div className="clear-btn-container">
-                <button className="clear-btn"> clear</button>
+                <button
+                  onClick={clearValue}
+                 className="clear-btn"> clear</button>
                 </div>
                 </div> 
                   <div className="search-results">

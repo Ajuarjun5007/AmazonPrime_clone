@@ -38,7 +38,7 @@ const SignUp = (props) => {
     if(email===''){
       errors.push('email should not be empty');
     }
-    else if(!email.includes("@") && !email.includes(".com")) {
+    else if(!email.includes("@")) {
       errors.push('invalid email address');
     }
     console.log('mail',email);

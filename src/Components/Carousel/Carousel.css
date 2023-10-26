@@ -8,8 +8,9 @@
     margin-top: 50px;
     justify-content: flex-start;
     padding-left: 60px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 24px;
+    letter-spacing:1px;
   }
   .Carousel-header-prime{
     color: #1a98ff;
@@ -17,7 +18,19 @@
   .cards-carousel{
     padding-left: 40px;
   }
-  
+.see-more-container{
+  color: white;
+  font-size: 20px;
+  margin-left:10px;
+  display:flex;
+  align-items: center;
+  gap: 5px;
+  .right-arrow{
+    font-weight:300;
+    color:white;
+    font-size: 17px;
+  }
+}
   .value-header{
     font-size: 43px;
     padding-left: 60px;

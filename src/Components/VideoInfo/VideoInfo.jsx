@@ -86,6 +86,7 @@ function VideoInfo(props) {
         >
           {showVideo && !fullVideoShow && (
             <div style={{ opacity: isVideoLoaded ? 1 : 0 }}>
+
             <ReactPlayer
               url={movieInfo.video_url}
                muted={isMuted}
@@ -98,6 +99,7 @@ function VideoInfo(props) {
               onReady={onLoadedData}
               className="react-video"
             />
+            
           </div>
           )}
           {fullVideoShow && (
