@@ -1,7 +1,6 @@
 import "./NavbarForSignIn.css";
 import { useState , useEffect} from "react";
 import { BiSearch } from "react-icons/bi";
-import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +23,7 @@ function NavbarforSignIn() {
   const [isStoreListClicked, setIsStoreListClicked] = useState(false);
   const [isMyStuffListClicked, setIsMyStuffListClicked] = useState(false);
   const [movieResult,setMovieResult]=useState([]);
+  
   const handleHomeNavItemClick = () => {
     setIsHomeListClicked(true);
     setIsStoreListClicked(false);
@@ -92,7 +92,7 @@ function NavbarforSignIn() {
       console.log("clear");
     }
 
-
+    console.log("mr",movieResult)
   return (
     <>
       <div className="navbar-parent">
@@ -230,13 +230,7 @@ function NavbarforSignIn() {
                         ))
                     } 
       
-                      {/* <li className="type">Video Song</li>
-                      <li className="type">Web Series</li>
-                      <li className="type">Tv show</li>
-                      <li className="type">Short Film</li>
-                      <li className="type">Movie</li>
-                      <li className="type">Documentary</li>
-                      <li className="type">Trailer</li> */}
+                  
                     </ul>
                   </div>
                 </div>
@@ -320,13 +314,17 @@ function NavbarforSignIn() {
                 </div> 
                   <div className="search-results">
                    { movieResult.map((item)=>(
-                    <Link to={''} style={{color:"#fff"}}>
-                      <div className="search-result">
-                      <p>{item}
-                      <br/>
-                      </p>
-                      </div>
-                    </Link>
+                    <Link
+                    to={{
+                      pathname: '/SearchPage', 
+                      state: movieResult
+                    }}
+                    style={{ color: "#fff" }}
+                  >
+                    <div className="search-result">
+                      <p>{item}</p>
+                    </div>
+                  </Link>
                    ))}
                 </div>
               </div>

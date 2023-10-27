@@ -11,8 +11,8 @@ display: flex;
     font-weight:600;
     min-height: 62px;
     margin-right: 12px;
-    padding: none;
-    border: 8px 21px;
+    border: none;
+    padding: 8px 21px;
     border-radius: 8px;
 }
 .search-filter-btn:hover{

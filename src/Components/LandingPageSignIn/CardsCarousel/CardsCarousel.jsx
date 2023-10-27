@@ -108,10 +108,16 @@ function CardsCarousel({ moviesInfo, type }) {
                       </button>
 
                       <span className="watchlist-tooltip">Watchlist</span>
+                      <Link
+                  key={`${item._id}&${index}`}
+                  to={`/videodetails/${item._id}`}
+                >
                       <button id="more-icon-button">
                         <BsThreeDotsVertical id="threedots-icon" />
                       </button>
                       <span className="more-tooltip">More</span>
+                      </Link>
+
                     </div>
                   </div>
 

@@ -13,6 +13,7 @@ function WatchList(){
     const [isArrowRotated, setIsArrowRotated] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [watchlist,setWatchList]=useState([]);
+      const [buttonText,SetButtonText]=useState("Most Recent Addition")
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
     useEffect(()=>{ 
         if(!isLoaded){
@@ -20,15 +21,20 @@ function WatchList(){
         .then(response=>{
             setWatchList(response.data.data.shows)
             console.log("watch",response.data.data.shows);
-            setIsLoaded(true);
+            // setIsLoaded(true);
         })
     }
     },[isLoaded])
 
-  
-    const handleArrowRotation = () => {
+  // button handler
+    const recentButtonHandler = () => {
     setIsArrowRotated(!isArrowRotated);
     };
+
+
+   
+
+    // add to watchList
     const addMovieToWatchList = (movie) => {
       addtoWatchlist(movie._id).then(response=> {
         console.log("repo",response)
@@ -41,7 +47,10 @@ function WatchList(){
     }
   
 
-
+    const optionHandler = (text)=>{
+      SetButtonText(text);
+      console.log("val",text);
+    }
   
     return(
         <div className='watchList-parent'>
@@ -60,14 +69,22 @@ function WatchList(){
                 Tv shows
             </button>
             </div>
+
             <div className="recent-btn-container">
+
             <button
-      className='WatchList-filter-btn recent-btn'
-      onClick={handleArrowRotation}
+      className={`WatchList-filter-btn ${isArrowRotated ? 'recent-btn' : ''}`}
+      onClick={recentButtonHandler}
     >
-      Most Recent Addition
+      {buttonText}
       <IoIosArrowDown className={`down-arrow-icon ${isArrowRotated ? 'rotate-arrow' : ''}`} />
     </button>
+    <div className={`recent-btn-content${isArrowRotated?'recent-btn-content':'' }`}>
+      <p class="recent-btn-option" onClick={ () => optionHandler("Most Recent Addition")}>Most Recent Addition</p>
+      <p class="recent-btn-option" onClick={ () => optionHandler("Title: A-Z")}>Title: A-Z</p>
+      <p class="recent-btn-option last-option" onClick={ () => optionHandler("Title: Z-A")}>Title: Z-A</p>
+    </div>
+      
             </div>
         </div>
         <div className="watchList-cards">

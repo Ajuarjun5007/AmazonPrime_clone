@@ -3,10 +3,14 @@ import "react-multi-carousel/lib/styles.css";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./TopCarousel.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BiInfoCircle } from "react-icons/bi";
 // import { movieList } from "../../ApiFetch";
+import { addtoWatchlist } from "../../commons/WatchlistService";
+
 import { Link } from "react-router-dom";
 import 'animate.css';
 
@@ -56,6 +60,32 @@ function TopCarousel(props) {
   //   fetchData();
   // }, []);
 
+  const navigate = useNavigate();
+  console.log("nav",navigate);
+  const [isWatchListClicked, setIsWatchListClicked] = useState(false);
+
+  const addMovieToWatchList = (movie) => {
+    if (localStorage.getItem("userInfo")) {
+      addtoWatchlist(movie._id)
+        .then((response) => {
+          console.log("repo", response);
+          // setIsLoaded(false);
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+    } else {
+      navigate("/SignIn");
+    }
+  };
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="App">
@@ -91,12 +121,23 @@ function TopCarousel(props) {
                       </button>
                       <p>Play</p>
                       <div className="poster-icons">
-                        <button className="watchList poster-icons-button">
+                        <button 
+                         onClick={() => {
+                          addMovieToWatchList(item);
+                        }}
+                        className="watchList poster-icons-button">
                           <FiPlus className="plus" />
                         </button>
+                        <span className="poster-watchlist-tooltip">Watchlist</span>
+                        <Link
+                  key={`${item._id}&${index}`}
+                  to={`/videodetails/${item._id}`}
+                >
                         <button className="details poster-icons-button">
                           <BiInfoCircle className="info" />
                         </button>
+                        <span className="poster-details-tooltip">Details</span>
+                        </Link>
                       </div>
                     </div>
                   </div>
