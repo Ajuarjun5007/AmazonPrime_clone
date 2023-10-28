@@ -13,7 +13,6 @@ function NavbarforSignIn() {
   
 
   const location = useLocation();
-  console.log("loc",location.pathname)
   const [isOpen, setIsOpen] = useState(false);
   const toggleSearchBar = () => {
     setIsOpen((prevIsopen) => !prevIsopen);
@@ -92,7 +91,7 @@ function NavbarforSignIn() {
       console.log("clear");
     }
 
-    console.log("mr",movieResult)
+      console.log("mr",movieResult);
   return (
     <>
       <div className="navbar-parent">
@@ -249,12 +248,16 @@ function NavbarforSignIn() {
               </div>
               <div className="myStuff-container">
                 <ul className="myStuff-dropdown">
+                <NavLink to='WatchlistAll'>
+
                   <li
                     className="nav-bar-items-list myStuff-dropdown-items"
                     onClick={handleMyStuffNavItemClick}
                   >
                     All
                   </li>
+                  </NavLink>
+
                   <NavLink to='Watchlist'>
                   <li
                     className="nav-bar-items-list myStuff-dropdown-items"
@@ -314,13 +317,21 @@ function NavbarforSignIn() {
                 </div> 
                   <div className="search-results">
                    { movieResult.map((item)=>(
-                    <Link
-                    to={{
-                      pathname: '/SearchPage', 
-                      state: movieResult
-                    }}
+                  //   <Link
+                  //   to={{
+                  //     pathname: '/Watchlist', 
+                  //     state: movieResult
+                  //   }}
+
+                  //   style={{ color: "#fff" }}
+
+                  // >
+                    <Link 
+                      to='/SearchPage'
+                      state={{data:movieResult}}
                     style={{ color: "#fff" }}
-                  >
+
+                    >
                     <div className="search-result">
                       <p>{item}</p>
                     </div>

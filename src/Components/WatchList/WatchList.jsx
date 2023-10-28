@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { BiSolidRightArrow } from "react-icons/bi";
 import {BiCheck} from "react-icons/bi";
 import { FiPlus} from "react-icons/fi";
+import { useLocation } from 'react-router-dom';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 function WatchList(){
@@ -13,8 +14,10 @@ function WatchList(){
     const [isArrowRotated, setIsArrowRotated] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [watchlist,setWatchList]=useState([]);
-      const [buttonText,SetButtonText]=useState("Most Recent Addition")
+    const [buttonText,SetButtonText]=useState("Most Recent Addition")
+
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
+
     useEffect(()=>{ 
         if(!isLoaded){
         getWatchlist()
@@ -32,7 +35,8 @@ function WatchList(){
     };
 
 
-   
+   const location = useLocation();
+   console.log("loca",location);
 
     // add to watchList
     const addMovieToWatchList = (movie) => {

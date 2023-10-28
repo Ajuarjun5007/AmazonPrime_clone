@@ -17,6 +17,7 @@ import 'animate.css';
 function TopCarousel(props) {
 
   const  {moviesInfo} = props;
+  
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },

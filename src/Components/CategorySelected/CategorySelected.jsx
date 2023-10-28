@@ -7,13 +7,14 @@ import { useLocation } from "react-router-dom";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 
 function CategorySelected() {
+
   const { search } = useLocation();
   console.log("search",search)
   const params = new URLSearchParams(search);
   const key = params.get("key");
   const value = params.get("value");
 
-  const [resultdata, setResultData] = useState([]);
+  const [resultdata, setResultData] = useState([]); 
   const [selectedType, setSelectedType] = useState("All");
 
 
@@ -33,7 +34,8 @@ function CategorySelected() {
   }, [value]);
 
   return (
-    < div style={{backgroundColor:"#00050d"}}>
+    <>
+    < div style={{backgroundColor:"#00050d", paddingBottom:"300px"}}>
     <div className="value-header">{value}</div>
       <div className="filter-btn-container">
         <button onClick={() => setSelectedType("All")} className="filter-btn">
@@ -60,8 +62,9 @@ function CategorySelected() {
         )}
       </div>
 
-      <FooterForSignIn />
     </div>
+      <FooterForSignIn />
+    </>
   );
 }
 export default CategorySelected;

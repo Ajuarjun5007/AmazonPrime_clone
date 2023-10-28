@@ -6,7 +6,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 function SearchPage(){
 
 const location = useLocation();
-console.log("loc",location.state);
+console.log("loc",location.state.data);
     return(
         <>
         <div className="search-page-container" style={{backgroundColor:"#00050d",paddingBottom:"300px"}}>

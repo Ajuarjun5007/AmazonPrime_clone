@@ -1,3 +1,4 @@
+
 .navbar-parent{
     width: 100%;
     display: flex;
@@ -623,4 +624,9 @@ li a:focus{
     border-bottom: 3px solid white;
 }
 
+@media screen and (max-width:879px){
 
+    .navbar-parent{
+        display:none;        
+    }
+}

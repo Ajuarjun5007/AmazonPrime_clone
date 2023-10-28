@@ -4,7 +4,8 @@ import "./Carousel.css";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 // import {addtoWatchlist} from "../../Components/commons/WatchlistService"
 
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -31,6 +32,15 @@ const CarouselComponent= (props) => {
     },
   };
  
+  const location = useLocation();
+
+    const [isLocationWatchList,setIsLocationWatchList] = useState(false);
+    useEffect(()=>{
+      setIsLocationWatchList(true);
+    },[location])
+
+
+
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
   // const addMovieToWatchList = (movie) => {
   //   addtoWatchlist(movie._id).then(response=> {
@@ -46,10 +56,16 @@ const CarouselComponent= (props) => {
 
   return (
     < div className="carousel-container">
+
     <div  className="Carousel-header">
+      {
+        isLocationWatchList && <div className="Carousel-header-prime">WatchList-{type}</div>
+      }
         <div className="Carousel-header-prime">Prime</div>
         {type}
       </div>
+
+
 
     <Carousel
       className="cards-carousel"

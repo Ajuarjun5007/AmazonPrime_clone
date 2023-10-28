@@ -18,38 +18,43 @@ import {SearchPage} from './Components/SearchPage/SearchPage'
 import { PrimeBenefits } from "./Components/PrimeBenefits/PrimeBenefits";
 import { SignInProvider } from "./Components/SignIn/SignInProvider";
 import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage";
+import WatchListAll from "./Components/WatchList/WatchListAll"
+import MobileNavbar from "./Components/MobileNavbar/MobileNavbar";
 
 function App() {
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
 
-  console.log("state",isNavBarShow);
 
   const NavBarControl = (value) => {
     console.log("value",value)
+
   if(value=="/home"){
     SetIsNavBarShow(true);
   } else if (value == "/SignIn" || value == "/SignUp" || value){
       SetIsNavBarShow(false);
   };
   }
- 
-
+  
   return (
     <>
-      {isNavBarShow && <NavbarforSignIn />}
+      {isNavBarShow && <NavbarforSignIn/>}
+
+        {isNavBarShow && <MobileNavbar/>}
 
       <Routes>
         {/* <LandingPageSignout /> */}
 
-        <Route path="/" element={<LandingPageSignout/>} />
+        {/* <Route path="/" element={<LandingPageSignout/>} /> */}
         {/* <LandingPageSignIn/> */}
 
-        <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
+        {/* <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
+      
+      
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
-        <Route path = "/Gridcards" element={<Gridcards/>}/>
+        <Route path = "/Gridcards" element={<Gridcards/>}/> */}
         {/* <VideoInfo/> */}
-        <Route
+        {/* <Route
           path="/SignIn"
           element={<SignInProvider NavBarControl={NavBarControl}  />}
         />
@@ -61,11 +66,12 @@ function App() {
         <Route path="/comingsoon" element={<ComingSoon/>}/>
         
         <Route path="/PrimeBenefits" element={<PrimeBenefits />} />
-        <Route path="/Watchlist" element={<WatchList />} />
+        <Route path="/Watchlist" element={<WatchList />} /> */}
         {/* <SignIn/> */}
         {/* <CategoryPage/> */}
-        <Route path="/categorypage" element={<CategoryPage />} />
+        {/* <Route path="/categorypage" element={<CategoryPage />} />
         <Route path="/categorytypepage" element={<CategoryTypePage/>} />
+        <Route path="/WatchListAll" element={<WatchListAll/>}/> */}
         {/* <Footer/> */}
       </Routes>
 
