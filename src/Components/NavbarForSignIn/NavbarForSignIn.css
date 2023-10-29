@@ -181,7 +181,7 @@
     padding:20px 10px;
     background-color:#191e25;
  }
- .profile-container{
+ .profile-container{ 
     /* border: 3px solid red; */
     margin-top: 10px;
     width:200px;
@@ -570,7 +570,6 @@
 }
 .search-icon-small{
     padding-left:22px;
-    font-size: 38px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     height: 24px;

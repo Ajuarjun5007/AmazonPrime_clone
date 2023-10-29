@@ -47,10 +47,10 @@ function App() {
         {/* <Route path="/" element={<LandingPageSignout/>} /> */}
         {/* <LandingPageSignIn/> */}
 
-        {/* <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
+        {/* <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} /> */}
       
       
-        <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
+        {/* <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
         <Route path = "/Gridcards" element={<Gridcards/>}/> */}
         {/* <VideoInfo/> */}

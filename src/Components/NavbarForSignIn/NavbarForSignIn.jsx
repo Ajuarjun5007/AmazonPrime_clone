@@ -282,6 +282,8 @@ function NavbarforSignIn() {
           </ul>
 
           <div className="navbar-icons">
+
+
             {/* search bar */}
             <div
               onClick={toggleSearchBar}
@@ -291,7 +293,7 @@ function NavbarforSignIn() {
               {isOpen ? (
                 <AiOutlineClose className="close-icon" />
               ) : (
-                <BiSearch className="search-icon" />
+                <BiSearch className="search-icon"/>
               )}
 
             </div>
@@ -300,21 +302,27 @@ function NavbarforSignIn() {
               <div className={`search-bar-container ${isOpen ? "open" : ""}`}>  
 
               <div className="search-bar">  
+
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
                   className="search-icon-small"
                 />
+
                 <input onChange={searchMovie}
                   type="text"
                   className="search-input"
                   placeholder="Search"
                 />
+
                 <div className="clear-btn-container">
                 <button
                   onClick={clearValue}
                  className="clear-btn"> clear</button>
                 </div>
+
                 </div> 
+
+
                   <div className="search-results">
                    { movieResult.map((item)=>(
                   //   <Link
