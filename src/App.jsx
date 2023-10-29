@@ -20,9 +20,13 @@ import { SignInProvider } from "./Components/SignIn/SignInProvider";
 import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage";
 import WatchListAll from "./Components/WatchList/WatchListAll"
 import MobileNavbar from "./Components/MobileNavbar/MobileNavbar";
-
+import { useScreenSize } from "./Components/useScreenSize";
+import MobileNavBArContent from "./Components/MobileNavbar/MobileNavBArContent";
 function App() {
+
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
+
+  const [mobileNavBar, setMobileNavBar] = useState(true);
 
 
   const NavBarControl = (value) => {
@@ -35,26 +39,46 @@ function App() {
   };
   }
   
+  const handleMobileNavbar = (value) => {
+    setMobileNavBar(value);
+  }  
+
+
+const screenSize =   useScreenSize();
+
+ let isMobile = screenSize < 880;
+
+  console.log("mn",mobileNavBar);
   return (
     <>
+    {mobileNavBar && 
+     <div className="mobileNavBarStyle">
+        <MobileNavBArContent />
+      </div>
+    }
       {isNavBarShow && <NavbarforSignIn/>}
+        
+        
 
-        {isNavBarShow && <MobileNavbar/>}
-
+        {isMobile&& isNavBarShow&& 
+        <div className={`${mobileNavBar ? 'active' : ''}`}>
+          <MobileNavbar handleMobileNavbar={handleMobileNavbar}/>
+        </div>
+        }
       <Routes>
         {/* <LandingPageSignout /> */}
 
         {/* <Route path="/" element={<LandingPageSignout/>} /> */}
         {/* <LandingPageSignIn/> */}
 
-        {/* <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} /> */}
+        <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
       
       
-        {/* <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
+        <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
-        <Route path = "/Gridcards" element={<Gridcards/>}/> */}
+        <Route path = "/Gridcards" element={<Gridcards/>}/>
         {/* <VideoInfo/> */}
-        {/* <Route
+        <Route
           path="/SignIn"
           element={<SignInProvider NavBarControl={NavBarControl}  />}
         />
@@ -66,14 +90,14 @@ function App() {
         <Route path="/comingsoon" element={<ComingSoon/>}/>
         
         <Route path="/PrimeBenefits" element={<PrimeBenefits />} />
-        <Route path="/Watchlist" element={<WatchList />} /> */}
+        <Route path="/Watchlist" element={<WatchList />} />
         {/* <SignIn/> */}
         {/* <CategoryPage/> */}
-        {/* <Route path="/categorypage" element={<CategoryPage />} />
+        <Route path="/categorypage" element={<CategoryPage />} />
         <Route path="/categorytypepage" element={<CategoryTypePage/>} />
-        <Route path="/WatchListAll" element={<WatchListAll/>}/> */}
-        {/* <Footer/> */}
+        <Route path="/WatchListAll" element={<WatchListAll/>}/>
       </Routes>
+        <Footer/>
 
    
     </>

@@ -3,8 +3,23 @@
     display: none;
 }
 
+@media screen and (max-width:375px){
+    .menu-content{
+        padding-bottom:10px!important;
+        background-color: red;
+    }
+}
+@media screen and (max-width:414px){
+    .menu-content{
+        background-color: #aaa;
+        padding-bottom:440px!important;
+    }
+}
+
 
 @media screen and (max-width:879px){
+
+
 
     .mb-navbar-container{
         display: flex;
@@ -13,7 +28,7 @@
         top: 0;
         padding: 0;
         position: fixed;
-        width:100%;
+        /* width:100%; */
         height:50px;
         color:#fff;
         font-size: 16px;
@@ -30,14 +45,16 @@
 
     .menu-content{
         position:absolute;
-        width:100%;
+        /* width:100%; */
         left: 0;
         background-color: #191e25;
         top: 50px;
         z-index: 12;
         height:max-content;
         color: #aaa;
-        /* height: 10vh; */
+        background-color:red;
+        /* padding-bottom:300px; */
+        /* height: 100vh; */
     }
     .home-content,.store-content,.livetv-content,.categories-content,.stuff-content{
         /* border:2px solid white; */
@@ -167,7 +184,7 @@
         /* padding: 5px; */
         /* background-color: #aaa; */
         width:unset;
-        width: 100%;
+        /* width: 100%; */
         padding-left:15px!important;
         /* padding:20px 40px; */
         /* font-weight: 900; */
@@ -203,12 +220,10 @@
     }
     .search-input{
         display: block;
-        width:inherit;
+        /* width:inherit; */
         height: 48px;
         padding-left: 20px;
         background-color: #33373d;
-        /* border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px; */
         border:none;
         /* font-weight: 900; */
         color: #fff;
@@ -300,12 +315,10 @@
     }
     .accordion-body{
         display: block;
-        width:100%;
-        /* width:500px; */
     }
     .accordion-body p{
         /* width:100%; */
         padding: 10px 120px 10px 70px;
-        background-color: #33373d;
+        /* background-color: #33373d; */
     }
 }

@@ -6,3 +6,20 @@
      /* background-color:#00050d; */
      box-sizing: border-box;
   }
+
+  .mobileNavBarStyle {
+    position: fixed;
+    left: 0;
+    top: -10px;
+    height: 100%;
+    z-index: 1300;
+    width: 100%;
+  }
+  .active{
+    position:fixed;
+    left: 0;
+    top:0px;
+    height: 100%;
+    z-index: 1300;
+    width:100%;
+  }
