@@ -18,16 +18,19 @@ function WatchList(){
 
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
+    console.log("is",isLoaded);
+
     useEffect(()=>{ 
-        if(!isLoaded){
+        // if(!isLoaded){
         getWatchlist()
         .then(response=>{
             setWatchList(response.data.data.shows)
             console.log("watch",response.data.data.shows);
-            // setIsLoaded(true);
-        })
-    }
-    },[isLoaded])
+            setIsLoaded(!isLoaded); 
+          })
+
+    // }
+    },[isLoaded,isWatchListClicked])
 
   // button handler
     const recentButtonHandler = () => {
@@ -42,7 +45,7 @@ function WatchList(){
     const addMovieToWatchList = (movie) => {
       addtoWatchlist(movie._id).then(response=> {
         console.log("repo",response)
-        // setIsWatchListClicked(!isWatchListClicked);
+        setIsWatchListClicked(!isWatchListClicked);
   
       })
       .catch(err=>{

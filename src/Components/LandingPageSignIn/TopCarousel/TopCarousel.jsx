@@ -65,7 +65,9 @@ function TopCarousel(props) {
   console.log("nav",navigate);
   const [isWatchListClicked, setIsWatchListClicked] = useState(false);
 
-  const addMovieToWatchList = (movie) => {
+  const addMovieToWatchList = (movie,event) => {
+
+      event.preventDefault();
     if (localStorage.getItem("userInfo")) {
       addtoWatchlist(movie._id)
         .then((response) => {
@@ -123,8 +125,8 @@ function TopCarousel(props) {
                       <p>Play</p>
                       <div className="poster-icons">
                         <button 
-                         onClick={() => {
-                          addMovieToWatchList(item);
+                         onClick={(event) => {
+                          addMovieToWatchList(item,event);
                         }}
                         className="watchList poster-icons-button">
                           <FiPlus className="plus" />

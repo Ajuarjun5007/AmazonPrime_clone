@@ -50,7 +50,7 @@ function NavbarforSignIn() {
   const searchMovie =((event)=>{
     const input = event.target.value;
     if(input.length===2){
-    const result =  movieTitles.filter((movieTitle)=>movieTitle.toLowerCase().includes(input.toLowerCase()))
+    const result =  movieTitles.filter((movieTitle)=>movieTitle.toLowerCase().includes(input.toLowerCase())).slice(0,10);
       setMovieResult(result);
   }else if(input.length==0){
     setMovieResult([]);

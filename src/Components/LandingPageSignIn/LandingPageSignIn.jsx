@@ -32,6 +32,11 @@ useEffect(() => {
   console.log("rsult",location.pathname)
   return (
   < div style ={{backgroundColor:"#00050d"}}>
+
+    <div className="carousels-container" 
+      style={{paddingBottom:"300px"}}  
+    >
+
       <TopCarousel  moviesInfo={moviesInfo} />
 
       {typeArray.map((type)=>{
@@ -40,6 +45,7 @@ useEffect(() => {
           />
       })}
     
+    </div>
       
       <FooterForSignIn/>
 

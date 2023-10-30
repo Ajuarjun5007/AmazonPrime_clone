@@ -8,18 +8,19 @@
   }
 
   .mobileNavBarStyle {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     top: -10px;
     height: 100%;
-    z-index: 1300;
+    /* z-index: 1300; */
     width: 100%;
   }
-  .active{
+
+  /* .active{
     position:fixed;
     left: 0;
     top:0px;
-    height: 100%;
+    height:100%;
     z-index: 1300;
     width:100%;
-  }
+  } */

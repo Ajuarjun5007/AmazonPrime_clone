@@ -26,7 +26,7 @@ function App() {
 
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
 
-  const [mobileNavBar, setMobileNavBar] = useState(true);
+  const [mobileNavBar, setMobileNavBar] = useState(false);
 
 
   const NavBarControl = (value) => {
@@ -40,18 +40,22 @@ function App() {
   }
   
   const handleMobileNavbar = (value) => {
+    console.log("vl",value);
     setMobileNavBar(value);
   }  
 
 
 const screenSize =   useScreenSize();
 
+console.log("sz",screenSize);
  let isMobile = screenSize < 880;
 
+ console.log("is",isMobile);
+ console.log("isnavbar",isNavBarShow);
   console.log("mn",mobileNavBar);
   return (
     <>
-    {mobileNavBar && 
+    {mobileNavBar==true && 
      <div className="mobileNavBarStyle">
         <MobileNavBArContent />
       </div>
@@ -60,7 +64,7 @@ const screenSize =   useScreenSize();
         
         
 
-        {isMobile&& isNavBarShow&& 
+        {isMobile && 
         <div className={`${mobileNavBar ? 'active' : ''}`}>
           <MobileNavbar handleMobileNavbar={handleMobileNavbar}/>
         </div>
@@ -68,7 +72,7 @@ const screenSize =   useScreenSize();
       <Routes>
         {/* <LandingPageSignout /> */}
 
-        {/* <Route path="/" element={<LandingPageSignout/>} /> */}
+        <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
 
         <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
@@ -97,7 +101,7 @@ const screenSize =   useScreenSize();
         <Route path="/categorytypepage" element={<CategoryTypePage/>} />
         <Route path="/WatchListAll" element={<WatchListAll/>}/>
       </Routes>
-        <Footer/>
+        {/* <Footer/> */}
 
    
     </>

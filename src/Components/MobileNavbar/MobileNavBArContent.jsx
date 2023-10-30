@@ -1,4 +1,5 @@
-import "./MobileNavbar.css";
+import "./MobileNavbarContent.css";
+
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
@@ -81,7 +82,7 @@ const MobileNavBArContent = () => {
                           <AccordionHeader className="acc-sub-head">
                             <h3>Genres</h3>
                             <FontAwesomeIcon
-                              icon={open ? faAngleUp : faAngleDown}
+                              icon={!open ? faAngleUp : faAngleDown}
                               className={classNames("icon", { open: open })}
                               style={{
                                 marginLeft: "10px",

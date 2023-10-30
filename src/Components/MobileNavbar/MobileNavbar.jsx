@@ -37,15 +37,15 @@ function MobileNavbar( { handleMobileNavbar } ) {
 
   const arrowHandler = () => {
     setArrowRotate((prevRotate) => !prevRotate);
-    handleMobileNavbar(arrowRotate);
+    // handleMobileNavbar(arrowRotate);
   };
 
   const searchMovie = (event) => {
     const input = event.target.value;
     if (input.length === 2) {
-      const result = movieTitles.filter((movieTitle) =>
-        movieTitle.toLowerCase().includes(input.toLowerCase())
-      );
+    const result =  movieTitles.filter((movieTitle)=>movieTitle.toLowerCase().includes(input.toLowerCase()))
+    .slice(0,10);
+      
       setMovieResult(result);
       console.log("rs", result);
     } else if (input.length == 0) {
@@ -65,6 +65,7 @@ function MobileNavbar( { handleMobileNavbar } ) {
   const [userName, setUserName] = useState(" ");
   const [idLogged, setIdLogged] = useState(false);
   console.log("ar", arrowRotate);
+  handleMobileNavbar(arrowRotate);
 
   return (
     <>
@@ -74,7 +75,7 @@ function MobileNavbar( { handleMobileNavbar } ) {
       >
         <div
           className="mb-menu-container"
-          style={{ background: arrowRotate ? "#191e25" : "initial" }}
+          style={{ background:arrowRotate? "#191e25" : "initial" }}
           onClick={arrowHandler}
         >
           <p>Menu</p>

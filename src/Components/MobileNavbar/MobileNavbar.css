@@ -19,8 +19,6 @@
 
 @media screen and (max-width:879px){
 
-
-
     .mb-navbar-container{
         display: flex;
         justify-content: space-between;
@@ -56,7 +54,7 @@
         /* padding-bottom:300px; */
         /* height: 100vh; */
     }
-    .home-content,.store-content,.livetv-content,.categories-content,.stuff-content{
+    .home-content,.store-content,.livetv-content,.stuff-content{
         /* border:2px solid white; */
         display: flex;
         align-items: center;
@@ -284,13 +282,10 @@
     }
 
     /* categories container */
-    .categories-content{
-        border: none;
-        padding: 0;
-    }
-    .categories-content-header{
+    
+    /* .categories-content-header{
         padding: 15px 28px;
-        /* border: 2px solid red; */
+        border: 2px solid red;
         display: flex;
         align-content: center;
         background-color:#191e25;
@@ -317,8 +312,7 @@
         display: block;
     }
     .accordion-body p{
-        /* width:100%; */
         padding: 10px 120px 10px 70px;
-        /* background-color: #33373d; */
-    }
+        background-color: #33373d;
+    } */
 }
