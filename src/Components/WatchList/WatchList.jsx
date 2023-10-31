@@ -1,7 +1,7 @@
 import './WatchList.css'
 import { useEffect, useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
-import {addtoWatchlist,getWatchlist} from '../commons/WatchlistService' 
+import {addtoWatchlist,getWatchlist} from './WatchlistService' 
 import { Link } from 'react-router-dom';
 import { BiSolidRightArrow } from "react-icons/bi";
 import {BiCheck} from "react-icons/bi";

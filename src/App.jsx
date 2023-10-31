@@ -46,12 +46,9 @@ function App() {
 
 const screenSize =   useScreenSize();
 
-console.log("sz",screenSize);
  let isMobile = screenSize < 880;
 
- console.log("is",isMobile);
- console.log("isnavbar",isNavBarShow);
-  console.log("mn",mobileNavBar);
+
   return (
     <>
     {mobileNavBar==true && 

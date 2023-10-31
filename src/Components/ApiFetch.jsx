@@ -17,15 +17,6 @@ const movieList = async (type) => {
       suffix,
     );
 
-
-//     console.log("data",response.data)
-//     let count = 0;
-// response.data.data.map((item) => {
-//   if (item.type === 'movie' && item.keywords.includes('action')) {
-//     count++;
-//   }
-// });
-
     return response.data;
   } catch (error) {
     // Handle errors

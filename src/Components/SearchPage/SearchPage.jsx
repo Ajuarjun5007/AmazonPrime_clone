@@ -5,16 +5,19 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { types, categories } from "../CategoryConstants";
 import { Gridcards } from "../Gridcards/Gridcards";
+import {searchSuggestionResults} from "./SearchPageService"
 
-// Your component code here
 
 function SearchPage() {
   const location = useLocation();
   const [searchResults, setSearchResults] = useState([]);
+  
   useEffect(() => {
     setSearchResults(location.state.data);
   }, [location]);
-  console.log("loc", location.state.data);
+
+
+  console.log("searchresult",searchResults);
 
   const [isOpenGenre, setIsOpenGenre] = useState(false);
   const [isOpenType, setIsOpenType] = useState(false);
@@ -26,6 +29,9 @@ function SearchPage() {
   function handleTypeDisplay() {
     setIsOpenType(!isOpenType);
   }
+
+
+
   return (
     <>
       <div

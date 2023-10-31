@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
-import { addtoWatchlist } from "../../commons/WatchlistService";
+import { addtoWatchlist } from "../../WatchList/WatchlistService";
 import { useState } from "react";
 
 function CardsCarousel({ moviesInfo, type }) {

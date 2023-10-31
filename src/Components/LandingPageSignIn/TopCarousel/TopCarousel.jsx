@@ -9,7 +9,7 @@ import { FiPlus } from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
 import { BiInfoCircle } from "react-icons/bi";
 // import { movieList } from "../../ApiFetch";
-import { addtoWatchlist } from "../../commons/WatchlistService";
+import { addtoWatchlist } from "../../WatchList/WatchlistService";
 
 import { Link } from "react-router-dom";
 import 'animate.css';

@@ -8,6 +8,8 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink,useNavigate,useLocation} from "react-router-dom";
 import { categories,types } from "../CategoryConstants";
 import {movieTitles} from "../commons/movieList"
+import {searchSuggestionResults} from "../SearchPage/SearchPageService"
+
 
 function NavbarforSignIn() {
   
@@ -47,15 +49,23 @@ function NavbarforSignIn() {
     setIsMyStuffListClicked(false);
   };
   
-  const searchMovie =((event)=>{
+  const searchMovie = async (event) => {
     const input = event.target.value;
-    if(input.length===2){
-    const result =  movieTitles.filter((movieTitle)=>movieTitle.toLowerCase().includes(input.toLowerCase()));
-      setMovieResult(result);
-  }else if(input.length==0){
-    setMovieResult([]);
-  }
-  })
+    console.log("in", input);
+  
+    if (input.length === 2) {
+      try {
+        const result = await searchSuggestionResults(input);
+        setMovieResult(result.data.slice(0,30));
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
+      }
+    } else if (input.length === 0) {
+      setMovieResult([]);
+    }
+  };
+  
+console.log("movieResult",movieResult);
 // clear value
   const clearValue = () => {
     setMovieResult([]); // Clear search results
@@ -91,7 +101,6 @@ function NavbarforSignIn() {
       console.log("clear");
     }
 
-      console.log("mr",movieResult);
   return (
     <>
       <div className="navbar-parent">
@@ -324,15 +333,7 @@ function NavbarforSignIn() {
 
                   <div className="search-results">
                    { movieResult.slice(0,10).map((item)=>(
-                  //   <Link
-                  //   to={{
-                  //     pathname: '/Watchlist', 
-                  //     state: movieResult
-                  //   }}
-
-                  //   style={{ color: "#fff" }}
-
-                  // >
+  
                     <Link 
                       to='/SearchPage'
                       state={{data:movieResult}}
@@ -340,7 +341,7 @@ function NavbarforSignIn() {
 
                     >
                     <div className="search-result">
-                      <p>{item}</p>
+                      <p>{item.title}</p>
                     </div>
                   </Link>
                    ))}

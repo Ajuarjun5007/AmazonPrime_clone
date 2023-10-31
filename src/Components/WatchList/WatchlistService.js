@@ -1,7 +1,6 @@
 import { instance, headers } from "../ApiFetch";
 
 let key = JSON.parse(localStorage.getItem("userInfo")) || [];
-console.log(key[0])
 
 const token = "Bearer " + key[0];
 headers["Authorization"] = token;

@@ -1,4 +1,4 @@
-import {addtoWatchlist,getWatchlist} from '../commons/WatchlistService' 
+import {addtoWatchlist,getWatchlist} from "../WatchList/WatchlistService"
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiSolidRightArrow } from "react-icons/bi";

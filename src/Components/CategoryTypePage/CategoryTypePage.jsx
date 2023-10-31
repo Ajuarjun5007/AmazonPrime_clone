@@ -60,6 +60,7 @@ function CategoryTypePage() {
 
     console.log("path",location.pathname)
   
+    console.log("cmi",categoryMovieInfo);
   return (
     <>
       <div style={{ backgroundColor: "#00050d", paddingBottom: "300px" }}>
