@@ -4,9 +4,9 @@ import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/blueti
 import "./TopCarousel.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
+import {BiCheck} from "react-icons/bi";
 import { BiInfoCircle } from "react-icons/bi";
 // import { movieList } from "../../ApiFetch";
 import { addtoWatchlist } from "../../commons/WatchlistService";
@@ -62,31 +62,36 @@ function TopCarousel(props) {
   // }, []);
 
   const navigate = useNavigate();
-  console.log("nav",navigate);
-  const [isWatchListClicked, setIsWatchListClicked] = useState(false);
+  // const [isWatchListClicked, setIsWatchListClicked] = useState(false);
 
-  const addMovieToWatchList = (movie,event) => {
+  const [isItemAdded,setIsItemAdded] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) {
+    }
+  }, []);
+
+
+  const addMovieToWatchList = (movie,event) =>{
 
       event.preventDefault();
     if (localStorage.getItem("userInfo")) {
+      setIsItemAdded(prevIsItemAdded => !prevIsItemAdded);
+
       addtoWatchlist(movie._id)
         .then((response) => {
           console.log("repo", response);
           // setIsLoaded(false);
+        console.log("logged in!!!")
+
         })
         .catch((err) => {
           console.log("error", err);
         });
     } else {
       navigate("/SignIn");
-    }
+      }
   };
-
-
-
-
-
-
 
 
   return (
@@ -129,7 +134,7 @@ function TopCarousel(props) {
                           addMovieToWatchList(item,event);
                         }}
                         className="watchList poster-icons-button">
-                          <FiPlus className="plus" />
+                           {!isItemAdded?(<FiPlus  className="plus"/>) :(<BiCheck className="plus" />)}
                         </button>
                         <span className="poster-watchlist-tooltip">Watchlist</span>
                         <Link

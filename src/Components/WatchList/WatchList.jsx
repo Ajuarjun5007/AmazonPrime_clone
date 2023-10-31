@@ -95,7 +95,8 @@ function WatchList(){
             </div>
         </div>
         <div className="watchList-cards">
-        {watchlist && watchlist
+        {watchlist && 
+        watchlist
             // .filter((item)=> item.type===`${type}`)
             .map((item,index) => (
               
@@ -124,7 +125,7 @@ function WatchList(){
                     }
                     id="watchlist-icon-button">
                      
-                       <BiCheck id="plus-icon" /> 
+                       <BiCheck id="plus-icon"/> 
                     </button>
                     <span className="watchlist-tooltip">Watchlist</span>
                     <button id="more-icon-button">

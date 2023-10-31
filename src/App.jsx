@@ -11,10 +11,9 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import NavbarforSignIn from "./Components/NavbarForSignIn/NavbarForSignIn";
 import FooterForSignIn from "./Components/FooterforSignIn/FooterForSIgnIn";
 import SignIn from "./Components/SignIn/SignIn";
-import Gridcards from "./Components/Gridcards/Gridcards";
 import SignUp from "./Components/SignUp/SignUp";
 import ComingSoon from "./Components/ComingSoon/ComingSoon"
-import {SearchPage} from './Components/SearchPage/SearchPage'
+import SearchPage from './Components/SearchPage/SearchPage'
 import { PrimeBenefits } from "./Components/PrimeBenefits/PrimeBenefits";
 import { SignInProvider } from "./Components/SignIn/SignInProvider";
 import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage";
@@ -80,7 +79,7 @@ console.log("sz",screenSize);
       
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
-        <Route path = "/Gridcards" element={<Gridcards/>}/>
+        {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}
         {/* <VideoInfo/> */}
         <Route
           path="/SignIn"
