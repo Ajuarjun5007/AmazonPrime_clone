@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import "./FrontpagecardsSignout.css";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 function FrontpagecardsSignOut() {
+
+  const [isLoggedIn,setIsLoggedIn]=useState(false);
+
+  useEffect(()=>{
+    if(localStorage.getItem("userInfo")){
+      setIsLoggedIn(true);
+    }
+  },[])
+
+  console.log("login",isLoggedIn);
+
   return (
     <>
     {/* top two cards */}
@@ -9,7 +21,7 @@ function FrontpagecardsSignOut() {
         <div className="Signoutposter-1">
           <img
             src="src/assets/LandingPageSignoutimages/landingpagesignoutposter-1.jpg"
-            alt=""
+            alt="image-1"
           />
           <div className="Ad-1">
             <div className="heading-1">
@@ -19,16 +31,28 @@ function FrontpagecardsSignOut() {
               Watch the latest movies, TV shows, and award-winning Amazon
               Originals
             </p>
-            <Link to='SignIn'>
-            <button>Sign in to join Prime</button>
+              {
+                isLoggedIn?(
+                  <Link to='SubscriptionPage'>
+                    <button>
+                  Join prime
+                 </button>
+              </Link>
+                ):(
+                  <Link to='SignIn'>
+                  <button>
+                  Sign In to Join prime
+               </button>
             </Link>
+                )
+              }
           </div>
         </div>
 
         <div className="Signoutposter-2">
           <img
             src="src/assets/LandingPageSignoutimages/landingpagesignoutposter-2.jpg"
-            alt=""
+            alt="image-2"
           />
           <div className="Ad-2">
             <div className="heading-2">
@@ -65,7 +89,7 @@ function FrontpagecardsSignOut() {
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/MANORAMAMAX.jpg" alt="" />
+            <img src="src/assets/LandingPageSignoutimages/MANORAMAMAX.jpg" alt="image-3" />
           </div>
 
           <div className="grid-item">

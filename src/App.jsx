@@ -21,6 +21,7 @@ import WatchListAll from "./Components/WatchList/WatchListAll"
 import MobileNavbar from "./Components/MobileNavbar/MobileNavbar";
 import { useScreenSize } from "./Components/useScreenSize";
 import MobileNavBArContent from "./Components/MobileNavbar/MobileNavBArContent";
+import SubscriptionPage from "./Components/SubscriptionPage/SubscriptionPage";
 function App() {
 
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
@@ -33,7 +34,7 @@ function App() {
 
   if(value=="/home"){
     SetIsNavBarShow(true);
-  } else if (value == "/SignIn" || value == "/SignUp" || value){
+  } else if (value == "/SignIn" || value == "/SignUp" || value == "/SubscriptionPage" || value){
       SetIsNavBarShow(false);
   };
   }
@@ -60,7 +61,7 @@ const screenSize =   useScreenSize();
         
         
 
-        {isMobile && 
+        {isMobile && isNavBarShow &&
         <div className={`${mobileNavBar ? 'active' : ''}`}>
           <MobileNavbar handleMobileNavbar={handleMobileNavbar}/>
         </div>
@@ -73,7 +74,7 @@ const screenSize =   useScreenSize();
 
         <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
       
-      
+        <Route path="/SubscriptionPage" element={<SubscriptionPage NavBarControl={NavBarControl}/>}/>
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
         {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}

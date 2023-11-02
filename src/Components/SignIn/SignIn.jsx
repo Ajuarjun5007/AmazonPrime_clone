@@ -81,7 +81,7 @@ const SignIn = (props) => {
           idInfo.push(response.data.data);
           localStorage.setItem("userInfo", JSON.stringify(idInfo));
           console.log("idinfo",idInfo)
-          navigate("/home");
+          navigate("/");
         })
         .catch((error) => {
           console.log("err", error.response.data.message);

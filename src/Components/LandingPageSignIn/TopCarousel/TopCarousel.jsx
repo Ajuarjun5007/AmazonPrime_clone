@@ -151,7 +151,11 @@ function TopCarousel(props) {
                   </div>
                 </div>
                
-                <img src={item.thumbnail} alt="" />
+                <img 
+                // src={item.thumbnail}
+                src={"https://i.pinimg.com/originals/17/c5/6b/17c56b759c8b2e9a95cfcd70e9878b72.jpg"}
+
+                 alt="" />
               </div>
               </Link>
             ))}
