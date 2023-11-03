@@ -112,8 +112,9 @@ function TopCarousel(props) {
           {moviesInfo &&
             moviesInfo.slice(0, 10)
             .map((item, index) => (
+              
               <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
-              <div className="poster-items">
+              <div className="poster-items">z
                 <div className="poster-content ">
                   <div className="poster-title">
                     <h2>{item.title}</h2>
@@ -152,8 +153,8 @@ function TopCarousel(props) {
                 </div>
                
                 <img 
-                // src={item.thumbnail}
-                src={"https://i.pinimg.com/originals/17/c5/6b/17c56b759c8b2e9a95cfcd70e9878b72.jpg"}
+                src={item.thumbnail}
+                // src={"https://i.pinimg.com/originals/17/c5/6b/17c56b759c8b2e9a95cfcd70e9878b72.jpg"}
 
                  alt="" />
               </div>

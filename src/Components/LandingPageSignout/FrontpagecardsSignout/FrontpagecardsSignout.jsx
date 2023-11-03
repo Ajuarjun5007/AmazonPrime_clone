@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import "./FrontpagecardsSignout.css";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
+import poster1 from "../../../assets/LandingPageSignoutimages/LandingPageSignOut.jpg"
+
 import { useEffect, useState } from "react";
 function FrontpagecardsSignOut() {
 
@@ -20,7 +22,7 @@ function FrontpagecardsSignOut() {
       <div className="container-1">
         <div className="Signoutposter-1">
           <img
-            src="src/assets/LandingPageSignoutimages/landingpagesignoutposter-1.jpg"
+            src={poster1}
             alt="image-1"
           />
           <div className="Ad-1">

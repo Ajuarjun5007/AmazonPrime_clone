@@ -8,7 +8,7 @@
     justify-content: center;
 }
 .mb-prime-top-container img{
-    height:36px;
+    height:56px;
     padding:5px 0px 10px 0px;
 }
 .mb-prime-plan-container{
@@ -164,4 +164,110 @@ font-weight: 900!important;
 }
 .payment-container button:hover{
     background-color:#00a0d6;
+}
+
+/* payment page */
+.payment-header{
+    display: flex;
+    margin: 20px 0px 20px 10px;
+    width: max-content;
+    padding:10px 0px 10px 5px;
+
+}
+.payment-header p{
+    font-size: 23px;
+}
+/* card container */
+.card-container{
+    padding-bottom: 50px;
+}
+.card-detail-container{
+    margin: 10px;
+    padding-left: 14px;
+    border: 2px solid #e5e5e5;
+}
+.card-header{
+    margin:10px 10px 10px 0px;
+    padding: 10px 0px;
+}
+.card-slct-container{
+ margin:10px 10px 10px 0px;
+ padding: 10px 0px;
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ overflow: hidden;
+
+}
+.card-slct-container img{
+    /* width: 50px; */
+    height: max-content;
+}
+.card-slct-container p{
+    margin:10px 10px 10px 0px;
+    padding-bottom: 10px;
+    /* border-bottom: 2px solid #aaa; */
+}
+.payment-card-details{
+    display: flex;
+    flex-wrap: wrap;
+    height: max-content;
+    margin-top: 10px;
+}
+.payment-card-details div{
+    font-size: 12px!important;
+    color: black;
+    padding-left:5px;
+}
+    .info-circle{
+    font-size: 13px;
+    color: #0F79AF;
+}
+.card-name-input,.card-year-input,.card-nmbr-input,.card-mnth-input,.card-cvv-input{
+    border-radius: 4px;
+    width: 200px;
+    margin: 10px 20px 0px 0px;
+    padding: 10px 0px 10px 10px;
+}
+.card-name-input:focus,.card-year-input:focus,.card-nmbr-input:focus,.card-mnth-input:focus,.card-cvv-input:focus{
+    /* border: none; */
+    border: 1px solid #1f8293;
+    outline: 0;
+    box-shadow: 0 0 2px 2px #a8edf0;
+    background-color: #f7feff;
+}
+.card-name-input::placeholder{
+    left: 20px;
+}
+.card-user-details{
+    display:flex;
+    flex-direction: column;
+    margin: 20px;
+}
+#input-condtn{
+    color: red;
+    border: unset;
+    font-size: 12px;
+}
+.card-expiry-container{
+    display: flex;
+}
+.pay-btn-container{
+    display: flex;
+    justify-content: center;
+}
+#pay-btn{
+    padding: 10px;
+    background-color:#0F79AF;
+    border: none ;
+    border-radius:4px;
+    color: #fff;
+    box-shadow: 0px 0px 10px 0px #00000080;
+
+}
+@media screen and (max-width:420px) {
+    .card-expiry-container{
+        display: flex;
+        flex-direction:column;
+    }
 }

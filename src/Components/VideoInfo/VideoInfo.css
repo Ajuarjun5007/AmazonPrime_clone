@@ -340,7 +340,7 @@ margin-right:0px;
   height: 40px;
   border-radius: 50%;
   background:transparent!important;
-  color: #fff;
+  color:#fff;
 }
 .react-confetti-icon,.react-share-icon{
   width: 50px;
@@ -349,10 +349,10 @@ margin-right:0px;
   color: #fff;
 }
 .grey-icon:hover{
-  background-color: #fff;
+  /* background-color: #fff; */
   .react-plus-icon,.react-like-icon,.react-dislike-icon,.react-confetti-icon,.react-share-icon{
   color: #030b17;
-
+    /* background-color:transparent!important; */
   }
 }
 .access-btn-container{

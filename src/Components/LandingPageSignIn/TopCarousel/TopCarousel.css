@@ -25,7 +25,7 @@
 }
 .poster-items img{
 border-radius: 8px;
-object-fit:fill;
+object-fit:cover;
 }
 /* dot-list control */
 .react-multi-carousel-dot-list{

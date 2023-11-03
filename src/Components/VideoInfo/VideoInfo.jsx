@@ -1,8 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { P, DefaultPlayer as Video } from "react-html5video";
 import "./VideoInfo.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
@@ -32,6 +35,22 @@ function VideoInfo(props) {
     setIsVideoLoaded(true);
   };
 
+  const [isLiked,setIsLiked] = useState(false);
+  const  [isDisLiked,setIsDisLiked]=useState(false);
+
+  function likeHandler(){
+    setIsLiked(!isLiked);
+    if(isDisLiked){
+      setIsDisLiked(false);
+    }
+  }
+
+  function dislikeHandler(){
+    setIsDisLiked(!isDisLiked);
+    if(isLiked){
+      setIsLiked(false);
+    }
+  }
   const params = useParams();
   // console.log("pea", params.id);
 
@@ -170,21 +189,37 @@ function VideoInfo(props) {
                     <div className="access-btn-container">
                       <span className="btn-msg">Like</span>
                       <button className="grey-icon">
-                        <BiLike className="react-like-icon" />
+                        {/* <BiLike className="react-like-icon" /> */}
+                        
+                        <FontAwesomeIcon
+              icon={faThumbsUp}
+           style={{ color: isLiked ? "#000000" : "#fff" }} // Use an object for style
+          className="react-like-icon"
+          onClick={likeHandler}
+                      />
                       </button>
+                        
                     </div>
 
                     <div className="access-btn-container">
                       <span className="btn-msg">Not for me</span>
                       <button className="grey-icon">
-                        <BiDislike className="react-dislike-icon" />
+                        {/* <BiDislike className="react-dislike-icon" /> */}
+                        <FontAwesomeIcon
+              icon={faThumbsDown}
+           style={{ color: isDisLiked ? "#000000" : "#fff" }} // Use an object for style
+          className="react-like-icon"
+          onClick={dislikeHandler}
+                      />
                       </button>
                     </div>
                     <div className="access-btn-container">
                       <span className="btn-msg">Watch party</span>
+                      <Link to={"comingsoon"}>
                       <button className="grey-icon">
                         <PiConfettiBold className="react-confetti-icon" />
                       </button>
+                      </Link>
                     </div>
                     <div className="access-btn-container">
                       <span className="btn-msg">Share</span>

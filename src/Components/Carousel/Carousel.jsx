@@ -6,7 +6,7 @@ import { FiPlus } from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
 import { useEffect, useState } from "react";
 
-// import {addtoWatchlist} from "../../Components/commons/WatchlistService"
+import {addtoWatchlist} from "../../Components/WatchList/WatchlistService"
 
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
@@ -42,15 +42,16 @@ const CarouselComponent= (props) => {
 
 
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
-  // const addMovieToWatchList = (movie) => {
-  //   addtoWatchlist(movie._id).then(response=> {
-  //     console.log("repo",response)
-  //     setIsWatchListClicked(!isWatchListClicked);
-  //   })
-  //   .catch(err=>{
-  //     console.log("error",err)
-  //   })
-  // }
+
+  const addMovieToWatchList = (movie) => {
+    addtoWatchlist(movie._id).then(response=> {
+      console.log("repo",response)
+      setIsWatchListClicked(!isWatchListClicked);
+    })
+    .catch(err=>{
+      console.log("error",err)
+    })
+  }
 
   
 
@@ -64,8 +65,6 @@ const CarouselComponent= (props) => {
         <div className="Carousel-header-prime">Prime</div>
         {type}
       </div>
-
-
 
     <Carousel
       className="cards-carousel"
@@ -97,7 +96,7 @@ const CarouselComponent= (props) => {
               <div id="watchlist-icon">
                 
                 <button 
-                // onClick={()=> {addMovieToWatchList(item)}} 
+                onClick={()=> {addMovieToWatchList(item)}} 
                 id="watchlist-icon-button">
                  
                   {!isWatchListClicked &&  <FiPlus id="plus-icon" />}
