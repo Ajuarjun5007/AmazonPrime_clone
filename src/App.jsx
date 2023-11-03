@@ -22,6 +22,7 @@ import MobileNavbar from "./Components/MobileNavbar/MobileNavbar";
 import { useScreenSize } from "./Components/useScreenSize";
 import MobileNavBArContent from "./Components/MobileNavbar/MobileNavBArContent";
 import SubscriptionPage from "./Components/SubscriptionPage/SubscriptionPage";
+import PaymentPage from "./Components/SubscriptionPage/PaymentPage"
 function App() {
 
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
@@ -34,7 +35,7 @@ function App() {
 
   if(value=="/home"){
     SetIsNavBarShow(true);
-  } else if (value == "/SignIn" || value == "/SignUp" || value == "/SubscriptionPage" || value){
+  } else if (value == "/SignIn" || value == "/SignUp" || value == "/SubscriptionPage" || value=="/SubscriptionPage/PaymentPage" || value){
       SetIsNavBarShow(false);
   };
   }
@@ -74,7 +75,10 @@ const screenSize =   useScreenSize();
 
         <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
       
+       
         <Route path="/SubscriptionPage" element={<SubscriptionPage NavBarControl={NavBarControl}/>}/>
+        <Route path="/SubscriptionPage/PaymentPage" element={<PaymentPage NavBarControl={NavBarControl}/>}/>
+        
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
         {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}
