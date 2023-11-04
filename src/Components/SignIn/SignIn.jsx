@@ -49,9 +49,9 @@ const SignIn = (props) => {
     if (!hasCompletedFirstStep) {
       username = event.target[0].value;
     } else {
-      password = event.target[0].value;
+      password = event.target[1].value;
     }
-
+    console.log("user",user,event,username,password);
     event.preventDefault();
 
     let idInfo=[];
@@ -74,14 +74,15 @@ const SignIn = (props) => {
         SetErrorAlert(true);
         setErrorMessage("Enter your email or mobile number");
       }
-    } else if (user.username !== undefined) {
+    } else if (user.username !== undefined && hasCompletedFirstStep) {
       login(user.username, password)
         .then((response) => {
           idInfo.push(response.data.token);
           idInfo.push(response.data.data);
           localStorage.setItem("userInfo", JSON.stringify(idInfo));
-          console.log("idinfo",idInfo)
           navigate("/");
+          navigate(0);
+
         })
         .catch((error) => {
           console.log("err", error.response.data.message);
@@ -91,6 +92,12 @@ const SignIn = (props) => {
         });
     }
   };
+
+  const resetLogin = ()=>{
+    user.setUsername(undefined);
+    user.setStatus(undefined);
+    navigate("/Signin")
+  }
 
   const [errorAlert, SetErrorAlert] = useState(false);
   const [loginFailed, setLoginFailed] = useState(undefined);
@@ -138,11 +145,11 @@ const SignIn = (props) => {
             )}
             {user.status !== undefined && hasCompletedFirstStep && (
               <div>
-                <div className="id-creds">
+                <div className="id-creds" >
                   <p>{user.username}</p>
-                  <Link className="anchor-tag" to="">
+                  <button className="anchor-tag" onClick={resetLogin}>
                     Change
-                  </Link>
+                  </button>
                 </div>
                 <div className="passwordinput">
                   <div className="passwordtitle">

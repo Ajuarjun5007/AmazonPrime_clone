@@ -14,6 +14,9 @@ import { Link, useLocation } from "react-router-dom";
 
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
+  console.log(
+    "moviesInfo",moviesInfo
+  )
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -75,7 +78,6 @@ const CarouselComponent= (props) => {
     >
       {moviesInfo &&
         moviesInfo.map((item, index) => (
-
           <div className="card-items" key={item._id}>
                 
           <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>

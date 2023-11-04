@@ -57,6 +57,13 @@ font-weight: 900!important;
     top: 96%;
 
 }
+.mb-box{
+    background-color: #0f79af;
+}
+.mb-box,.down-arrow-active{
+    display: block!important;
+}
+
 .mb-box-1:hover,.mb-box-2:hover{
     background-color: #0f79af;
 }
@@ -156,6 +163,10 @@ font-weight: 900!important;
     /* font-weight: 900; */
     letter-spacing: 1px;
     box-shadow: 0px 0px 10px 0px #00000080;
+}
+.payment-container button:disabled,
+.payment-container button:disabled:hover{
+background-color: gray;
 }
 .right-arrow{
     margin-top:3px;

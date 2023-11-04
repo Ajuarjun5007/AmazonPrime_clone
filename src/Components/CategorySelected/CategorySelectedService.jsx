@@ -9,4 +9,11 @@ function getDetailsByTypeOrCategory (key,value) {
         suffix, 
       );
   };
-  export {getDetailsByTypeOrCategory};
+  
+function getDetailsByTypeOrCategories (key,value) {
+  const suffix=`ott/show?filter={"${key}":[${value.map((keyword)=>`"`+keyword.toLowerCase()+'"')}]}`
+   return instance.get(
+        suffix, 
+      );
+  };
+  export {getDetailsByTypeOrCategory,getDetailsByTypeOrCategories};

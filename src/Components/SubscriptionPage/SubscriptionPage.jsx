@@ -14,7 +14,7 @@ function SubscriptionPage(props) {
     NavBarControl(location.pathname);
   }, []);
 
-
+  const [planDetail,setPlanDetail] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [mobileEdition,setMobileEdition] = useState(false);
   const [primeEdition,setPrimeEdition] = useState(true);
@@ -27,7 +27,8 @@ function SubscriptionPage(props) {
     setPrimeEdition(true);
     setMobileEdition(false);
   }
-  const handleToggle = (option) => {
+  const handleToggle = (option,rentValue) => {
+    setPlanDetail(rentValue);
     if (selectedOption === option) {
       setSelectedOption(null);
     } else {
@@ -47,10 +48,10 @@ function SubscriptionPage(props) {
       </div>
       {/* box container */}
       <div className="mb-box-container">
-        <div className="mb-box-1" onClick={primeEditionHandler}>
+        <div className="mb-box mb-box-1" onClick={primeEditionHandler}>
           <p>Prime</p>
         </div>
-          <BiSolidDownArrow className="down-arrow-1" /> 
+          <BiSolidDownArrow className="down-arrow-1 down-arrow-active" /> 
         <div className="mb-box-2" onClick={mobileEditionHandler}>
           <p>Prime Video</p>
           <p>Mobile</p>
@@ -106,8 +107,8 @@ function SubscriptionPage(props) {
 
       { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option1" ? "checked" : ""}`} onClick={() => handleToggle("option1")} />
-       
+        <div className={`input-circle ${selectedOption === "option1" ? "checked" : ""}`} onClick={() => handleToggle("option1",1499)} />
+
         <div className="plan-type-content">
           <p className="blue-plan">Try Prime Free</p>
           <p>₹ 1499/year auto charged post trial</p>
@@ -116,7 +117,7 @@ function SubscriptionPage(props) {
 
       { mobileEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`} onClick={() => handleToggle("option2")} />
+        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`} onClick={() => handleToggle("option2",599)} />
         <div className="plan-type-content">
         <p className="blue-plan">₹599 / year</p>
           <p>effectively ₹ 50 a month when paid annually</p>
@@ -131,7 +132,7 @@ function SubscriptionPage(props) {
 
       { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`} onClick={() => handleToggle("option2")} />
+        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`} onClick={() => handleToggle("option2",1499)} />
         <div className="plan-type-content">
           <strong className="plan-type-header"> ₹ 1499 / year</strong>
           <p>effectively ₹ 125 a month when paid annually</p>
@@ -140,7 +141,7 @@ function SubscriptionPage(props) {
         }
         { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option3" ? "checked" : ""}`} onClick={() => handleToggle("option3")} />
+        <div className={`input-circle ${selectedOption === "option3" ? "checked" : ""}`} onClick={() => handleToggle("option3",599)} />
         <div className="plan-type-content">
           <strong className="plan-type-header"> ₹ 599 / 3 months</strong>
           <p>effectively ₹ 200 a month when paid quarterly</p>
@@ -149,7 +150,7 @@ function SubscriptionPage(props) {
       }
       { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option4" ? "checked" : ""}`} onClick={() => handleToggle("option4")} />
+        <div className={`input-circle ${selectedOption === "option4" ? "checked" : ""}`} onClick={() => handleToggle("option4",299)} />
         <div className="plan-type-content">
           <strong className="plan-type-header"> ₹ 299 / month</strong>
           <p>automatically renews monthly until canceled</p>
@@ -160,8 +161,10 @@ function SubscriptionPage(props) {
       </div>
       {/* payments button styles*/}
       <div className="payment-container">
-        <Link to={"PaymentPage"}>
-        <button> Continue Payment
+        <Link to={"PaymentPage"}
+          state={{value:planDetail}}
+        >
+        <button disabled={planDetail==0?true:false}> Continue Payment
             <AiOutlineArrowRight className="right-arrow"/>
         </button>
         </Link>

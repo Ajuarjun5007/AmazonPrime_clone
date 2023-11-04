@@ -93,7 +93,10 @@ function TopCarousel(props) {
       }
   };
 
+moviesInfo.slice(0,10).map((item)=>{
+  console.log("itemid",item._id,item.title);
 
+})
   return (
     <>
       <div className="App">

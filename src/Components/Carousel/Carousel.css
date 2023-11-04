@@ -45,6 +45,7 @@
     padding:15px 0px;
     padding-left: 15px;
     place-items:center;
+    width: max-content;
     /* margin-left:23px; */
   }
 

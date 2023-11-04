@@ -8,12 +8,15 @@ import creditcard from "../../assets/loginassets/creditcardimage.png"
 function PaymentPage(props){
     const location = useLocation();
 
-    console.log("location",location);
+    console.log("location",location.state.value);
+
     const { NavBarControl } = props;
     useEffect(() => {
       NavBarControl(location.pathname);
     }, []);
-  
+    
+    const [formErrorStatus,setFormErrorStatus] = useState({name:true,cardNumber:true,cvvNumber:true,month:true,year:true
+    })
     const [name, setName] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [cvvNumber, setCVVNumber] = useState('');
@@ -21,25 +24,52 @@ function PaymentPage(props){
     const [year, setYear] = useState('');
 
   
-    const handleNameChange = (e) => {
-      setName(e.target.value);
+    const handleNameChange = (e) => {      
+      if(e.target.value.trim().length===0){
+        setFormErrorStatus({...formErrorStatus,name:true});
+      }else{
+      setFormErrorStatus({...formErrorStatus,name:false});
+      }
     };
   
     const handleCardNumberChange = (e) => {
-      setCardNumber(e.target.value);
+     
+      if(e.target.value.trim().length===0 || e.target.value.trim().length!==16 ){
+        setFormErrorStatus({...formErrorStatus,cardNumber:true});
+      }else{
+      setFormErrorStatus({...formErrorStatus,cardNumber:false});
+      }
     };
     const handleCVVNumberChange = (e) => {
-      setCVVNumber(e.target.value);
+     
+      if(e.target.value.trim().length===0 || e.target.value.trim().length!==3){
+        setFormErrorStatus({...formErrorStatus,cvvNumber:true});
+      }else{
+      setFormErrorStatus({...formErrorStatus,cvvNumber:false});
+      }
     };
     const handleMonthChange = (e) => {
-      setMonth(e.target.value);
+      const month =parseInt(e.target.value) || 0;
+      if( month>12 || month<1){
+        setFormErrorStatus({...formErrorStatus,month:true});
+      }else{
+      setFormErrorStatus({...formErrorStatus,month:false});
+      }
+      console.log("event",month);
     };
     const handleYearChange = (e) => {
-      setYear(e.target.value);
+      const year =parseInt(e.target.value) || 0;
+      
+      if(year<2023){
+        setFormErrorStatus({...formErrorStatus,year:true});
+      }else{
+      setFormErrorStatus({...formErrorStatus,year:false});
+      }
     };
 
-
-
+    const payNowHandler = (event)=>{
+      console.log("event","hi");
+    }
 
     return(
         <>
@@ -71,32 +101,35 @@ function PaymentPage(props){
         className="card-name-input"
         type="text"
         placeholder="name"
-        value={name}
         onChange={handleNameChange}
       />
+      {formErrorStatus.name &&
       <p id="input-condtn">please enter a valid name</p>
-
+      }
       <label htmlFor="cardNumber">Enter your card number</label>
       <input
         className="card-nmbr-input"
         type="text"
         placeholder="card number"
         maxLength={16}
-        value={cardNumber}
         onChange={handleCardNumberChange}
       />
+      {
+        formErrorStatus.cardNumber &&
       <p id="input-condtn">please enter a  valid card number</p>
+      }
 
       <input
         className="card-cvv-input"
         type="text"
         placeholder="cvv number"
         maxLength={3}
-        value={cvvNumber}
         onChange={handleCVVNumberChange}
       />
+      {
+        formErrorStatus.cvvNumber &&
       <p id="input-condtn">please enter a  valid cvv number</p>
-    
+      }
       <div className="card-expiry-container">
       <p htmlFor="">Expiration date</p>
       <input
@@ -105,9 +138,12 @@ function PaymentPage(props){
         placeholder="month"
         min={1}
         max={12}
-        value={month}
         onChange={handleMonthChange}
       />
+       {
+        formErrorStatus.month &&
+      <p id="input-condtn">please enter a  valid month</p>
+      }
       <input
           className="card-year-input"
           type="number"
@@ -115,15 +151,21 @@ function PaymentPage(props){
           min={2023}
           max={2040}
           step={1}
-          value={year}
           onChange={handleYearChange}
         />
+          {
+        formErrorStatus.year &&
+        <p id="input-condtn">please enter a  valid year</p>
+      }
       </div>
         
     </div>
         </div>
         <div className="pay-btn-container">
-          <button id="pay-btn">PAY NOW</button>
+          
+          <button disabled={ Object.values(formErrorStatus).find(errorStatus=> errorStatus === true) == true}
+          onClick={payNowHandler}
+           id="pay-btn">PAY NOW</button>
         </div>
           </div>
       </div>

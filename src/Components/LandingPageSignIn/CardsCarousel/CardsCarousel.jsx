@@ -15,6 +15,7 @@ import { addtoWatchlist } from "../../WatchList/WatchlistService";
 import { useState } from "react";
 
 function CardsCarousel({ moviesInfo, type }) {
+  console.log("\n\n\nmoviesInfo",moviesInfo)
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },

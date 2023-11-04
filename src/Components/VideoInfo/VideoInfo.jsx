@@ -18,7 +18,9 @@ import { BiVolumeFull } from "react-icons/bi";
 import { movieDetail } from "../ApiFetch";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import ReactPlayer from "react-player";
-
+import {getDetailsByTypeOrCategory} from "../CategorySelected/CategorySelectedService"
+import { CarouselComponent } from "../Carousel/Carousel";
+// import CardsCarousel from "../../Components/LandingPageSignIn/CardsCarousel/CardsCarousel"
 function VideoInfo(props) {
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
@@ -37,7 +39,8 @@ function VideoInfo(props) {
 
   const [isLiked,setIsLiked] = useState(false);
   const  [isDisLiked,setIsDisLiked]=useState(false);
-
+  const [currentGenre,setCurrentGenre] = useState(undefined);
+  const [ movieList,setMovieList] = useState([]);
   function likeHandler(){
     setIsLiked(!isLiked);
     if(isDisLiked){
@@ -56,24 +59,48 @@ function VideoInfo(props) {
 
   const { NavBarControl } = props;
 
+  const[detailShow,setDetailShow] = useState(true);
+  const[relatedShow,setRelatedShow] = useState(false);
 
+  const movieDetailHandler=()=>{
+    setDetailShow(!detailShow);
+    // setRelatedShow(!relatedShow);
+  }
+
+ 
   useEffect(() => {
+    if(loaded){
+      console.log(showImage,showVideo);
+      setShowImage(true);
+      setShowVideo(false);
     const imageTimeout = setTimeout(() => {
       setShowImage(false);
       setShowVideo(true);
     }, 5000);
 
     return () => clearTimeout(imageTimeout);
-  }, []);
+  }
+  }, [loaded]);
   useEffect(() => {
+    setLoaded(false);
     if (params.id !== undefined) {
       movieDetail(params.id).then((res) => {
+        console.log("parma",res.data.keywords);
         setMovieInfo(res.data);
+        loadMovieListByGenre(res.data.keywords,res.data.type);
         setLoaded(true);
       });
     }
   }, [params]);
+  
+const loadMovieListByGenre = (keywords,type) =>{
+getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
+  setMovieList(res.data.data);
+  console.log("res",res.data);
 
+  
+})
+}
   // mute?unmute functionality
   const handleToggleMute = () => {
     setIsMuted((prevMuted) => !prevMuted);
@@ -90,7 +117,8 @@ function VideoInfo(props) {
   };
 
   return loaded ? (
-    <div className="container" style={{ backgroundColor: "#00050d" }}>
+    <div  style={{ backgroundColor: "#00050d" }}>
+
       <div className="visual-container">
         &&{" "}
         <div
@@ -114,7 +142,6 @@ function VideoInfo(props) {
               playing={true}
               controls={true}
               loop={false}
-              // playsinline={true}
               onReady={onLoadedData}
               className="react-video"
             />
@@ -132,7 +159,6 @@ function VideoInfo(props) {
               playing={true}
               controls={true}
               loop={false}
-              // playsinline={true}
               onReady={onLoadedData}
               className="react-video"
             />
@@ -235,8 +261,18 @@ function VideoInfo(props) {
         </div>
       </div>
 
-      {!fullVideoShow && <div className="cast-heading">Details</div>}
-      {!fullVideoShow && (
+      {!fullVideoShow && <div className="cast-heading">
+        <span  className="cast-heading-child">Related</span>
+        <span onClick={movieDetailHandler} className="cast-heading-child">Details</span>
+
+        </div>}
+      
+        {!fullVideoShow && movieList.length>0 && <CarouselComponent moviesInfo={movieList} type={movieDetail.type}/>
+
+        }
+
+
+      {!fullVideoShow && detailShow && (
         <div className="cast-section">
           <span>Director</span>
           <p>{movieInfo.director}</p>
