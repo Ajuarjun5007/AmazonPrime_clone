@@ -36,13 +36,13 @@ function FrontpagecardsSignOut() {
               {
                 isLoggedIn?(
                   <Link to='SubscriptionPage'>
-                    <button>
+                    <button className="frontpage-btn">
                   Join prime
                  </button>
               </Link>
                 ):(
                   <Link to='SignIn'>
-                  <button>
+                  <button className="frontpage-btn">
                   Sign In to Join prime
                </button>
             </Link>
@@ -61,7 +61,7 @@ function FrontpagecardsSignOut() {
               <h1>Movie rentals on Prime Video</h1>
             </div>
             <p>Early access to new movies,before digital subscription</p>
-            <button>Rent now</button>
+            <button className="frontpage-btn">Rent now</button>
           </div>
         </div>
       </div>

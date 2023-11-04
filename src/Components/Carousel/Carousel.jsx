@@ -1,6 +1,8 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Carousel.css";
+import { useNavigate } from "react-router-dom";
+
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
@@ -31,11 +33,12 @@ const CarouselComponent= (props) => {
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: 1,
+      slidesToSlide:1,
     },
   };
  
   const location = useLocation();
+  const navigate = useNavigate();
 
     const [isLocationWatchList,setIsLocationWatchList] = useState(false);
     useEffect(()=>{
@@ -47,14 +50,18 @@ const CarouselComponent= (props) => {
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
   const addMovieToWatchList = (movie) => {
-    addtoWatchlist(movie._id).then(response=> {
-      console.log("repo",response)
-      setIsWatchListClicked(!isWatchListClicked);
-    })
-    .catch(err=>{
-      console.log("error",err)
-    })
-  }
+    if (localStorage.getItem("userInfo")) {
+      addtoWatchlist(movie._id)
+        .then((response) => {
+          console.log("repo", response);
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+    } else {
+      navigate("/SignIn");
+    }
+  };
 
   
 
@@ -105,9 +112,14 @@ const CarouselComponent= (props) => {
                   {isWatchListClicked &&  <BiCheck id="plus-icon" />} 
                 </button>
                 <span className="watchlist-tooltip">Watchlist</span>
+                <Link
+                  key={`${item._id}&${index}`}
+                  to={`/videodetails/${item._id}`}
+                >
                 <button id="more-icon-button">
                   <BsThreeDotsVertical id="threedots-icon" />
                 </button>
+                </Link>
                 <span className="more-tooltip">More</span>
               </div>
             </div>

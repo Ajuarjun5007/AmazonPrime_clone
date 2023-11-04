@@ -56,7 +56,7 @@ function NavbarforSignIn() {
     if (input.length === 2) {
       try {
         const result = await searchSuggestionResults(input);
-        setMovieResult(result.data.slice(0,30));
+        setMovieResult(result.data.slice(0,40));
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
@@ -65,13 +65,12 @@ function NavbarforSignIn() {
     }
   };
   
-console.log("movieResult",movieResult);
 // clear value
   const clearValue = () => {
-    setMovieResult([]); // Clear search results
+    setMovieResult([]); 
     const inputField = document.querySelector(".search-input");
     if (inputField) {
-      inputField.value = ''; // Clear the input field
+      inputField.value = '';
     }
   };
   // get data from local storage
@@ -91,7 +90,6 @@ console.log("movieResult",movieResult);
      setIsOpen(false);
      clearValue();
     },[location.pathname]);
-    // console.log(localStorage.getItem("userInfo"))
     
     const navigate  = useNavigate();
     const clearStorage = ()=>{
@@ -203,7 +201,6 @@ console.log("movieResult",movieResult);
                 <div className="navbar-items">
                   <p>Categories</p>
                        <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
-
                 </div>
               </NavLink>
 
@@ -333,12 +330,10 @@ console.log("movieResult",movieResult);
 
                   <div className="search-results">
                    { movieResult.slice(0,10).map((item)=>(
-  
                     <Link 
                       to='/SearchPage'
-                      state={{data:movieResult}}
+                      state={{data:movieResult,result:item.title}}
                     style={{ color: "#fff" }}
-
                     >
                     <div className="search-result">
                       <p>{item.title}</p>

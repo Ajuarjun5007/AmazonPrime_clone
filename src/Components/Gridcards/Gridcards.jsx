@@ -12,9 +12,6 @@ import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.
 import "./Gridcards.css"
 function Gridcards(props){
    const {cardsInfo}= props;
-    console.log("ci",cardsInfo._id);
-
-
 
     const addMovieToWatchList = (movie) => {
       addtoWatchlist(movie._id).then(response=> {
@@ -26,6 +23,7 @@ function Gridcards(props){
         console.log("error",err)
       })
     }
+   
   return(
     <>
    <div style={{backgroundColor:"#00050d",
@@ -61,7 +59,6 @@ function Gridcards(props){
                       ()=> addMovieToWatchList(item) 
                     }
                     id="watchlist-icon-button">
-                     
                        <BiCheck id="plus-icon"/> 
                     </button>
                     <span className="watchlist-tooltip">Watchlist</span>

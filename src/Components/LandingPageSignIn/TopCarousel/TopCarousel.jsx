@@ -13,6 +13,7 @@ import { addtoWatchlist } from "../../WatchList/WatchlistService";
 
 import { Link } from "react-router-dom";
 import 'animate.css';
+import { P } from "react-html5video";
 
 function TopCarousel(props) {
 
@@ -65,9 +66,10 @@ function TopCarousel(props) {
   // const [isWatchListClicked, setIsWatchListClicked] = useState(false);
 
   const [isItemAdded,setIsItemAdded] = useState(false);
-
+  const [isLoggedIn,setIsLoggedIn] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("userInfo")) {
+      setIsLoggedIn(true);
     }
   }, []);
 
@@ -128,10 +130,19 @@ moviesInfo.slice(0,10).map((item)=>{
                   </div>
                   <div className="poster-buttons">
                     <div className="poster-button-play">
+                    { isLoggedIn?(
+                     <div className="logged-in-play">
                       <button className="play">
                         <BiSolidRightArrow className="play-arrow-icon" />
                       </button>
                       <p>Play</p>
+                      </div>
+                    ):(
+                      <div className="free-trial-content">
+                        <p>Watch with a free Prime trial</p>
+                      </div>
+                    )
+                    }
                       <div className="poster-icons">
                         <button 
                          onClick={(event) => {

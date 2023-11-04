@@ -139,6 +139,7 @@
 .anchor-tag{
     color: #0066C0;
     text-decoration: none;
+    border:none;
 }
 
 .anchor-tag:hover{
