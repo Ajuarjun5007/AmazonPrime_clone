@@ -17,11 +17,7 @@ function PaymentPage(props){
     
     const [formErrorStatus,setFormErrorStatus] = useState({name:true,cardNumber:true,cvvNumber:true,month:true,year:true
     })
-    const [name, setName] = useState('');
-    const [cardNumber, setCardNumber] = useState('');
-    const [cvvNumber, setCVVNumber] = useState('');
-    const [month, setMonth] = useState('');
-    const [year, setYear] = useState('');
+   
 
   
     const handleNameChange = (e) => {      
@@ -162,13 +158,18 @@ function PaymentPage(props){
     </div>
         </div>
         <div className="pay-btn-container">
-          
           <button disabled={ Object.values(formErrorStatus).find(errorStatus=> errorStatus === true) == true}
           onClick={payNowHandler}
            id="pay-btn">PAY NOW</button>
         </div>
           </div>
       </div>
+        <div className="plan-alert-container">
+          <div className="plan-alert-box">
+            <p>Congratulations..!!!</p>
+            <p></p>
+          </div>
+        </div>
         </>
     )
 }

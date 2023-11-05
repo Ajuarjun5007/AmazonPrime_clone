@@ -27,6 +27,9 @@ function SubscriptionPage(props) {
     setPrimeEdition(true);
     setMobileEdition(false);
   }
+  console.log("prime",primeEdition);
+  console.log("mobile",mobileEdition);
+
   const handleToggle = (option,rentValue) => {
     setPlanDetail(rentValue);
     if (selectedOption === option) {
@@ -48,16 +51,19 @@ function SubscriptionPage(props) {
       </div>
       {/* box container */}
       <div className="mb-box-container">
-        <div className="mb-box mb-box-1" onClick={primeEditionHandler}>
+        <div className={primeEdition?"mb-box mb-box-1":"mb-box-1"} onClick={primeEditionHandler}>
           <p>Prime</p>
         </div>
-          <BiSolidDownArrow className="down-arrow-1 down-arrow-active" /> 
-        <div className="mb-box-2" onClick={mobileEditionHandler}>
+          <BiSolidDownArrow className={primeEdition?"down-arrow-1 down-arrow-active":"down-arrow-1"} /> 
+        <div 
+        className={mobileEdition?"mb-box mb-box-2":"mb-box-2"}
+        onClick={mobileEditionHandler}>
           <p>Prime Video</p>
           <p>Mobile</p>
           <p>Edition</p>
         </div>
-        <BiSolidDownArrow className="down-arrow-2" /> 
+        <BiSolidDownArrow 
+        className={mobileEdition?"down-arrow-2 down-arrow-active":"down-arrow-2"} /> 
       </div>
       {/* plan container */}
       <div className="mb-plan-container">
