@@ -392,11 +392,12 @@ function NavbarforSignIn() {
                 alt=""
               />
             <div className="user-name">
-              
                 {userName}
-                
             </div>
               </div>
+               <Link to='/ManageProfilePage'>
+                <button className="manage-btn">Manage Profile</button>
+               </Link>
              </div>
             </div>
             </div>

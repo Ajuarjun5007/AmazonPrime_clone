@@ -286,14 +286,51 @@ background-color: gray;
 
 /* plan alert styles */
 .plan-alert-container{
-    background-color: rgba(0,0,0,0.6);
+    display:flex;
+    flex-direction: column;
+    background-color:rgba( 0,5,13, 0.6);
     position: absolute;
     top:0;
     left:0;
     width:100%;
     height:110%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
+.plan-alert-box{
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #00050d;
+    color:#00a0d6;
+    height: 300px;
+    gap: 20px;
+    /* font-size:23px; */
+    font-weight:900;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 0 2px 2px #a8edf0;
+    /* letter-spacing: 1px; */
+}
+#enjoy-prime-btn,#go-bck-btn{
+    background-color: #0F79AF;
+    border: none;
+    padding: 10px 20px;
+    border-radius:8px;
+    font-size: 23px;
+    font-weight: 500;
+     color: #fff;
+     margin-top: 20px;
+    box-shadow: 0 0 2px 2px #a8edf0;
+}
+#enjoy-prime-btn:hover,#go-bck-btn:hover{
+    background-color: #00a0d6;
+    box-shadow: 0 0 2px 2px #00050d;
 
+}
 
 @media screen and (max-width:420px) {
     .card-expiry-container{

@@ -1,14 +1,32 @@
 import "./SubscriptionPage.css"
 import React, { useState, useEffect } from 'react';
-import {  useLocation } from "react-router-dom";
+import {  Link, useLocation } from "react-router-dom";
 import {BiSolidInfoCircle} from "react-icons/bi"
 import blueprime from "../../assets/loginassets/blueprime.png"
 import creditcard from "../../assets/loginassets/creditcardimage.png"
-
+import FooterForSignOut from "../LandingPageSignout/FooterForSIgnOut/FooterForSIgnOut";
 function PaymentPage(props){
+  
     const location = useLocation();
-
+    const plan = location.state.value;
+    const [message,setMessage] = useState("");
+    const [subscriptionMessage,setSubscriptionMessage] = useState(false);
     console.log("location",location.state.value);
+
+
+    useEffect(()=>{
+      if(plan == 1499){
+        setMessage("you have subscribed prime plan for ₹ 1499 / year");
+      }else if(plan == 599){
+        setMessage("you have subscribed prime plan for ₹ 599 / 3 months");
+      }else if(plan == 299){
+        setMessage("you have subscribed prime plan for ₹ 299 / month");
+      }else if(plan == "599-mobile"){
+        setMessage("you have subscribed prime plan- Mobile Editon for ₹599 / year");
+      }
+    },[])
+
+
 
     const { NavBarControl } = props;
     useEffect(() => {
@@ -63,8 +81,8 @@ function PaymentPage(props){
       }
     };
 
-    const payNowHandler = (event)=>{
-      console.log("event","hi");
+    const payNowHandler = ()=>{
+      setSubscriptionMessage(true);
     }
 
     return(
@@ -164,12 +182,25 @@ function PaymentPage(props){
         </div>
           </div>
       </div>
-        <div className="plan-alert-container">
+
+    {  subscriptionMessage &&
+      <div className="plan-alert-container">
           <div className="plan-alert-box">
             <p>Congratulations..!!!</p>
-            <p></p>
+            <p>{message}</p>
+            <p>Welcome to Amazon Prime</p>
           </div>
+          <button
+           id="go-bck-btn"
+          onClick={()=>setSubscriptionMessage(false)}
+           > Go Back</button>
+          <Link to={'/home'}>
+          <button id="enjoy-prime-btn">Enjoy Prime</button>
+          </Link>
         </div>
+        }
+
+        <FooterForSignOut/>
         </>
     )
 }

@@ -1,13 +1,10 @@
 import { useEffect } from "react";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
-import Footer from "./footer/Footer";
+import FooterForSignOut from "./FooterForSIgnOut/FooterForSIgnOut";
 import FrontpagecardsSignout from "./FrontpagecardsSignout/FrontpagecardsSignout";
 import { NavLink, useLocation } from "react-router-dom";
 
 function LandingPageSignout() {
-
-
-  
 
 
 
@@ -25,7 +22,7 @@ function LandingPageSignout() {
           }}
         ></div>
         <FrontpagecardsSignout />
-        <Footer />
+        <FooterForSignOut/>
       </NavLink>
     </>
   );

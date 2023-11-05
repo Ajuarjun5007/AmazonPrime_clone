@@ -1,5 +1,5 @@
-import "./Footer.css";
-function Footer() {
+import "./FooterForSignOut.css";
+function FooterForSignOut() {
   return (
     <>
     <div className="footer-items">
@@ -23,4 +23,4 @@ function Footer() {
     </>
   );
 }
-export default Footer;
+export default FooterForSignOut;

@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { BiSolidDownArrow } from "react-icons/bi";
 import { BsCheckLg } from "react-icons/bs";
 import {AiOutlineArrowRight} from "react-icons/ai"
+import FooterForSignOut from "../LandingPageSignout/FooterForSIgnOut/FooterForSIgnOut";
 
 function SubscriptionPage(props) {
   const location = useLocation();
@@ -113,7 +114,8 @@ function SubscriptionPage(props) {
 
       { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option1" ? "checked" : ""}`} onClick={() => handleToggle("option1",1499)} />
+        <div className={`input-circle ${selectedOption === "option1" ? "checked" : ""}`} 
+        onClick={() => handleToggle("option1","1499")} />
 
         <div className="plan-type-content">
           <p className="blue-plan">Try Prime Free</p>
@@ -123,7 +125,8 @@ function SubscriptionPage(props) {
 
       { mobileEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`} onClick={() => handleToggle("option2",599)} />
+        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`}
+         onClick={() => handleToggle("option2","599-mobile")} />
         <div className="plan-type-content">
         <p className="blue-plan">₹599 / year</p>
           <p>effectively ₹ 50 a month when paid annually</p>
@@ -138,7 +141,8 @@ function SubscriptionPage(props) {
 
       { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`} onClick={() => handleToggle("option2",1499)} />
+        <div className={`input-circle ${selectedOption === "option2" ? "checked" : ""}`} 
+        onClick={() => handleToggle("option2","1499")} />
         <div className="plan-type-content">
           <strong className="plan-type-header"> ₹ 1499 / year</strong>
           <p>effectively ₹ 125 a month when paid annually</p>
@@ -147,7 +151,8 @@ function SubscriptionPage(props) {
         }
         { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option3" ? "checked" : ""}`} onClick={() => handleToggle("option3",599)} />
+        <div className={`input-circle ${selectedOption === "option3" ? "checked" : ""}`}
+        onClick={() => handleToggle("option3","599")} />
         <div className="plan-type-content">
           <strong className="plan-type-header"> ₹ 599 / 3 months</strong>
           <p>effectively ₹ 200 a month when paid quarterly</p>
@@ -156,7 +161,8 @@ function SubscriptionPage(props) {
       }
       { primeEdition &&
       <div className="plan-type">
-        <div className={`input-circle ${selectedOption === "option4" ? "checked" : ""}`} onClick={() => handleToggle("option4",299)} />
+        <div className={`input-circle ${selectedOption === "option4" ? "checked" : ""}`} 
+        onClick={() => handleToggle("option4","299")} />
         <div className="plan-type-content">
           <strong className="plan-type-header"> ₹ 299 / month</strong>
           <p>automatically renews monthly until canceled</p>
@@ -176,6 +182,8 @@ function SubscriptionPage(props) {
         </Link>
     </div>
 
+    <FooterForSignOut />
+  
     </>
   );
 }
