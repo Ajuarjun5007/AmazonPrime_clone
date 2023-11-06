@@ -1,13 +1,4 @@
 
-
-/* parent div of carousel */
-.react-multi-carousel-list{
-  /* display: flex;
-  align-items: center;
-  top:10px;
-  overflow: hidden; */
-  /* height: 500px; */
-}
 .App{
   background-color:#00050d!important;
 }
@@ -109,11 +100,16 @@ background: transparent!important;
   display: flex;
   align-items: center;
   padding-left: 20px;
-  width: 200px;
+  width: 300px;
   border: 2px solid red;
 }
+.free-trial-content img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
 .free-trial-content p{
-  font-size: 21px!important;
+  font-size: 20px!important;
   line-height: 23px;
   font-weight: 900;
 }

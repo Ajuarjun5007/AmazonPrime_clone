@@ -28,8 +28,7 @@ function SubscriptionPage(props) {
     setPrimeEdition(true);
     setMobileEdition(false);
   }
-  console.log("prime",primeEdition);
-  console.log("mobile",mobileEdition);
+  
 
   const handleToggle = (option,rentValue) => {
     setPlanDetail(rentValue);

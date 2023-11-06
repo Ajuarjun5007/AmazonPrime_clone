@@ -16,9 +16,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
-  console.log(
-    "moviesInfo",moviesInfo
-  )
+  
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -47,10 +45,12 @@ const CarouselComponent= (props) => {
 
 
 
-  const [isWatchListClicked,setIsWatchListClicked]=useState(false);
-
+  const [isItemAdded,setIsItemAdded] = useState(false);
+  const[isLoggedIn,setIsLoggedIn] = useState(false);
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
+      setIsItemAdded(!isItemAdded);
+      setIsLoggedIn(true);
       addtoWatchlist(movie._id)
         .then((response) => {
           console.log("repo", response);
@@ -59,6 +59,7 @@ const CarouselComponent= (props) => {
           console.log("error", err);
         });
     } else {
+      setIsLoggedIn(false);
       navigate("/SignIn");
     }
   };
@@ -85,9 +86,17 @@ const CarouselComponent= (props) => {
     >
       {moviesInfo &&
         moviesInfo.map((item, index) => (
-          <div className="card-items" key={item._id}>
+          <div className="card-items"
+           key={item._id}
+         
+           >
                 
-          <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
+          <Link 
+          key={`${item._id}&${index}`} 
+          to={{
+            pathname: `/videodetails/${item._id}`,
+          }}
+         >
           <img src={item.thumbnail} alt="" className="image-item" />
           </Link>
 
@@ -108,8 +117,9 @@ const CarouselComponent= (props) => {
                 onClick={()=> {addMovieToWatchList(item)}} 
                 id="watchlist-icon-button">
                  
-                  {!isWatchListClicked &&  <FiPlus id="plus-icon" />}
-                  {isWatchListClicked &&  <BiCheck id="plus-icon" />} 
+                  {!isItemAdded?(<FiPlus id="plus-icon" />):(
+                    <BiCheck id="check-icon" />
+                  )}
                 </button>
                 <span className="watchlist-tooltip">Watchlist</span>
                 <Link

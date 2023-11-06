@@ -6,7 +6,6 @@ const token = "Bearer " + key[0];
 headers["Authorization"] = token;
 
 function addtoWatchlist(movieId){
-  console.log("headers",headers)
   const suffix = `social_media/watchlist/`+movieId;
   console.log("movieId",movieId)
   return instance.patch(suffix, 

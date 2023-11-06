@@ -36,7 +36,7 @@ function VideoInfo(props) {
   const onLoadedData = () => {
     setIsVideoLoaded(true);
   };
-
+const location = useLocation();
   const [isLiked,setIsLiked] = useState(false);
   const  [isDisLiked,setIsDisLiked]=useState(false);
   const [currentGenre,setCurrentGenre] = useState(undefined);
@@ -55,21 +55,29 @@ function VideoInfo(props) {
     }
   }
   const params = useParams();
-  // console.log("pea", params.id);
 
   const { NavBarControl } = props;
 
   const[detailShow,setDetailShow] = useState(true);
   const[relatedShow,setRelatedShow] = useState(false);
+  const[isLoggedIn,setIsLoggedIn]= useState(false);
+ 
+
 
   const movieDetailHandler=()=>{
     setDetailShow(!detailShow);
-    // setRelatedShow(!relatedShow);
   }
+
 
  
   useEffect(() => {
-    if(loaded){
+    
+    if(localStorage.getItem("userInfo")){
+      setIsLoggedIn(true);
+    }else{
+      setIsLoggedIn(false);
+    }
+    if(loaded && localStorage.getItem("userInfo")){
       console.log(showImage,showVideo);
       setShowImage(true);
       setShowVideo(false);
@@ -79,8 +87,11 @@ function VideoInfo(props) {
     }, 5000);
 
     return () => clearTimeout(imageTimeout);
+  }else{
+    setShowImage(true);
   }
   }, [loaded]);
+
   useEffect(() => {
     setLoaded(false);
     if (params.id !== undefined) {

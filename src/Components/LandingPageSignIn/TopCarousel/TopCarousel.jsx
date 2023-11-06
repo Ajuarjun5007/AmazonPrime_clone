@@ -78,7 +78,7 @@ function TopCarousel(props) {
 
       event.preventDefault();
     if (localStorage.getItem("userInfo")) {
-      setIsItemAdded(prevIsItemAdded => !prevIsItemAdded);
+      setIsItemAdded(!isItemAdded);
 
       addtoWatchlist(movie._id)
         .then((response) => {
@@ -95,10 +95,6 @@ function TopCarousel(props) {
       }
   };
 
-moviesInfo.slice(0,10).map((item)=>{
-  console.log("itemid",item._id,item.title);
-
-})
   return (
     <>
       <div className="App">
@@ -124,10 +120,12 @@ moviesInfo.slice(0,10).map((item)=>{
                   <div className="poster-title">
                     <h2>{item.title}</h2>
                   </div>
+                  {isLoggedIn &&
                   <div className="prime-details">
                     <img src={bluetick} alt="" />
                     <p>Included with Prime</p>
                   </div>
+                    }
                   <div className="poster-buttons">
                     <div className="poster-button-play">
                     { isLoggedIn?(
@@ -139,6 +137,7 @@ moviesInfo.slice(0,10).map((item)=>{
                       </div>
                     ):(
                       <div className="free-trial-content">
+                        <img src={bluetick} alt="" />
                         <p>Watch with a free Prime trial</p>
                       </div>
                     )
@@ -174,23 +173,7 @@ moviesInfo.slice(0,10).map((item)=>{
               </div>
               </Link>
             ))}
-            {/* <div
-      className={`media ${showImage ? "show" : ""}`}
-      style={{ display: showImage ? "block" : "none" }}
-    >
-      <img src={item.thumbnail} alt="Image" />
-    </div>
-
-    <div
-      className={`media ${showVideo ? "show" : ""}`}
-      style={{ display: showVideo ? "block" : "none" }}
-    >
-      {showVideo && (
-        <Video autoPlay muted loop controls>
-          <source src={item.video_url} type="video/mp4" />
-        </Video>
-      )}
-    </div> */}
+        
 
        
         </Carousel>

@@ -30,7 +30,7 @@ function WatchList(){
           })
 
     // }
-    },[isLoaded,isWatchListClicked])
+    },[isLoaded,isWatchListClicked,watchlist])
 
   // button handler
     const recentButtonHandler = () => {

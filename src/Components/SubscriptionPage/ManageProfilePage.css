@@ -58,6 +58,22 @@
     background-color: #0f171e;
     box-shadow: 0 0 2px 2px #a8edf0;
 }
+.upload-btn{
+    background-color: #0f171e;
+    border: none;
+    height: 40px;
+    width: max-content;
+    padding:10px 10px 10px 10px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0 0 2px 2px #a8edf0;
+}
+.upload-btn:hover{
+    background-color: #fff;
+    color: #0f171e;
+    box-shadow: 0 0 4px 4px #00050d;
+
+}
 .password-handle-container{
     display: flex;
     flex-direction: column;
