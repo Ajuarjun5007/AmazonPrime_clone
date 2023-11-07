@@ -1,5 +1,5 @@
 import { movieList } from "../ApiFetch";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import TopCarousel from "../LandingPageSignIn/TopCarousel/TopCarousel";
 import { useLocation } from "react-router-dom";
 import { categories } from "../CategoryConstants";
@@ -12,13 +12,16 @@ function CategoryTypePage() {
   const { search } = useLocation();
   console.log("search", search);
   const params = new URLSearchParams(search);
+  
+  
+
   const type = params.get("type");
+  console.log("par", type);
   const typeHeader = type.charAt(0).toUpperCase() + type.slice(1);
-  console.log("par", typeHeader);
 
   const [moviesInfo, setMoviesInfo] = useState([]);
   const [categoryMovieInfo, setCategoryMovieInfo] = useState({});
-
+  const [RentalPage,setRentalPage] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -56,7 +59,11 @@ function CategoryTypePage() {
       }
     };
     fetchData();
-  }, [type]);
+    if(type== "documentary" || type == "trailer"){
+      setRentalPage(true);
+    }
+
+  }, [type,search]);
 
     console.log("path",location.pathname)
   
@@ -64,7 +71,9 @@ function CategoryTypePage() {
   return (
     <>
       <div style={{ backgroundColor: "#00050d", paddingBottom: "300px" }}>
+        {!RentalPage &&
         <div className="categorytypeheader">{typeHeader}</div>
+        }
         <TopCarousel moviesInfo={moviesInfo} />
 
         {Object.keys(categoryMovieInfo).map((keyword) => {

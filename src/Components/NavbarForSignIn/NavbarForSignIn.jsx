@@ -165,18 +165,22 @@ function NavbarforSignIn() {
               </div>
               <div className="store-container">
                 <ul className="store-dropdown">
+                <NavLink to={`/categorytypepage?type=documentary`}>
                   <li
                     className="nav-bar-items-list store-dropdown-items"
                     onClick={handleStoreNavItemClick}
                   >
                     All
                   </li>
+                  </NavLink>
+                  <NavLink to={`/categorytypepage?type=trailer`}>
                   <li
                     className="nav-bar-items-list store-dropdown-items"
                     onClick={handleStoreNavItemClick}
                   >
                     Rent
                   </li>
+                  </NavLink>
                   <li
                     className="nav-bar-items-list store-dropdown-items"
                     onClick={handleStoreNavItemClick}

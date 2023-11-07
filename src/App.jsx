@@ -24,6 +24,7 @@ import MobileNavBArContent from "./Components/MobileNavbar/MobileNavBArContent";
 import ManageProfilePage from "./Components/SubscriptionPage/ManageProfilePage.jsx";
 import SubscriptionPage from "./Components/SubscriptionPage/SubscriptionPage";
 import PaymentPage from "./Components/SubscriptionPage/PaymentPage"
+// import RentPage from "./Components/RentPage/RentPage.jsx";
 function App() {
 
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
@@ -62,7 +63,6 @@ const screenSize =   useScreenSize();
     }
       {isNavBarShow && <NavbarforSignIn/>}
         
-        
 
         {isMobile && isNavBarShow &&
         <div className={`${mobileNavBar ? 'active' : ''}`}>
@@ -86,6 +86,7 @@ const screenSize =   useScreenSize();
         <Route path="/ManageProfilePage" element={<ManageProfilePage NavBarControl={NavBarControl} />} />
         {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}
         {/* <VideoInfo/> */}
+        {/* <Route path="/RentPage/" element={<RentPage/>}/> */}
         <Route
           path="/SignIn"
           element={<SignInProvider NavBarControl={NavBarControl}  />}

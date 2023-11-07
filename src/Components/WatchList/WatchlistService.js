@@ -15,7 +15,6 @@ function addtoWatchlist(movieId){
     {headers} );
 }
 function getWatchlist() {
-  console.log("headers",headers)
   const suffix =`ott/watchlist/like`;
   return instance.get(suffix, 
     {headers} );

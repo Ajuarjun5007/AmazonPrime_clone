@@ -18,14 +18,12 @@ function WatchList(){
 
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
-    console.log("is",isLoaded);
 
     useEffect(()=>{ 
         // if(!isLoaded){
         getWatchlist()
         .then(response=>{
             setWatchList(response.data.data.shows)
-            console.log("watch",response.data.data.shows);
             setIsLoaded(!isLoaded); 
           })
 
@@ -38,8 +36,6 @@ function WatchList(){
     };
 
 
-   const location = useLocation();
-   console.log("loca",location);
 
     // add to watchList
     const addMovieToWatchList = (movie) => {
@@ -56,7 +52,6 @@ function WatchList(){
 
     const optionHandler = (text)=>{
       SetButtonText(text);
-      console.log("val",text);
     }
   
     return(

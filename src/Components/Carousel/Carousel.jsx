@@ -13,7 +13,7 @@ import {addtoWatchlist} from "../../Components/WatchList/WatchlistService"
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
-
+import { getWatchlist } from "../../Components/WatchList/WatchlistService";
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
   
@@ -47,6 +47,7 @@ const CarouselComponent= (props) => {
 
   const [isItemAdded,setIsItemAdded] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
+  
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
@@ -63,8 +64,26 @@ const CarouselComponent= (props) => {
       navigate("/SignIn");
     }
   };
+  let watchListId=[];
+  useEffect(()=>{ 
+    // if(!isLoaded){
+    getWatchlist()
+    .then(response=>{
+       const watchListItems = response.data.data.shows;
+       console.log("watchList",watchListItems);
+       watchListId = watchListItems.map((item)=>{
+        return item._id;
+       })
+       console.log("watchId",watchListId);
+       watchListId.map((item)=>{
+      if(item==="64cffee700bad552e8dcd507" ){
+          console.log("id found");
+      }
+     })
+      })
 
-  
+// }
+},[isItemAdded])
 
   return (
     < div className="carousel-container">
@@ -116,9 +135,12 @@ const CarouselComponent= (props) => {
                 <button 
                 onClick={()=> {addMovieToWatchList(item)}} 
                 id="watchlist-icon-button">
-                 
-                  {!isItemAdded?(<FiPlus id="plus-icon" />):(
-                    <BiCheck id="check-icon" />
+                 {/* {console.log("idavail",watchListId.includes(item._id))}
+                 {console.log("id",item._id)} */}
+                 {/* {console.log("idavailpart",watchListId.includes(64cffee700bad552e8dcd507))} */}
+
+                  {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                    <FiPlus id="check-icon" />
                   )}
                 </button>
                 <span className="watchlist-tooltip">Watchlist</span>
