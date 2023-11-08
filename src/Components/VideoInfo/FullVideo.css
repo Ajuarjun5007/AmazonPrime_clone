@@ -1,0 +1,29 @@
+.full-video-container{
+  position: relative;
+  padding-top:56.25%;
+  /* border: 2px solid red; */
+  position: relative;
+}
+.react-player{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.back-btn-container{
+    position: absolute;
+    top: 20px;
+    right:30px;
+    border-radius: 50%;
+    /* display: none; */
+}
+.close-btn{
+    height: 40px;
+    width: 40px;
+    color:#0f79af;
+    transition: 0.3s ease-in;
+}
+.close-btn:hover{
+    color:#00a0d6;
+
+    transform: scale(1.2);
+}

@@ -118,7 +118,7 @@ function TopCarousel(props) {
               <div className="poster-items">z
                 <div className="poster-content ">
                   <div className="poster-title">
-                    <h2>{item.title}</h2>
+                    <p>{item.title}</p>
                   </div>
                   {isLoggedIn &&
                   <div className="prime-details">

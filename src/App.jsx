@@ -24,6 +24,7 @@ import MobileNavBArContent from "./Components/MobileNavbar/MobileNavBArContent";
 import ManageProfilePage from "./Components/SubscriptionPage/ManageProfilePage.jsx";
 import SubscriptionPage from "./Components/SubscriptionPage/SubscriptionPage";
 import PaymentPage from "./Components/SubscriptionPage/PaymentPage"
+import FullVideo from "./Components/VideoInfo/FullVideo.jsx";
 // import RentPage from "./Components/RentPage/RentPage.jsx";
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
 
   if(value=="/home"){
     SetIsNavBarShow(true);
-  } else if (value == "/SignIn" || value == "/SignUp" || value == "/SubscriptionPage"
+  } else if (value == "/SignIn" || value == "/SignUp" || value == "/SubscriptionPage" || value == "FullVideo"
    || value=="/SubscriptionPage/PaymentPage" ||value=="/ManageProfilePage" || value){
       SetIsNavBarShow(false);
   };
@@ -80,7 +81,7 @@ const screenSize =   useScreenSize();
        
         <Route path="/SubscriptionPage" element={<SubscriptionPage NavBarControl={NavBarControl}/>}/>
         <Route path="/SubscriptionPage/PaymentPage" element={<PaymentPage NavBarControl={NavBarControl}/>}/>
-        
+        <Route path="/FullVideo/:id" element={<FullVideo NavBarControl={NavBarControl}/>}/>
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
         <Route path="/ManageProfilePage" element={<ManageProfilePage NavBarControl={NavBarControl} />} />

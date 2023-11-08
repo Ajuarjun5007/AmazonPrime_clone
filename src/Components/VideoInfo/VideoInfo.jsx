@@ -20,13 +20,13 @@ import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import ReactPlayer from "react-player";
 import {getDetailsByTypeOrCategory} from "../CategorySelected/CategorySelectedService"
 import { CarouselComponent } from "../Carousel/Carousel";
-// import CardsCarousel from "../../Components/LandingPageSignIn/CardsCarousel/CardsCarousel"
+
 function VideoInfo(props) {
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
   const [movieInfo, setMovieInfo] = useState({});
   const [isMuted, setIsMuted] = useState(true);
-
+  
   const [fullVideoShow, setFullVideoShow] = useState(false);
 
   const [loaded, setLoaded] = useState(false);
@@ -39,7 +39,6 @@ function VideoInfo(props) {
 const location = useLocation();
   const [isLiked,setIsLiked] = useState(false);
   const  [isDisLiked,setIsDisLiked]=useState(false);
-  const [currentGenre,setCurrentGenre] = useState(undefined);
   const [ movieList,setMovieList] = useState([]);
   function likeHandler(){
     setIsLiked(!isLiked);
@@ -159,7 +158,7 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
             
           </div>
           )}
-          {fullVideoShow && (
+          {/* {fullVideoShow && (
             <div className="full-sized-video show">
               <div style={{ opacity: isVideoLoaded ? 1 : 0 }}>
             <ReactPlayer
@@ -175,11 +174,10 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
             />
           </div>
             </div>
-          )}
+          )} */}
         </div>
         {/* video-details */}
-        <div className="full-video-container">
-          {!fullVideoShow && (
+        {/* <div className="full-video-container"> */}
             <div className="video-details">
               <div className="speaker">
                 <button className="volume-off" onClick={handleToggleMute}>
@@ -210,11 +208,45 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                   <img src={bluetick} alt="" />
                   <p>Included with Prime</p>
                 </div>
+
+                {/* { isLoggedIn?(
+                     <div className="logged-in-play">
+                      <button className="play">
+                        <BiSolidRightArrow className="play-arrow-icon" />
+                      </button>
+                      <p>Play</p>
+                      </div>
+                    ):(
+                      <div className="free-trial-content">
+                        <img src={bluetick} alt="" />
+                        <p>Watch with a free Prime trial</p>
+                      </div>
+                    )
+                    } */}
                 <div className="play-container">
-                  <button className="play-button" onClick={videoSizeHandler}>
-                    <BiSolidRightArrow className="play-icon" />
+
+
+                 { isLoggedIn?(
+                  <div className="play-btn-content">
+                    <Link 
+                    key={movieInfo._id} 
+                    to={`/FullVideo/${movieInfo._id}`}
+                    >
+                   <button className="play-button" onClick={videoSizeHandler}>
+                  <BiSolidRightArrow className="play-icon" />
                   </button>
+                    </Link>
                   <span className="play-text">play</span>
+                  </div>
+                  ):(
+                    <div className="free-trial-content">
+                        <img src={bluetick} alt="" />
+                        <p>Watch with a free Prime trial</p>
+                      </div>
+                  )
+                 }
+
+
                   <div className="video-access-button ">
                     <div className="access-btn-container">
                       <span className="btn-msg">Watchlist</span>
@@ -252,7 +284,7 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                     </div>
                     <div className="access-btn-container">
                       <span className="btn-msg">Watch party</span>
-                      <Link to={"comingsoon"}>
+                      <Link to={"/comingsoon"}>
                       <button className="grey-icon">
                         <PiConfettiBold className="react-confetti-icon" />
                       </button>
@@ -260,30 +292,31 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                     </div>
                     <div className="access-btn-container">
                       <span className="btn-msg">Share</span>
+                      <Link to={"/comingsoon"}>
                       <button className="grey-icon">
                         <FiShare2 className="react-share-icon" />
                       </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          )}
-        </div>
+        {/* </div> */}
       </div>
 
-      {!fullVideoShow && <div className="cast-heading">
+       <div className="cast-heading">
         <span  className="cast-heading-child">Related</span>
         <span onClick={movieDetailHandler} className="cast-heading-child">Details</span>
 
-        </div>}
+        </div>
       
-        {!fullVideoShow && movieList.length>0 && <CarouselComponent moviesInfo={movieList} type={movieDetail.type}/>
+        {movieList.length>0 && <CarouselComponent moviesInfo={movieList} type={movieDetail.type}/>
 
         }
 
 
-      {!fullVideoShow && detailShow && (
+      { detailShow && (
         <div className="cast-section">
           <span>Director</span>
           <p>{movieInfo.director}</p>
@@ -295,7 +328,7 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
           ))}
         </div>
       )}
-      {!fullVideoShow && <FooterForSignIn />}
+      <FooterForSignIn />
     </div>
   ) : null;
 }

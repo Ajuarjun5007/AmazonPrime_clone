@@ -54,16 +54,15 @@ align-items: center;
   background: transparent!important;
   margin-bottom: 30px;
   margin-top: 100px;
-  margin-left: 60px;
+  margin-left: 70px;
   width: 50%;
   animation: bounce 1.5s;
-  }
-  .poster-title h2{
-  background: transparent!important;
   font-size: 40px;
   font-weight: 800;
   letter-spacing: 2px;
+  color: white;
   }
+ 
   .poster-buttons{
     display: flex;
     align-items: center;
@@ -77,12 +76,11 @@ align-items: center;
     border-radius: 50%;
     border: none;
     background-color: white;
+    transition: 0.3s ease-in;
   }
   .poster-button-play{
     display: flex;
     justify-content:left;
-  border: 2px solid green;
-
     gap:30px;
   /* margin-left:30px; */
     align-items: center;
@@ -99,9 +97,17 @@ background: transparent!important;
 .free-trial-content{
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  padding:10px 20px;
   width: 300px;
-  border: 2px solid red;
+  background-color: #00050d;
+  color: rgb(240,240,240);
+  border-radius: 8px;
+  transition: 0.3s transform ease-in;
+}
+.free-trial-content:hover{
+  transform: scale(1.1);
+  color: #00050d;
+  background-color: rgb(240,240,240);
 }
 .free-trial-content img{
   width: 30px;
