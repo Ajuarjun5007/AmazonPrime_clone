@@ -8,12 +8,11 @@ import { FiPlus } from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
 import { useEffect, useState } from "react";
 
-import {addtoWatchlist} from "../../Components/WatchList/WatchlistService"
+import {addtoWatchlist,getWatchlist} from "../../Components/WatchList/WatchlistService"
 
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
-import { getWatchlist } from "../../Components/WatchList/WatchlistService";
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
   
@@ -49,6 +48,7 @@ const CarouselComponent= (props) => {
 
   const [isItemAdded,setIsItemAdded] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
+  const [watchListId,setWatchListId] = useState([]);
   
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
@@ -68,7 +68,6 @@ const CarouselComponent= (props) => {
     }
   };
   
-  const [watchListId,setWatchListId] = useState([]);
 
   useEffect(()=>{ 
     // if(!isLoaded){
@@ -144,10 +143,6 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
                 onClick={()=> {addMovieToWatchList(item)}} 
                 id="watchlist-icon-button">
                 
-                 {console.log("idavail",watchListId.includes(item._id))}
-                 {console.log("checking id",item._id)}
-                 {/* {console.log("idavailpart",watchListId.includes(64cffee700bad552e8dcd507))} */}
-                 {console.log("id array", watchListId)}
                   {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
                   )}

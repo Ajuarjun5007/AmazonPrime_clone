@@ -164,9 +164,38 @@
     z-index: 122;
     display: none;
  }
+
+ .normal-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    position: absolute;
+    margin-top:258px!important;
+    margin-right:138px!important;
+    width:max-content;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    gap: 20px;
+    padding: 30px 0px;
+    font-size: 21px;
+    color: #aaa;
+    font-weight: 900;
+    z-index: 122;
+    display: none;
+}
+.normal-container p{
+    color: #aaa!important;;
+    text-decoration: none;
+     padding: 10px 40px 10px 20px;
+ }
+ .normal-container p:hover{
+    background-color: #fff;
+    color: #00050d!important;
+ }
  .user-details{
-    display: block;
-    margin-left:30px;
+    display: flex;
+    flex-direction: column;
+    margin-left:20px;
  }
  .user-details-container p,.signout{
     padding:10px 5px;
@@ -178,7 +207,7 @@
  .user-details-header,.profile-header{
     color: white!important;
     font-size: 21px;
-    padding:20px 10px;
+    padding:20px 0px;
     background-color:#191e25;
  }
  .profile-container{ 
@@ -261,18 +290,17 @@
     }
  }
  
- /* .profile-info p:hover{
-    background-color: #fff;
-    color: #00050d;
- } */
  .hover-down-user:hover{
     background-color:#191e25;
    }
  .hover-down-user:hover .user-details-container{
      background-color:#191e25;
-    display: flex;
+    display:flex;
     }
-   
+    .hover-down-user:hover .normal-container{
+        display: block;
+        background-color: #191e25;
+    }
     .hover-down-user:hover img{
     background-color:#191e25;
     }

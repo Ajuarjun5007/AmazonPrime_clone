@@ -355,7 +355,9 @@ function NavbarforSignIn() {
                 src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
                 alt=""
               />
+              {idLogged?(
                <div className="user-details-container">
+
               <div className="user-details">
              <div className="user-details-header">Your Account</div> 
              <NavLink to="comingsoon">
@@ -372,21 +374,20 @@ function NavbarforSignIn() {
               <NavLink to='PrimeBenefits'>
               <p className="prime-benefits">Prime Benefits</p>
               </NavLink>
-              {
-                !idLogged && 
-              <NavLink to='SignIn'>
-                <p className="SignIn">Sign In</p>
-             </NavLink>
-                }
-             {
-             idLogged && <p className="signout"
+                
              
+             <NavLink to='/'>
+
+             <p className="signout"
+
              onClick={()=>clearStorage()}
 
               >Sign out</p>
-               } 
+             </NavLink>
+
              </div>
              {/* manage profile */}
+             
              <div className="profile-container">
               <div className="profile-header">Profiles</div>
               <div className="profile-info">
@@ -403,7 +404,25 @@ function NavbarforSignIn() {
                 <button className="manage-btn">Manage Profile</button>
                </Link>
              </div>
+              </div>
+              ):(
+              <div className="normal-container">
+                <NavLink to="SignIn">
+                  <p>Sign In</p>
+                </NavLink>
+                
+                <NavLink to="comingsoon">
+                  <p>Help</p>
+                </NavLink>
+
+                <NavLink to="comingsoon">
+                  <p>Watch Anywhere</p>
+                </NavLink>
+
             </div>
+              )
+                  }
+
             </div>
             {/* </div> */}
           </div>

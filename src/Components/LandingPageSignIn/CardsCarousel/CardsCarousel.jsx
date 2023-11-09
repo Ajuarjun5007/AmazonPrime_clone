@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
-import { addtoWatchlist } from "../../WatchList/WatchlistService";
-import { useState } from "react";
+import { addtoWatchlist,getWatchlist } from "../../WatchList/WatchlistService";
+import { useState,useEffect} from "react";
 
 function CardsCarousel({ moviesInfo, type }) {
   const responsive = {
@@ -34,11 +34,16 @@ function CardsCarousel({ moviesInfo, type }) {
   };
 
   const navigate = useNavigate();
-
+  const [isItemAdded,setIsItemAdded] = useState(false);
   const [isWatchListClicked, setIsWatchListClicked] = useState(false);
+  const[isLoggedIn,setIsLoggedIn] = useState(false);
+  const [watchListId,setWatchListId] = useState([]);
  
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
+      setIsItemAdded(!isItemAdded);
+      setIsLoggedIn(true);
+
       addtoWatchlist(movie._id)
         .then((response) => {
           console.log("repo", response);
@@ -51,6 +56,25 @@ function CardsCarousel({ moviesInfo, type }) {
       navigate("/SignIn");
     }
   };
+
+  useEffect(()=>{ 
+    // if(!isLoaded){
+    getWatchlist()
+    .then(response=>{
+       const watchListItems = response.data.data.shows;
+       setWatchListId (watchListItems.map((item)=>{
+        return item._id;
+       }))
+       console.log("watchId",watchListId);
+       watchListId.map((item)=>{
+      if(item==="64cffee700bad552e8dcd515" ){
+          console.log("id found");
+      }
+     })
+      })
+
+// }
+},[isItemAdded])
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
   return (
@@ -96,7 +120,9 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
                     }}
                     id="watchlist-icon-button"
                   >
-                    <FiPlus id="plus-icon" />
+                     {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                    <FiPlus id="check-icon" />
+                  )}
                   </button>
                   <span className="watchlist-tooltip">Watchlist</span>
                   <Link to={`/videodetails/${item._id}`}>
