@@ -53,6 +53,7 @@ const CarouselComponent= (props) => {
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
+      console.log("eventclicked");
       setIsLoggedIn(true);
       addtoWatchlist(movie._id)
         .then((response) => {
@@ -66,19 +67,21 @@ const CarouselComponent= (props) => {
       navigate("/SignIn");
     }
   };
-  let watchListId=[];
+  
+  const [watchListId,setWatchListId] = useState([]);
+
   useEffect(()=>{ 
     // if(!isLoaded){
     getWatchlist()
     .then(response=>{
        const watchListItems = response.data.data.shows;
        console.log("watchList",watchListItems);
-       watchListId = watchListItems.map((item)=>{
+       setWatchListId (watchListItems.map((item)=>{
         return item._id;
-       })
+       }))
        console.log("watchId",watchListId);
        watchListId.map((item)=>{
-      if(item==="64cffee700bad552e8dcd507" ){
+      if(item==="64cffee700bad552e8dcd515" ){
           console.log("id found");
       }
      })
@@ -87,8 +90,9 @@ const CarouselComponent= (props) => {
 // }
 },[isItemAdded])
 
+console.log("watchListId", watchListId);
+
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
-console.log("fm",filteredMovies);
 
   return (
     < div className="carousel-container">
@@ -139,10 +143,11 @@ console.log("fm",filteredMovies);
                 <button 
                 onClick={()=> {addMovieToWatchList(item)}} 
                 id="watchlist-icon-button">
-                 {/* {console.log("idavail",watchListId.includes(item._id))}
-                 {console.log("id",item._id)} */}
+                
+                 {console.log("idavail",watchListId.includes(item._id))}
+                 {console.log("checking id",item._id)}
                  {/* {console.log("idavailpart",watchListId.includes(64cffee700bad552e8dcd507))} */}
-
+                 {console.log("id array", watchListId)}
                   {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
                   )}

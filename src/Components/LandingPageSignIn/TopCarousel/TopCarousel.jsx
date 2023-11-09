@@ -115,7 +115,7 @@ function TopCarousel(props) {
             .map((item, index) => (
               
               <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
-              <div className="poster-items">z
+              <div className="poster-items">
                 <div className="poster-content ">
                   <div className="poster-title">
                     <p>{item.title}</p>

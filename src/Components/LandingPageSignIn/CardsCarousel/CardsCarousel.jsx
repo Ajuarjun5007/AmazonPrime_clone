@@ -53,7 +53,6 @@ function CardsCarousel({ moviesInfo, type }) {
   };
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
-console.log("fm",filteredMovies);
   return (
     <>
       <div className="Carousel-header">

@@ -17,11 +17,9 @@ function SearchPage() {
   const [TypeDisplay,setTypeDisplay] = useState("Content type");
 
   const movieList = location.state.data;
-  console.log("res",location.state.result);
 
   function dataFetchByGenre(category){
     setSelectedValue(category);
-  console.log("value1",selectedValue);
   }
   function dataFetchByType(type){
     setSelectedType(type)
@@ -34,7 +32,6 @@ function SearchPage() {
       setGenreDisplay(selectedValue);
       const filteredResult = movieList.filter((item) => {
         let formattedSelectedValue = selectedValue.toLowerCase();  
-        console.log("fo",formattedSelectedValue);
         return  item.keywords.includes(formattedSelectedValue);
       });
       setSearchResults(filteredResult);
@@ -43,7 +40,6 @@ function SearchPage() {
       setTypeDisplay(selectedType);
       const filteredResult = movieList.filter((item) => {
         let formattedSelectedValue = selectedType.toLowerCase();  
-        console.log("ty",formattedSelectedValue);
         return  item.type === formattedSelectedValue;
       });
       setSearchResults(filteredResult);
@@ -52,10 +48,8 @@ function SearchPage() {
   
 
 
-  console.log("selectedValue2",selectedValue);
 
 
-  console.log("searchresult",searchResults);
 
   const [isOpenGenre, setIsOpenGenre] = useState(false);
   const [isOpenType, setIsOpenType] = useState(false);
