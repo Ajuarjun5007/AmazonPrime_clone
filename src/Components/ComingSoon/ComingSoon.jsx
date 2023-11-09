@@ -1,10 +1,22 @@
 import './ComingSoon.css'
+import { Link } from 'react-router-dom';
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 
 function ComingSoon(){
+    
+    const goBack = () => {
+        window.history.back();
+      };
     return(
         <div className="comingsoonhome">
-            <div className="eyesloader">
+            
+<button
+ onClick={goBack}
+ className='go-back-btn'>Go Back</button> 
+            <Link to="/home">
+<button className='go-home-btn'>Go Home</button>           
+            </Link>
+ <div className="eyesloader">
         <span class="eyes"></span>
         <span class="eyes"></span>
             </div>

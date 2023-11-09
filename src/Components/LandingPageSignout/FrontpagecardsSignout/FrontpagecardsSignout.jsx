@@ -61,7 +61,9 @@ function FrontpagecardsSignOut() {
               <h1>Movie rentals on Prime Video</h1>
             </div>
             <p>Early access to new movies,before digital subscription</p>
+            <Link to='SignIn'>
             <button className="frontpage-btn">Rent now</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -142,7 +144,9 @@ function FrontpagecardsSignOut() {
             The biggest movies and TV shows are always better on a big screen. Simply plug in your Amazon Fire TV Stick and stream on any HDTV. Press the voice button on the remote 
             and say the name of the title you want to watch to find it in seconds.
             </p>
+            <Link to='SignIn'>
             <button className="getStarted">Get Started</button>
+            </Link>
           </div>
         </div>
 
@@ -157,7 +161,9 @@ function FrontpagecardsSignOut() {
             </div>
             <p>With easy to use Parental Controls and a dedicated kids page, enjoy secure, ad-free kids entertainment. Kids can enjoy popular TV shows like Peppa Pig, Powerpuff Girls, and Chhota Bheem.
               </p>
+            <Link to='SignIn'>
             <button className="getStarted">Get started</button>
+            </Link>
           </div>
         </div>
       </div>

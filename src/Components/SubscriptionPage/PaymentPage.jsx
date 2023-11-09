@@ -1,6 +1,6 @@
 import "./SubscriptionPage.css"
 import React, { useState, useEffect } from 'react';
-import {  Link, useLocation } from "react-router-dom";
+import {  Link, json, useLocation } from "react-router-dom";
 import {BiSolidInfoCircle} from "react-icons/bi"
 import blueprime from "../../assets/loginassets/blueprime.png"
 import creditcard from "../../assets/loginassets/creditcardimage.png"
@@ -81,8 +81,13 @@ function PaymentPage(props){
       }
     };
 
+    let msg = "hi";
     const payNowHandler = ()=>{
       setSubscriptionMessage(true);
+      const SubscriptionDetails =[];
+      const userDetails= {};
+       userDetails.SusbscriptionStatus = JSON.stringify(msg);
+       
     }
 
     return(

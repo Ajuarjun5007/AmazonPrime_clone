@@ -35,14 +35,15 @@
     margin-top: 5px;
     /* background-color: #222; */
 }
-#footer-content span{
-    text-decoration: none;
+#footer-content a{
     color: #0f79af;
     font-size: 13px;
     line-height: 19px;
     font-family: "Amazon Ember", "Amazon Arabic Ember", Arial, sans-serif;
     margin-right: 10px;
-    /* background-color: #222; */
+  }
+  #footer-content a:hover{
+    color: #90dffe;
   }
   .license-container{
      display: flex;

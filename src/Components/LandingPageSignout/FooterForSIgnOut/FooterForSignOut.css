@@ -30,6 +30,9 @@
       margin-right: 10px;
       background-color: #222;
     }
+    .footer-text span:hover{
+      color:#798bf3;
+    }
     .license{
        display: flex;
       justify-content:center;

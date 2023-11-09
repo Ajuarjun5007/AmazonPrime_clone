@@ -12,10 +12,14 @@ function FooterForSignOut() {
       </div>
 
       <div className="footer-text">
-        <span>Terms and Privacy Notice</span>
-        <span>Send us feedback</span>
-        <span>Help</span>
-      </div>
+  <a href="https://www.primevideo.com/help/ref=atv_ftr_ter?nodeId=202064890" target="_blank">
+    <span>
+    Terms and Privacy Notice
+    </span>
+    </a> <a href="https://example.com/feedback">Send us feedback</a>
+  <a href="https://example.com/help">Help</a>
+</div>
+
       <div className="license">
         <p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
         </div>
