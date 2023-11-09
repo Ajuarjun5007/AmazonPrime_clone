@@ -10,8 +10,7 @@ import { useLocation } from 'react-router-dom';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./Gridcards.css"
-function Gridcards(props){
-   const {cardsInfo}= props;
+function Gridcards(){
 
     const addMovieToWatchList = (movie) => {
       addtoWatchlist(movie._id).then(response=> {
@@ -23,7 +22,9 @@ function Gridcards(props){
         console.log("error",err)
       })
     }
-   
+   const location = useLocation();
+   const cardsInfo = location.state.data;
+   console.log("loc",cardsInfo);
   return(
     <>
    <div style={{backgroundColor:"#00050d",

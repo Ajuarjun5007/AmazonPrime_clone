@@ -25,6 +25,7 @@ import ManageProfilePage from "./Components/SubscriptionPage/ManageProfilePage.j
 import SubscriptionPage from "./Components/SubscriptionPage/SubscriptionPage";
 import PaymentPage from "./Components/SubscriptionPage/PaymentPage"
 import FullVideo from "./Components/VideoInfo/FullVideo.jsx";
+import { Gridcards } from "./Components/Gridcards/Gridcards.jsx";
 // import RentPage from "./Components/RentPage/RentPage.jsx";
 function App() {
 
@@ -85,7 +86,7 @@ const screenSize =   useScreenSize();
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
         <Route path="/CategorySelected" element={<CategorySelected/>} />
         <Route path="/ManageProfilePage" element={<ManageProfilePage NavBarControl={NavBarControl} />} />
-        {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}
+        <Route path = "/Gridcards" element={<Gridcards/>}/>
         {/* <VideoInfo/> */}
         {/* <Route path="/RentPage/" element={<RentPage/>}/> */}
         <Route

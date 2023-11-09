@@ -1,4 +1,6 @@
 import "./PrimeBenefits.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import {
   topCarouselcards,
   PrimeShippingBenefitscards,
@@ -9,8 +11,74 @@ import {
 } from "../PrimeBenefitsConstant";
 import Footer from "../Footer/Footer";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+    slidesToSlide: 1,
+    partialVisibilityGutter:100,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1, 
+  },
+};
+
+
+
+
 function PrimeBenefits() {
   return (
+
+<>
+    <Carousel
+          responsive={responsive}
+          showDots={true}
+          // centerMode={true}
+          partialVisible={true}
+          renderDotsOutside={true}
+          renderButtonGroupOutside={true}
+          autoPlay={false}
+          infinite={true}
+          autoPlaySpeed={3000}
+        >
+          {/* item-1 */}
+          {topCarouselcards
+            .map((item) => (
+              
+              // <Link key={`${item._id}&${index}`} to={`/videodetails/${item._id}`}>
+              <div className="poster-items">
+                <div className="poster-content ">
+                 
+                </div>
+               
+                <img 
+                src={item}
+                // src={"https://i.pinimg.com/originals/17/c5/6b/17c56b759c8b2e9a95cfcd70e9878b72.jpg"}
+
+                 alt="" />
+              </div>
+              // </Link>
+            ))}
+        
+
+       
+        </Carousel>
+
+
+
+
+
+
+
+    
     <div class="Prime-ben">
 
       <div className="Prime-Shipping-benefits-header">
@@ -66,6 +134,7 @@ function PrimeBenefits() {
       </div>
       <FooterForSignIn/>
     </div>
+    </> 
   );
 }
 export { PrimeBenefits };

@@ -36,10 +36,12 @@ const CarouselComponent= (props) => {
   };
  
   const location = useLocation();
+  console.log("loc",location);
   const navigate = useNavigate();
 
     const [isLocationWatchList,setIsLocationWatchList] = useState(false);
     useEffect(()=>{
+      
       setIsLocationWatchList(true);
     },[location])
 
@@ -85,13 +87,16 @@ const CarouselComponent= (props) => {
 // }
 },[isItemAdded])
 
+const filteredMovies = moviesInfo.filter((item) => item.type === type);
+console.log("fm",filteredMovies);
+
   return (
     < div className="carousel-container">
 
     <div  className="Carousel-header">
-      {
+      {/* {
         isLocationWatchList && <div className="Carousel-header-prime">WatchList-{type}</div>
-      }
+      } */}
         <div className="Carousel-header-prime">Prime</div>
         {type}
       </div>
@@ -107,7 +112,6 @@ const CarouselComponent= (props) => {
         moviesInfo.map((item, index) => (
           <div className="card-items"
            key={item._id}
-         
            >
                 
           <Link 

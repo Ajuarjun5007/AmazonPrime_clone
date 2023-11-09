@@ -29,7 +29,6 @@ useEffect(() => {
   NavBarControl(location.pathname);
 }, []);
 
-  console.log("rsult",location.pathname)
   return (
   < div style ={{backgroundColor:"#00050d"}}>
 
