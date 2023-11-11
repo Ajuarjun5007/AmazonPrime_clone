@@ -1,4 +1,5 @@
 import Carousel from "react-multi-carousel";
+import React from "react";
 import "react-multi-carousel/lib/styles.css";
 import "../../Carousel/Carousel.css";
 import { BiSolidRightArrow } from "react-icons/bi";
@@ -57,24 +58,20 @@ function CardsCarousel({ moviesInfo, type }) {
     }
   };
 
-  useEffect(()=>{ 
-    // if(!isLoaded){
-    getWatchlist()
-    .then(response=>{
-       const watchListItems = response.data.data.shows;
-       setWatchListId (watchListItems.map((item)=>{
-        return item._id;
-       }))
-       console.log("watchId",watchListId);
-       watchListId.map((item)=>{
-      if(item==="64cffee700bad552e8dcd515" ){
-          console.log("id found");
-      }
-     })
-      })
+//   useEffect(()=>{ 
+//     // if(!isLoaded){
+//     getWatchlist()
+//     .then(response=>{
+//        const watchListItems = response.data.data.shows;
+//        setWatchListId (watchListItems.map((item)=>{
+//         return item._id;
+//        }))
+//        console.log("watchId",watchListId);
+      
+//       })
 
-// }
-},[isItemAdded])
+// // }
+// },[isItemAdded])
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
   return (
@@ -115,14 +112,14 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
                 <p>Watch Now</p>
                 <div id="watchlist-icon">
                   <button
-                    onClick={() => {
-                      addMovieToWatchList(item);
-                    }}
+                    // onClick={() => {
+                    //   addMovieToWatchList(item);
+                    // }}
                     id="watchlist-icon-button"
                   >
-                     {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                     {/* {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
-                  )}
+                  )} */}
                   </button>
                   <span className="watchlist-tooltip">Watchlist</span>
                   <Link to={`/videodetails/${item._id}`}>
@@ -148,7 +145,7 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
   );
 }
 
-export default CardsCarousel;
+export default React.memo(CardsCarousel);
 
 
 

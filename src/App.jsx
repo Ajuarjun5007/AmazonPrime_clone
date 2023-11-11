@@ -58,7 +58,7 @@ const screenSize =   useScreenSize();
 
   return (
     <>
-    {mobileNavBar==true && 
+    {mobileNavBar && 
      <div className="mobileNavBarStyle">
         <MobileNavBArContent />
       </div>
@@ -77,7 +77,7 @@ const screenSize =   useScreenSize();
         <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
 
-        <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
+        {/* <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} /> */}
       
        
         <Route path="/SubscriptionPage" element={<SubscriptionPage NavBarControl={NavBarControl}/>}/>

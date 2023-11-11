@@ -145,12 +145,15 @@ function MobileNavbar( { handleMobileNavbar } ) {
               ))}
             </div>
           </div>
-
+{/* User  */}
           <div className="mb-user-logo">
             <img
               src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
               alt=""
             />
+            <div className="user-container">
+              
+            </div>
           </div>
         </div>
       </div>

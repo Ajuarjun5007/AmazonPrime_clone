@@ -13,6 +13,8 @@
   height:460px;
   position: relative;
   padding: 0px 20px;
+  cursor: pointer;
+
 }
 .poster-items img{
 border-radius: 8px;

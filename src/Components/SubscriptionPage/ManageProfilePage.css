@@ -11,6 +11,7 @@
     padding: 32px;
     color: #fff;
     font-weight: 900;
+    cursor: pointer;
 }
 
 /* profile content */
@@ -37,6 +38,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+  cursor: pointer;
     
 }
 /* image-handle-container styles */
@@ -52,6 +54,8 @@
 .image-handle-container img{
     height: 100px;
     width: 100px;
+  cursor: pointer;
+
 }
 #file-input{
     margin:20px auto;
@@ -72,6 +76,7 @@
     background-color: #fff;
     color: #0f171e;
     box-shadow: 0 0 4px 4px #00050d;
+    cursor: pointer;
 
 }
 .password-handle-container{
@@ -85,11 +90,14 @@
 .password-handle-container label{
    font-size: 23px;
    color: #fff;
+  cursor: pointer;
+
 }
 #curnt-password,#update-password{
     height: 40px;
     width: 200px!important;
     box-shadow: 0 0 2px 2px #a8edf0;
+    cursor: pointer;
 
 }
 #curnt-password:focus,#update-password:focus{

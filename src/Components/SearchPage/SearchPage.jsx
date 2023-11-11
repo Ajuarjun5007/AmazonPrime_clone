@@ -20,33 +20,40 @@ function SearchPage() {
 
   function dataFetchByGenre(category){
     setSelectedValue(category);
+    setIsOpenGenre(!isOpenGenre);
+
   }
   function dataFetchByType(type){
-    setSelectedType(type)
+    setSelectedType(type);
+    setIsOpenType(!isOpenType);
   }
-  useEffect(() => {
-    if (selectedValue === undefined || selectedType === undefined) {
-      setSearchResults(movieList);
-    }
-    if(selectedValue!==undefined){
-      setGenreDisplay(selectedValue);
-      const filteredResult = movieList.filter((item) => {
-        let formattedSelectedValue = selectedValue.toLowerCase();  
-        return  item.keywords.includes(formattedSelectedValue);
-      });
-      setSearchResults(filteredResult);
-    }
-    if(selectedType!==undefined){
-      setTypeDisplay(selectedType);
-      const filteredResult = movieList.filter((item) => {
-        let formattedSelectedValue = selectedType.toLowerCase();  
-        return  item.type === formattedSelectedValue;
-      });
-      setSearchResults(filteredResult);
-    }
-  }, [selectedValue,movieList,selectedType]);
-  
 
+  
+  useEffect(() => {
+    let filteredResult = movieList;
+  
+    if (selectedValue !== undefined) {
+      setGenreDisplay(selectedValue);
+      const formattedSelectedValue = selectedValue.toLowerCase();
+      filteredResult = filteredResult.filter((item) =>
+        item.keywords.includes(formattedSelectedValue)
+      );
+      console.log("filteredresultByGenre",filteredResult);
+    }
+  
+    if (selectedType !== undefined) {
+      setTypeDisplay(selectedType);
+      const formattedSelectedType = selectedType.toLowerCase();
+      filteredResult = filteredResult.filter(
+        (item) => item.type === formattedSelectedType
+      );
+      console.log("filteredresultByType",filteredResult);
+
+    }
+  
+    setSearchResults(filteredResult);
+  }, [selectedValue, movieList, selectedType]);
+  
 
 
 

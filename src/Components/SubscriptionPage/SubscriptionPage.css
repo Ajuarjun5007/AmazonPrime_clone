@@ -10,6 +10,8 @@
 .mb-prime-top-container img{
     height:56px;
     padding:5px 0px 10px 0px;
+  cursor: pointer;
+
 }
 .mb-prime-plan-container{
     margin: 18px 10px 10px 10px;
@@ -123,6 +125,8 @@ font-weight: 900!important;
     display:flex;
     border-bottom: 2px solid #E5E5E5;
     padding:20px;
+  cursor: pointer;
+
 }
 .input-circle{
     width:25px;
@@ -140,6 +144,8 @@ font-weight: 900!important;
   }
 .plan-type-content p{
     margin-top: 10px;
+  cursor: pointer;
+
 }
 .blue-plan{
     margin: unset!important;
@@ -163,6 +169,8 @@ font-weight: 900!important;
     color: #fff;
     padding: 10px;
     border-radius:4px;
+  cursor: pointer;
+
     border: none;
     /* font-weight: 900; */
     letter-spacing: 1px;
@@ -216,11 +224,15 @@ background-color: gray;
 }
 .card-slct-container img{
     /* width: 50px; */
+  cursor: pointer;
+
     height: max-content;
 }
 .card-slct-container p{
     margin:10px 10px 10px 0px;
     padding-bottom: 10px;
+  cursor: pointer;
+
     /* border-bottom: 2px solid #aaa; */
 }
 .payment-card-details{
@@ -243,6 +255,8 @@ background-color: gray;
     width: 200px;
     margin: 10px 20px 0px 0px;
     padding: 10px 0px 10px 10px;
+  cursor: pointer;
+
 }
 .card-name-input:focus,.card-year-input:focus,.card-nmbr-input:focus,.card-mnth-input:focus,.card-cvv-input:focus{
     /* border: none; */
@@ -278,6 +292,7 @@ background-color: gray;
     border-radius:4px;
     color: #fff;
     box-shadow: 0px 0px 10px 0px #00000080;
+    cursor: pointer;
 
 }
 #pay-btn:disabled,#pay-btn:disabled:hover{
@@ -325,10 +340,14 @@ background-color: gray;
      color: #fff;
      margin-top: 20px;
     box-shadow: 0 0 2px 2px #a8edf0;
+  cursor: pointer;
+
 }
 #enjoy-prime-btn:hover,#go-bck-btn:hover{
     background-color: #00a0d6;
     box-shadow: 0 0 2px 2px #00050d;
+  cursor: pointer;
+
 
 }
 
