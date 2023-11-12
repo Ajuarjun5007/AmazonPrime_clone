@@ -1,4 +1,4 @@
-import "./MobileNavbarContent.css";
+import "./MobileMenuContent.css";
 
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +12,6 @@ import { LuLayoutGrid } from "react-icons/lu";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 
-import "./MobileNavbarContent.css";
 import {
   Accordion,
   AccordionBody,
@@ -25,7 +24,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const MobileNavBArContent = () => {
+const MobileMenuContent = () => {
   return (
     <>
       <div className="menu-content" style={{ backgroundColor: "#191e25" }}>
@@ -147,4 +146,4 @@ const MobileNavBArContent = () => {
   );
 };
 
-export default MobileNavBArContent;
+export default MobileMenuContent;

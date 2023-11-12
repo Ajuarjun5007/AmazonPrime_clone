@@ -20,7 +20,7 @@ import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage";
 import WatchListAll from "./Components/WatchList/WatchListAll"
 import MobileNavbar from "./Components/MobileNavbar/MobileNavbar";
 import { useScreenSize } from "./Components/useScreenSize";
-import MobileNavBArContent from "./Components/MobileNavbar/MobileNavBArContent";
+import MobileMenuContent from "./Components/MobileNavbar/MobileMenuContent";
 import ManageProfilePage from "./Components/SubscriptionPage/ManageProfilePage.jsx";
 import SubscriptionPage from "./Components/SubscriptionPage/SubscriptionPage";
 import PaymentPage from "./Components/SubscriptionPage/PaymentPage"
@@ -35,7 +35,6 @@ function App() {
 
 
   const NavBarControl = (value) => {
-    console.log("value",value)
 
   if(value=="/home"){
     SetIsNavBarShow(true);
@@ -46,7 +45,6 @@ function App() {
   }
   
   const handleMobileNavbar = (value) => {
-    console.log("vl",value);
     setMobileNavBar(value);
   }  
 
@@ -60,7 +58,7 @@ const screenSize =   useScreenSize();
     <>
     {mobileNavBar && 
      <div className="mobileNavBarStyle">
-        <MobileNavBArContent />
+        <MobileMenuContent />
       </div>
     }
       {isNavBarShow && <NavbarforSignIn/>}

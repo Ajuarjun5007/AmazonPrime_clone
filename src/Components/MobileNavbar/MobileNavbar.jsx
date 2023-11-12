@@ -3,20 +3,6 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { BiSearch } from "react-icons/bi";
-import { BiShoppingBag } from "react-icons/bi";
-import { categories,types } from "../CategoryConstants";
-import { PiTelevisionSimpleBold } from "react-icons/pi";
-import {PiFolderPlusDuotone} from "react-icons/pi"
-import { LuLayoutGrid } from "react-icons/lu";
-import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import classNames from "classnames";
-import {
-  Accordion,
-  AccordionBody,
-  AccordionHeader,
-  AccordionItem,
-} from "react-headless-accordion";
-
 import { GoHome } from "react-icons/go";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
@@ -27,19 +13,30 @@ function MobileNavbar( { handleMobileNavbar } ) {
   
   const [arrowRotate, setArrowRotate] = useState(false);
   const [searchDisplay, setSearchDisplay] = useState(false);
+  const [userState, setUserState] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const [movieResult, setMovieResult] = useState([]);
 
   const toggleSearchBar = () => {
     setIsOpen((prevIsopen) => !prevIsopen);
+    setArrowRotate(false);
+    setUserState(false);
+
   };
 
   const arrowHandler = () => {
     setArrowRotate((prevRotate) => !prevRotate);
-    // handleMobileNavbar(arrowRotate);
+    setUserState(false);
+    setIsOpen(false);
   };
 
+  const userHandler = () =>{
+    setUserState(!userState);
+    setArrowRotate(false);
+    setIsOpen(false);
+
+  }
   const searchMovie = (event) => {
     const input = event.target.value;
     if (input.length === 2) {
@@ -56,16 +53,19 @@ function MobileNavbar( { handleMobileNavbar } ) {
   const clearValue = () => {
     setMovieResult([]);
     const inputField = document.querySelector(".search-input");
-    if (inputField) {
+    if (inputField.length>0) {
       inputField.value = "";
     }
   };
-  // get data from local storage
+  const handleItemClick = (itemName) => {
+    setActiveItem(activeItem === itemName ? null : itemName);
+  };
   let storedValue = [];
   const [userName, setUserName] = useState(" ");
   const [idLogged, setIdLogged] = useState(false);
-  console.log("ar", arrowRotate);
+  console.log("ar", isOpen);
   handleMobileNavbar(arrowRotate);
+  const [activeItem, setActiveItem] = useState(null);
 
   return (
     <>
@@ -146,16 +146,40 @@ function MobileNavbar( { handleMobileNavbar } ) {
             </div>
           </div>
 {/* User  */}
-          <div className="mb-user-logo">
+          <div 
+          className="mb-user-logo"
+          style={{ background: userState? "#191e25" : "initial" }}
+          >
             <img
+          onClick={userHandler}
               src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
               alt=""
             />
-            <div className="user-container">
-              
+            {
+              userState &&
+              <div className="mb-user-container">
+              <p
+                onClick={() => handleItemClick("SignIn")}
+                className={`mb-user-container-item ${activeItem === "SignIn" ? "white-background" : ""}`}
+              >
+                Sign In
+              </p>
+              <p
+                onClick={() => handleItemClick("Help")}
+                className={`mb-user-container-item ${activeItem === "Help" ? "white-background" : ""}`}
+              >
+                Help
+              </p>
+              <p
+                onClick={() => handleItemClick("WatchAnywhere")}
+                className={`mb-user-container-item ${activeItem === "WatchAnywhere" ? "white-background" : ""}`}
+              >
+                Watch Anywhere
+              </p>
             </div>
+            }
           </div>
-        </div>
+        </div> 
       </div>
     </>
   );
