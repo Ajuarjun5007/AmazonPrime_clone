@@ -1,17 +1,11 @@
 @import url('https://fonts.cdnfonts.com/css/amazon-ember');
 
-/* .container-1 img{
-    left: 0; */
-   /* width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   
-/* } */ */
+
+
 .Signoutposter-1{
-    width: 100%;
-    top: 5px;
+    /* width: 100%; */
     position: relative;
+    /* z-index: 2; */
 }
 .Signoutposter-1 img{
     width: 100%;
@@ -22,21 +16,18 @@
 }
 .Signoutposter-2{
     width: 100%;
-    height: 500px;
+    /* height: 500px; */
     position: relative;
-    overflow: hidden;
 }
 .Signoutposter-2 img{
     left: 0;
-    height: 700px;
     width: 100%;
     border-radius: unset!important;
-
-    /* background-size: cover; */
-    /* object-fit: contain; */
-}
-.Signoutposter-3 img,.Signoutposter-4 img{
-    border-radius: unset!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit:cover;
+    height: auto;
 }
 .Ad-1{
     position:absolute;
@@ -49,13 +40,35 @@
     border-radius: unset!important;
 
 } 
- .Ad-1 p,.Ad-2{
+ .Ad-1 p{
     /* position:absolute; */
     font-size: 21px;
     background-color: transparent;
     margin:20px 0px ;
 
 }
+
+.Ad-2{
+    position:absolute;
+    right:3%;
+    width: 45%;
+    letter-spacing:2px;
+    margin-top:-45%;
+    color:#fff;
+    background-color:0.2 #333;
+    font-size: 21px;
+} 
+
+ .Ad-2 p{
+    padding-left:3px ;
+    margin:20px 0px ;
+    
+ }
+
+.Signoutposter-3 img,.Signoutposter-4 img{
+    border-radius: unset!important;
+}
+
 .heading-1 ,.heading-2{
     /* position:absolute; */
     letter-spacing: 3px;
@@ -93,42 +106,7 @@
     transition: all .2s ease-out;
 }
 /* Ad 2 */
-.Ad-2{
-    position:absolute;
-    right:3%;
-    width: 45%;
-    letter-spacing:2px;
-    margin-top:-45%;
-    color:#fff;
-    background-color:0.2 #333;
-} 
 
- .Ad-2 p{
-    padding-left:3px ;
-    /* background-color: #0f171e; */
-    /* background: ; */
- }
-/*.heading-2{
-    letter-spacing: 2px;
-    background-color: transparent;
-}
-.heading-2 h1{
-    background-color: transparent;
-}
-.Ad-2 button{
-    padding: 14px 20px;
-    width: 280px;
-    background-color: #0f79af;
-    color: #fff;
-    font-weight: 400;
-    height: 60px;
-    font-size: 27px;
-    line-height: 20px;
-    margin-top: 24px;
-    border-style: solid;
-    border-color:#0f79af;
-    border-radius: 3px;
-} */
 
 /* grid cards */
 .secondDiv{
@@ -136,21 +114,16 @@
     left: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background-color:white!important;
-    height: 600px;
-    padding:30px 60px ;  
+    padding:30px 20px;  
+    z-index: 2;
 }
 .secondDiv-content{
     display: block;
-    /* margin-top:%; */
-    /* flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     background-color:white!important;
     width:50%;
     height: 100%;
-    /* border: 2px solid black; */
 }
 .yourfavouritediv{
     font-size:38px;
@@ -160,27 +133,27 @@
 }
 .firstptag{
     font-size: 21px;
-    /* font-weight:lighter; */
     color: black!important  ;
-
     background-color:white!important;
 }
 
 .gridcontainer{
-    right: 30px;
-    width: 50%;
+    /* right: 30px; */
+    display: flex;
+    justify-content: center;
+    width:50%;
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
-    /* border: 2px solid black; */
+    background-color:white;
+    height: 100%;
 }
 .grid-item{
-    background-color: white;
+    background-color:white;
 }
 .grid-item img{
     width: 180px;
-    object-fit: cover;
-    margin: 2px;
+    object-fit:cover;
+    margin:2px;
 }
 .grid-item img:hover{
     box-shadow: 0px 1px 6px 4px #333;
@@ -207,18 +180,15 @@
     right: 9%;
     width: 40%;
     letter-spacing: 2px;
-    /* margin-top: -44%; */
     color:#fff;
     background-color: transparent;
 } 
  .Ad-3 p{
-    /* position:absolute; */
     font-size: 19px;
     background-color: transparent;
     padding-bottom: 30px;
 }
 .heading-3{
-    /* position:absolute; */
     display: flex;
     padding: 30px 0px;
      width:100%;
@@ -231,7 +201,6 @@
     background-color: transparent;
 }
  .Ad-3 button{
-    /* position:absolute; */
     padding: 14px 20px;
     width: 280px;
     background-color: #0f79af;
@@ -302,3 +271,120 @@
     border: none;
     border-radius: 3px;
 } 
+
+@media screen and (max-width:606px){
+.container-1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Signoutposter-1{
+    position: unset!important;
+}
+.Ad-1{
+    left:0;
+    width: unset!important;
+    margin-top:0px;
+    background-color: #000000;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px 50px 0px;
+
+}
+.Ad-1 p{
+    padding: 10px 0px 50px 20px;
+    
+}
+.heading-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading-1 h1,.heading-2 h1{
+   font-weight: 900;
+   font-size: 23px;
+   letter-spacing:unset!important;
+   line-height:unset!important;
+   padding: 10px 5px 0px 10px;
+
+}
+.Signoutposter-2{
+    position: unset!important;
+    margin-top:380px;
+    /* border: 2px solid pink; */
+    height: unset!important;
+    overflow: unset!important;
+    z-index:2;
+}
+.Signoutposter-2 img{
+    position: unset!important;
+    overflow: unset!important;
+    height: 200px;
+}
+
+.Ad-2{
+    position: unset!important;
+    right:unset!important;
+    width: unset!important;
+    margin-top: unset!important;
+    background-color: #000000;
+    padding: 10px 15px 50px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Ad-2 p{
+    padding:20px 0px;
+    font-size: 21px;
+}
+.Ad-1 button,.Ad-2 button{
+    width: 260px!important;
+    font-size:21px;
+}
+
+/* grid cards */
+
+.secondDiv{
+    padding:unset!important;
+    flex-direction: column!important;
+    margin-top: 0!important;
+    z-index: 2;
+    padding:unset!important;
+}
+.secondDiv-content{
+    width: 100%;
+    padding:30px;
+
+}
+
+.gridcontainer{
+    right: unset!important;
+    width: 100%;
+    column-count:2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+}
+
+@media screen and (min-width:350px)  and (max-width:605px){
+.Signoutposter-2{
+    margin-top:330px;
+}
+.secondDiv{
+    flex-direction: column;
+}
+}
+@media screen and (min-width:606px) and (max-width:1280px){
+    .secondDiv{
+        /* flex-direction: column; */
+    }
+    .gridcontainer{
+        width: 70%;
+    }
+}

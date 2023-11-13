@@ -16,8 +16,17 @@ function FooterForSignOut() {
     <span>
     Terms and Privacy Notice
     </span>
-    </a> <a href="https://example.com/feedback">Send us feedback</a>
-  <a href="https://example.com/help">Help</a>
+    </a>
+     <a href="https://example.com/feedback">
+      <span>
+    Send us feedback
+      </span>
+    </a>
+  <a href="https://example.com/help">
+  <span>
+    Help
+</span>
+    </a>
 </div>
 
       <div className="license">

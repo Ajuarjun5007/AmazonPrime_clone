@@ -1,37 +1,44 @@
 
+
 .footer-content{
   display: block;
+  z-index: 2;
   }
   .prime-logo{
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #222;
+  z-index: 2;
+
   }
   .prime-logo img{
       padding-top: 20px;
-      width: 80px;
-      height: 40px;
+      width: unset!important;
+      height: unset!important;
       background-color: #222;
       max-width: 100%;
+  z-index: 2;
   }
   .footer-text{
       display: flex;
       justify-content:center;
       align-items: center;
       background-color: #222;
+       z-index: 2;
   }
   .footer-text span{
       text-decoration: none;
-      color: #0f79af;
       font-size: 15px;
       line-height: 19px;
       font-family: "Amazon Ember", "Amazon Arabic Ember", Arial, sans-serif;
       margin-right: 10px;
       background-color: #222;
+      z-index: 2;
     }
     .footer-text span:hover{
       color:#798bf3;
+    z-index: 2;
     }
     .license{
        display: flex;
@@ -39,6 +46,7 @@
       background-color: #222;
       align-items: center;
       padding-bottom: 40px;
+      z-index: 2;
     }
     .license p{
       text-align: center;
@@ -46,5 +54,29 @@
       color: #949494;
       font-size: 15px;
       line-height: 1.6 rem;
+       z-index: 2;
+    }
+    
+    @media screen and (max-width: 879px) {
+      .footer-text {
+        width: 100%;
+        padding: 10px 0px;
+        z-index: 2;   
+      }
+      .footer-text a span {
+        font-size: 14px;
+         z-index: 2;
+      }
+    }
+
+    @media screen and (max-width:320px){
+      .footer-text a span {
+        font-size: 12px;
+        padding: 0px 5px;
+        display: flex;
+        justify-content: center;
+         z-index: 2;
+
+      }
     }
     

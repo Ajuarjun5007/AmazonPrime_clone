@@ -11,16 +11,7 @@ function LandingPageSignout() {
   return (
     <>
       <NavLink to="/">
-        <div
-          style={{
-            position: "sticky",
-            top: "10px",
-            backgroundColor: "rgba(0, 5, 13, 0)",
-            background: "red",
-            zIndex: "1",
-            width: "100%",
-          }}
-        ></div>
+       
         <FrontpagecardsSignout />
         <FooterForSignOut/>
       </NavLink>

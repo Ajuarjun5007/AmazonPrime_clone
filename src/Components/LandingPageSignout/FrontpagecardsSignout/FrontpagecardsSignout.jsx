@@ -20,6 +20,7 @@ function FrontpagecardsSignOut() {
     <>
     {/* top two cards */}
       <div className="container-1">
+
         <div className="Signoutposter-1">
           <img
             src={poster1}
@@ -49,6 +50,7 @@ function FrontpagecardsSignOut() {
                 )
               }
           </div>
+
         </div>
 
         <div className="Signoutposter-2">
@@ -130,7 +132,7 @@ function FrontpagecardsSignOut() {
         </div>
       </div>
       {/* bottom two cards */}
-      <div className="container-2">
+      {/* <div className="container-2">
         <div className="Signoutposter-3">
           <img
             src="src/assets/LandingPageSignoutimages/amazonromote.jpg"
@@ -166,7 +168,7 @@ function FrontpagecardsSignOut() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
