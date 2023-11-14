@@ -283,6 +283,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #000000;
 }
 .Signoutposter-1{
     position: unset!important;
@@ -301,7 +302,7 @@
 
 }
 .Ad-1 p{
-    padding: 10px 0px 50px 20px;
+    padding: 10px 0px 0px 20px;
     
 }
 .heading-1{

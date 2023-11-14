@@ -1,7 +1,26 @@
 import { Link } from "react-router-dom";
 import "./FrontpagecardsSignout.css";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
-import poster1 from "../../../assets/LandingPageSignoutimages/LandingPageSignOut.jpg"
+
+import poster1 from "../../../assets/LandingPageSignoutimages/LandingPageSignOut.jpg";
+import poster2 from "../../../assets/LandingPageSignoutimages/Landingpagesignoutposter-2.jpg"
+import poster3 from "../../../assets/LandingPageSignoutimages/amazonromote.jpg";
+import poster4 from "../../../assets/LandingPageSignoutimages/amazoncartoon.jpg";
+
+import gridImg1 from  "../../../assets/LandingPageSignoutimages/LionsgatePlay.jpg"
+import gridImg2 from  "../../../assets/LandingPageSignoutimages/Discovery.jpg"
+import gridImg3 from  "../../../assets/LandingPageSignoutimages/Erosnow.jpg"
+import gridImg4 from  "../../../assets/LandingPageSignoutimages/MANORAMAMAX.jpg"
+import gridImg5 from  "../../../assets/LandingPageSignoutimages/hoichoi.jpg"
+import gridImg6 from  "../../../assets/LandingPageSignoutimages/Vrott.png"
+import gridImg7 from  "../../../assets/LandingPageSignoutimages/Amc.png"
+import gridImg8 from  "../../../assets/LandingPageSignoutimages/Docubay.jpg"
+import gridImg9 from  "../../../assets/LandingPageSignoutimages/Mubi.jpg"
+import gridImg10 from  "../../../assets/LandingPageSignoutimages/iWonder.png"
+import gridImg11 from  "../../../assets/LandingPageSignoutimages/Stingray.png"
+import gridImg12 from  "../../../assets/LandingPageSignoutimages/Curiosity.png"
+
+
 
 import { useEffect, useState } from "react";
 function FrontpagecardsSignOut() {
@@ -55,7 +74,8 @@ function FrontpagecardsSignOut() {
 
         <div className="Signoutposter-2">
           <img
-            src="src/assets/LandingPageSignoutimages/landingpagesignoutposter-2.jpg"
+            // src="src/assets/LandingPageSignoutimages/landingpagesignoutposter-2.jpg"
+            src={poster2}
             alt="image-2"
           />
           <div className="Ad-2">
@@ -83,51 +103,51 @@ function FrontpagecardsSignOut() {
         </div>
         <div className="gridcontainer">
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/LionsgatePlay.jpg"></img>
+            <img src={gridImg1}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Discovery.jpg"></img>
+            <img src={gridImg2}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Erosnow.jpg" alt="" />
+            <img src={gridImg3} alt="" />
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/MANORAMAMAX.jpg" alt="image-3" />
+            <img src={gridImg4} alt="image-3" />
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/hoichoi.jpg"></img>
+            <img src={gridImg5}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Vrott.png"></img>
+            <img src={gridImg6}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Amc.png" alt="" />
+            <img src={gridImg7} alt="" />
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Docubay.jpg"></img>
+            <img src={gridImg8}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Mubi.jpg"></img>
+            <img src={gridImg9}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/iWonder.png"></img>
+            <img src={gridImg10}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Stingray.png"></img>
+            <img src={gridImg11}></img>
           </div>
 
           <div className="grid-item">
-            <img src="src/assets/LandingPageSignoutimages/Curiosity.png"></img>
+            <img src={gridImg12}></img>
           </div>
         </div>
       </div>
@@ -135,7 +155,7 @@ function FrontpagecardsSignOut() {
       <div className="container-2">
         <div className="Signoutposter-3">
           <img
-            src="src/assets/LandingPageSignoutimages/amazonromote.jpg"
+            src={poster3}
             alt=""
           />
           <div className="Ad-3">
@@ -154,7 +174,7 @@ function FrontpagecardsSignOut() {
 
         <div className="Signoutposter-4">
           <img
-            src="src/assets/LandingPageSignoutimages/amazoncartoon.jpg"
+            src={poster4}
             alt=""
           />
           <div className="Ad-4">

@@ -1,63 +1,41 @@
-*{
-    /* background-color: white; */
-    font-family: 'Roboto', sans-serif;
-    /* padding: 14px 18px!important; */
-}
-.primevideoIcon{
-    margin-top: 14px;
+
+.SignUpContainer{
+    padding: unset!important;
+    margin: unset!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+}
+
+.primevideoblackIcon{
+    margin-top: 14px;
+    width:max-content;
     margin-bottom: 18px;
     height: 65px;
     text-align: center;
+    padding: 20px 0px!important;
+    display: flex;
+    justify-content: center;
 }
 .primevideoIcon img{
     height: 87px;
-    padding: 14px;
 }
-section{
+#section-container{
     position: relative;
-    width: 100%;
+    width:max-content;
     top: 60px;
-    min-height:100vh;   
+    height:max-content;   
 }
-/* .error-box{
-    display:grid;
-    place-items: center;
-}
-.error-icon{
-   margin-top: 0;
-    color: #c40000;
-    height:40px;
-    width: 53px;
-}
-.error-alert-container{
-    width: 350px;
-    display: flex;
-    gap: 10px;
-    border-radius:8px;
-    box-shadow: 0 0 0 4px #fcf4f4 inset;
-    border: 1px #ddd solid;
-    border-color: #c40000;
-    padding: 18px 14px;
-}
-.problem-text{
-    font-size:18px;
-    margin-bottom:10px;
-    color: #c40000;
-}
-.error-msg{
-    padding:6px 6px;
-}
-.error-text{
-    font-size: 15px;
-    line-height: 19px;
-} */
+
 .sign_container{
-    width: 85%;
+    width:max-content;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .sign_header img{
@@ -189,8 +167,6 @@ section{
     color: #c45500;
 }
 
-/* background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
-    z-index: 0; */
 .signin_container{
     display: block;
     background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
@@ -226,10 +202,24 @@ section{
     justify-content: center;
     align-items: center;
     color: #555!important;
+    margin-bottom: 30px;
 }
 .footer-links{
     display: flex;
     gap: 30px;
-    padding-bottom: 30px;
 }
 
+@media screen and(max-width:360px){
+    .sign_form{
+        width: max-content!important;
+        padding: unset!important;
+        border: 2px solid red;
+
+    }
+    .form_data input{
+        width: max-content!important;
+    }
+    .sign_form .signin_btn{
+        width: max-content!important;
+    }
+}

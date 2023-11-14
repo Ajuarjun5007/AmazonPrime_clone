@@ -97,9 +97,10 @@ const SignUp = (props) => {
 
   return (
     <>
+    <div className="SignUpContainer">
+
       {/* prime logo */}
       <div className="primevideoblackIcon">
-        {/* <SiPrimevideo size={200}/> */}
         <img
           src="https://m.media-amazon.com/images/G/01/digital/video/avod/AV_Logo_150._CB430404026_.png"
           alt="signupimg"
@@ -109,12 +110,8 @@ const SignUp = (props) => {
       {errorShow && <IdAlert errormsg={validationErrors} />}
 
       {/* prime form */}
-      <section>
+      <section id="section-container">
         <div className="sign_container">
-          <div className="sign_header">
-            {/* <img src="./blacklogoamazon.png" alt="signupimg" /> */}
-          </div>
-
           <div className="sign_form">
             <form onSubmit={(event)=>register(event)}>
               <h1>Create account</h1>
@@ -170,26 +167,27 @@ const SignUp = (props) => {
                 </a>
               </div>
 
-              {/* <div className="sign_in_container"> */}
               <div className="signin_info">
                 <p>Already have an account?</p>
                 <Link to={"/SignIn"}>
                   <a href="#">Sign In</a>
                 </Link>
               </div>
-              {/* </div> */}
             </form>
           </div>
         </div>
-        <div className="footer">
+        {/* <div className="footer">
           <div className="footer-links">
             <a href="#"> Terms and Privacy Notice </a>
             <a href="#"> Send us feedback</a>
             <a href="#">Help</a>
           </div>
           © 1996-2023, Amazon.com, Inc. or its affiliates
-        </div>
+        </div> */}
       </section>
+
+    </div>
+
     </>
   );
 };

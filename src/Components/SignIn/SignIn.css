@@ -1,3 +1,16 @@
+
+
+.SignContainer-parent{
+    width: max-content;
+    margin:unset!important;
+    padding:unset!important;
+    margin: 0 auto!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .primevideoblackIcon{
     margin-top: 14px;
     margin-bottom: 18px;
@@ -14,7 +27,6 @@
 .loginpage{
     color: black;
     min-height: 100vh;
-    min-width: 100%;
     z-index: 8;
     display: flex;
     flex-direction: column;

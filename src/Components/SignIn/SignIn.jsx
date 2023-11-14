@@ -103,7 +103,7 @@ const SignIn = (props) => {
   const [loginFailed, setLoginFailed] = useState(undefined);
 
   return (
-    <div className="SignContainer">
+    <div className="SignContainer-parent">
       {/* prime logo */}
 
       <div className="primevideoblackIcon">
