@@ -65,9 +65,6 @@
     
  }
 
-.Signoutposter-3 img,.Signoutposter-4 img{
-    border-radius: unset!important;
-}
 
 .heading-1 ,.heading-2{
     /* position:absolute; */
@@ -159,12 +156,16 @@
     box-shadow: 0px 1px 6px 4px #333;
     z-index: 10;
 }
+
 /* Ad-3 */
+
+.Signoutposter-3 img,.Signoutposter-4 img{
+    border-radius: unset!important;
+    object-fit:cover;
+}
+
 .Signoutposter-3{
     top: 5px;
-    position: relative;
-}
-.Signoutposter-3{
     height: 600px;
     position: relative;
     overflow: hidden;
@@ -272,7 +273,11 @@
     border-radius: 3px;
 } 
 
-@media screen and (max-width:606px){
+
+
+@media screen and (max-width:605px){
+   
+
 .container-1{
     display: flex;
     flex-direction: column;
@@ -314,8 +319,7 @@
 }
 .Signoutposter-2{
     position: unset!important;
-    margin-top:380px;
-    /* border: 2px solid pink; */
+    margin-top:340px;
     height: unset!important;
     overflow: unset!important;
     z-index:2;
@@ -342,7 +346,7 @@
     padding:20px 0px;
     font-size: 21px;
 }
-.Ad-1 button,.Ad-2 button{
+.Ad-1 button,.Ad-2 button,.Ad-3 button,.Ad-4 button{
     width: 260px!important;
     font-size:21px;
 }
@@ -370,16 +374,49 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+/* SignOut poster 3 */
+.container-2{
+    display: block;
+}
+.Signoutposter-3,.Signoutposter-4{
+    display: block;
+    object-fit:cover!important;
+    position:unset!important;
+    overflow: unset!important;
+    height: max-content;
+
+}
+.Signoutposter-3 img,.Signoutposter-4 img{
+    height: unset!important;
+}
+.Ad-3,.Ad-4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:unset!important;
+    background-color: #000000;
+    color: #fff;
+    width:100%;
+    margin-top:-5px!important;
+    padding: 20px 0px;
+}
+.heading-3,.heading-4{
+    place-content: center;
+}
+.heading-3 {
+    padding-left:15px;
+}
+.heading-3 h2,.heading-4 h1{
+    font-size: 18px;
+}
+.Ad-3 p,.Ad-4 p{
+ padding: 10px 10px;
+ font-size: 14px;
+}
 }
 
-@media screen and (min-width:350px)  and (max-width:605px){
-.Signoutposter-2{
-    margin-top:330px;
-}
-.secondDiv{
-    flex-direction: column;
-}
-}
+
 @media screen and (min-width:606px) and (max-width:1280px){
     .secondDiv{
         /* flex-direction: column; */

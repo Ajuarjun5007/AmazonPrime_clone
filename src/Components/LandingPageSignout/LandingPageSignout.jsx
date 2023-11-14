@@ -11,7 +11,6 @@ function LandingPageSignout() {
   return (
     <>
       <NavLink to="/">
-       
         <FrontpagecardsSignout />
         <FooterForSignOut/>
       </NavLink>
