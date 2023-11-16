@@ -85,7 +85,10 @@
         .accordion-body{
             display: block;
         }
-        
+      .accordion-body  a{
+            text-decoration:none;
+            color: unset;
+        }
         .accordion-body p{
             font-size: 15px;
             font-weight:600;

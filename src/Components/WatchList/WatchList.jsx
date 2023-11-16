@@ -74,13 +74,13 @@ function WatchList(){
 
             <div className="recent-btn-container">
 
-            <button
+            {/* <button
       className={`WatchList-filter-btn ${isArrowRotated ? 'recent-btn' : ''}`}
       onClick={recentButtonHandler}
     >
       {buttonText}
       <IoIosArrowDown className={`down-arrow-icon ${isArrowRotated ? 'rotate-arrow' : ''}`} />
-    </button>
+    </button> */}
     <div className={`recent-btn-content${isArrowRotated?'recent-btn-content':'' }`}>
       <p class="recent-btn-option" onClick={ () => optionHandler("Most Recent Addition")}>Most Recent Addition</p>
       <p class="recent-btn-option" onClick={ () => optionHandler("Title: A-Z")}>Title: A-Z</p>
@@ -101,6 +101,9 @@ function WatchList(){
               <img src={item.thumbnail} alt="" className="image-item" />
               </Link>
 
+                <div className="card-name">
+                    <p>{item.title}</p>
+                </div>
               <div className="card-details">
                 <div className="prime-content">
                   <img src={bluetick} alt="" />

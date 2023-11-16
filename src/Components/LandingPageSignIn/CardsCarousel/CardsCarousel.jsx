@@ -30,7 +30,7 @@ function CardsCarousel({ moviesInfo, type }) {
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: 1,
+      slidesToSlide:1,
     },
   };
 
@@ -58,20 +58,21 @@ function CardsCarousel({ moviesInfo, type }) {
     }
   };
 
-//   useEffect(()=>{ 
-//     // if(!isLoaded){
-//     getWatchlist()
-//     .then(response=>{
-//        const watchListItems = response.data.data.shows;
-//        setWatchListId (watchListItems.map((item)=>{
-//         return item._id;
-//        }))
-//        console.log("watchId",watchListId);
+  useEffect(()=>{ 
+    // if(!isLoaded){
+    getWatchlist()
+    .then(response=>{
+       const watchListItems = response.data.data.shows;
+       setWatchListId (watchListItems.map((item)=>{
+        return item._id;
+       }))
+       console.log("watchId",watchListId);
       
-//       })
+      })
 
-// // }
-// },[isItemAdded])
+// }
+
+},[isItemAdded])
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
   return (
@@ -112,14 +113,14 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
                 <p>Watch Now</p>
                 <div id="watchlist-icon">
                   <button
-                    // onClick={() => {
-                    //   addMovieToWatchList(item);
-                    // }}
+                    onClick={() => {
+                      addMovieToWatchList(item);
+                    }}
                     id="watchlist-icon-button"
                   >
-                     {/* {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                     {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
-                  )} */}
+                  )}
                   </button>
                   <span className="watchlist-tooltip">Watchlist</span>
                   <Link to={`/videodetails/${item._id}`}>

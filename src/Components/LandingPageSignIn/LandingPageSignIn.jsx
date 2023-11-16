@@ -43,10 +43,11 @@ useEffect(() => {
         moviesInfo={moviesInfo} type={type}
           />
       })}
+      }
     
     </div>
       
-      <FooterForSignIn/>
+      {/* <FooterForSignIn/> */}
 
     </ div>
   );

@@ -9,15 +9,15 @@
     width: 53px;
 }
 .error-alert-container{
-    width: 350px;
+    width:90%;
     display: flex;
     gap: 10px;
     border-radius:8px;
     box-shadow: 0 0 0 4px #fcf4f4 inset;
     border: 1px #ddd solid;
     border-color: #c40000;
-    padding: 18px 14px;
-    margin-bottom: 20px;
+    padding: 18px 0px;
+    margin: 20px;
 
 }
 .problem-text{

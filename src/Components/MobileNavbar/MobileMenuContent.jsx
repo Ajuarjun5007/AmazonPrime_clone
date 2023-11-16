@@ -94,7 +94,11 @@ const MobileMenuContent = () => {
                           <AccordionBody>
                             <div className="accordion-body">
                               {categories.map((category) => (
-                                <p>{category}</p>
+                                  <Link to={`/CategorySelected?value=${category}&key=keywords`}>
+                                <p>
+                                  {category}
+                                  </p>
+                                </Link>
                               ))}
                             </div>
                           </AccordionBody>
@@ -122,7 +126,9 @@ const MobileMenuContent = () => {
                           <AccordionBody>
                             <div className="accordion-body">
                               {types.map((type) => (
+                                <Link to={`/categorytypepage?type=${type}`}>
                                 <p>{type}</p>
+                                </Link>
                               ))}
                             </div>
                           </AccordionBody>

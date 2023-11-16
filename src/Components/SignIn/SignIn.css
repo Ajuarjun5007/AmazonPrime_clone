@@ -1,7 +1,7 @@
 
 
 .SignContainer-parent{
-    width: max-content;
+    /* width: max-content; */
     margin:unset!important;
     padding:unset!important;
     margin: 0 auto!important;
@@ -54,7 +54,7 @@
 }
 
 .loginpageerror{
-    width: 350px;
+    width: max-content;
     height: auto;
     margin-top: 15px;
     border-radius: 10px;
@@ -63,7 +63,7 @@
 }
 
 .loginpageerrorborder{
-    width: 348px;
+    width: max-content;
     height: auto;
     border: 5px solid #fcf4f4;
     border-radius: 10px;
@@ -95,7 +95,7 @@
 }
 
 .loginpageformContainer{
-    width: 350px;
+    /* width:max-content; */
     margin-top: 15px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -215,7 +215,7 @@
 
 .loginpagefooter{
     height: 100px;
-    width: 350px;
+    width: max-content;
     display: flex;
     flex-direction: column;
     justify-content: center;

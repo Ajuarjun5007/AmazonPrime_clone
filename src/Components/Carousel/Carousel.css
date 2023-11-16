@@ -79,7 +79,12 @@
       z-index: 1200;
     }
 }
-
+.card-name{
+  /* display: none; */
+  color:#fff;
+  font-weight:900;
+  font-size: 12px;
+}
   /* card details style */
   .card-details {
     display: none;
@@ -244,5 +249,112 @@
     top: 100px;
   }
 
-
-
+@media  screen and (max-width:1023px) {
+  
+}
+@media  screen and (max-width:540px) {
+  .Carousel-header{
+    margin-top:20px;
+    padding-left:10px;
+    font-size: 16px;
+    gap:10px;
+  }
+  .see-more-container{
+    font-size: 16px;
+    .right-arrow{
+      font-size: 14px;
+      gap: 2px;
+      margin-top: 0px;
+      margin-left: 2px;
+    }
+  }
+  .cards-carousel{
+    padding-left:0px;
+  }
+  .image-item{
+    width: 160px;
+    height: 120px;
+  }
+  .card-items:hover{
+    .card-details{
+      display: unset;
+    }
+    .image-item{
+      border: unset;
+    }
+  }
+  .WatchList-header{
+    font-size:24px!important;
+    padding: 12px 20px!important;
+  }
+  .WatchList-btn-container{
+    padding: 12px 0px!important;
+    margin: 0px 12px!important;
+  }
+  .WatchList-filter-btn{
+    font-size: 16px!important;
+    margin-right: 12px!important;
+    padding: 8px 8px!important;
+    border-radius: 4px!important;
+    min-height: unset!important;
+  }
+}
+@media  screen and (max-width:360px) {
+  .Carousel-header{
+    margin-top: 20px;
+    padding-left: 10px;
+    font-size: 16px;
+    gap:10px;
+  }
+  .see-more-container{
+    font-size: 16px;
+    .right-arrow{
+      font-size: 14px;
+      gap: 2px;
+      margin-top: 0px;
+      margin-left: 2px;
+    }
+  }
+  .cards-carousel{
+    padding-left:0px;
+  }
+  .image-item{
+    width: 135px;
+  }
+  .card-items{
+    /* display: flex!important; */
+    width: 80%;
+    border: 2px solid red;
+  }
+  .card-items:hover{
+    .card-details{
+      display: unset;
+    }
+    .image-item{
+      border: unset;
+    }
+  }
+  .card-name{
+    /* display:flex!important; */
+    display: block;
+    margin-left:12px;
+    padding: 0px 24px;
+    width: max-content;
+    border: 2px solid green;
+  }
+  .WatchList-header{
+    font-size:24px!important;
+    padding: 12px 15px!important;
+  }
+  .WatchList-btn-container{
+    padding: 12px 0px!important;
+    margin: 0px 12px!important;
+  }
+  .WatchList-filter-btn{
+    font-size: 16px!important;
+    margin-right: 12px!important;
+    padding: 8px 8px!important;
+    border-radius: 4px!important;
+    min-height: unset!important;
+  }
+}

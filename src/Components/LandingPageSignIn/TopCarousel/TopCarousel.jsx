@@ -42,7 +42,7 @@ function TopCarousel(props) {
   const [isItemAdded, setIsItemAdded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [localWatchlist, setLocalWatchlist] = useState([]);
-
+  const user = localStorage.getItem("userInfo");
   useEffect(() => {
     getWatchlist().then((response) => {
       const watchListItems = response.data.data.shows;
@@ -51,15 +51,21 @@ function TopCarousel(props) {
           return item._id;
         })
       );
-      console.log("watchId", watchListId);
+      // console.log("watchId", watchListId);
+      
+      if(localStorage.getItem("userInfo")){
+        setIsLoggedIn(true);
+      }
     });
-  }, []);
+  }, [user]);
+
 
   const addMovieToWatchList = (movie, event) => {
     event.preventDefault();
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
-      setIsLoggedIn(true);
+      const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+      console.log("ur",);
 
       if (localWatchlist.includes(movie._id)) {
         setLocalWatchlist((prevWatchlist) =>
@@ -83,7 +89,7 @@ function TopCarousel(props) {
     }
   };
 
-  
+  console.log("logIn",isLoggedIn);
 
   return (
     <>

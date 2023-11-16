@@ -91,10 +91,6 @@ function MobileNavbar( { handleMobileNavbar } ) {
         )} */}
 
 
-
-
-
-
         <div className="mb-prime-container">prime video</div>
         {/* SEARCH CONTAINER */}
 
@@ -158,12 +154,14 @@ function MobileNavbar( { handleMobileNavbar } ) {
             {
               userState &&
               <div className="mb-user-container">
+           <Link to='SignIn'>  
               <p
                 onClick={() => handleItemClick("SignIn")}
                 className={`mb-user-container-item ${activeItem === "SignIn" ? "white-background" : ""}`}
               >
                 Sign In
               </p>
+              </Link>
               <p
                 onClick={() => handleItemClick("Help")}
                 className={`mb-user-container-item ${activeItem === "Help" ? "white-background" : ""}`}

@@ -2,7 +2,10 @@
 .mob-navbar-container{
     display: none;
 }
-
+a{
+    text-decoration: none;
+    color: unset;
+}
 @media screen and (max-width:375px){
     .menu-content{
         padding-bottom:10px!important;
