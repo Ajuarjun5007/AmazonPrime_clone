@@ -79,7 +79,9 @@ function Gridcards(){
                   <p>{item.description}</p>
                 </div>
               </div>
-             
+                <div className="responsive-title">
+                  <span>{item.title}</span>
+                </div>
             </div>
             ))}
         </div>

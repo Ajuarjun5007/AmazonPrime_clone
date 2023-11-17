@@ -6,3 +6,54 @@
 .card-items{
     padding-bottom: 50px;
 }
+.responsive-title{
+    display: none;
+    /* margin-top:20px; */
+    /* margin-left: 10px; */
+}
+.responsive-title span{
+    display: none;
+    color: #fff;
+    font-weight: 900;
+    z-index: 2;
+    font-size:16px;
+}
+@media screen and (max-width:360px) {
+    .card-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-details{
+        display: none;
+    }
+    .responsive-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-items:hover{
+        display: none;
+    }
+}
+@media screen and (max-width:1024px) {
+    .card-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-details{
+        display: none;
+    }
+    .responsive-title{
+        display: block;
+    }
+    .responsive-title span{
+        display:block;
+    }
+    .card-items:hover{
+        display: none;
+    }
+}

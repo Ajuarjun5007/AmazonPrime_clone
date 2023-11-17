@@ -322,9 +322,7 @@
     width: 135px;
   }
   .card-items{
-    /* display: flex!important; */
     width: 80%;
-    border: 2px solid red;
   }
   .card-items:hover{
     .card-details{

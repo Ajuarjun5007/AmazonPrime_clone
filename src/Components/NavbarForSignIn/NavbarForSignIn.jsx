@@ -319,6 +319,7 @@ function NavbarforSignIn() {
                     to="/SearchPage"
                     state={{ data: movieResult, result: item.title }}
                     style={{ color: "#fff" }}
+                    onClick={()=>setIsOpen(false)}
                   >
                     <div className="search-result">
                       <p>{item.title}</p>

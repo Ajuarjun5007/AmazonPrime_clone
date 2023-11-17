@@ -65,8 +65,13 @@ const MobileMenuContent = (handleMobileNavbar) => {
                           </AccordionHeader>
 
                         <AccordionBody>
-                          <p>All</p>
-                          <p>Rent</p>
+                        <Link to={`/categorytypepage?type=documentary`} onClick={menuDisplayHandler}>
+                          <p className="store-acc-item">Documentary</p>
+                          </Link>
+
+                        <Link to={`/categorytypepage?type=trailer`} onClick={menuDisplayHandler}>
+                          <p className="store-acc-item">Trailer</p>
+                          </Link>
                         </AccordionBody>
                         </>
                       )}

@@ -108,4 +108,17 @@
             display: flex;
             align-items: center;
         }
+        .store-acc-item{
+            display: flex;
+            /* margin-left:60px; */
+            font-size: 16px;
+            font-weight: 900;
+            color: #aaa;
+            padding:5px 10px 5px 70px;
+            background-color: #33373d;
+        }
+        .store-acc-item:hover{
+            background-color: #fff;
+            color: #191e25;
+        }
 }
