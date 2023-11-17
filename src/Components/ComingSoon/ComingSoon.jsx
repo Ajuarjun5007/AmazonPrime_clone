@@ -48,9 +48,9 @@ function ComingSoon(){
            </div>
 
         <div className="comingsooncontainer">
-        <span class="loader"></span>
-        <span class="loader"></span>
-        <span class="loader"></span>
+        <span class="loader-1"></span>
+        <span class="loader-2"></span>
+        <span class="loader-3"></span>
 
         </div>
             <div className="text-container">

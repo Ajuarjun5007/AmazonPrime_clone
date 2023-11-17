@@ -74,11 +74,9 @@
         display: flex;
         justify-content:center;
     }
-    .eyes{
-        margin-left: 30px;
-    }
+  
   /* loader */
-  .loader {
+  .loader-1,.loader-2,.loader-3 {
     position: relative;
     width: 130px;
     height: 100px;
@@ -88,7 +86,7 @@
     background-size: 80px 70px, 30px 50px, 30px 30px;
     background-position: 0 0, 80px 20px, 100px 40px;
   }
-  .loader:after {
+  .loader-1:after,.loader-2:after ,.loader-3:after {
     content: "";
     position: absolute;
     bottom: 10px;
@@ -103,7 +101,7 @@
     animation: wheelSk 0.75s ease-in infinite alternate;
   }
   
-  .loader:before {
+  .loader-1:before,.loader-2:before,.loader-3:before {
     content: "";
     position: absolute;
     right: 100%;
@@ -148,6 +146,7 @@
     border: 8px solid #0277bd;
     overflow: hidden;
     box-sizing: border-box;
+    margin-left: 30px;
   }
   .eyes::after {
     content: '';
@@ -190,4 +189,49 @@
     75%   { transform: translate(-20px , 5px)}
     100%   { transform: translate(0 , 10px)}
   }
-      
+
+  @media screen and (max-width:540px){
+    .eyesloader{
+      padding-top: 70px;
+    }
+    .eyes{
+      width: 48px;
+      height: 48px;
+      border: 4px solid #0277bd;
+      margin-left: 20px;
+    }
+    .go-back-btn{
+      font-size: 14px;
+    }
+    .go-home-btn{
+      font-size: 14px;
+    }
+    .loader-2{
+      display: none;
+    }
+  
+  }
+
+
+
+  @media screen and (max-width:360px){
+    .eyesloader{
+      padding-top: 70px;
+    }
+    .eyes{
+      width: 48px;
+      height: 48px;
+      border: 4px solid #0277bd;
+      margin-left: 20px;
+    }
+    .go-back-btn{
+      font-size: 14px;
+    }
+    .go-home-btn{
+      font-size: 14px;
+    }
+    .loader-2,.loader-3{
+      display: none;
+    }
+  
+  }

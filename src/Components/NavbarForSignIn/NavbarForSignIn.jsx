@@ -1,19 +1,16 @@
 import "./NavbarForSignIn.css";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink,useNavigate,useLocation} from "react-router-dom";
-import { categories,types } from "../CategoryConstants";
-import {movieTitles} from "../commons/movieList"
-import {searchSuggestionResults} from "../SearchPage/SearchPageService"
-
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { categories, types } from "../CategoryConstants";
+import { movieTitles } from "../commons/movieList";
+import { searchSuggestionResults } from "../SearchPage/SearchPageService";
 
 function NavbarforSignIn() {
-  
-
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const toggleSearchBar = () => {
@@ -23,8 +20,8 @@ function NavbarforSignIn() {
   const [isHomeListClicked, setIsHomeListClicked] = useState(false);
   const [isStoreListClicked, setIsStoreListClicked] = useState(false);
   const [isMyStuffListClicked, setIsMyStuffListClicked] = useState(false);
-  const [movieResult,setMovieResult]=useState([]);
-  
+  const [movieResult, setMovieResult] = useState([]);
+
   const handleHomeNavItemClick = () => {
     setIsHomeListClicked(true);
     setIsStoreListClicked(false);
@@ -48,15 +45,15 @@ function NavbarforSignIn() {
     setIsStoreListClicked(false);
     setIsMyStuffListClicked(false);
   };
-  
+
   const searchMovie = async (event) => {
     const input = event.target.value;
     console.log("in", input);
-  
+
     if (input.length === 2) {
       try {
         const result = await searchSuggestionResults(input);
-        setMovieResult(result.data.slice(0,40));
+        setMovieResult(result.data.slice(0, 40));
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
@@ -64,40 +61,40 @@ function NavbarforSignIn() {
       setMovieResult([]);
     }
   };
-  
-// clear value
+
+  // clear value
   const clearValue = () => {
-    setMovieResult([]); 
+    setMovieResult([]);
     const inputField = document.querySelector(".search-input");
     if (inputField) {
-      inputField.value = '';
+      inputField.value = "";
     }
   };
   // get data from local storage
-  let storedValue=[]
+  let storedValue = [];
   const [userName, setUserName] = useState(" ");
-  const [idLogged,setIdLogged] = useState(false);
+  const [idLogged, setIdLogged] = useState(false);
 
   useEffect(() => {
-   storedValue = JSON.parse(localStorage.getItem("userInfo"))||[];
+    storedValue = JSON.parse(localStorage.getItem("userInfo")) || [];
 
-  //  console.log(storedValue[1].name);
+    //  console.log(storedValue[1].name);
 
-     if(storedValue.length!==0){
-       setUserName(storedValue[1].name);
-       setIdLogged(true)
-     }
-     setIsOpen(false);
-     clearValue();
-    },[location.pathname]);
-    
-    const navigate  = useNavigate();
-    const clearStorage = ()=>{
-      localStorage.removeItem("userInfo");
-      navigate("/");
-      window.location.reload(false)
-      console.log("clear");
+    if (storedValue.length !== 0) {
+      setUserName(storedValue[1].name);
+      setIdLogged(true);
     }
+    setIsOpen(false);
+    clearValue();
+  }, [location.pathname]);
+
+  const navigate = useNavigate();
+  const clearStorage = () => {
+    localStorage.removeItem("userInfo");
+    navigate("/");
+    window.location.reload(false);
+    console.log("clear");
+  };
 
   return (
     <>
@@ -117,38 +114,36 @@ function NavbarforSignIn() {
                 }`}
               >
                 <p>Home</p>
-                     <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
+                <FontAwesomeIcon icon={faAngleDown} className="arrow-icon" />
               </div>
               <div className="home-container">
                 <ul className="home-dropdown">
-
                   <NavLink to="/home">
-                  <li
-                    className="nav-bar-items-list home-dropdown-items"
-                    onClick={handleHomeNavItemClick}
-                  >
-                    All
-                  </li>
-                  </NavLink>  
+                    <li
+                      className="nav-bar-items-list home-dropdown-items"
+                      onClick={handleHomeNavItemClick}
+                    >
+                      All
+                    </li>
+                  </NavLink>
 
                   <NavLink to={`/categorytypepage?type=movie`}>
-                  <li
-                    className="nav-bar-items-list home-dropdown-items"
-                    onClick={handleHomeNavItemClick}
-                  >
-                    Movies
-                  </li>
-                  </NavLink>  
+                    <li
+                      className="nav-bar-items-list home-dropdown-items"
+                      onClick={handleHomeNavItemClick}
+                    >
+                      Movies
+                    </li>
+                  </NavLink>
 
                   <NavLink to={`/categorytypepage?type=tv show`}>
-                  <li
-                    className="nav-bar-items-list home-dropdown-items"
-                    onClick={handleHomeNavItemClick}
-                  >
-                    Tv shows
-                  </li>
-                  </NavLink>  
-
+                    <li
+                      className="nav-bar-items-list home-dropdown-items"
+                      onClick={handleHomeNavItemClick}
+                    >
+                      Tv shows
+                    </li>
+                  </NavLink>
                 </ul>
               </div>
             </li>
@@ -160,26 +155,25 @@ function NavbarforSignIn() {
                 }`}
               >
                 <p>Store</p>
-                     <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
-
+                <FontAwesomeIcon icon={faAngleDown} className="arrow-icon" />
               </div>
               <div className="store-container">
                 <ul className="store-dropdown">
-                <NavLink to={`/categorytypepage?type=documentary`}>
-                  <li
-                    className="nav-bar-items-list store-dropdown-items"
-                    onClick={handleStoreNavItemClick}
-                  >
-                    All
-                  </li>
+                  <NavLink to={`/categorytypepage?type=documentary`}>
+                    <li
+                      className="nav-bar-items-list store-dropdown-items"
+                      onClick={handleStoreNavItemClick}
+                    >
+                      Documentary
+                    </li>
                   </NavLink>
                   <NavLink to={`/categorytypepage?type=trailer`}>
-                  <li
-                    className="nav-bar-items-list store-dropdown-items"
-                    onClick={handleStoreNavItemClick}
-                  >
-                    Rent
-                  </li>
+                    <li
+                      className="nav-bar-items-list store-dropdown-items"
+                      onClick={handleStoreNavItemClick}
+                    >
+                      Trailer
+                    </li>
                   </NavLink>
                   <li
                     className="nav-bar-items-list store-dropdown-items"
@@ -191,20 +185,19 @@ function NavbarforSignIn() {
               </div>
             </li>
             <NavLink to="comingsoon">
-            <li className="list">
-              <div className="navbar-items">
-                <p>Live TV</p>
-              </div>
-            </li>
+              <li className="list">
+                <div className="navbar-items">
+                  <p>Live TV</p>
+                </div>
+              </li>
             </NavLink>
             {/* categories */}
 
             <li className="list category">
-
               <NavLink to="categorypage">
                 <div className="navbar-items">
                   <p>Categories</p>
-                       <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
+                  <FontAwesomeIcon icon={faAngleDown} className="arrow-icon" />
                 </div>
               </NavLink>
 
@@ -215,13 +208,13 @@ function NavbarforSignIn() {
                       <h2>Genres</h2>
                     </div>
                     <ul className="genre-items">
-                      {
-                        categories.map((category)=>(
-                          <Link to={`/CategorySelected?value=${category}&key=keywords`}>
-                            <li className="genre">{category}</li>
-                            </Link>
-                        ))
-                      }
+                      {categories.map((category) => (
+                        <Link
+                          to={`/CategorySelected?value=${category}&key=keywords`}
+                        >
+                          <li className="genre">{category}</li>
+                        </Link>
+                      ))}
                     </ul>
                   </div>
 
@@ -230,15 +223,11 @@ function NavbarforSignIn() {
                       <h2>Types </h2>
                     </div>
                     <ul className="type-items">
-
-                       {
-                        types.map((item)=>(
-                 <Link to={`/categorytypepage?type=${item}`}>
+                      {types.map((item) => (
+                        <Link to={`/categorytypepage?type=${item}`}>
                           <li className="genre">{item}</li>
-                          </Link>
-                        ))
-                    } 
-    
+                        </Link>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -252,181 +241,161 @@ function NavbarforSignIn() {
                 }`}
               >
                 <p>My Stuff</p>
-                     <FontAwesomeIcon icon={faAngleDown} className="arrow-icon"/>
-
+                <FontAwesomeIcon icon={faAngleDown} className="arrow-icon" />
               </div>
               <div className="myStuff-container">
                 <ul className="myStuff-dropdown">
-                <NavLink to='WatchlistAll'>
-
-                  <li
-                    className="nav-bar-items-list myStuff-dropdown-items"
-                    onClick={handleMyStuffNavItemClick}
-                  >
-                    All
-                  </li>
+                  <NavLink to="WatchlistAll">
+                    <li
+                      className="nav-bar-items-list myStuff-dropdown-items"
+                      onClick={handleMyStuffNavItemClick}
+                    >
+                      All
+                    </li>
                   </NavLink>
 
-                  <NavLink to='Watchlist'>
-                  <li
-                    className="nav-bar-items-list myStuff-dropdown-items"
-                    onClick={handleMyStuffNavItemClick}
-                  >
-                    Watchlist
-                  </li>
+                  <NavLink to="Watchlist">
+                    <li
+                      className="nav-bar-items-list myStuff-dropdown-items"
+                      onClick={handleMyStuffNavItemClick}
+                    >
+                      Watchlist
+                    </li>
                   </NavLink>
 
                   <NavLink to="comingsoon">
-                  <li
-                    className="nav-bar-items-list myStuff-dropdown-items"
-                    onClick={handleMyStuffNavItemClick}
-                  >
-                    Rentals
-                  </li>
+                    <li
+                      className="nav-bar-items-list myStuff-dropdown-items"
+                      onClick={handleMyStuffNavItemClick}
+                    >
+                      Rentals
+                    </li>
                   </NavLink>
-
                 </ul>
               </div>
             </li>
           </ul>
 
           <div className="navbar-icons">
-
-
             {/* search bar */}
             <div
               onClick={toggleSearchBar}
               className="navbar-icons-item hover-down-search"
-              style={{ background: isOpen ? '#191e25' : 'initial' }}
+              style={{ background: isOpen ? "#191e25" : "initial" }}
             >
               {isOpen ? (
                 <AiOutlineClose className="close-icon" />
               ) : (
-                <BiSearch className="search-icon"/>
+                <BiSearch className="search-icon" />
               )}
-
             </div>
 
             {/* <div className="search-bar-result"> */}
-              <div className={`search-bar-container ${isOpen ? "open" : ""}`}>  
-
-              <div className="search-bar">  
-
+            <div className={`search-bar-container ${isOpen ? "open" : ""}`}>
+              <div className="search-bar">
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
                   className="search-icon-small"
                 />
 
-                <input onChange={searchMovie}
+                <input
+                  onChange={searchMovie}
                   type="text"
                   className="search-input"
                   placeholder="Search"
                 />
 
                 <div className="clear-btn-container">
-                <button
-                  onClick={clearValue}
-                 className="clear-btn"> clear</button>
+                  <button onClick={clearValue} className="clear-btn">
+                    {" "}
+                    clear
+                  </button>
                 </div>
+              </div>
 
-                </div> 
-
-
-                  <div className="search-results">
-                   { movieResult.slice(0,10).map((item)=>(
-                    <Link 
-                      to='/SearchPage'
-                      state={{data:movieResult,result:item.title}}
+              <div className="search-results">
+                {movieResult.slice(0, 10).map((item) => (
+                  <Link
+                    to="/SearchPage"
+                    state={{ data: movieResult, result: item.title }}
                     style={{ color: "#fff" }}
-                    >
+                  >
                     <div className="search-result">
                       <p>{item.title}</p>
                     </div>
                   </Link>
-                   ))}
-                </div>
+                ))}
               </div>
-      
+            </div>
+
             {/* </div> */}
 
-              {/* <div className="navbar-items"> */}
+            {/* <div className="navbar-items"> */}
             <div className="navbar-icons-item hover-down-user">
               <img
                 src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
                 alt=""
               />
-              {idLogged?(
-               <div className="user-details-container">
+              {idLogged ? (
+                <div className="user-details-container">
+                  <div className="user-details">
+                    <div className="user-details-header">Your Account</div>
+                    <NavLink to="comingsoon">
+                      <p>Help</p>
+                    </NavLink>
 
-              <div className="user-details">
-             <div className="user-details-header">Your Account</div> 
-             <NavLink to="comingsoon">
-              <p>Help</p>
-              </NavLink>
+                    <NavLink to="comingsoon">
+                      <p>Watch Anywhere</p>
+                    </NavLink>
+                    <NavLink to="SignIn">
+                      <p>Account & Settings</p>
+                    </NavLink>
 
-             <NavLink to="comingsoon">
-              <p>Watch Anywhere</p>
-              </NavLink>
-           <NavLink to='SignIn'>
-              <p>Account & Settings</p>
-             </NavLink>
+                    <NavLink to="PrimeBenefits">
+                      <p className="prime-benefits">Prime Benefits</p>
+                    </NavLink>
 
-              <NavLink to='PrimeBenefits'>
-              <p className="prime-benefits">Prime Benefits</p>
-              </NavLink>
-                
-             
-             <NavLink to='/'>
+                    <NavLink to="/">
+                      <p className="signout" onClick={() => clearStorage()}>
+                        Sign out
+                      </p>
+                    </NavLink>
+                  </div>
+                  {/* manage profile */}
 
-             <p className="signout"
+                  <div className="profile-container">
+                    <div className="profile-header">Profiles</div>
+                    <div className="profile-info">
+                      <img
+                        id="profile-icon"
+                        src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
+                        alt=""
+                      />
+                      <div className="user-name">{userName}</div>
+                    </div>
+                    <Link to="/ManageProfilePage">
+                      <button className="manage-btn">Manage Profile</button>
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <div className="normal-container">
+                  <NavLink to="SignIn">
+                    <p>Sign In</p>
+                  </NavLink>
 
-             onClick={()=>clearStorage()}
+                  <NavLink to="comingsoon">
+                    <p>Help</p>
+                  </NavLink>
 
-              >Sign out</p>
-             </NavLink>
-
-             </div>
-             {/* manage profile */}
-             
-             <div className="profile-container">
-              <div className="profile-header">Profiles</div>
-              <div className="profile-info">
-             <img
-                id="profile-icon"
-                src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
-                alt=""
-              />
-            <div className="user-name">
-                {userName}
-            </div>
-              </div>
-               <Link to='/ManageProfilePage'>
-                <button className="manage-btn">Manage Profile</button>
-               </Link>
-             </div>
-              </div>
-              ):(
-              <div className="normal-container">
-                <NavLink to="SignIn">
-                  <p>Sign In</p>
-                </NavLink>
-                
-                <NavLink to="comingsoon">
-                  <p>Help</p>
-                </NavLink>
-
-                <NavLink to="comingsoon">
-                  <p>Watch Anywhere</p>
-                </NavLink>
-
-            </div>
-              )
-                  }
-
+                  <NavLink to="comingsoon">
+                    <p>Watch Anywhere</p>
+                  </NavLink>
+                </div>
+              )}
             </div>
             {/* </div> */}
           </div>
-         
         </div>
       </div>
     </>

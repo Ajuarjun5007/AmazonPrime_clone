@@ -99,4 +99,13 @@
             background-color: #fff;
             color:#191e25;
         }  
+
+        /* store */
+        .store-content{
+            padding: 15px 0px 15px 30px;
+        }
+        .store-accord{
+            display: flex;
+            align-items: center;
+        }
 }

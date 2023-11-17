@@ -7,3 +7,15 @@
     color: #fff;
     padding: 20px;
 }
+@media  screen and (max-width:360px) {
+    .categorytypeheader{
+        font-size:21px;
+        margin-left: 16px;
+    }
+}
+@media  screen and (max-width:540px) {
+    .categorytypeheader{
+        font-size:26px;
+        margin-left: 16px;
+    }
+}

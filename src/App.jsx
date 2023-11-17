@@ -58,7 +58,7 @@ const screenSize =   useScreenSize();
     <>
     {mobileNavBar && 
      <div className="mobileNavBarStyle">
-        <MobileMenuContent />
+        <MobileMenuContent handleMobileNavbar={handleMobileNavbar}/>
       </div>
     }
       {isNavBarShow && <NavbarforSignIn/>}

@@ -24,7 +24,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const MobileMenuContent = () => {
+const MobileMenuContent = (handleMobileNavbar) => {
+
+ const menuDisplayHandler=()=>{
+    handleMobileNavbar(false);
+  }
   return (
     <>
       <div className="menu-content" style={{ backgroundColor: "#191e25" }}>
@@ -32,23 +36,58 @@ const MobileMenuContent = () => {
 
         <div className="home-content">
           <GoHome className="home-icon" />
+          <Link to={"home"} onClick={menuDisplayHandler}>
           <span> Home</span>
+          </Link>
         </div>
 
         {/* STORE CONTENT */}
+        
 
-        <div className="store-content">
-          <BiShoppingBag className="store-icon" />
-          <span>Store</span>
-        </div>
+          <AccordionItem>
+                      {({ open }) => (
+                        <>
+                          <AccordionHeader className="store-accord">
+                          <div className="store-content">
+                <BiShoppingBag className="store-icon" />
+                     <span>Store</span>
+                       </div> 
+                            <FontAwesomeIcon
+                              icon={!open ? faAngleDown : faAngleUp}
+                              className={classNames("icon", { open: open })}
+                              style={{
+                                marginLeft: "10px",
+                                color: "#aaa",
+                                paddingTop: "3px",
+                                fontSize: "16px"
+                              }}
+                            />
+                          </AccordionHeader>
+
+                        <AccordionBody>
+                          <p>All</p>
+                          <p>Rent</p>
+                        </AccordionBody>
+                        </>
+                      )}
+                    </AccordionItem>
+
+
+
+
+
+
+
+
 
         {/* LIVE TV CONTENT */}
-
+        <Link to={"comingsoon"} onClick={menuDisplayHandler}>
         <div className="livetv-content">
           <PiTelevisionSimpleBold className="menu-icon" />
-
           <span>Live TV</span>
         </div>
+        </Link>
+
 
         {/* CATEGORIES CONTENT */}
 
@@ -94,7 +133,7 @@ const MobileMenuContent = () => {
                           <AccordionBody>
                             <div className="accordion-body">
                               {categories.map((category) => (
-                                  <Link to={`/CategorySelected?value=${category}&key=keywords`}>
+                                  <Link to={`/CategorySelected?value=${category}&key=keywords`} onClick={menuDisplayHandler}>
                                 <p>
                                   {category}
                                   </p>
@@ -126,7 +165,7 @@ const MobileMenuContent = () => {
                           <AccordionBody>
                             <div className="accordion-body">
                               {types.map((type) => (
-                                <Link to={`/categorytypepage?type=${type}`}>
+                                <Link to={`/categorytypepage?type=${type}`} onClick={menuDisplayHandler}>
                                 <p>{type}</p>
                                 </Link>
                               ))}
