@@ -26,7 +26,7 @@ import SubscriptionPage from "./Components/SubscriptionPage/SubscriptionPage";
 import PaymentPage from "./Components/SubscriptionPage/PaymentPage"
 import FullVideo from "./Components/VideoInfo/FullVideo.jsx";
 import { Gridcards } from "./Components/Gridcards/Gridcards.jsx";
-// import RentPage from "./Components/RentPage/RentPage.jsx";
+import { MoviesProvider } from "./Components/LandingPageSignIn/MoviesProvider.jsx";
 function App() {
 
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
@@ -75,14 +75,14 @@ const screenSize =   useScreenSize();
         <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
 
-        <Route path="/home" element={<LandingPageSignIn  NavBarControl={NavBarControl}   />} />
+        <Route path="/home" element={<MoviesProvider type="home" NavBarControl={NavBarControl}   />} />
       
        
         <Route path="/SubscriptionPage" element={<SubscriptionPage NavBarControl={NavBarControl}/>}/>
         <Route path="/SubscriptionPage/PaymentPage" element={<PaymentPage NavBarControl={NavBarControl}/>}/>
         <Route path="/FullVideo/:id" element={<FullVideo NavBarControl={NavBarControl}/>}/>
         <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
-        <Route path="/CategorySelected" element={<CategorySelected/>} />
+        <Route path="/CategorySelected" element={<MoviesProvider  type="categorySelected"/>} />
         <Route path="/ManageProfilePage" element={<ManageProfilePage NavBarControl={NavBarControl} />} />
         <Route path = "/Gridcards" element={<Gridcards/>}/>
         {/* <VideoInfo/> */}
@@ -91,7 +91,7 @@ const screenSize =   useScreenSize();
           path="/SignIn"
           element={<SignInProvider NavBarControl={NavBarControl}  />}
         />
-        <Route path="/SearchPage" element={<SearchPage/>}/>
+        <Route path="/SearchPage" element={<MoviesProvider  type="SearchPage"/>}/>
         <Route
           path="/SignUp"
           element={<SignUp NavBarControl={NavBarControl} />}
@@ -103,7 +103,7 @@ const screenSize =   useScreenSize();
         {/* <SignIn/> */}
         {/* <CategoryPage/> */}
         <Route path="/categorypage" element={<CategoryPage />} />
-        <Route path="/categorytypepage" element={<CategoryTypePage/>} />
+        <Route path="/categorytypepage" element={<MoviesProvider  type="categorytypepage"/>}  />
         <Route path="/WatchListAll" element={<WatchListAll/>}/>
       </Routes>
         {/* <Footer/> */}

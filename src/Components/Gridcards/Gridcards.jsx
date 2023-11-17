@@ -1,22 +1,30 @@
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState ,useContext} from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import {addtoWatchlist,getWatchlist} from '../WatchList/WatchlistService' 
 import { BiSolidRightArrow } from "react-icons/bi";
 import {BiCheck} from "react-icons/bi";
+
+import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
+
 import { FiPlus} from "react-icons/fi";
 import { useLocation } from 'react-router-dom';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./Gridcards.css"
-function Gridcards(){
 
+function Gridcards(){
+  const movieContext = useContext(MovieContext);
+
+  console.log("moviecontext",movieContext);
     const addMovieToWatchList = (movie) => {
       addtoWatchlist(movie._id).then(response=> {
+        movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
+          return item._id;
+         }))
         console.log("repo",response)
         setIsWatchListClicked(!isWatchListClicked);
-  
       })
       .catch(err=>{
         console.log("error",err)
@@ -60,7 +68,10 @@ function Gridcards(){
                       ()=> addMovieToWatchList(item) 
                     }
                     id="watchlist-icon-button">
-                       <BiCheck id="plus-icon"/> 
+                       {/* <BiCheck id="plus-icon"/>  */}
+                       {movieContext?.userWatchList && movieContext?.userWatchList.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                    <FiPlus id="check-icon" />
+                  )}
                     </button>
                     <span className="watchlist-tooltip">Watchlist</span>
                     <button id="more-icon-button">

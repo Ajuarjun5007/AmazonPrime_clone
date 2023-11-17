@@ -1,13 +1,14 @@
-import React,{useEffect,useState} from "react";
+import React,{useContext, useEffect,useState} from "react";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import CardsCarousel from "./CardsCarousel/CardsCarousel";
 import TopCarousel from "./TopCarousel/TopCarousel";
 import {movieList} from "../ApiFetch";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
 import { useLocation } from "react-router-dom";
+import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 
 function LandingPageSignIn(props) {
-
+  const movieContext = useContext(MovieContext);
 const typeArray =["video song","web series","tv show",
 "short film","movie","documentary","trailer"]
 

@@ -20,15 +20,15 @@ function WatchList(){
 
 
     useEffect(()=>{ 
-        // if(!isLoaded){
+        if(!isLoaded){
         getWatchlist()
         .then(response=>{
             setWatchList(response.data.data.shows)
             setIsLoaded(!isLoaded); 
           })
 
-    // }
-    },[isLoaded,isWatchListClicked,watchlist])
+    }
+    },[isLoaded])
 
   // button handler
     const recentButtonHandler = () => {
@@ -42,7 +42,7 @@ function WatchList(){
       addtoWatchlist(movie._id).then(response=> {
         console.log("repo",response)
         setIsWatchListClicked(!isWatchListClicked);
-  
+        setIsLoaded(false);
       })
       .catch(err=>{
         console.log("error",err)

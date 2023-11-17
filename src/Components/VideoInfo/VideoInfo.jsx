@@ -64,9 +64,15 @@ const location = useLocation();
 
 
   const movieDetailHandler=()=>{
-    setDetailShow(!detailShow);
-  }
+    setDetailShow(true);
+    setRelatedShow(false);
 
+  }
+  const movieRelatedHandler=()=>{
+    setRelatedShow(true);
+    setDetailShow(false);
+
+  }
 
  
   useEffect(() => {
@@ -144,7 +150,7 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
           {showVideo && !fullVideoShow && (
             <div style={{ opacity: isVideoLoaded ? 1 : 0 }}>
 
-            <ReactPlayer
+            <ReactPlayer 
               url={movieInfo.video_url}
                muted={isMuted}
               fullScreen={true}
@@ -158,26 +164,8 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
             
           </div>
           )}
-          {/* {fullVideoShow && (
-            <div className="full-sized-video show">
-              <div style={{ opacity: isVideoLoaded ? 1 : 0 }}>
-            <ReactPlayer
-              url={movieInfo.video_url}
-               muted={isMuted}
-              fullScreen={true}
-              onEnded={handleVideoEnded}
-              playing={true}
-              controls={true}
-              loop={false}
-              onReady={onLoadedData}
-              className="react-video"
-            />
-          </div>
-            </div>
-          )} */}
+        
         </div>
-        {/* video-details */}
-        {/* <div className="full-video-container"> */}
             <div className="video-details">
               <div className="speaker">
                 <button className="volume-off" onClick={handleToggleMute}>
@@ -208,21 +196,6 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                   <img src={bluetick} alt="" />
                   <p>Included with Prime</p>
                 </div>
-
-                {/* { isLoggedIn?(
-                     <div className="logged-in-play">
-                      <button className="play">
-                        <BiSolidRightArrow className="play-arrow-icon" />
-                      </button>
-                      <p>Play</p>
-                      </div>
-                    ):(
-                      <div className="free-trial-content">
-                        <img src={bluetick} alt="" />
-                        <p>Watch with a free Prime trial</p>
-                      </div>
-                    )
-                    } */}
                 <div className="play-container">
 
 
@@ -239,10 +212,12 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                   <span className="play-text">play</span>
                   </div>
                   ):(
+                    <Link to={""}>
                     <div className="free-trial-content">
                         <img src={bluetick} alt="" />
                         <p>Watch with a free Prime trial</p>
                       </div>
+                    </Link>
                   )
                  }
 
@@ -258,11 +233,10 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                     <div className="access-btn-container">
                       <span className="btn-msg">Like</span>
                       <button className="grey-icon">
-                        {/* <BiLike className="react-like-icon" /> */}
                         
                         <FontAwesomeIcon
               icon={faThumbsUp}
-           style={{ color: isLiked ? "#000000" : "#fff" }} // Use an object for style
+           style={{ color: isLiked ? "#000000" : "#fff" }}
           className="react-like-icon"
           onClick={likeHandler}
                       />
@@ -273,10 +247,9 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                     <div className="access-btn-container">
                       <span className="btn-msg">Not for me</span>
                       <button className="grey-icon">
-                        {/* <BiDislike className="react-dislike-icon" /> */}
                         <FontAwesomeIcon
               icon={faThumbsDown}
-           style={{ color: isDisLiked ? "#000000" : "#fff" }} // Use an object for style
+           style={{ color: isDisLiked ? "#000000" : "#fff" }} 
           className="react-like-icon"
           onClick={dislikeHandler}
                       />
@@ -302,16 +275,15 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                 </div>
               </div>
             </div>
-        {/* </div> */}
       </div>
 
        <div className="cast-heading">
-        <span  className="cast-heading-child">Related</span>
+        <span onClick={movieRelatedHandler}  className="cast-heading-child">Related</span>
         <span onClick={movieDetailHandler} className="cast-heading-child">Details</span>
 
         </div>
       
-        {movieList.length>0 && <CarouselComponent moviesInfo={movieList} type={movieDetail.type}/>
+        {relatedShow && movieList.length>0 && <CarouselComponent moviesInfo={movieList} type={movieDetail.type}/>
 
         }
 

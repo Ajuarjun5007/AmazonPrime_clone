@@ -2,20 +2,21 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Carousel.css";
 import { useNavigate } from "react-router-dom";
-
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 
 import {addtoWatchlist,getWatchlist} from "../../Components/WatchList/WatchlistService"
 
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
+import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
-  
+  const movieContext = useContext(MovieContext);
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -48,16 +49,19 @@ const CarouselComponent= (props) => {
 
   const [isItemAdded,setIsItemAdded] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
-  const [watchListId,setWatchListId] = useState([]);
+  console.log("movieContext",movieContext);
+  // const [watchListId,setWatchListId] = useState(movieContext.userWatchList);
   
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
-      console.log("eventclicked");
       setIsLoggedIn(true);
       addtoWatchlist(movie._id)
         .then((response) => {
-          console.log("repo", response);
+          movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
+              return item._id;
+             }))
+          console.log("repo", response, movieContext);
         })
         .catch((err) => {
           console.log("error", err);
@@ -69,27 +73,29 @@ const CarouselComponent= (props) => {
   };
   
 
-  useEffect(()=>{ 
-    // if(!isLoaded){
-    getWatchlist()
-    .then(response=>{
-       const watchListItems = response.data.data.shows;
-       console.log("watchList",watchListItems);
-       setWatchListId (watchListItems.map((item)=>{
-        return item._id;
-       }))
-       console.log("watchId",watchListId);
-       watchListId.map((item)=>{
-      if(item==="64cffee700bad552e8dcd515" ){
-          console.log("id found");
-      }
-     })
-      })
+//   useEffect(()=>{ 
+//     // if(!isLoaded){
+//     getWatchlist()
+//     .then(response=>{
+//        const watchListItems = response.data.data.shows;
+//        console.log("watchList",watchListItems);
+//        setWatchListId (watchListItems.map((item)=>{
+//         return item._id;
+//        }))
+//        console.log("watchId",watchListId);
+//        watchListId.map((item)=>{
+//       if(item==="64cffee700bad552e8dcd515" ){
+//           console.log("id found");
+//       }
+//      })
+//       })
 
-// }
-},[isItemAdded])
+// // }
+// },[isItemAdded])
 
-console.log("watchListId", watchListId);
+// console.log("watchListId", watchListId);
+console.log("moviesInfo", moviesInfo);
+
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
 
@@ -107,11 +113,11 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
     <Carousel
       className="cards-carousel"
       responsive={responsive}
-      showDots={true}
+      // showDots={true}
       centerMode={true}
       renderButtonGroupOutside={true}
     >
-      {moviesInfo &&
+      {moviesInfo && moviesInfo.length > 0 &&
         moviesInfo.map((item, index) => (
           <div className="card-items"
            key={item._id}
@@ -143,7 +149,7 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
                 onClick={()=> {addMovieToWatchList(item)}} 
                 id="watchlist-icon-button">
                 
-                  {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                  {movieContext?.userWatchList && movieContext?.userWatchList.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
                   )}
                 </button>
