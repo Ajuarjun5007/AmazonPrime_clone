@@ -2,7 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./ManageProfilePage.css";
-import {addProfileImage} from "./UpdateProfileImageService"
+import {addProfileImage,updateUser} from "./UpdateProfileImageService"
 import FooterForSignOut from "../../Components/LandingPageSignout/FooterForSIgnOut/FooterForSIgnOut"
 function ManageProfilePage(props){
 
@@ -12,8 +12,11 @@ function ManageProfilePage(props){
   useEffect(() => {
     NavBarControl(location.pathname);
   }, []);
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log("user",user);
+  const defaultUrl = user.profileImage !== "" ? user.profileImage : "https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
 const [profileImage,setProfileImage] = useState();
+const [profileUrl,setProfileUrl] = useState(defaultUrl);
 
 const profileImageHandler =async () => {
   var myHeaders = new Headers();
@@ -29,14 +32,19 @@ const profileImageHandler =async () => {
     body: formdata,
     redirect: 'follow'
   };
-
   const response = await fetch("https://academics.newtonschool.co/api/v1/user/updateProfileImage", requestOptions)
   if (response.ok) {
     const result = await response.json();  
-    conseol
+    const user  = result.data.user;
+    console.log("result",result.data.user.profileImage);
+    localStorage.setItem("user", JSON.stringify(result.data.user));
 
+      setProfileUrl(result.data.user.profileImage);
+      updateUser({profileImage:user.profileImage})
+      .then(response=>{
+        console.log("respnse",response);
+      })
   }
-
 
 };
 
@@ -73,7 +81,7 @@ console.log("img",profileImage);
             {/* image-handler */}
 
             <div className="image-handle-container">
-           <img src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png" alt="" />
+           <img src={profileUrl} alt="" />
                 <input 
                 onChange={handleFileChange}
                 id="file-input"type="file"/>

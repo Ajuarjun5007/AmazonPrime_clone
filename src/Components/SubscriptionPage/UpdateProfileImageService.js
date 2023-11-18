@@ -14,8 +14,14 @@ function addProfileImage(profileImage) {
     headers
   });
 }
+function updateUser(request) {
+  const suffix = `user/updateMyPassword`;
+  return instance.patch(suffix, request,{
+    headers
+  });
+}
 
-export { addProfileImage };
+export { addProfileImage,updateUser };
 
 
 

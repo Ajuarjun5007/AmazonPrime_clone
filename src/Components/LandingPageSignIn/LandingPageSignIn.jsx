@@ -3,11 +3,10 @@ import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import CardsCarousel from "./CardsCarousel/CardsCarousel";
 import TopCarousel from "./TopCarousel/TopCarousel";
 import {movieList} from "../ApiFetch";
-import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
 import { useLocation } from "react-router-dom";
 import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 
-function LandingPageSignIn(props) {
+function LandingPageSignIn() {
   const movieContext = useContext(MovieContext);
 const typeArray =["video song","web series","tv show",
 "short film","movie","documentary","trailer"]
@@ -15,7 +14,6 @@ const typeArray =["video song","web series","tv show",
 const [moviesInfo, setMoviesInfo] = useState([]);
 
 const location  = useLocation();
-const { NavBarControl } = props;
 
 useEffect(() => {
   const fetchData = async () => {
@@ -27,7 +25,6 @@ useEffect(() => {
     }
   };
   fetchData();
-  NavBarControl(location.pathname);
 }, []);
 
   return (
@@ -38,17 +35,19 @@ useEffect(() => {
     >
 
       <TopCarousel  moviesInfo={moviesInfo} />
-
-      {typeArray.map((type)=>{
+      {
+        moviesInfo?(
+      typeArray.map((type)=>{
         return  <CardsCarousel key={type} 
         moviesInfo={moviesInfo} type={type}
           />
-      })}
+      })):(
+        console.log("no data")
+      )
       }
-    
     </div>
       
-      {/* <FooterForSignIn/> */}
+      <FooterForSignIn/>
 
     </ div>
   );

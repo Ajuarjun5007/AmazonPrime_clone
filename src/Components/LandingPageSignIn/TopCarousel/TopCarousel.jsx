@@ -37,7 +37,6 @@ function TopCarousel(props) {
   };
 
   const navigate = useNavigate();
-  // const [isWatchListClicked, setIsWatchListClicked] = useState(false);
 
   const [isItemAdded, setIsItemAdded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,7 +50,6 @@ function TopCarousel(props) {
           return item._id;
         })
       );
-      // console.log("watchId", watchListId);
       
       if(localStorage.getItem("userInfo")){
         setIsLoggedIn(true);
@@ -65,7 +63,6 @@ function TopCarousel(props) {
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-      console.log("ur",);
 
       if (localWatchlist.includes(movie._id)) {
         setLocalWatchlist((prevWatchlist) =>
@@ -77,7 +74,6 @@ function TopCarousel(props) {
 
       addtoWatchlist(movie._id)
         .then((response) => {
-          console.log("repo", response);
         })
         .catch((err) => {
           console.log("error", err);
@@ -89,7 +85,6 @@ function TopCarousel(props) {
     }
   };
 
-  console.log("logIn",isLoggedIn);
 
   return (
     <>
@@ -97,7 +92,6 @@ function TopCarousel(props) {
         <Carousel
           responsive={responsive}
           showDots={true}
-          // centerMode={true}
           partialVisible={true}
           renderDotsOutside={true}
           renderButtonGroupOutside={true}

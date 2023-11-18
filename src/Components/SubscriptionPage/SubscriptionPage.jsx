@@ -10,10 +10,7 @@ import FooterForSignOut from "../LandingPageSignout/FooterForSIgnOut/FooterForSI
 function SubscriptionPage(props) {
   const location = useLocation();
 
-  const { NavBarControl } = props;
-  useEffect(() => {
-    NavBarControl(location.pathname);
-  }, []);
+  
 
   const [planDetail,setPlanDetail] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);

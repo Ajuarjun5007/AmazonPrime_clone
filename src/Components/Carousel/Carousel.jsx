@@ -36,7 +36,6 @@ const CarouselComponent= (props) => {
   };
  
   const location = useLocation();
-  console.log("loc",location);
   const navigate = useNavigate();
 
     const [isLocationWatchList,setIsLocationWatchList] = useState(false);
@@ -49,7 +48,6 @@ const CarouselComponent= (props) => {
 
   const [isItemAdded,setIsItemAdded] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
-  console.log("movieContext",movieContext);
   // const [watchListId,setWatchListId] = useState(movieContext.userWatchList);
   
   const addMovieToWatchList = (movie) => {
@@ -61,7 +59,6 @@ const CarouselComponent= (props) => {
           movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
               return item._id;
              }))
-          console.log("repo", response, movieContext);
         })
         .catch((err) => {
           console.log("error", err);
@@ -93,8 +90,6 @@ const CarouselComponent= (props) => {
 // // }
 // },[isItemAdded])
 
-// console.log("watchListId", watchListId);
-console.log("moviesInfo", moviesInfo);
 
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);

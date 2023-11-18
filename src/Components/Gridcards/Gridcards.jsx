@@ -14,16 +14,16 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./Gridcards.css"
 
-function Gridcards(){
+function Gridcards(props){
   const movieContext = useContext(MovieContext);
 
-  console.log("moviecontext",movieContext);
+
+
     const addMovieToWatchList = (movie) => {
       addtoWatchlist(movie._id).then(response=> {
         movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
           return item._id;
          }))
-        console.log("repo",response)
         setIsWatchListClicked(!isWatchListClicked);
       })
       .catch(err=>{
@@ -31,8 +31,7 @@ function Gridcards(){
       })
     }
    const location = useLocation();
-   const cardsInfo = location.state.data;
-   console.log("loc",cardsInfo);
+   const cardsInfo = props.cardsInfo;
   return(
     <>
    <div style={{backgroundColor:"#00050d",

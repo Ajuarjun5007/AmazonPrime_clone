@@ -55,7 +55,7 @@ function SearchPage() {
   }, [selectedValue, movieList, selectedType]);
   
 
-
+  // location.state.data = searchResults;
 
 
   const [isOpenGenre, setIsOpenGenre] = useState(false);
@@ -122,7 +122,6 @@ function SearchPage() {
                    key={type} 
                    id="type"
                   onClick={()=>dataFetchByType(type)}
-
                    >
                     {type}
                   </li>

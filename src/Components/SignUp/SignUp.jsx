@@ -6,7 +6,7 @@ import logo from "../../assets/loginassets/primevideoLogo.png";
 import { signup } from "./SignUpService";
 import { IdAlert } from "../SignIn/IdAlert";
 
-const SignUp = (props) => {
+const SignUp = () => {
   const [nameCheck, setNameCheck] = useState(false);
   const [emailCheck, setEmailCheck] = useState(false);
   const [passwordCheck, setPasswordCheck] = useState(false);
@@ -19,7 +19,6 @@ const SignUp = (props) => {
 
   const location = useLocation();
 
-  const { NavBarControl } = props;
   const register = (event) => {
 
     event.preventDefault();
@@ -91,9 +90,7 @@ const SignUp = (props) => {
   };
  
 
-  useEffect(() => {
-    NavBarControl(location.pathname);
-  }, []);
+ 
 
   return (
     <>
@@ -176,14 +173,50 @@ const SignUp = (props) => {
             </form>
           </div>
         </div>
-        {/* <div className="footer">
+        <div className="footer">
           <div className="footer-links">
-            <a href="#"> Terms and Privacy Notice </a>
-            <a href="#"> Send us feedback</a>
-            <a href="#">Help</a>
+            <Link
+              className="anchor-tag"
+              onClick={() =>
+                alert(
+                  "The Page your Re-Directing is not a source of prime video Clone."
+                )
+              }
+              target="_blank"
+              to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=200534380"
+            >Terms and Privacy Notice 
+            </Link>
+            <Link
+              className="anchor-tag"
+              onClick={() =>
+                alert(
+                  "The Page your Re-Directing is not a source of prime video Clone."
+                )
+              }
+              target="_blank"
+              to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&nodeId=200545940"
+            >Send us feedback
+            </Link>
+         <Link
+         className="anchor-tag"
+              onClick={() =>
+                alert(
+                  "The Page your Re-Directing is not a source of prime video Clone."
+                )
+              }
+              target="_blank"
+              to="https://www.amazon.in/help"
+            >
+          Help
+          </Link>
           </div>
-          © 1996-2023, Amazon.com, Inc. or its affiliates
-        </div> */}
+       <span>
+       © 1996-2023, Amazon.com, Inc. or its affiliates
+        </span>   
+        </div>
+
+
+        
       </section>
 
     </div>

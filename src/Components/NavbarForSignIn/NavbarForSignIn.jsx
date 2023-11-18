@@ -91,6 +91,7 @@ function NavbarforSignIn() {
   const navigate = useNavigate();
   const clearStorage = () => {
     localStorage.removeItem("userInfo");
+    localStorage.removeItem("user");
     navigate("/");
     window.location.reload(false);
     console.log("clear");

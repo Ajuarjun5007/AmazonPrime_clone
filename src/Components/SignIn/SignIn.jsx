@@ -14,28 +14,17 @@ const PHONE_NUMBER_EXPRESSION =
 const EMAIL_EXPRESSION =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-const SignIn = (props) => {
+const SignIn = () => {
   const location = useLocation();
-
-  const { NavBarControl } = props;
-
   const formRef = useRef();
-
-  useEffect(() => {
-    NavBarControl(location.pathname);
-  }, []);
-  console.log("locat",location.pathname);
-
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  console.log("params", params);
   const key = params.get("status");
-  console.log("key", key);
   const user = useContext(UserContext);
 
   const [hasCompletedFirstStep, setHasCompletedFirstStep] = useState(false);
   const [usernameType, setUsernameType] = useState(null);
-  const [errormessage, setErrorMessage] = useState(" ");
+  const [errorMessage, setErrorMessage] = useState(" ");
   useEffect(() => {
     if (key === null) {
       setHasCompletedFirstStep(false);
@@ -51,7 +40,6 @@ const SignIn = (props) => {
     } else {
       password = event.target[1].value;
     }
-    console.log("user",user,event,username,password);
     event.preventDefault();
 
     let idInfo=[];
@@ -80,6 +68,8 @@ const SignIn = (props) => {
           idInfo.push(response.data.token);
           idInfo.push(response.data.data);
           localStorage.setItem("userInfo", JSON.stringify(idInfo));
+          localStorage.setItem("user", JSON.stringify(response.data.data));
+
           navigate("/");
           navigate(0);
 
@@ -101,8 +91,10 @@ const SignIn = (props) => {
 
   const [errorAlert, SetErrorAlert] = useState(false);
   const [loginFailed, setLoginFailed] = useState(undefined);
+  console.log("errormsg",errorMessage);
 
   return (
+    <>
     <div className="SignContainer-parent">
       {/* prime logo */}
 
@@ -119,7 +111,7 @@ const SignIn = (props) => {
         <IdAlert
           isLoginSuccess={loginFailed}
           usernameType={usernameType}
-          errormessage={errormessage}
+          errorMessage={errorMessage}
         />
       )}
 
@@ -219,6 +211,7 @@ const SignIn = (props) => {
           )}
         </div>
         {/* footer */}
+      </div>
         <div className="loginpagefooter">
           <div className="loginpagesupport">
             <Link
@@ -262,8 +255,9 @@ const SignIn = (props) => {
             &copy; 1996-2023, AmazonClone.com, Inc. or its affiliates
           </div>
         </div>
-      </div>
     </div>
+    </>
+
   );
 };
 

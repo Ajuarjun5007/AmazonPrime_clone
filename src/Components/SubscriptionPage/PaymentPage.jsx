@@ -28,10 +28,7 @@ function PaymentPage(props){
 
 
 
-    const { NavBarControl } = props;
-    useEffect(() => {
-      NavBarControl(location.pathname);
-    }, []);
+   
     
     const [formErrorStatus,setFormErrorStatus] = useState({name:true,cardNumber:true,cvvNumber:true,month:true,year:true
     })

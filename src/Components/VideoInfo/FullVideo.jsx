@@ -5,15 +5,12 @@ import { movieDetail } from "../ApiFetch";
 import './FullVideo.css'
 import { AiOutlineClose } from "react-icons/ai";
 
-function FullVideo(props){
+function FullVideo(){
  const location = useLocation();
- const { NavBarControl } = props;
   const params = useParams();
   const [movieURL, setMovieURL] = useState(undefined);
   const [movieId,setMovieId] = useState(undefined);
-  useEffect(() => {
-    NavBarControl(location.pathname.split('/')[1]);
-  }, []);
+  
 
   console.log("fvl",location.pathname.split('/')[1]);
   console.log("pr",params);

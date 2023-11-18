@@ -32,17 +32,19 @@ function App() {
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
 
   const [mobileNavBar, setMobileNavBar] = useState(false);
+  const location = useLocation()
+  const hideNavbarFor = ["SignIn", "SignUp", "SubscriptionPage", "FullVideo", "ManageProfilePage"]
 
-
-  const NavBarControl = (value) => {
-
-  if(value=="/home"){
-    SetIsNavBarShow(true);
-  } else if (value == "/SignIn" || value == "/SignUp" || value == "/SubscriptionPage" || value == "FullVideo"
-   || value=="/SubscriptionPage/PaymentPage" ||value=="/ManageProfilePage" || value){
+  useEffect(()=>{
+    if(hideNavbarFor.includes(location.pathname.split("/")[1])){
       SetIsNavBarShow(false);
-  };
-  }
+    } else {
+      SetIsNavBarShow(true);
+    }
+    
+  },[location])
+
+ 
   
   const handleMobileNavbar = (value) => {
     setMobileNavBar(value);
@@ -75,26 +77,26 @@ const screenSize =   useScreenSize();
         <Route path="/" element={<LandingPageSignout/>} />
         {/* <LandingPageSignIn/> */}
 
-        <Route path="/home" element={<MoviesProvider type="home" NavBarControl={NavBarControl}   />} />
+        <Route path="/home" element={<MoviesProvider type="home"    />} />
       
        
-        <Route path="/SubscriptionPage" element={<SubscriptionPage NavBarControl={NavBarControl}/>}/>
-        <Route path="/SubscriptionPage/PaymentPage" element={<PaymentPage NavBarControl={NavBarControl}/>}/>
-        <Route path="/FullVideo/:id" element={<FullVideo NavBarControl={NavBarControl}/>}/>
-        <Route path="/videodetails/:id" element={<VideoInfo NavBarControl={NavBarControl}/>} />
+        <Route path="/SubscriptionPage" element={<SubscriptionPage />}/>
+        <Route path="/SubscriptionPage/PaymentPage" element={<PaymentPage />}/>
+        <Route path="/FullVideo/:id" element={<FullVideo />}/>
+        <Route path="/videodetails/:id" element={<VideoInfo />} />
         <Route path="/CategorySelected" element={<MoviesProvider  type="categorySelected"/>} />
-        <Route path="/ManageProfilePage" element={<ManageProfilePage NavBarControl={NavBarControl} />} />
-        <Route path = "/Gridcards" element={<Gridcards/>}/>
+        <Route path="/ManageProfilePage" element={<ManageProfilePage  />} />
+        {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}
         {/* <VideoInfo/> */}
         {/* <Route path="/RentPage/" element={<RentPage/>}/> */}
         <Route
           path="/SignIn"
-          element={<SignInProvider NavBarControl={NavBarControl}  />}
+          element={<SignInProvider   />}
         />
         <Route path="/SearchPage" element={<MoviesProvider  type="SearchPage"/>}/>
         <Route
           path="/SignUp"
-          element={<SignUp NavBarControl={NavBarControl} />}
+          element={<SignUp  />}
         />
         <Route path="/comingsoon" element={<ComingSoon/>}/>
         

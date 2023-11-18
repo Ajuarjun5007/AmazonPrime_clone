@@ -15,7 +15,7 @@ function WatchList(){
     const [isLoaded, setIsLoaded] = useState(false);
     const [watchlist,setWatchList]=useState([]);
     const [buttonText,SetButtonText]=useState("Most Recent Addition")
-
+    const [selectedType,setSelectedtype]  =useState("all");
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
 
@@ -53,7 +53,7 @@ function WatchList(){
     const optionHandler = (text)=>{
       SetButtonText(text);
     }
-  
+  const allTypes = ["movie","tv show"];
     return(
         <div className='watchList-parent'>
         <div className="WatchList-header">
@@ -61,13 +61,20 @@ function WatchList(){
         </div>
         <div className="WatchList-btn-container">
             <div className="WatchList-filter-btn-cotainer">
-            <button className='WatchList-filter-btn'>
+            <button className='WatchList-filter-btn'
+            onClick={()=>setSelectedtype("all")}
+            >
                 All
             </button>
-            <button className='WatchList-filter-btn'>
+            <button className='WatchList-filter-btn'
+              onClick={()=>setSelectedtype("movie")}
+            >
                 Movies
             </button>
-            <button className='WatchList-filter-btn'>
+            <button className='WatchList-filter-btn'
+              onClick={()=>setSelectedtype("tv show")}
+
+            >
                 Tv shows
             </button>
             </div>
@@ -92,7 +99,7 @@ function WatchList(){
         <div className="watchList-cards">
         {watchlist && 
         watchlist
-            // .filter((item)=> item.type===`${type}`)
+              .filter((item)=> selectedType === 'all' ? allTypes.includes(item.type) : item.type===selectedType)
             .map((item,index) => (
               
               <div className="card-items" key={item._id}>

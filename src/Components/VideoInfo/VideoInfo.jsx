@@ -22,6 +22,7 @@ import {getDetailsByTypeOrCategory} from "../CategorySelected/CategorySelectedSe
 import { CarouselComponent } from "../Carousel/Carousel";
 
 function VideoInfo(props) {
+
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
   const [movieInfo, setMovieInfo] = useState({});
@@ -55,7 +56,6 @@ const location = useLocation();
   }
   const params = useParams();
 
-  const { NavBarControl } = props;
 
   const[detailShow,setDetailShow] = useState(true);
   const[relatedShow,setRelatedShow] = useState(false);
@@ -129,7 +129,6 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
   // set Full video
   const videoSizeHandler = () => {
     setFullVideoShow(true);
-    NavBarControl(true);
   };
 
   return loaded ? (
