@@ -26,8 +26,6 @@
     margin-right: 12px;
     padding: 8px 21px;
     border: none;
-    /* border-top-right-radius: 8px;
-    border-top-left-radius: 8px; */
     border-radius: 8px;
 }
 .recent-btn{
@@ -60,7 +58,6 @@ border-top-left-radius: 8px;
     background-color:#fff;
     color: #00050d;
 }
-
 .recent-btn{
      display: flex;
     align-items: center;
@@ -76,7 +73,6 @@ border-top-left-radius: 8px;
     padding-left: 8px;
     transition: 0.3s ease-in-out;
   }
-  
   .watchList-cards{
     /* padding:20px; */
     padding: 0px 60px 350px 0px;

@@ -14,10 +14,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./Gridcards.css"
 
-function Gridcards(props){
+function Gridcards(){
+ 
   const movieContext = useContext(MovieContext);
-
-
 
     const addMovieToWatchList = (movie) => {
       addtoWatchlist(movie._id).then(response=> {
@@ -31,7 +30,9 @@ function Gridcards(props){
       })
     }
    const location = useLocation();
-   const cardsInfo = props.cardsInfo;
+   console.log("pro",location.state.data);
+   const cardsInfo =location.state.data ;
+
   return(
     <>
    <div style={{backgroundColor:"#00050d",

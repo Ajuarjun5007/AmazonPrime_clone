@@ -85,7 +85,7 @@ const screenSize =   useScreenSize();
         <Route path="/videodetails/:id" element={<MoviesProvider  type="/videodetails/:id"/>} />
         <Route path="/CategorySelected" element={<MoviesProvider  type="categorySelected"/>} />
         <Route path="/ManageProfilePage" element={<ManageProfilePage  />} />
-        {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}
+        <Route path = "/Gridcards" element={<Gridcards/>}/>
         {/* <VideoInfo/> */}
         {/* <Route path="/RentPage/" element={<RentPage/>}/> */}
         <Route

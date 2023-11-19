@@ -97,15 +97,16 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
         moviesInfo.map((item, index) => (
           <div className="card-items"
            key={item._id}
-           >
-                
+           >           
           <Link 
           key={`${item._id}&${index}`} 
           to={{
             pathname: `/videodetails/${item._id}`,
           }}
          >
-          <img src={item.thumbnail} alt="" className="image-item" />
+          <img
+           src={item.thumbnail} alt="" className="image-item" 
+           />
           </Link>
 
           <div className="card-details">

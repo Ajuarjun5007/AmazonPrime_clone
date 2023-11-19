@@ -287,14 +287,14 @@
     width: 160px;
     height: 120px;
   }
-  .card-items:hover{
+  /* .card-items:hover{
     .card-details{
       display: unset;
     }
     .image-item{
       border: unset;
     }
-  }
+  } */
   .WatchList-header{
     font-size:24px!important;
     padding: 12px 20px!important;
@@ -312,6 +312,12 @@
   }
 }
 @media  screen and (max-width:360px) {
+  .carousel-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   .Carousel-header{
     margin-top: 20px;
     padding-left: 10px;
@@ -336,21 +342,21 @@
   .card-items{
     width: 80%;
   }
-  .card-items:hover{
+  /* .card-items:hover{
     .card-details{
       display: unset;
     }
     .image-item{
       border: unset;
     }
-  }
+  } */
   .card-name{
     /* display:flex!important; */
     display: block;
     margin-left:12px;
+    margin-top: 12px;
     padding: 0px 24px;
     width: max-content;
-    border: 2px solid green;
   }
   .WatchList-header{
     font-size:24px!important;

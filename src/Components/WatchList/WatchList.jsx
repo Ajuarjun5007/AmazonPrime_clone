@@ -9,6 +9,7 @@ import { FiPlus} from "react-icons/fi";
 import { useLocation } from 'react-router-dom';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
+
 function WatchList(){
 
     const [isArrowRotated, setIsArrowRotated] = useState(false);
@@ -19,9 +20,11 @@ function WatchList(){
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
     const [isLoggedIn,setIsLoggedIn] = useState(false);
-    if(localStorage.getItem("userInfo")){
-      setIsLoggedIn(true);
-    }
+    useEffect(()=>{
+      if(localStorage.getItem("userInfo")){
+        setIsLoggedIn(true);
+      }
+    },[])
     useEffect(()=>{ 
         if(!isLoaded){
         getWatchlist()

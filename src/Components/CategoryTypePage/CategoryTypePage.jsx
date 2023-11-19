@@ -10,13 +10,11 @@ import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 
 function CategoryTypePage() {
   const { search } = useLocation();
-  console.log("search", search);
   const params = new URLSearchParams(search);
   
   
 
   const type = params.get("type");
-  console.log("par", type);
   const typeHeader = type.charAt(0).toUpperCase() + type.slice(1);
 
   const [moviesInfo, setMoviesInfo] = useState([]);
@@ -51,7 +49,6 @@ function CategoryTypePage() {
         });
         setCategoryMovieInfo(itemsByKeyword);
 
-        console.log(Object.keys(itemsByKeyword));
 
         setMoviesInfo(filteredMovieList);
       } catch (error) {
@@ -65,9 +62,6 @@ function CategoryTypePage() {
 
   }, [type,search]);
 
-    console.log("path",location.pathname)
-  
-    console.log("cmi",categoryMovieInfo);
   return (
     <>
       <div style={{ backgroundColor: "#00050d", paddingBottom: "300px" }}>
