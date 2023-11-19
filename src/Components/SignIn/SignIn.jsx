@@ -136,7 +136,7 @@ const SignIn = () => {
               </div>
             )}
             {user.status !== undefined && hasCompletedFirstStep && (
-              <div>
+              <div className="loginsecondpageContainer">
                 <div className="id-creds" >
                   <p>{user.username}</p>
                   <button className="anchor-tag" onClick={resetLogin}>

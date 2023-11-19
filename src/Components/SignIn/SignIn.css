@@ -21,8 +21,9 @@
 }
 
 .login-parent{
-    display: grid;
-    place-items: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .loginpage{
     color: black;
@@ -117,7 +118,15 @@
 
 .loginpageform > div{
     margin-bottom: 15px;
+    min-width:280px;
+    padding: 0px 20px;
 }
+
+.loginsecondpagecontainer{
+    /* width: 350px; */
+}
+
+
 
 .loginpageform input{
     width: 100%;
@@ -174,9 +183,13 @@
 }
 
 .termsandCons{
-    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
     font-weight: 400;
     margin-bottom: 18px;
+    width: 90%;
 }
 
 .checkboxverify{
@@ -233,10 +246,10 @@
 }
 
 .loginpagesupport{
-    width: 75%;
+    width: 300px;
     font-size: 11px;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-between;
 }
 
 .loginpagecopyright{
