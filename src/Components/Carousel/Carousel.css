@@ -312,6 +312,10 @@
   }
 }
 @media  screen and (max-width:360px) {
+  .card-items{
+    display: unset!important;
+    display: flex!important;
+  }
   .carousel-container{
     display: flex;
     justify-content: center;

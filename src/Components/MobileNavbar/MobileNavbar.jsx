@@ -90,8 +90,9 @@ function MobileNavbar( { handleMobileNavbar } ) {
           
         )} */}
 
-
+          <Link to={"/"}>
         <div className="mb-prime-container">prime video</div>
+          </Link>
         {/* SEARCH CONTAINER */}
 
         <div className="mb-search-container">

@@ -702,6 +702,16 @@ li a:focus{
     border-bottom: 3px solid white;
 }
 
+@media screen and (max-width:1024px){
+
+ 
+    .navbar-container{
+        width: unset!important;
+    }
+}
+
+
+
 @media screen and (max-width:879px){
 
     .navbar-parent{

@@ -1,7 +1,10 @@
 .gridcards-container{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin-left: 20px;
+    /* width: 90%; */
 }
 .card-items{
     padding-bottom: 50px;
@@ -19,6 +22,9 @@
     font-size:16px;
 }
 @media screen and (max-width:360px) {
+    .gridcards-container{
+        width:90%;
+    }
     .card-items{
         display: flex;
         /* flex-direction: column; */
@@ -38,6 +44,10 @@
     }
 }
 @media screen and (max-width:1024px) {
+    .gridcards-container{
+        width: 95%;
+        margin-left: unset;
+    }
     .card-items{
         display: flex;
         flex-direction: column;

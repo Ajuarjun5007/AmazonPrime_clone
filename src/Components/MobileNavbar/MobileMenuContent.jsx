@@ -79,12 +79,6 @@ const MobileMenuContent = (handleMobileNavbar) => {
 
 
 
-
-
-
-
-
-
         {/* LIVE TV CONTENT */}
         <Link to={"comingsoon"} onClick={menuDisplayHandler}>
         <div className="livetv-content">
