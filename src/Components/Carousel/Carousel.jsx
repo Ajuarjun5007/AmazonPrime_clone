@@ -6,9 +6,7 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import {BiCheck} from "react-icons/bi";
 import { useEffect, useState,useContext } from "react";
-
 import {addtoWatchlist,getWatchlist} from "../../Components/WatchList/WatchlistService"
-
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
@@ -48,13 +46,18 @@ const CarouselComponent= (props) => {
 
   const [isItemAdded,setIsItemAdded] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
-  // const [watchListId,setWatchListId] = useState(movieContext.userWatchList);
+  useEffect(()=>{
+    if(localStorage.getItem("userInfo")){
+      setIsLoggedIn(true);
+    }
+  },[])
   
+
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
       setIsLoggedIn(true);
-      addtoWatchlist(movie._id)
+        addtoWatchlist(movie._id)
         .then((response) => {
           movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
               return item._id;
@@ -69,26 +72,7 @@ const CarouselComponent= (props) => {
     }
   };
   
-
-//   useEffect(()=>{ 
-//     // if(!isLoaded){
-//     getWatchlist()
-//     .then(response=>{
-//        const watchListItems = response.data.data.shows;
-//        console.log("watchList",watchListItems);
-//        setWatchListId (watchListItems.map((item)=>{
-//         return item._id;
-//        }))
-//        console.log("watchId",watchListId);
-//        watchListId.map((item)=>{
-//       if(item==="64cffee700bad552e8dcd515" ){
-//           console.log("id found");
-//       }
-//      })
-//       })
-
-// // }
-// },[isItemAdded])
+console.log("log",isLoggedIn);
 
 
 
@@ -98,9 +82,6 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
     < div className="carousel-container">
 
     <div  className="Carousel-header">
-      {/* {
-        isLocationWatchList && <div className="Carousel-header-prime">WatchList-{type}</div>
-      } */}
         <div className="Carousel-header-prime">Prime</div>
         {type}
       </div>
@@ -134,17 +115,23 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
             </div>
           
             <div id="play-control">
-              <button id="play-btn">
-                <BiSolidRightArrow id="play-btn-icon" />
-              </button>
+                  { isLoggedIn ?(
+                  <Link to={`/FullVideo/${item._id}`}>
+                  <button id="play-btn">
+                    <BiSolidRightArrow id="play-btn-icon" />
+                  </button>
+                  </Link>
+                  ):(
+                    <p className="start-with-prime">Start With Prime</p>
+                  )
+                  }
               <p>Watch Now</p>
               <div id="watchlist-icon">
                 
                 <button 
                 onClick={()=> {addMovieToWatchList(item)}} 
                 id="watchlist-icon-button">
-                
-                  {movieContext?.userWatchList && movieContext?.userWatchList.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+{movieContext?.userWatchList && movieContext?.userWatchList.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
                   )}
                 </button>

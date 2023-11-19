@@ -5,6 +5,7 @@ import LandingPageSignIn from "./LandingPageSignIn";
 import CategorySelected from "../CategorySelected/CategorySelected";
 import CategoryTypePage from "../CategoryTypePage/CategoryTypePage";
 import SearchPage from "../SearchPage/SearchPage";
+import VideoInfo from "../VideoInfo/VideoInfo";
 function MoviesProvider(props) {
 
  
@@ -43,6 +44,10 @@ function MoviesProvider(props) {
       }else if(props.type==="SearchPage"){
         return  <MovieContext.Provider value={context}>
           <SearchPage/>
+        </MovieContext.Provider>
+      }else if(props.type==="/videodetails/:id"){
+        return  <MovieContext.Provider value={context}>
+          <VideoInfo/>
         </MovieContext.Provider>
       }
   }

@@ -35,6 +35,7 @@ function FullVideo(){
         <ReactPlayer
               url={movieURL}
               fullScreen={true}
+              muted={false}
               playing={true}
               controls={true}
               loop={false}

@@ -1,23 +1,26 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect,useContext } from "react";
 
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useNavigate,useLocation, useParams } from "react-router-dom";
 import { P, DefaultPlayer as Video } from "react-html5video";
 import "./VideoInfo.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-
+import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
 import { PiConfettiBold } from "react-icons/pi";
+import { addtoWatchlist } from "../WatchList/WatchlistService";
 import { FiShare2 } from "react-icons/fi";
 import { BiVolumeMute } from "react-icons/bi";
 import { BiVolumeFull } from "react-icons/bi";
 import { movieDetail } from "../ApiFetch";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import ReactPlayer from "react-player";
+import {BiCheck} from "react-icons/bi";
+
 import {getDetailsByTypeOrCategory} from "../CategorySelected/CategorySelectedService"
 import { CarouselComponent } from "../Carousel/Carousel";
 
@@ -27,6 +30,10 @@ function VideoInfo(props) {
   const [showVideo, setShowVideo] = useState(false);
   const [movieInfo, setMovieInfo] = useState({});
   const [isMuted, setIsMuted] = useState(true);
+
+  const navigate = useNavigate();
+
+  const movieContext = useContext(MovieContext);
   
   const [fullVideoShow, setFullVideoShow] = useState(false);
 
@@ -55,6 +62,29 @@ const location = useLocation();
     }
   }
   const params = useParams();
+
+
+  const addMovieToWatchList = (movie) => {
+    if (localStorage.getItem("userInfo")) {
+      setIsLoggedIn(true);
+      addtoWatchlist(movie._id)
+        .then((response) => {
+          movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
+              return item._id;
+             }))
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+
+        console.log("true")
+    } else {
+      setIsLoggedIn(false);
+      navigate("/SignIn");
+      console.log("false")
+
+    }
+  };
 
 
   const[detailShow,setDetailShow] = useState(true);
@@ -101,7 +131,6 @@ const location = useLocation();
     setLoaded(false);
     if (params.id !== undefined) {
       movieDetail(params.id).then((res) => {
-        console.log("parma",res.data.keywords);
         setMovieInfo(res.data);
         loadMovieListByGenre(res.data.keywords,res.data.type);
         setLoaded(true);
@@ -112,7 +141,6 @@ const location = useLocation();
 const loadMovieListByGenre = (keywords,type) =>{
 getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
   setMovieList(res.data.data);
-  console.log("res",res.data);
 
   
 })
@@ -196,8 +224,6 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                   <p>Included with Prime</p>
                 </div>
                 <div className="play-container">
-
-
                  { isLoggedIn?(
                   <div className="play-btn-content">
                     <Link 
@@ -211,10 +237,10 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                   <span className="play-text">play</span>
                   </div>
                   ):(
-                    <Link to={""}>
+                    <Link to={"/SignIn"}>
                     <div className="free-trial-content">
                         <img src={bluetick} alt="" />
-                        <p>Watch with a free Prime trial</p>
+                        <p>Watch with  Prime </p>
                       </div>
                     </Link>
                   )
@@ -224,8 +250,14 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                   <div className="video-access-button ">
                     <div className="access-btn-container">
                       <span className="btn-msg">Watchlist</span>
-                      <button className="grey-icon">
-                        <FiPlus className="react-plus-icon" />
+                      <button className="grey-icon"
+                       onClick={()=> {addMovieToWatchList(movieInfo)}} 
+                      >
+                 {movieContext?.userWatchList && movieContext?.
+                 userWatchList.includes(movieInfo._id)?
+                 (<BiCheck className="react-check-icon"/>):(
+                    <FiPlus className="react-plus-icon"/>
+                  )}
                       </button>
                     </div>
 
@@ -235,8 +267,8 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                         
                         <FontAwesomeIcon
               icon={faThumbsUp}
-           style={{ color: isLiked ? "#000000" : "#fff" }}
-          className="react-like-icon"
+          //  style={{ color: isLiked ? "#000000" : "#fff" }}
+          className={`react-like-icon ${isLiked ? 'clicked' : 'unclicked'}`}
           onClick={likeHandler}
                       />
                       </button>
@@ -248,8 +280,8 @@ getDetailsByTypeOrCategory("keywords",keywords[0]).then((res)=>{
                       <button className="grey-icon">
                         <FontAwesomeIcon
               icon={faThumbsDown}
-           style={{ color: isDisLiked ? "#000000" : "#fff" }} 
-          className="react-like-icon"
+          //  style={{ color: isDisLiked ? "#000000" : "#fff" }} 
+           className={`react-like-icon ${isDisLiked ? 'clicked' : 'unclicked'}`}
           onClick={dislikeHandler}
                       />
                       </button>

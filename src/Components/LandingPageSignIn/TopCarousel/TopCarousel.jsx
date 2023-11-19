@@ -121,16 +121,20 @@ function TopCarousel(props) {
                       <div className="poster-button-play">
                         {isLoggedIn ? (
                           <div className="logged-in-play">
+                            <Link to={`/FullVideo/${item._id}`}>
                             <button className="play">
                               <BiSolidRightArrow className="play-arrow-icon" />
                             </button>
+                            </Link>
                             <p>Play</p>
                           </div>
                         ) : (
+                            <Link to={"/SignIn"}>
                           <div className="free-trial-content">
                             <img src={bluetick} alt="" />
-                            <p>Watch with a free Prime trial</p>
+                            <p>Watch with Prime</p>
                           </div>
+                            </Link>
                         )}
                         <div className="poster-icons">
                           <button

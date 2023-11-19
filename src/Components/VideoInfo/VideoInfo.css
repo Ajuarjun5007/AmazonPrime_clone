@@ -161,6 +161,14 @@ margin-right:0px;
 .video-description p{
   background: transparent;
 }
+.react-like-icon.clicked{
+  color:#0277bd;
+  height: 40px;
+}
+.react-like-icon.unclicked{
+  color: #fff;
+  height: 40px;
+}
 /* genre styles */
 .genre-section{
   display: flex;
@@ -321,7 +329,7 @@ margin-right:0px;
   padding: 5px;
   border-radius: 5px;
 }
-.react-plus-icon,.react-like-icon,.react-dislike-icon{
+.react-plus-icon,.react-check-icon{
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -334,9 +342,9 @@ margin-right:0px;
   border-radius: 100%;
   color: #fff;
 }
-.grey-icon:hover{
+.grey-icon:hover,.grey-icon:active{
   .react-plus-icon,.react-like-icon,.react-dislike-icon,.react-confetti-icon,.react-share-icon{
-  color: #030b17;
+  /* color: #000000; */
   }
 }
 .access-btn-container{
@@ -354,6 +362,7 @@ margin-right:0px;
   top:-50%;
   opacity: 1;
   transition: 0.6s ease-in-out;
+  color: #00050d;
 }
 
 @keyframes bounce {
@@ -361,7 +370,7 @@ margin-right:0px;
     58% { transform: translate3d(0, 0px, 0) }
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width:600px){
   .visual-container{
     position:unset!important;
   }
@@ -378,7 +387,8 @@ margin-right:0px;
   .video-title{
     padding-top:10px;
     padding-left: 10px;
-    width: max-content;
+    width: 95%;
+    line-height: 27px;
   }
   .video-title h1{
     font-size:23px;
@@ -427,9 +437,20 @@ margin-right:0px;
     width: 40px;
     height: 40px;
   }
+  .access-btn-container:hover .btn-msg{
+    display: none;
+  }
   .react-plus-icon,.react-like-icon,.react-dislike-icon{
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+  }
+  .grey-icon:hover{
+    .react-plus-icon,.react-like-icon,.react-dislike-icon,.react-confetti-icon,.react-share-icon{
+      /* color: unset!important;
+      color:red!important;
+      background-color: unset!important;
+      background-color: #fff!important; */
+    }
   }
   .access-btn-container{
   padding-top: 20px;
@@ -437,5 +458,18 @@ margin-right:0px;
   .react-confetti-icon,.react-share-icon{
     width: 35px;
     height: 25px;
+  }
+  .cast-section{
+    margin-left:10px!important;
+  }
+  .cast-section span{
+    font-size: 33px;
+  }
+  .cast-section p{
+    font-size: 24px;
+  }
+  .cast-heading-child{
+    font-size: 24px;
+    margin: 10px;
   }
 }

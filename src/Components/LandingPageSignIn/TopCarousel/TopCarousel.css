@@ -5,12 +5,12 @@
 
 .react-multiple-carousel__arrow--right {
   right: calc(0% + 1px);
-  top:unset;
-  left:unset;
+  /* top:unset;
+  left:unset; */
 }
 .react-multiple-carousel__arrow--left{
-  top:unset;
-  left:unset;
+  /* top:unset;
+  left:unset; */
 }
 .poster-items{
  display: flex;

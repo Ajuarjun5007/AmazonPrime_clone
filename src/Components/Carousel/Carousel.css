@@ -120,17 +120,30 @@
     width: 22px;
   }
   #play-control {
-      gap:10px;
+      /* gap:10px; */
       margin-top: 10px;
-      margin-left: 12px;
     display: flex;
     align-items: center;
     background-color: #000;
-    font-size:15px;
+    font-size:12px;
     font-weight: 900;
+    padding-left:10px;
+
   }
   #play-control p{
+    margin-left: 10px;
       background-color: #000;
+  }
+  #play-control  .start-with-prime{
+    background-color:#1a98ff;
+    color: #fff;
+    padding: 10px;
+    border-radius:4px;
+    font-size: 10px;
+  }
+  #play-control .start-with-prime:hover{
+    background-color: #fff;
+    color: #00050d;
   }
   #play-btn {
     width: 50px;
@@ -140,6 +153,7 @@
     display: grid;
     place-items: center;
     border-radius: 50%;
+
   }
   #play-btn:hover{
       transform: scale(1.1);
@@ -153,7 +167,8 @@
     display: flex;
     justify-content: space-around;
     gap: 5px;
-    margin-left:30px;
+    /* margin-left:30px; */
+    margin-left: 12px;
     position: relative;
   }
   .watchlist-tooltip{
@@ -249,9 +264,6 @@
     top: 100px;
   }
 
-@media  screen and (max-width:1023px) {
-  
-}
 @media  screen and (max-width:540px) {
   .Carousel-header{
     margin-top:20px;

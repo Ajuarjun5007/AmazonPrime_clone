@@ -13,7 +13,6 @@ import FooterForSignIn from "./Components/FooterforSignIn/FooterForSIgnIn";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
 import ComingSoon from "./Components/ComingSoon/ComingSoon"
-import SearchPage from './Components/SearchPage/SearchPage'
 import { PrimeBenefits } from "./Components/PrimeBenefits/PrimeBenefits";
 import { SignInProvider } from "./Components/SignIn/SignInProvider";
 import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage";
@@ -83,7 +82,7 @@ const screenSize =   useScreenSize();
         <Route path="/SubscriptionPage" element={<SubscriptionPage />}/>
         <Route path="/SubscriptionPage/PaymentPage" element={<PaymentPage />}/>
         <Route path="/FullVideo/:id" element={<FullVideo />}/>
-        <Route path="/videodetails/:id" element={<VideoInfo />} />
+        <Route path="/videodetails/:id" element={<MoviesProvider  type="/videodetails/:id"/>} />
         <Route path="/CategorySelected" element={<MoviesProvider  type="categorySelected"/>} />
         <Route path="/ManageProfilePage" element={<ManageProfilePage  />} />
         {/* <Route path = "/Gridcards" element={<Gridcards/>}/> */}

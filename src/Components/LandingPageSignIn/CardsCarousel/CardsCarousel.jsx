@@ -7,13 +7,13 @@ import { FiPlus } from "react-icons/fi";
 import { BiCheck } from "react-icons/bi";
 import {FaChevronRight} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { useNavigate } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
 import { addtoWatchlist,getWatchlist } from "../../WatchList/WatchlistService";
 import { useState,useEffect} from "react";
+// import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 
 function CardsCarousel({ moviesInfo, type }) {
   const responsive = {
@@ -39,16 +39,27 @@ function CardsCarousel({ moviesInfo, type }) {
   const [isWatchListClicked, setIsWatchListClicked] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
   const [watchListId,setWatchListId] = useState([]);
+  // const movieContext = useContext(MovieContext);
  
+  useEffect(()=>{
+    if(localStorage.getItem("userInfo")){
+      setIsLoggedIn(true);
+    }
+  },[])
+
+
+
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
       setIsLoggedIn(true);
-
       addtoWatchlist(movie._id)
         .then((response) => {
           console.log("repo", response);
           // setIsLoaded(false);
+          // movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
+          //   return item._id;
+          //  }))
         })
         .catch((err) => {
           console.log("error", err);
@@ -107,9 +118,21 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
               </div>
 
               <div id="play-control">
+              {/* <Link to={`/FullVideo/${item._id}`}>
                 <button id="play-btn">
                   <BiSolidRightArrow id="play-btn-icon" />
                 </button>
+                </Link>                 */}
+              { isLoggedIn ?(
+                  <Link to={`/FullVideo/${item._id}`}>
+                  <button id="play-btn">
+                    <BiSolidRightArrow id="play-btn-icon" />
+                  </button>
+                  </Link>
+                  ):(
+                    <p className="start-with-prime">Start With Prime</p>
+                  )
+                  }
                 <p>Watch Now</p>
                 <div id="watchlist-icon">
                   <button

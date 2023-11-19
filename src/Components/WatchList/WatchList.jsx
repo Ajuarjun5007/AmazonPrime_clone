@@ -18,7 +18,10 @@ function WatchList(){
     const [selectedType,setSelectedtype]  =useState("all");
   const [isWatchListClicked,setIsWatchListClicked]=useState(false);
 
-
+    const [isLoggedIn,setIsLoggedIn] = useState(false);
+    if(localStorage.getItem("userInfo")){
+      setIsLoggedIn(true);
+    }
     useEffect(()=>{ 
         if(!isLoaded){
         getWatchlist()
@@ -73,7 +76,6 @@ function WatchList(){
             </button>
             <button className='WatchList-filter-btn'
               onClick={()=>setSelectedtype("tv show")}
-
             >
                 Tv shows
             </button>
@@ -118,9 +120,11 @@ function WatchList(){
                 </div>
               
                 <div id="play-control">
+                  <Link to={`/FullVideo/${item._id}`}>
                   <button id="play-btn">
                     <BiSolidRightArrow id="play-btn-icon" />
                   </button>
+                  </Link>
                   <p>Watch Now</p>
                   <div id="watchlist-icon">
                     
