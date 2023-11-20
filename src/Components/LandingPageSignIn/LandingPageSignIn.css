@@ -1,0 +1,21 @@
+.mb-home-options{
+    display: none;
+    margin:0px 0px 30px 20px;
+    padding-top: 20px;
+    /* border: 2px solid white; */
+}
+.mb-home-option{
+    font-weight: 500;
+    color: white;
+}
+.mb-home-icon{
+    color:white;
+    width: 20px;
+    height: 20px;
+}
+
+@media screen and (max-width:840px) {
+    .mb-home-options{
+        display: flex;
+    }
+}

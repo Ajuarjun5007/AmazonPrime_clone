@@ -5,8 +5,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { types, categories } from "../CategoryConstants";
 import { Gridcards } from "../Gridcards/Gridcards";
-
-
+import { movieList } from "../ApiFetch";
 
 function SearchPage() {
   const location = useLocation();
@@ -30,12 +29,13 @@ function SearchPage() {
 
   
   useEffect(() => {
-    let filteredResult = movieList;
+    let filteredResult = [];
   
     if (selectedValue !== undefined) {
       setGenreDisplay(selectedValue);
       const formattedSelectedValue = selectedValue.toLowerCase();
-      filteredResult = filteredResult.filter((item) =>
+      console.log("value",formattedSelectedValue);
+      filteredResult = movieList.filter((item) =>
         item.keywords.includes(formattedSelectedValue)
       );
       console.log("filteredresultByGenre",filteredResult);
@@ -44,17 +44,21 @@ function SearchPage() {
     if (selectedType !== undefined) {
       setTypeDisplay(selectedType);
       const formattedSelectedType = selectedType.toLowerCase();
-      filteredResult = filteredResult.filter(
+      console.log("type",formattedSelectedType);
+      filteredResult = movieList.filter(
         (item) => item.type === formattedSelectedType
       );
       console.log("filteredresultByType",filteredResult);
 
     }
-  
-    setSearchResults(filteredResult);
+    if(selectedValue === undefined && selectedType === undefined){
+      setSearchResults(movieList);
+    } else{
+      setSearchResults(filteredResult);
+    }
   }, [selectedValue, movieList, selectedType]);
   
-
+console.log("sr",searchResults);
   // location.state.data = searchResults;
 
 

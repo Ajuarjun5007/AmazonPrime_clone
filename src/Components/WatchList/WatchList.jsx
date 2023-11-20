@@ -33,7 +33,6 @@ function WatchList() {
     }
   }, [isLoaded]);
 
-  console.log("watchList", watchlist);
   // button handler
   const recentButtonHandler = () => {
     setIsArrowRotated(!isArrowRotated);
@@ -43,7 +42,6 @@ function WatchList() {
   const addMovieToWatchList = (movie) => {
     addtoWatchlist(movie._id)
       .then((response) => {
-        console.log("repo", response);
         setIsWatchListClicked(!isWatchListClicked);
         setIsLoaded(false);
       })
@@ -52,7 +50,6 @@ function WatchList() {
       });
   };
 
-  console.log("selectedType", selectedType);
 
   const optionHandler = (text) => {
     SetButtonText(text);
@@ -69,7 +66,7 @@ function WatchList() {
           >
             All
           </button>
-          <button
+          {/* <button
             className="WatchList-filter-btn"
             onClick={() => setSelectedtype("movie")}
           >
@@ -80,7 +77,17 @@ function WatchList() {
             onClick={() => setSelectedtype("tv show")}
           >
             Tv shows
-          </button>
+          </button> */}
+          {
+            allTypes.map((type)=>{
+              return   <button
+              className="WatchList-filter-btn"
+              onClick={() => setSelectedtype(type)}
+            >
+             {type}
+            </button>
+            })
+          }
         </div>
 
         <div className="recent-btn-container">

@@ -16,6 +16,9 @@ import "./Gridcards.css"
 
 function Gridcards(){
  
+  
+  // const {cardsInfo} = props;
+
   const movieContext = useContext(MovieContext);
 
     const addMovieToWatchList = (movie) => {
@@ -30,8 +33,8 @@ function Gridcards(){
       })
     }
    const location = useLocation();
-   console.log("pro",location.state.data);
-   const cardsInfo =location.state.data ;
+   const cardsInfo =location.state.data;
+
 
   return(
     <>

@@ -176,12 +176,15 @@ function NavbarforSignIn() {
                       Trailer
                     </li>
                   </NavLink>
+                  <NavLink to={"comingsoon"}>
                   <li
                     className="nav-bar-items-list store-dropdown-items"
                     onClick={handleStoreNavItemClick}
                   >
                     Channels
                   </li>
+                  </NavLink>
+
                 </ul>
               </div>
             </li>

@@ -305,10 +305,13 @@
   }
   .WatchList-filter-btn{
     font-size: 16px!important;
-    margin-right: 12px!important;
+    margin: 5px!important;
     padding: 8px 8px!important;
     border-radius: 4px!important;
     min-height: unset!important;
+  }
+  .watchList-cards{
+    justify-content: center;
   }
 }
 @media  screen and (max-width:360px) {

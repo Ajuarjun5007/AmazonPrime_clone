@@ -28,8 +28,21 @@
     transition: transform 0.3s ease;
 }
 
+
+
+
+
 @media screen and (max-width:867px) {
-    
+    .value-header{
+        padding-left: 20px;
+        font-size: 23px;
+    }
+    .filter-btn-container{
+        flex-wrap: wrap;
+        width: unset;
+        margin-left: 20px;
+        gap: 15px;
+    }
 }
 
 
