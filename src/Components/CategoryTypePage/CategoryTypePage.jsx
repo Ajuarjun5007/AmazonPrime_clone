@@ -3,7 +3,7 @@ import { useState, useEffect} from "react";
 import TopCarousel from "../LandingPageSignIn/TopCarousel/TopCarousel";
 import { useLocation } from "react-router-dom";
 import { categories } from "../CategoryConstants";
-
+import Loader from "../Loader"
 import "./CategoryTypePage.css";
 import { CarouselComponent } from "../Carousel/Carousel";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
@@ -20,6 +20,8 @@ function CategoryTypePage() {
   const [moviesInfo, setMoviesInfo] = useState([]);
   const [categoryMovieInfo, setCategoryMovieInfo] = useState({});
   const [RentalPage,setRentalPage] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -49,12 +51,14 @@ function CategoryTypePage() {
         });
         setCategoryMovieInfo(itemsByKeyword);
 
+        setLoading(false);
 
         setMoviesInfo(filteredMovieList);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
+    setLoading(true);
     fetchData();
     if(type== "documentary" || type == "trailer"){
       setRentalPage(true);
@@ -66,15 +70,28 @@ function CategoryTypePage() {
     <>
       <div style={{ backgroundColor: "#00050d", paddingBottom: "300px" }}>
         {!RentalPage &&
-        <div className="categorytypeheader">{typeHeader}</div>
+          <div className="categorytypeheader">{typeHeader}</div>
         }
-        <TopCarousel moviesInfo={moviesInfo} />
 
-        {Object.keys(categoryMovieInfo).map((keyword) => {
-          const moviesInfo = categoryMovieInfo[keyword];
-          return <CarouselComponent moviesInfo={moviesInfo} type={keyword} />;
-        })}
+{loading ? (
+          <Loader loading={loading}/>
+        ) : (
+          <>
+          <TopCarousel moviesInfo={moviesInfo} />
+
+          {Object.keys(categoryMovieInfo).map((keyword) => {
+            const moviesInfo = categoryMovieInfo[keyword];
+            return <CarouselComponent moviesInfo={moviesInfo} type={keyword} />;
+          })}
+          </>
+        )
+        }
+      
       </div>
+
+
+
+
       <FooterForSignIn style={{ backgroundColor: "#00050d" }} />
     </>
   );

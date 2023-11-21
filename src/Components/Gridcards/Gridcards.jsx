@@ -14,10 +14,10 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./Gridcards.css"
 
-function Gridcards(){
+function Gridcards(props){
  
   
-  // const {cardsInfo} = props;
+  const {cardsInfo} = props;
 
   const movieContext = useContext(MovieContext);
 
@@ -33,7 +33,15 @@ function Gridcards(){
       })
     }
    const location = useLocation();
-   const cardsInfo =location.state.data;
+   console.log("location",location);
+  let searchResult=[];
+   if(location.pathname!=="/SearchPage"){
+      searchResult=location.state.data;
+   }else{
+      searchResult = cardsInfo;
+   }
+   console
+  //  const cardsInfo =location.state.data;
 
 
   return(
@@ -42,7 +50,7 @@ function Gridcards(){
    paddingBottom:"200px"} }>
    <div className="gridcards-container">
         {
-        cardsInfo
+        searchResult
             // .filter((item)=> item.type===`${type}`)
             // .slice(0,20)
             .map((item,index) => (

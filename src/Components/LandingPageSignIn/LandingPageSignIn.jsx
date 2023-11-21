@@ -6,7 +6,6 @@ import { movieList } from "../ApiFetch";
 import { GoHome } from "react-icons/go";
 import { useLocation } from "react-router-dom";
 import Loader from "../Loader"
-import Demo  from "../Demo"
 import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 import { Link } from "react-router-dom";
 import "./LandingPageSignIn.css";
