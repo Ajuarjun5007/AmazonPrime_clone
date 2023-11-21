@@ -49,7 +49,7 @@ function PrimeBenefits() {
 
 <div style={{backgroundColor:"#00050d"}}>
 
-    <Carousel
+    {/* <Carousel
           responsive={responsive}
           showDots={true}
           partialVisible={true}
@@ -59,7 +59,6 @@ function PrimeBenefits() {
           infinite={true}
           autoPlaySpeed={3000}
         >
-          {/* item-1 */}
           
               
               <div className="pm-items">
@@ -74,7 +73,6 @@ function PrimeBenefits() {
                  alt="prime-top-carousel-image" />
               </div>
             
-        {/* item 2 */}
 
         <div className="pm-items">
                 <div className="pm-poster-content ">
@@ -90,7 +88,6 @@ function PrimeBenefits() {
                  alt="prime-top-carousel-image" />
               </div>
 
-                {/* item 3 */}
 
         <div className="pm-items">
                 <div className="pm-poster-content ">
@@ -106,7 +103,6 @@ function PrimeBenefits() {
                  alt="prime-top-carousel-image" />
               </div>
 
-              {/* item 4 */}
 
         <div className="pm-items">
                 <div className="pm-poster-content ">
@@ -122,7 +118,6 @@ function PrimeBenefits() {
                  alt="prime-top-carousel-image" />
               </div>
 
-              {/* item 5 */}
 
         <div className="pm-items">
                 <div className="pm-poster-content ">
@@ -138,7 +133,7 @@ function PrimeBenefits() {
                  alt="prime-top-carousel-image" />
               </div>
 
-        </Carousel>
+        </Carousel> */}
 
     
     <div class="Prime-ben">

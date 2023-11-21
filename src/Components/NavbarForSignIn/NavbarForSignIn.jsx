@@ -378,7 +378,7 @@ function NavbarforSignIn() {
                       />
                       <div className="user-name">{userName}</div>
                     </div>
-                    <Link to="/ManageProfilePage">
+                    <Link to="/comingsoon">
                       <button className="manage-btn">Manage Profile</button>
                     </Link>
                   </div>
@@ -393,7 +393,7 @@ function NavbarforSignIn() {
                     <p>Help</p>
                   </NavLink>
 
-                  <NavLink to="comingsoon">
+                  <NavLink to="https://www.primevideo.com/region/eu/splash/watchAnywhere/">
                     <p>Watch Anywhere</p>
                   </NavLink>
                 </div>

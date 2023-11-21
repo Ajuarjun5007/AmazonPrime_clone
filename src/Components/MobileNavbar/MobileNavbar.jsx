@@ -5,16 +5,22 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { BiSearch } from "react-icons/bi";
 import { GoHome } from "react-icons/go";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { movieTitles } from "../commons/movieList";
 
-function MobileNavbar( { handleMobileNavbar } ) {
-  
+function MobileNavbar({ handleMobileNavbar }) {
   const [arrowRotate, setArrowRotate] = useState(false);
   const [searchDisplay, setSearchDisplay] = useState(false);
   const [userState, setUserState] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const [movieResult, setMovieResult] = useState([]);
 
@@ -22,7 +28,6 @@ function MobileNavbar( { handleMobileNavbar } ) {
     setIsOpen((prevIsopen) => !prevIsopen);
     setArrowRotate(false);
     setUserState(false);
-
   };
 
   const arrowHandler = () => {
@@ -31,18 +36,20 @@ function MobileNavbar( { handleMobileNavbar } ) {
     setIsOpen(false);
   };
 
-  const userHandler = () =>{
+  const userHandler = () => {
     setUserState(!userState);
     setArrowRotate(false);
     setIsOpen(false);
-
-  }
+  };
   const searchMovie = (event) => {
     const input = event.target.value;
     if (input.length === 2) {
-    const result =  movieTitles.filter((movieTitle)=>movieTitle.toLowerCase().includes(input.toLowerCase()))
-    .slice(0,10);
-      
+      const result = movieTitles
+        .filter((movieTitle) =>
+          movieTitle.toLowerCase().includes(input.toLowerCase())
+        )
+        .slice(0, 10);
+
       setMovieResult(result);
       console.log("rs", result);
     } else if (input.length == 0) {
@@ -53,20 +60,28 @@ function MobileNavbar( { handleMobileNavbar } ) {
   const clearValue = () => {
     setMovieResult([]);
     const inputField = document.querySelector(".search-input");
-    if (inputField.length>0) {
+    if (inputField.length > 0) {
       inputField.value = "";
     }
   };
   const handleItemClick = (itemName) => {
+    if(itemName==="Signout"){
+      localStorage.removeItem("userInfo");
+      localStorage.removeItem("user");
+      console.log("sign");
+    window.location.reload(false);
+
+    }
+    setUserState(false);
     setActiveItem(activeItem === itemName ? null : itemName);
   };
   let storedValue = [];
   const [userName, setUserName] = useState(" ");
   const [idLogged, setIdLogged] = useState(false);
-  console.log("ar", isOpen);
   handleMobileNavbar(arrowRotate);
   const [activeItem, setActiveItem] = useState(null);
 
+  console.log("islogegedIn",isLoggedIn);
   return (
     <>
       <div
@@ -75,7 +90,7 @@ function MobileNavbar( { handleMobileNavbar } ) {
       >
         <div
           className="mb-menu-container"
-          style={{ background:arrowRotate? "#191e25" : "initial" }}
+          style={{ background: arrowRotate ? "#191e25" : "initial" }}
           onClick={arrowHandler}
         >
           <p>Menu</p>
@@ -86,13 +101,11 @@ function MobileNavbar( { handleMobileNavbar } ) {
           {/* MENU BAR CONTAINER */}
         </div>
 
-        {/* {arrowRotate && (
-          
-        )} */}
+        
 
-          <Link to={"/"}>
-        <div className="mb-prime-container">prime video</div>
-          </Link>
+        <Link to={"/"}>
+          <div className="mb-prime-container">prime video</div>
+        </Link>
         {/* SEARCH CONTAINER */}
 
         <div className="mb-search-container">
@@ -142,43 +155,109 @@ function MobileNavbar( { handleMobileNavbar } ) {
               ))}
             </div>
           </div>
-{/* User  */}
-          <div 
-          className="mb-user-logo"
-          style={{ background: userState? "#191e25" : "initial" }}
+          {/* User  */}
+
+          <div
+            className="mb-user-logo"
+            style={{ background: userState ? "#191e25" : "initial" }}
           >
             <img
-          onClick={userHandler}
+              onClick={userHandler}
               src="https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
               alt=""
             />
-            {
-              userState &&
-              <div className="mb-user-container">
-           <Link to='SignIn'>  
-              <p
-                onClick={() => handleItemClick("SignIn")}
-                className={`mb-user-container-item ${activeItem === "SignIn" ? "white-background" : ""}`}
+            {userState
+            && isLoggedIn &&
+              <div className="mb-user-logout-container">
+                <Link to="/">
+                  <p
+                    onClick={() => handleItemClick("Signout")}
+                    className={`mb-user-container-item ${
+                      activeItem === "Signout" ? "white-background" : ""
+                    }`}
+                  >
+                    Sign out
+                  </p>
+                </Link>
+                <p
+                  onClick={() => handleItemClick("Help")}
+                  className={`mb-user-container-item ${
+                    activeItem === "Help" ? "white-background" : ""
+                  }`}
+                >
+                  Help
+                </p>
+
+
+                <Link to="https://www.primevideo.com/region/eu/splash/watchAnywhere/">
+                <p
+                  onClick={() => handleItemClick("WatchAnywhere")}
+                  className={`mb-user-container-item ${
+                    activeItem === "WatchAnywhere" ? "white-background" : ""
+                  }`}
+                >
+                  Watch Anywhere
+                </p>
+                </Link>
+
+                <Link/>
+                <Link to="/PrimeBenefits">
+                <p
+                  onClick={() => handleItemClick("Prime Benefits")}
+                  className={`mb-user-container-item ${
+                    activeItem === "Prime Benefits" ? "white-background" : ""
+                  }`}
+                  >
+                  Prime benefits
+                </p>
+                  </Link>
+                <p
+                  onClick={() => handleItemClick("Manage Profile")}
+                  className={`mb-user-container-item ${
+                    activeItem === "Manage Profile" ? "white-background" : ""
+                  }`}
+                >
+                  Manage Profile
+                </p>
+              </div>
+}
+      {userState
+            && !isLoggedIn &&
+              <div className="mb-user-login-container"
+              // style={{zIndex:"2"}}
               >
-                Sign In
-              </p>
-              </Link>
-              <p
-                onClick={() => handleItemClick("Help")}
-                className={`mb-user-container-item ${activeItem === "Help" ? "white-background" : ""}`}
-              >
-                Help
-              </p>
-              <p
-                onClick={() => handleItemClick("WatchAnywhere")}
-                className={`mb-user-container-item ${activeItem === "WatchAnywhere" ? "white-background" : ""}`}
-              >
-                Watch Anywhere
-              </p>
-            </div>
-            }
+                <Link to="SignIn">
+                  <p
+                    onClick={() => handleItemClick("SignIn")}
+                    className={`mb-user-container-item ${
+                      activeItem === "SignIn" ? "white-background" : ""
+                    }`}
+                  >
+                    Sign In
+                  </p>
+                </Link>
+                <p
+                  onClick={() => handleItemClick("Help")}
+                  className={`mb-user-container-item ${
+                    activeItem === "Help" ? "white-background" : ""
+                  }`}
+                >
+                  Help
+                </p>
+                <Link to="https://www.primevideo.com/region/eu/splash/watchAnywhere/">
+                <p
+                  onClick={() => handleItemClick("WatchAnywhere")}
+                  className={`mb-user-container-item ${
+                    activeItem === "WatchAnywhere" ? "white-background" : ""
+                  }`}
+                >
+                  Watch Anywhere
+                </p>
+                </Link>
+              </div>
+             } 
           </div>
-        </div> 
+        </div>
       </div>
     </>
   );

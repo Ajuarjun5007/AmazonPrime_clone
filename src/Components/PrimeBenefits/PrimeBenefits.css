@@ -1,11 +1,14 @@
 .Prime-ben{
     background-color:#00050d;
+    /* width: max-content; */
+    padding-bottom: 250px;
 }
 .Prime-Shipping-benefits-header,
 .Amazon-pay-header,
 .prime-music-header,
 .prime-reading-header,
 .prime-video-header{
+    /* padding-top: 10px; */
     margin-left: 72px;
     color: #fff;
     font-size: 21px;
@@ -17,6 +20,7 @@
 .prime-music-container,
 .prime-reading-container
 {
+    width: max-content;
     display: flex;
     gap: 25px;
     padding: 20px 72px;
@@ -32,7 +36,6 @@
     height: 172px;
     width: 288px;
   cursor: pointer;
-
 }
 img{
     height: inherit;
@@ -79,4 +82,79 @@ img{
 }
 .pm-button:hover{
     transform: scale(1.05);
+}
+
+@media screen and (max-width:1280px) {
+    
+}
+
+@media screen and (max-width:540px){
+    .Prime-ben {
+        background-color: #00050d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+.Prime-Shipping-benefits-header,
+.Amazon-pay-header,
+.prime-music-header,
+.prime-reading-header,
+.prime-video-header{
+padding-top: 20px;
+margin-left: 30px;
+}
+.Prime-Shipping-benefits-container,
+.Amazon-pay-container,
+.prime-music-container,
+.prime-reading-container,.prime-video-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    flex-wrap: wrap;
+}
+.prime-benefits-card{
+    height: 172px;
+    width: 258px;
+  cursor: pointer;
+}
+}
+
+
+@media screen and (max-width:360px){
+
+    .Prime-ben {
+        background-color: #00050d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Prime-Shipping-benefits-header,
+.Amazon-pay-header,
+.prime-music-header,
+.prime-reading-header,
+.prime-video-header{
+padding-top: 20px;
+margin-left: 30px;
+}
+.Prime-Shipping-benefits-container,
+.Amazon-pay-container,
+.prime-music-container,
+.prime-reading-container,.prime-video-container{
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.prime-benefits-card{
+    height: 172px;
+    width: 228px;
+  cursor: pointer;
+}
 }

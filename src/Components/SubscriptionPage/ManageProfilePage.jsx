@@ -2,19 +2,14 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./ManageProfilePage.css";
+import { Link } from "react-router-dom";
 import {addProfileImage,updateUser} from "./UpdateProfileImageService"
 import FooterForSignOut from "../../Components/LandingPageSignout/FooterForSIgnOut/FooterForSIgnOut"
-function ManageProfilePage(props){
+function ManageProfilePage(){
 
-  const location = useLocation();
 
-  const { NavBarControl } = props;
-  useEffect(() => {
-    NavBarControl(location.pathname);
-  }, []);
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log("user",user);
-  const defaultUrl = user.profileImage !== "" ? user.profileImage : "https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
+ const defaultUrl = user.profileImage !== "" ? user.profileImage : "https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png"
 const [profileImage,setProfileImage] = useState();
 const [profileUrl,setProfileUrl] = useState(defaultUrl);
 
@@ -59,7 +54,6 @@ const profileImageHandler =async () => {
     setProfileImage(selectedFile);
     }
 }
-console.log("img",profileImage);
 
     return(
     <>
@@ -67,9 +61,11 @@ console.log("img",profileImage);
  
  {/* Manage Profile header  */ }    
         <div className="manage-profile-container-header">
+          <Link to={"/"}>
             <span>  
             prime video
             </span>
+          </Link>
         </div>
 
         {/* Manage-profile-content */}

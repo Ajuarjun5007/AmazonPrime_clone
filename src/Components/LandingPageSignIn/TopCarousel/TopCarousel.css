@@ -109,10 +109,9 @@ background: transparent!important;
   background-color: #00050d;
   color: rgb(240,240,240);
   border-radius: 8px;
-  transition: 0.3s transform ease-in;
+  transition: 0.7s transform ease-in;
 }
 .free-trial-content:hover{
-  transform: scale(1.1);
   color: #00050d;
   background-color: rgb(240,240,240);
 }
