@@ -222,8 +222,8 @@ const SignIn = () => {
                 )
               }
               target="_blank"
-              to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=200534380"
-            >
+     to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=200534380"
+   >
               Terms and Privacy Notice
             </Link>
             <Link

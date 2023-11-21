@@ -8,12 +8,13 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BiCheck } from "react-icons/bi";
 import { BiInfoCircle } from "react-icons/bi";
+
 // import { movieList } from "../../ApiFetch";
 import { addtoWatchlist, getWatchlist } from "../../WatchList/WatchlistService";
 
 import { Link } from "react-router-dom";
 import "animate.css";
-
+import image_default from "../../../assets/TopCarouselDefaultImages/topcarousel_Default_1.webp"
 function TopCarousel(props) {
   const { moviesInfo } = props;
 
@@ -169,7 +170,7 @@ function TopCarousel(props) {
                   </div>
 
                   <img
-                    src={item.thumbnail}
+                    src={image_default}
                     // src={"https://i.pinimg.com/originals/17/c5/6b/17c56b759c8b2e9a95cfcd70e9878b72.jpg"}
 
                     alt=""

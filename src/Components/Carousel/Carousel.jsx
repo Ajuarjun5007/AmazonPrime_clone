@@ -103,8 +103,9 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
           to={{
             pathname: `/videodetails/${item._id}`,
           }}
+          onClick={()=>{console.log("clicked")}}
          >
-          <img
+          <img 
            src={item.thumbnail} alt="" className="image-item" 
            />
           </Link>

@@ -62,7 +62,7 @@
     border-radius: 8px;
     object-fit:cover;
     object-position:100%;
-    z-index: 1200;
+    z-index: 2;
     /* width:95%; */
   }
   .card-items:hover{
@@ -264,6 +264,49 @@
     top: 100px;
   }
 
+  @media  screen and (max-width:950px) {
+    .Carousel-header{
+      margin-top:20px;
+      padding-left:10px;
+      font-size: 16px;
+      gap:10px;
+    }
+    .see-more-container{
+      font-size: 16px;
+      .right-arrow{
+        font-size: 14px;
+        gap: 2px;
+        margin-top: 0px;
+        margin-left: 2px;
+      }
+    }
+    .cards-carousel{
+      padding-left:0px;
+    }
+    .image-item{
+      width: 240px;
+      height: 150px;
+    }
+  
+    .WatchList-header{
+      font-size:24px!important;
+      padding: 12px 20px!important;
+    }
+    .WatchList-btn-container{
+      padding: 12px 0px!important;
+      margin: 0px 12px!important;
+    }
+    .WatchList-filter-btn{
+      font-size: 16px!important;
+      margin: 5px!important;
+      padding: 8px 8px!important;
+      border-radius: 4px!important;
+      min-height: unset!important;
+    }
+    .watchList-cards{
+      justify-content: center;
+    }
+  }
 @media  screen and (max-width:540px) {
   .Carousel-header{
     margin-top:20px;
@@ -286,15 +329,9 @@
   .image-item{
     width: 160px;
     height: 120px;
+    z-index: unset!important;
   }
-  /* .card-items:hover{
-    .card-details{
-      display: unset;
-    }
-    .image-item{
-      border: unset;
-    }
-  } */
+
   .WatchList-header{
     font-size:24px!important;
     padding: 12px 20px!important;
@@ -315,19 +352,9 @@
   }
 }
 @media  screen and (max-width:360px) {
-  .card-items{
-    display: unset!important;
-    display: flex!important;
-  }
-  .carousel-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
   .Carousel-header{
-    margin-top: 20px;
-    padding-left: 10px;
+    margin-top:20px;
+    padding-left:10px;
     font-size: 16px;
     gap:10px;
   }
@@ -344,30 +371,14 @@
     padding-left:0px;
   }
   .image-item{
-    width: 135px;
+    width: 130px;
+    height: 100px;
+    z-index:unset!important;
   }
-  .card-items{
-    width: 80%;
-  }
-  /* .card-items:hover{
-    .card-details{
-      display: unset;
-    }
-    .image-item{
-      border: unset;
-    }
-  } */
-  .card-name{
-    /* display:flex!important; */
-    display: block;
-    margin-left:12px;
-    margin-top: 12px;
-    padding: 0px 24px;
-    width: max-content;
-  }
+
   .WatchList-header{
     font-size:24px!important;
-    padding: 12px 15px!important;
+    padding: 12px 20px!important;
   }
   .WatchList-btn-container{
     padding: 12px 0px!important;
@@ -375,9 +386,12 @@
   }
   .WatchList-filter-btn{
     font-size: 16px!important;
-    margin-right: 12px!important;
+    margin: 5px!important;
     padding: 8px 8px!important;
     border-radius: 4px!important;
     min-height: unset!important;
+  }
+  .watchList-cards{
+    justify-content: center;
   }
 }

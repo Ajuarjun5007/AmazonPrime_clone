@@ -3,7 +3,7 @@ import "./CategoryPage.css";
 import bluebg from "../../assets/categorypageAssets/bluebackground.webp";
 import card_1 from "../../assets/categorypageAssets/categorycard_1.webp";
 
-import {categories,types} from '../CategoryConstants'
+import {categories,types,categoryCards} from '../CategoryConstants'
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import NavbarforSignIn from "../NavbarForSignIn/NavbarForSignIn";
 import { Link } from "react-router-dom";
