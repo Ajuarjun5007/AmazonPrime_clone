@@ -49,7 +49,7 @@ function PrimeBenefits() {
 
 <div style={{backgroundColor:"#00050d"}}>
 
-    {/* <Carousel
+    <Carousel
           responsive={responsive}
           showDots={true}
           partialVisible={true}
@@ -58,6 +58,7 @@ function PrimeBenefits() {
           autoPlay={false}
           infinite={true}
           autoPlaySpeed={3000}
+          className="prime-benefits-carousel"
         >
           
               
@@ -133,7 +134,7 @@ function PrimeBenefits() {
                  alt="prime-top-carousel-image" />
               </div>
 
-        </Carousel> */}
+        </Carousel>
 
     
     <div class="Prime-ben">

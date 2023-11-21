@@ -48,7 +48,6 @@ function NavbarforSignIn() {
 
   const searchMovie = async (event) => {
     const input = event.target.value;
-    console.log("in", input);
 
     if (input.length === 2) {
       try {
@@ -57,7 +56,7 @@ function NavbarforSignIn() {
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
-    } else if (input.length === 0) {
+    } else if(input.length === 0) {
       setMovieResult([]);
     }
   };
@@ -66,10 +65,12 @@ function NavbarforSignIn() {
   const clearValue = () => {
     setMovieResult([]);
     const inputField = document.querySelector(".search-input");
+    console.log("input",inputField.value);
     if (inputField) {
       inputField.value = "";
     }
-  };
+    console.log("clear butn clicked");
+};
   // get data from local storage
   let storedValue = [];
   const [userName, setUserName] = useState(" ");

@@ -6,20 +6,6 @@ a{
     text-decoration: none;
     color: unset;
 }
-@media screen and (max-width:375px){
-    .menu-content{
-        padding-bottom:10px!important;
-        background-color: red;
-    }
-}
-@media screen and (max-width:414px){
-    .menu-content{
-        background-color: #aaa;
-        padding-bottom:440px!important;
-    }
-}
-
-
 @media screen and (max-width:879px){
 
     .mb-navbar-container{
@@ -96,8 +82,6 @@ a{
         font-size: 13px;
     }
     .mb-user-logo{
-        /* background-color: gray; */
-        /* border: 2px solid white; */
         padding: 7px 14px 7px 12px;
     }
     .mb-user-logo img{
@@ -119,10 +103,7 @@ a{
         font-weight: 900;
         padding: 20px 0px 10px 30px;
     }
-    /* .mb-user-container p{
-        background-color: white;
-        color: #00050d;
-    } */
+    
     .mb-search-container{
         display: flex;
         color: #aaa;
@@ -173,7 +154,7 @@ a{
     .search-bar-result{
         display: block;
         color: #fff;
-        z-index: 42;
+        z-index: 4;
     }
     .search-bar{
         display: flex;
@@ -304,3 +285,20 @@ a{
     }
 
 }
+
+@media screen and (max-width:414px){
+    .menu-content{
+        background-color: #aaa;
+        padding-bottom:440px!important;
+    }
+}
+
+@media screen and (max-width:375px){
+    .menu-content{
+        padding-bottom:10px!important;
+        background-color: red;
+    }
+}
+
+
+

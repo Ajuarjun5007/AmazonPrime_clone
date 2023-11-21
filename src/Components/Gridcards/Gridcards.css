@@ -24,6 +24,8 @@
 @media screen and (max-width:360px) {
     .gridcards-container{
         width:90%;
+        display: flex;
+        justify-content: center;
     }
     .card-items{
         display: flex;
@@ -46,6 +48,8 @@
 @media screen and (max-width:1024px) {
     .gridcards-container{
         width: 95%;
+        display: flex;
+        justify-content: center;
         margin-left: unset;
     }
     .card-items{

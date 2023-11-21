@@ -8,6 +8,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { movieTitles } from "../commons/movieList";
+import { searchSuggestionResults } from "../SearchPage/SearchPageService";
 
 function MobileNavbar({ handleMobileNavbar }) {
   const [arrowRotate, setArrowRotate] = useState(false);
@@ -41,29 +42,38 @@ function MobileNavbar({ handleMobileNavbar }) {
     setArrowRotate(false);
     setIsOpen(false);
   };
-  const searchMovie = (event) => {
+  // const searchMovie = (event) => {
+  //   const input = event.target.value;
+  //   if (input.length === 2) {
+  //     const result = movieTitles
+  //       .filter((movieTitle) =>
+  //         movieTitle.toLowerCase().includes(input.toLowerCase())
+  //       )
+  //       .slice(0, 10);
+
+  //     setMovieResult(result);
+  //     console.log("rs", result);
+  //   } else if (input.length == 0) {
+  //     setMovieResult([]);
+  //   }
+  // };
+
+  const searchMovie = async (event) => {
     const input = event.target.value;
     if (input.length === 2) {
-      const result = movieTitles
-        .filter((movieTitle) =>
-          movieTitle.toLowerCase().includes(input.toLowerCase())
-        )
-        .slice(0, 10);
-
-      setMovieResult(result);
-      console.log("rs", result);
-    } else if (input.length == 0) {
+      try {
+        const result = await searchSuggestionResults(input);
+        setMovieResult(result.data.slice(0, 40));
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
+      }
+    } else if (input.length === 0) {
       setMovieResult([]);
     }
   };
 
-  const clearValue = () => {
-    setMovieResult([]);
-    const inputField = document.querySelector(".search-input");
-    if (inputField.length > 0) {
-      inputField.value = "";
-    }
-  };
+  console.log("movieresult",movieResult);
+
   const handleItemClick = (itemName) => {
     if(itemName==="Signout"){
       localStorage.removeItem("userInfo");
@@ -82,6 +92,20 @@ function MobileNavbar({ handleMobileNavbar }) {
   const [activeItem, setActiveItem] = useState(null);
 
   console.log("islogegedIn",isLoggedIn);
+
+  const clearValue = () => {
+    setMovieResult([]);
+    const inputField = document.querySelector(".search-input");
+    console.log("input",inputField.value);
+    if (inputField) {
+      inputField.value = "";
+      console.log("mb-clear butn clicked");
+    }
+};
+  
+
+
+  // console.log("inputfield",document.querySelector(".search-input").value);
   return (
     <>
       <div
@@ -142,21 +166,21 @@ function MobileNavbar({ handleMobileNavbar }) {
               </div>
             </div>
             <div className="search-results">
-              {movieResult.map((item) => (
+              {movieResult.slice(0, 10).map((item) => (
                 <Link
                   to="/SearchPage"
-                  state={{ data: movieResult }}
+                  state={{ data: movieResult, result:item.title}}
                   style={{ color: "#fff" }}
+                  onClick={()=>setIsOpen(false)}
                 >
                   <div className="search-result">
-                    <p>{item}</p>
+                    <p>{item.title}</p>
                   </div>
                 </Link>
               ))}
             </div>
           </div>
           {/* User  */}
-
           <div
             className="mb-user-logo"
             style={{ background: userState ? "#191e25" : "initial" }}
