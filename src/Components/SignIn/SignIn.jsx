@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import "./SignIn.css";
-import { SiPrimevideo } from "react-icons/si";
-import logo from "../../assets/loginassets/primevideoLogo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LiaExclamationTriangleSolid } from "react-icons/lia";
-import { RxTriangleDown } from "react-icons/rx";
 import { IdAlert } from "./IdAlert";
 import { UserContext } from "./SignInProvider";
 import { login } from "./SigninService";
@@ -13,9 +9,7 @@ const PHONE_NUMBER_EXPRESSION =
   /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 const EMAIL_EXPRESSION =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
 const SignIn = () => {
-  const location = useLocation();
   const formRef = useRef();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
@@ -69,10 +63,8 @@ const SignIn = () => {
           idInfo.push(response.data.data);
           localStorage.setItem("userInfo", JSON.stringify(idInfo));
           localStorage.setItem("user", JSON.stringify(response.data.data));
-
           navigate("/");
           navigate(0);
-
         })
         .catch((error) => {
           console.log("err", error.response.data.message);
@@ -82,13 +74,11 @@ const SignIn = () => {
         });
     }
   };
-
   const resetLogin = ()=>{
     user.setUsername(undefined);
     user.setStatus(undefined);
     navigate("/Signin")
   }
-
   const [errorAlert, SetErrorAlert] = useState(false);
   const [loginFailed, setLoginFailed] = useState(undefined);
   console.log("errormsg",errorMessage);
@@ -96,17 +86,12 @@ const SignIn = () => {
   return (
     <>
     <div className="SignContainer-parent">
-      {/* prime logo */}
-
       <div className="primevideoblackIcon">
         <img
           src="https://m.media-amazon.com/images/G/01/digital/video/avod/AV_Logo_150._CB430404026_.png"
           alt="SignInimg"
         />
       </div>
-
-      {/* error alert */}
-
       {errorAlert && (
         <IdAlert
           isLoginSuccess={loginFailed}
@@ -257,7 +242,6 @@ const SignIn = () => {
         </div>
     </div>
     </>
-
   );
 };
 

@@ -42,21 +42,6 @@ function MobileNavbar({ handleMobileNavbar }) {
     setArrowRotate(false);
     setIsOpen(false);
   };
-  // const searchMovie = (event) => {
-  //   const input = event.target.value;
-  //   if (input.length === 2) {
-  //     const result = movieTitles
-  //       .filter((movieTitle) =>
-  //         movieTitle.toLowerCase().includes(input.toLowerCase())
-  //       )
-  //       .slice(0, 10);
-
-  //     setMovieResult(result);
-  //     console.log("rs", result);
-  //   } else if (input.length == 0) {
-  //     setMovieResult([]);
-  //   }
-  // };
 
   const searchMovie = async (event) => {
     const input = event.target.value;
@@ -102,10 +87,6 @@ function MobileNavbar({ handleMobileNavbar }) {
       console.log("mb-clear butn clicked");
     }
 };
-  
-
-
-  // console.log("inputfield",document.querySelector(".search-input").value);
   return (
     <>
       <div

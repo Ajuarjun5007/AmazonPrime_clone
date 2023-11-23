@@ -33,17 +33,13 @@ const MobileMenuContent = (handleMobileNavbar) => {
     <>
       <div className="menu-content" style={{ backgroundColor: "#191e25" }}>
         {/* HOME CONTENT */}
-
         <div className="home-content">
           <GoHome className="home-icon" />
           <Link to={"home"} onClick={menuDisplayHandler}>
           <span> Home</span>
           </Link>
         </div>
-
         {/* STORE CONTENT */}
-        
-
           <AccordionItem>
                       {({ open }) => (
                         <>
@@ -76,9 +72,6 @@ const MobileMenuContent = (handleMobileNavbar) => {
                         </>
                       )}
                     </AccordionItem>
-
-
-
         {/* LIVE TV CONTENT */}
         <Link to={"comingsoon"} onClick={menuDisplayHandler}>
         <div className="livetv-content">
@@ -86,12 +79,8 @@ const MobileMenuContent = (handleMobileNavbar) => {
           <span>Live TV</span>
         </div>
         </Link>
-
-
         {/* CATEGORIES CONTENT */}
-
         <div className="categories-content">
-          {/* ACCORDION */}
           <Accordion alwaysOpen={true}>
             <AccordionItem>
               {({ open }) => (
@@ -109,10 +98,8 @@ const MobileMenuContent = (handleMobileNavbar) => {
                       </div>
                     </div>
                   </AccordionHeader>
-
                   <AccordionBody>
                     {/* item 1 */}
-
                     <AccordionItem>
                       {({ open }) => (
                         <>
@@ -183,7 +170,9 @@ const MobileMenuContent = (handleMobileNavbar) => {
         {/* STUFF CONTENT */}
         <div className="stuff-content">
           <PiFolderPlusDuotone className="stuff-icon" />
+          <Link to="/Watchlist" onClick={menuDisplayHandler}>
           <span>My Stuff</span>
+          </Link>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SignIn from "./SignIn";
 export const UserContext = React.createContext(null);
 import { getWatchlist } from "../WatchList/WatchlistService";
-function SignInProvider(props) {
+function SignInProvider() {
 
   const [username, setUsername] = useState(undefined);
   const [status, setStatus] = useState(undefined);
@@ -32,7 +32,7 @@ function SignInProvider(props) {
   return (
     <>
       <UserContext.Provider value={context}>
-        <SignIn NavBarControl={props.NavBarControl}/>
+        <SignIn/>
       </UserContext.Provider>
     </>
   );

@@ -1,4 +1,6 @@
 import "./FooterForSignOut.css";
+import {Link} from "react-router-dom";
+
 function FooterForSignOut() {
   return (
     <>
@@ -12,22 +14,50 @@ function FooterForSignOut() {
       </div>
 
       <div className="footer-text">
-  <a href="https://www.primevideo.com/help/ref=atv_ftr_ter?nodeId=202064890" target="_blank">
+      <Link
+        className="footer-tag"
+         onClick={() =>
+                alert(
+                  "The Page your Re-Directing is not a source of prime video Clone."
+                )
+              }
+              target="_blank"
+     to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=200534380"
+   >
     <span>
     Terms and Privacy Notice
     </span>
-    </a>
-     <a href="https://example.com/feedback">
+    </Link>
+
+    <Link
+              className="footer-tag"
+              onClick={() =>
+                alert(
+                  "The Page your Re-Directing is not a source of prime video Clone."
+                )
+              }
+              target="_blank"
+              to="https://www.amazon.in/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&nodeId=200545940"
+            >
       <span>
     Send us feedback
       </span>
-    </a>
-  <a href="https://example.com/help">
+    </Link>
+  <Link
+      className="footer-tag"
+        onClick={() =>
+                alert(
+                  "The Page your Re-Directing is not a source of prime video Clone."
+                )
+        }
+              target="_blank"
+              to="https://www.amazon.in/help"
+            >
   <span>
     Help
 </span>
-    </a>
-</div>
+</Link>
+   </div>
 
       <div className="license">
         <p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
