@@ -1,5 +1,4 @@
 import "./MobileMenuContent.css";
-
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
@@ -11,21 +10,16 @@ import {PiFolderPlusDuotone} from "react-icons/pi"
 import { LuLayoutGrid } from "react-icons/lu";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
-
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
   AccordionItem,
 } from "react-headless-accordion";
-
 import { GoHome } from "react-icons/go";
-import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const MobileMenuContent = (handleMobileNavbar) => {
-
  const menuDisplayHandler=()=>{
     handleMobileNavbar(false);
   }
