@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import LandingPageSignout from "./Components/LandingPageSignout/LandingPageSignout.jsx";
+import CategorySelected from "./Components/CategorySelected/CategorySelected.jsx";
 import { WatchList } from "./Components/WatchList/WatchList";
 import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -19,6 +20,11 @@ import PaymentPage from "./Components/SubscriptionPage/PaymentPage";
 import FullVideo from "./Components/VideoInfo/FullVideo.jsx";
 import { Gridcards } from "./Components/Gridcards/Gridcards.jsx";
 import { MoviesProvider } from "./Components/LandingPageSignIn/MoviesProvider.jsx";
+import LandingPageSignIn from "./Components/LandingPageSignIn/LandingPageSignIn.jsx";
+import VideoInfo from "./Components/VideoInfo/VideoInfo.jsx";
+import SearchPage from "./Components/SearchPage/SearchPage.jsx";
+import CategoryTypePage from "./Components/CategoryTypePage/CategoryTypePage.jsx";
+
 function App() {
   const [isNavBarShow, SetIsNavBarShow] = useState(true);
 
@@ -65,6 +71,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPageSignout />} />
         <Route path="/home" element={<MoviesProvider type="home" />} />
+        {/* <Route path="/home" element={<LandingPageSignIn/>} /> */}
         <Route path="/SubscriptionPage" element={<SubscriptionPage />} />
         <Route path="/SubscriptionPage/PaymentPage" element={<PaymentPage />} />
         <Route path="/FullVideo/:id" element={<FullVideo />} />
@@ -72,10 +79,18 @@ function App() {
           path="/videodetails/:id"
           element={<MoviesProvider type="/videodetails/:id" />}
         />
+         {/* <Route
+          path="/videodetails/:id"
+          element={<VideoInfo/>}
+        /> */}
         <Route
           path="/CategorySelected"
           element={<MoviesProvider type="categorySelected" />}
         />
+         {/* <Route
+          path="/CategorySelected"
+          element={<CategorySelected/>}
+        /> */}
         <Route path="/ManageProfilePage" element={<ManageProfilePage />} />
         <Route path="/Gridcards" element={<Gridcards />} />
         <Route path="/SignIn" element={<SignInProvider />} />
@@ -83,15 +98,25 @@ function App() {
           path="/SearchPage"
           element={<MoviesProvider type="SearchPage" />}
         />
+         {/* <Route
+          path="/SearchPage"
+          element={<SearchPage/>}
+        /> */}
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/comingsoon" element={<ComingSoon />} />
         <Route path="/PrimeBenefits" element={<PrimeBenefits />} />
-        <Route path="/Watchlist" element={<WatchList/>} />
+        <Route path="/Watchlist" element={<WatchList />} />
         <Route path="/categorypage" element={<CategoryPage />} />
         <Route
           path="/categorytypepage"
           element={<MoviesProvider type="categorytypepage" />}
         />
+          {/* <Route
+          path="/categorytypepage"
+          element={
+          <CategoryTypePage/>
+          }
+        /> */}
         <Route path="/WatchListAll" element={<WatchListAll />} />
       </Routes>
     </>

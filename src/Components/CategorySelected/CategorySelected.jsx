@@ -9,7 +9,6 @@ import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 function CategorySelected() {
 
   const { search } = useLocation();
-  console.log("search",search);
   const params = new URLSearchParams(search);
   const key = params.get("key");
   const value = params.get("value");
@@ -27,7 +26,6 @@ function CategorySelected() {
           (movie) =>movie.type == type.toLowerCase()
         );
       });
-      console.log("groups",groups);
       setResultData(groups);
     });
   }, [value]);

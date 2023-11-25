@@ -1,7 +1,5 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
-
+import React, {useState, useEffect, useContext } from "react";
 import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
-import { P, DefaultPlayer as Video } from "react-html5video";
 import "./VideoInfo.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
@@ -9,8 +7,6 @@ import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
-import { BiLike } from "react-icons/bi";
-import { BiDislike } from "react-icons/bi";
 import { PiConfettiBold } from "react-icons/pi";
 import { addtoWatchlist } from "../WatchList/WatchlistService";
 import { FiShare2 } from "react-icons/fi";
@@ -20,11 +16,10 @@ import { movieDetail } from "../ApiFetch";
 import FooterForSignIn from "../FooterforSignIn/FooterForSIgnIn";
 import ReactPlayer from "react-player";
 import { BiCheck } from "react-icons/bi";
-
 import { getDetailsByTypeOrCategory } from "../CategorySelected/CategorySelectedService";
 import { CarouselComponent } from "../Carousel/Carousel";
 
-function VideoInfo(props) {
+function VideoInfo() {
   const [showImage, setShowImage] = useState(true);
   const [showVideo, setShowVideo] = useState(false);
   const [movieInfo, setMovieInfo] = useState({});
@@ -33,20 +28,16 @@ function VideoInfo(props) {
   const navigate = useNavigate();
 
   const movieContext = useContext(MovieContext);
-
   const [fullVideoShow, setFullVideoShow] = useState(false);
-
   const [loaded, setLoaded] = useState(false);
-
-  // from csb
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setIsVideoLoaded(true);
   };
-  const location = useLocation();
   const [isLiked, setIsLiked] = useState(false);
   const [isDisLiked, setIsDisLiked] = useState(false);
   const [movieList, setMovieList] = useState([]);
+  
   function likeHandler() {
     setIsLiked(!isLiked);
     if (isDisLiked) {
@@ -135,16 +126,13 @@ function VideoInfo(props) {
       setMovieList(res.data.data);
     });
   };
-  // mute?unmute functionality
   const handleToggleMute = () => {
     setIsMuted((prevMuted) => !prevMuted);
   };
-  // handle video ended
   const handleVideoEnded = () => {
     setShowImage(true);
     setShowVideo(false);
   };
-  // set Full video
   const videoSizeHandler = () => {
     setFullVideoShow(true);
   };
@@ -251,7 +239,6 @@ function VideoInfo(props) {
                   <button className="grey-icon">
                     <FontAwesomeIcon
                       icon={faThumbsUp}
-                      //  style={{ color: isLiked ? "#000000" : "#fff" }}
                       className={`react-like-icon ${
                         isLiked ? "clicked" : "unclicked"
                       }`}
@@ -265,7 +252,6 @@ function VideoInfo(props) {
                   <button className="grey-icon">
                     <FontAwesomeIcon
                       icon={faThumbsDown}
-                      //  style={{ color: isDisLiked ? "#000000" : "#fff" }}
                       className={`react-like-icon ${
                         isDisLiked ? "clicked" : "unclicked"
                       }`}

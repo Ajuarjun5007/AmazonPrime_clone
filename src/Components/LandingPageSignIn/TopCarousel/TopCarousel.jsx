@@ -43,6 +43,7 @@ function TopCarousel(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [localWatchlist, setLocalWatchlist] = useState([]);
   const user = localStorage.getItem("userInfo");
+  
   useEffect(() => {
     getWatchlist().then((response) => {
       const watchListItems = response.data.data.shows;

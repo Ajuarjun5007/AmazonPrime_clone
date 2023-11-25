@@ -7,15 +7,18 @@ import { FiPlus } from "react-icons/fi";
 import { BiCheck } from "react-icons/bi";
 import {FaChevronRight} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
 import { addtoWatchlist,getWatchlist } from "../../WatchList/WatchlistService";
-import { useState,useEffect} from "react";
-// import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
+import { useState,useEffect,useContext} from "react";
+import { MovieContext } from "../MoviesProvider";
 
 function CardsCarousel({ moviesInfo, type }) {
+
+
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -39,7 +42,6 @@ function CardsCarousel({ moviesInfo, type }) {
   const [isWatchListClicked, setIsWatchListClicked] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
   const [watchListId,setWatchListId] = useState([]);
-  // const movieContext = useContext(MovieContext);
  
   useEffect(()=>{
     if(localStorage.getItem("userInfo")){
@@ -48,18 +50,15 @@ function CardsCarousel({ moviesInfo, type }) {
   },[])
 
 
-
   const addMovieToWatchList = (movie) => {
     if (localStorage.getItem("userInfo")) {
-      setIsItemAdded(!isItemAdded);
       setIsLoggedIn(true);
       addtoWatchlist(movie._id)
         .then((response) => {
           console.log("repo", response);
-          // setIsLoaded(false);
-          // movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
-          //   return item._id;
-          //  }))
+          movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
+            return item._id;
+           }))
         })
         .catch((err) => {
           console.log("error", err);
@@ -70,20 +69,22 @@ function CardsCarousel({ moviesInfo, type }) {
   };
 
   useEffect(()=>{ 
-    // if(!isLoaded){
     getWatchlist()
     .then(response=>{
        const watchListItems = response.data.data.shows;
        setWatchListId (watchListItems.map((item)=>{
         return item._id;
        }))
-       console.log("watchId",watchListId);
       
       })
 
-// }
-
 },[isItemAdded])
+
+
+const movieContext = useContext(MovieContext);
+
+console.log("mc",movieContext);
+
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
   return (
@@ -118,11 +119,6 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
               </div>
 
               <div id="play-control">
-              {/* <Link to={`/FullVideo/${item._id}`}>
-                <button id="play-btn">
-                  <BiSolidRightArrow id="play-btn-icon" />
-                </button>
-                </Link>                 */}
               { isLoggedIn ?(
                   <Link to={`/FullVideo/${item._id}`}>
                   <button id="play-btn">
@@ -141,9 +137,13 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
                     }}
                     id="watchlist-icon-button"
                   >
-                     {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                     {/* {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                    <FiPlus id="check-icon" />
+                  )} */}
+{movieContext?.userWatchList && movieContext?.userWatchList.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
                   )}
+
                   </button>
                   <span className="watchlist-tooltip">Watchlist</span>
                   <Link to={`/videodetails/${item._id}`}>

@@ -3,9 +3,7 @@
 
 
 .Signoutposter-1{
-    /* width: 100%; */
     position: relative;
-    /* z-index: 2; */
 }
 .Signoutposter-1 img{
     width: 100%;
@@ -16,7 +14,6 @@
 }
 .Signoutposter-2{
     width: 100%;
-    /* height: 500px; */
     position: relative;
 }
 .Signoutposter-2 img{
@@ -33,7 +30,6 @@
     position:absolute;
     left: 5%;
     width: 40%;
-    /* letter-spacing: 2px; */
     margin-top: -40%;
     color:#fff;
     background-color: transparent;
@@ -41,7 +37,6 @@
 
 } 
  .Ad-1 p{
-    /* position:absolute; */
     font-size: 21px;
     background-color: transparent;
     margin:20px 0px ;
@@ -62,12 +57,10 @@
  .Ad-2 p{
     padding-left:3px ;
     margin:20px 0px ;
-    
  }
 
 
 .heading-1 ,.heading-2{
-    /* position:absolute; */
     letter-spacing: 3px;
     line-height:3.1rem;
     background-color: transparent;
@@ -78,7 +71,6 @@
     font-size: 38px;
 }
  .Ad-1 button,.Ad-2 button{
-    /* position:absolute; */
     padding: 14px 20px;
     width: 280px;
     /* height: 60px; */
@@ -135,7 +127,6 @@
 }
 
 .gridcontainer{
-    /* right: 30px; */
     display: flex;
     justify-content: center;
     width:50%;
@@ -235,18 +226,15 @@
     left: 9%;
     width: 40%;
     letter-spacing: 2px;
-    /* margin-top: -44%; */
     color:#fff;
     background-color: transparent;
 } 
  .Ad-4 p{
-    /* position:absolute; */
     font-size: 19px;
     background-color: transparent;
     padding-bottom: 30px;
 }
 .heading-4{
-    /* position:absolute; */
     display: flex;
     padding: 30px 0px;
      width:100%;
@@ -259,7 +247,6 @@
     background-color: transparent;
 }
  .Ad-4 button{
-    /* position:absolute; */
     padding: 14px 20px;
     width: 280px;
     background-color: #0f79af;
@@ -272,12 +259,7 @@
     border: none;
     border-radius: 3px;
 } 
-
-
-
 @media screen and (max-width:605px){
-   
-
 .container-1{
     display: flex;
     flex-direction: column;
@@ -299,7 +281,6 @@
     align-items: center;
     justify-content: center;
     padding: 10px 0px 50px 0px;
-
 }
 .Ad-1 p{
     padding: 10px 0px 0px 20px;
@@ -416,12 +397,8 @@
  font-size: 14px;
 }
 }
-
-
 @media screen and (min-width:606px) and (max-width:1280px){
-    .secondDiv{
-        /* flex-direction: column; */
-    }
+    
     .gridcontainer{
         width: 70%;
     }
