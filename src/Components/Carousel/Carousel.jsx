@@ -11,7 +11,6 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
 import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
-
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
   const movieContext = useContext(MovieContext);
@@ -47,7 +46,6 @@ const CarouselComponent= (props) => {
 
   const [isItemAdded,setIsItemAdded] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
-  
   useEffect(()=>{
     if(localStorage.getItem("userInfo")){
       setIsLoggedIn(true);
@@ -74,9 +72,11 @@ const CarouselComponent= (props) => {
     }
   };
   
-console.log("mc",movieContext);
+console.log("log",isLoggedIn);
 
 
+
+const filteredMovies = moviesInfo.filter((item) => item.type === type);
 
   return (
     < div className="carousel-container">
@@ -89,7 +89,6 @@ console.log("mc",movieContext);
     <Carousel
       className="cards-carousel"
       responsive={responsive}
-      // showDots={true}
       centerMode={true}
       renderButtonGroupOutside={true}
     >

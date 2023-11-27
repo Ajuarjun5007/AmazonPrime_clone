@@ -2,13 +2,13 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import "./TopCarousel.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { BiCheck } from "react-icons/bi";
 import { BiInfoCircle } from "react-icons/bi";
-
+import { MovieContext } from "../MoviesProvider";
 // import { movieList } from "../../ApiFetch";
 import { addtoWatchlist, getWatchlist } from "../../WatchList/WatchlistService";
 
@@ -42,8 +42,8 @@ function TopCarousel(props) {
   const [isItemAdded, setIsItemAdded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [localWatchlist, setLocalWatchlist] = useState([]);
-  const user = localStorage.getItem("userInfo");
-  
+  const movieContext = useContext(MovieContext);
+
   useEffect(() => {
     getWatchlist().then((response) => {
       const watchListItems = response.data.data.shows;
@@ -53,39 +53,36 @@ function TopCarousel(props) {
         })
       );
       
-      if(localStorage.getItem("userInfo")){
-        setIsLoggedIn(true);
-      }
+     
     });
-  }, [user]);
+  }, [isItemAdded]);
 
+  useEffect(()=>{
+    if(localStorage.getItem("userInfo")){
+      setIsLoggedIn(true);
+    }
+  },[])
 
-  const addMovieToWatchList = (movie, event) => {
+  const addMovieToWatchList = (movie,event) => {
     event.preventDefault();
     if (localStorage.getItem("userInfo")) {
       setIsItemAdded(!isItemAdded);
-      const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
-      if (localWatchlist.includes(movie._id)) {
-        setLocalWatchlist((prevWatchlist) =>
-          prevWatchlist.filter((id) => id !== movie._id)
-        );
-      }else{
-        setLocalWatchlist((prevWatchlist)=>[...prevWatchlist, movie._id]);
-      }
-
-      addtoWatchlist(movie._id)
+      setIsLoggedIn(true);
+        addtoWatchlist(movie._id)
         .then((response) => {
+          movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
+              return item._id;
+             }))
         })
         .catch((err) => {
           console.log("error", err);
         });
-
-
     } else {
+      setIsLoggedIn(false);
       navigate("/SignIn");
     }
   };
+  
 
 
   return (
@@ -145,11 +142,14 @@ function TopCarousel(props) {
                             }}
                             className="watchList poster-icons-button"
                           >
-                            {localWatchlist && localWatchlist.includes(item._id) ? (
+                            {/* {localWatchlist && localWatchlist.includes(item._id) ? (
                               <BiCheck className="plus" />
                             ) : (
                               <FiPlus className="plus" />
-                            )}
+                            )} */}
+      {movieContext?.userWatchList && movieContext?.userWatchList.includes(item._id)?(<BiCheck className="plus"/>):(
+                    <FiPlus className="plus" />
+                  )}
                           </button>
                           <span className="poster-watchlist-tooltip">
                             Watchlist

@@ -35,13 +35,14 @@ function Gridcards(props){
    const location = useLocation();
    console.log("location",location);
   let searchResult=[];
+
+
+  
    if(location.pathname!=="/SearchPage"){
       searchResult=location.state.data;
    }else{
       searchResult = cardsInfo;
    }
-   console
-  //  const cardsInfo =location.state.data;
 
 
   return(

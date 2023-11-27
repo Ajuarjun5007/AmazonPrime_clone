@@ -60,6 +60,7 @@ function VideoInfo() {
         .then((response) => {
           movieContext.setUserWatchList(
             response.data.data.shows.map((item) => {
+              console.log("watchListaddedItem",item._id);
               return item._id;
             })
           );

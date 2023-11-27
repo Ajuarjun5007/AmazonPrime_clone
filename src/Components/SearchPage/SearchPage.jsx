@@ -15,6 +15,16 @@ function SearchPage() {
   const [GenreDisplay,setGenreDisplay] = useState("Genre");
   const [TypeDisplay,setTypeDisplay] = useState("Content type");
 
+  // useEffect(()=>{
+    // window.location.reload(false);
+
+  // },[])
+
+const [hasReloaded, setHasReloaded] = useState(false);
+
+
+
+
   const movieList = location.state.data;
 
   function dataFetchByGenre(category){

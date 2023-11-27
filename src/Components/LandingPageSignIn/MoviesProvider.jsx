@@ -31,7 +31,7 @@ function MoviesProvider(props) {
   const RenderComponent = ()=> {
     if(props.type==="home") {
        return  <MovieContext.Provider value={context}>
-        <LandingPageSignIn NavBarControl={props.NavBarControl}/>
+        <LandingPageSignIn />
       </MovieContext.Provider> } 
       else if(props.type==="categorySelected"){
         return   <MovieContext.Provider value={context}>

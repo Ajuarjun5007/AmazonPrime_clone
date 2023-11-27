@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import "./LandingPageSignIn.css";
 
 function LandingPageSignIn() {
-
+  const movieContext = useContext(MovieContext);
   const typeArray = [
     "video song",
     "web series",
@@ -37,14 +37,12 @@ function LandingPageSignIn() {
       }
     };
     setLoading(true);
-    // fetchData();
+    fetchData();
   }, []);
-
 
   return (
     <div style={{ backgroundColor: "#00050d" }}>
       <div className="carousels-container" style={{ paddingBottom: "300px" }}>
-     
         <div className="mb-home-options">
           <div className="home-icon-container">
             <Link to="/home">
@@ -64,11 +62,13 @@ function LandingPageSignIn() {
         </div>
 
         {loading ? (
+          // <div style={{color:"#fff"}}>Loading...</div>
           <Loader loading={loading}/>
+            // <Demo/>
         ) : (
           <>
-            {/* <TopCarousel moviesInfo={moviesInfo} /> */}
-            {/* {moviesInfo
+            <TopCarousel moviesInfo={moviesInfo} />
+            {moviesInfo
               ? typeArray.map((type) => {
                   return (
                     <CardsCarousel
@@ -78,7 +78,7 @@ function LandingPageSignIn() {
                     />
                   );
                 })
-              : console.log("no data")} */}
+              : console.log("no data")}
           </>
         )}
       </div>

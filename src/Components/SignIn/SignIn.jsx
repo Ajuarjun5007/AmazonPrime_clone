@@ -12,6 +12,8 @@ const EMAIL_EXPRESSION =
 const SignIn = () => {
   const formRef = useRef();
   const { search } = useLocation();
+  const location = useLocation();
+  console.log("loc",location.pathname.split("/")[1]);
   const params = new URLSearchParams(search);
   const key = params.get("status");
   const user = useContext(UserContext);

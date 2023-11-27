@@ -12,8 +12,8 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
 import { addtoWatchlist,getWatchlist } from "../../WatchList/WatchlistService";
-import { useState,useEffect,useContext} from "react";
-import { MovieContext } from "../MoviesProvider";
+import { useState,useEffect} from "react";
+// import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
 
 function CardsCarousel({ moviesInfo, type }) {
   const responsive = {
@@ -39,7 +39,7 @@ function CardsCarousel({ moviesInfo, type }) {
   const [isWatchListClicked, setIsWatchListClicked] = useState(false);
   const[isLoggedIn,setIsLoggedIn] = useState(false);
   const [watchListId,setWatchListId] = useState([]);
-  const movieContext = useContext(MovieContext);
+  // const movieContext = useContext(MovieContext);
  
   useEffect(()=>{
     if(localStorage.getItem("userInfo")){
@@ -55,10 +55,11 @@ function CardsCarousel({ moviesInfo, type }) {
       setIsLoggedIn(true);
       addtoWatchlist(movie._id)
         .then((response) => {
+          console.log("repo", response);
           // setIsLoaded(false);
-          movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
-            return item._id;
-           }))
+          // movieContext.setUserWatchList(response.data.data.shows.map((item)=>{
+          //   return item._id;
+          //  }))
         })
         .catch((err) => {
           console.log("error", err);
@@ -68,22 +69,21 @@ function CardsCarousel({ moviesInfo, type }) {
     }
   };
 
-//   useEffect(()=>{ 
-//     // if(!isLoaded){
-//     getWatchlist()
-//     .then(response=>{
-//       console.log("response",response.data.data);
-//        const watchListItems = response.data.data.shows;
-//        setWatchListId (watchListItems.map((item)=>{
-//         return item._id;
-//        }))
-//        console.log("watchId",watchListId);
+  useEffect(()=>{ 
+    // if(!isLoaded){
+    getWatchlist()
+    .then(response=>{
+       const watchListItems = response.data.data.shows;
+       setWatchListId (watchListItems.map((item)=>{
+        return item._id;
+       }))
+       console.log("watchId",watchListId);
       
-//       })
+      })
 
-// // }
+// }
 
-// },[isItemAdded])
+},[isItemAdded])
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
   return (
@@ -141,10 +141,7 @@ const filteredMovies = moviesInfo.filter((item) => item.type === type);
                     }}
                     id="watchlist-icon-button"
                   >
-                     {/* {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
-                    <FiPlus id="check-icon" />
-                  )} */}
-{movieContext?.userWatchList && movieContext?.userWatchList.includes(item._id)?(<BiCheck id="plus-icon"/>):(
+                     {watchListId && watchListId.includes(item._id)?(<BiCheck id="plus-icon"/>):(
                     <FiPlus id="check-icon" />
                   )}
                   </button>
