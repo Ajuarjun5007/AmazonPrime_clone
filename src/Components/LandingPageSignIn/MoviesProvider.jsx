@@ -6,6 +6,7 @@ import CategorySelected from "../CategorySelected/CategorySelected";
 import CategoryTypePage from "../CategoryTypePage/CategoryTypePage";
 import SearchPage from "../SearchPage/SearchPage";
 import VideoInfo from "../VideoInfo/VideoInfo";
+
 function MoviesProvider(props) {
 
  

@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import "./LandingPageSignIn.css";
 
 function LandingPageSignIn() {
-  const movieContext = useContext(MovieContext);
   const typeArray = [
     "video song",
     "web series",
@@ -62,9 +61,7 @@ function LandingPageSignIn() {
         </div>
 
         {loading ? (
-          // <div style={{color:"#fff"}}>Loading...</div>
           <Loader loading={loading}/>
-            // <Demo/>
         ) : (
           <>
             <TopCarousel moviesInfo={moviesInfo} />
@@ -87,4 +84,4 @@ function LandingPageSignIn() {
     </div>
   );
 }
-export default LandingPageSignIn;
+export default React.memo(LandingPageSignIn);

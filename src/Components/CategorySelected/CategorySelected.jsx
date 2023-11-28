@@ -15,7 +15,7 @@ function CategorySelected() {
 
   const [resultdata, setResultData] = useState([]); 
   const [selectedType, setSelectedType] = useState("All");
-
+  console.log("categorySeleceted");
 
   useEffect(() => {
     getDetailsByTypeOrCategory(key, value).then((res) => {

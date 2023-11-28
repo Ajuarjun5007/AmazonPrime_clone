@@ -68,22 +68,22 @@ function CardsCarousel({ moviesInfo, type }) {
     }
   };
 
-//   useEffect(()=>{ 
-//     // if(!isLoaded){
-//     getWatchlist()
-//     .then(response=>{
-//       console.log("response",response.data.data);
-//        const watchListItems = response.data.data.shows;
-//        setWatchListId (watchListItems.map((item)=>{
-//         return item._id;
-//        }))
-//        console.log("watchId",watchListId);
+  useEffect(()=>{ 
+    // if(!isLoaded){
+    getWatchlist()
+    .then(response=>{
+      console.log("response",response.data.data);
+       const watchListItems = response.data.data.shows;
+       setWatchListId (watchListItems.map((item)=>{
+        return item._id;
+       }))
+       console.log("watchId",watchListId);
       
-//       })
+      })
 
-// // }
+// }
 
-// },[isItemAdded])
+},[isItemAdded])
 
 const filteredMovies = moviesInfo.filter((item) => item.type === type);
   return (
