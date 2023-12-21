@@ -20,6 +20,7 @@ const SignIn = () => {
   const [hasCompletedFirstStep, setHasCompletedFirstStep] = useState(false);
   const [usernameType, setUsernameType] = useState(null);
   const [errorMessage, setErrorMessage] = useState(" ");
+  
   useEffect(() => {
     if (key === null) {
       setHasCompletedFirstStep(false);
@@ -44,7 +45,7 @@ const SignIn = () => {
         : "phone number";
       setUsernameType(usernameTypeForValidation);
       const isValidUsername =
-        usernameTypeForValidation === "email"
+        usernameTypeForValidation === "email" 
           ? EMAIL_EXPRESSION.test(username)
           : PHONE_NUMBER_EXPRESSION.test(username);
       if (isValidUsername) {

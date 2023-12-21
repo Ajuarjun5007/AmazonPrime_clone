@@ -11,6 +11,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import bluetick from "../../assets/LandingPageSignInImages/TopCarousel/bluetick.png";
 import { Link, useLocation } from "react-router-dom";
 import { MovieContext } from "../LandingPageSignIn/MoviesProvider";
+
 const CarouselComponent= (props) => {
   const { moviesInfo,type } = props;
   const movieContext = useContext(MovieContext);

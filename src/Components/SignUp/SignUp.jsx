@@ -25,8 +25,8 @@ const SignUp = () => {
 
     const name = event.target[0].value;
     const email = event.target[1].value;
-    const password = event.target[2].value;
     const confirmPassword = event.target[3].value;
+    const password = event.target[2].value;
 
     const errors=[];
 
@@ -44,7 +44,7 @@ const SignUp = () => {
 
     if (password === "") {
       errors.push('password should not be empty');
-    } else if(password.length<6){
+    } else if(password.length<5){
       errors.push('password length should be atleast 6 characters');
     }
      else if(password!==confirmPassword){
@@ -80,12 +80,9 @@ const SignUp = () => {
           setErrorShow(true)
         }
       });
-      console.log('success');
    }else{
-    console.log('cominginto');
      setErrorShow(true)
    }
-    console.log("done");
 
   };
  
