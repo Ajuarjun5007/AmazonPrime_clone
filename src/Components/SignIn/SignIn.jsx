@@ -89,10 +89,12 @@ const SignIn = () => {
     <>
     <div className="SignContainer-parent">
       <div className="primevideoblackIcon">
+      <Link to='/'>
         <img
           src="https://m.media-amazon.com/images/G/01/digital/video/avod/AV_Logo_150._CB430404026_.png"
           alt="SignInimg"
         />
+      </Link>
       </div>
       {errorAlert && (
         <IdAlert
@@ -115,10 +117,10 @@ const SignIn = () => {
             {/* email input */}
             {!hasCompletedFirstStep && (
               <div className="emailinput">
-                <label>Email or mobile phone number</label>
+                <label>Email</label>
                 <input
                   type="text"
-                  placeholder="Enter your email or mobile phone"
+                  placeholder="Enter your email"
                 />
               </div>
             )}
@@ -133,7 +135,7 @@ const SignIn = () => {
                 <div className="passwordinput">
                   <div className="passwordtitle">
                     <label>Password</label>
-                    <Link className="anchor-tag" to="">
+                    <Link className="anchor-tag" to="/comingsoon">
                       Forgot your Password?
                     </Link>
                   </div>
