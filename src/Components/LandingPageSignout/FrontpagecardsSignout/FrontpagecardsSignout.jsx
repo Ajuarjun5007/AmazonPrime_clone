@@ -74,7 +74,6 @@ function FrontpagecardsSignOut() {
 
         <div className="Signoutposter-2">
           <img
-            // src="src/assets/LandingPageSignoutimages/landingpagesignoutposter-2.jpg"
             src={poster2}
             alt="image-2"
           />
@@ -83,9 +82,18 @@ function FrontpagecardsSignOut() {
               <h1>Movie rentals on Prime Video</h1>
             </div>
             <p>Early access to new movies,before digital subscription</p>
-            <Link to='SignIn'>
+            {
+                isLoggedIn?(
+                  <Link to='comingsoon'>
+                  <button className="frontpage-btn">Rent now</button>
+                  </Link>
+                ):(
+                  <Link to='SignIn'>
             <button className="frontpage-btn">Rent now</button>
             </Link>
+                )
+              }
+           
           </div>
         </div>
       </div>
@@ -102,53 +110,70 @@ function FrontpagecardsSignOut() {
           </p>
         </div>
         <div className="gridcontainer">
+            <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg1}></img>
           </div>
-
+            </Link>
+            <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg2}></img>
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg3} alt="" />
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg4} alt="image-3" />
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg5}></img>
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg6}></img>
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg7} alt="" />
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg8}></img>
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg9}></img>
           </div>
-
+          </Link>
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg10}></img>
           </div>
+          </Link>
+
+          <Link to='comingsoon'>
 
           <div className="grid-item">
             <img src={gridImg11}></img>
           </div>
+          </Link>
 
+          <Link to='comingsoon'>
           <div className="grid-item">
             <img src={gridImg12}></img>
           </div>
+          </Link>
+
         </div>
       </div>
       {/* bottom two cards */}
@@ -166,7 +191,7 @@ function FrontpagecardsSignOut() {
             The biggest movies and TV shows are always better on a big screen. Simply plug in your Amazon Fire TV Stick and stream on any HDTV. Press the voice button on the remote 
             and say the name of the title you want to watch to find it in seconds.
             </p>
-            <Link to='SignIn'>
+            <Link to='comingsoon'>
             <button className="getStarted">Get Started</button>
             </Link>
           </div>
@@ -183,7 +208,7 @@ function FrontpagecardsSignOut() {
             </div>
             <p>With easy to use Parental Controls and a dedicated kids page, enjoy secure, ad-free kids entertainment. Kids can enjoy popular TV shows like Peppa Pig, Powerpuff Girls, and Chhota Bheem.
               </p>
-            <Link to='SignIn'>
+            <Link to='comingsoon'>
             <button className="getStarted">Get started</button>
             </Link>
           </div>
